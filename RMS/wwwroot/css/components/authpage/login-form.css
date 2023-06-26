@@ -1,0 +1,17 @@
+﻿.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    padding-top: 65px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-bottom: 50px;
+    max-width: 100vw;
+    border-radius: 12px;
+    box-shadow: 0 3px 20px 0 rgba(0,0,0,.1);
+}
+
+.login-form .login-form-title {
+    padding-bottom: 33px;
+}

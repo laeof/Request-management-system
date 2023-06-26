@@ -1,1 +1,34 @@
-﻿<div>login</div>
+﻿@model LoginViewModel
+<div class="wrap-login">
+	<form asp-area=""
+		  asp-controller="Account"
+		  asp-action="Login"
+		  method="post"
+		  class="login-form"
+		  asp-route-returnUrl="@ViewBag.ReturnUrl">
+		<span class="title">
+			@ViewBag.Title
+		</span>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="UserName">
+			<span asp-validation-for="UserName" class="validate"></span>
+		</div>
+		<div class="wrap-input">
+			<input class="input password" type="password" placeholder="@ViewBag.PasswordPlaceholder" asp-for="Password">
+			<span asp-validation-for="Password" class="validate"></span>
+		</div>
+		@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+		{
+			<span class="validate">@Model.ErrorMessage</span>
+		}
+		<div class="wrap-check">
+			<input asp-for="RememberMe" type="checkbox" id="checkbox" class="custom-checkbox" />
+			<label class="checklbl" asp-for="RememberMe" for="checkbox"></label>
+		</div>
+		<div class="container-login-form-btn">
+			<button class="login-form-btn" type="submit">
+				Увійти
+			</button>
+		</div>
+	</form>
+</div>

@@ -2,4 +2,6 @@
 @import "fonts.css";
 @import "common.css";
 
-@import "components/title.css";
+@import "components/main.css";
+
+@import "components/authpage/main.css";

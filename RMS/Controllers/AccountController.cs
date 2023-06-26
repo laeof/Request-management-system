@@ -19,6 +19,9 @@ namespace RMS.Controllers
 		[AllowAnonymous]
 		public IActionResult Login(string returnUrl)
 		{
+			ViewBag.Title = "Вхід";
+			ViewBag.UserNamePlaceholder = "Логін";
+			ViewBag.PasswordPlaceholder = "Пароль";
 			if (returnUrl == null)
 			{
 				returnUrl = "/";
@@ -50,6 +53,9 @@ namespace RMS.Controllers
 				model.ErrorMessage = "Невірний логін або пароль";
 				ViewBag.ReturnUrl = returnUrl;
 			}
+			ViewBag.Title = "Вхід";
+			ViewBag.UserNamePlaceholder = "Логін";
+			ViewBag.PasswordPlaceholder = "Пароль";
 			ViewBag.ReturnUrl = returnUrl;
 			return View(model);
 		}

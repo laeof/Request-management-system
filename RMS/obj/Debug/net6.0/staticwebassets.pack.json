@@ -5,6 +5,66 @@
       "PackagePath": "staticwebassets\\css\\common.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\Input.css",
+      "PackagePath": "staticwebassets\\css\\components\\Input.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\container-login-form-btn.css",
+      "PackagePath": "staticwebassets\\css\\components\\authpage\\container-login-form-btn.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\login-form.css",
+      "PackagePath": "staticwebassets\\css\\components\\authpage\\login-form.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\main.css",
+      "PackagePath": "staticwebassets\\css\\components\\authpage\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\validate.css",
+      "PackagePath": "staticwebassets\\css\\components\\authpage\\validate.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-check.css",
+      "PackagePath": "staticwebassets\\css\\components\\authpage\\wrap-check.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-input.css",
+      "PackagePath": "staticwebassets\\css\\components\\authpage\\wrap-input.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-login.css",
+      "PackagePath": "staticwebassets\\css\\components\\authpage\\wrap-login.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\button.css",
+      "PackagePath": "staticwebassets\\css\\components\\button.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\container.css",
+      "PackagePath": "staticwebassets\\css\\components\\container.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\content.css",
+      "PackagePath": "staticwebassets\\css\\components\\content.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\footer.css",
+      "PackagePath": "staticwebassets\\css\\components\\footer.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header.css",
+      "PackagePath": "staticwebassets\\css\\components\\header.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\logo.css",
+      "PackagePath": "staticwebassets\\css\\components\\logo.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\main.css",
+      "PackagePath": "staticwebassets\\css\\components\\main.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\title.css",
       "PackagePath": "staticwebassets\\css\\components\\title.css"
     },
@@ -115,6 +175,18 @@
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-ThinItalic.woff2"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\google.png",
+      "PackagePath": "staticwebassets\\img\\png\\google.png"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\key.png",
+      "PackagePath": "staticwebassets\\img\\png\\key.png"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\user.png",
+      "PackagePath": "staticwebassets\\img\\png\\user.png"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.RMS.Microsoft.AspNetCore.StaticWebAssets.props",
