@@ -1,0 +1,16 @@
+﻿body {
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 22px;
+    font-style: normal;
+    color: #000000;
+}
+
+body.disable-scroll {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
