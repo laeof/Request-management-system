@@ -3,7 +3,7 @@
 namespace RMS.Domain
 {
 	public class DataManager
-	{
+	{/*
 		public ITextFieldsRepository? TextFields { get; set; }
 		public IServiceItemsRepository? ServiceItems { get; set; }
 
@@ -11,7 +11,7 @@ namespace RMS.Domain
 		{
 			TextFields = textFieldsRepository;
 			ServiceItems = serviceItemsRepository;
-		}
+		}*/
 
 	}
 }

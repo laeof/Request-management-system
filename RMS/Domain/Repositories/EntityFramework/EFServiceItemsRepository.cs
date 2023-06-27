@@ -5,7 +5,7 @@ using RMS.Domain.Repositories.Abstract;
 namespace RMS.Domain.Repositories.EntityFramework
 {
     public class EFServiceItemsRepository : IServiceItemsRepository
-    {
+    {/*
         private readonly AppDbContext context;
         public EFServiceItemsRepository(AppDbContext context)
         {
@@ -33,6 +33,6 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             context.ServiceItems.Remove(new ServiceItem { Id = id });
             context.SaveChanges();
-        }
+        }*/
     }
 }

@@ -7,6 +7,9 @@
 	using RMS.Domain.Repositories.Abstract;
 	using RMS.Domain.Repositories.EntityFramework;
 	using RMS.Service;
+	using RMS.Models;
+	using Microsoft.AspNetCore.Authentication.Cookies;
+
 	public class Startup
 	{
 		public IConfiguration Configuration { get; }
@@ -24,8 +27,8 @@
 			//db context
 			services.AddDbContext<AppDbContext>(x => x.UseNpgsql(Config.ConnectionString));
 
-			//identity
-			services.AddIdentity<IdentityUser, IdentityRole>(opts =>
+			/*//identity
+			services.AddIdentity<UserModel, RoleModel>(opts =>
 			{
 				opts.User.RequireUniqueEmail = true;
 				opts.Password.RequiredLength = 6;
@@ -33,7 +36,7 @@
 				opts.Password.RequireUppercase = false;
 				opts.Password.RequireLowercase = false;
 				opts.Password.RequireDigit = false;
-			}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+			}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();*/
 
 			//cookie
 			services.ConfigureApplicationCookie(options =>
@@ -41,7 +44,7 @@
 				options.Cookie.Name = "default";
 				options.Cookie.HttpOnly = true;
 				options.LoginPath = "/Account/Login";
-				options.AccessDeniedPath = "/Account/Accessdenied";
+				options.AccessDeniedPath = "/Home";
 				options.SlidingExpiration = true;
 			});
 
@@ -50,6 +53,15 @@
 			{
 				x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
 			});
+
+			services.AddAuthentication(options =>
+			{
+				options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+				options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+			}).AddCookie();
+
+			services.AddHttpContextAccessor();
 
 			//add mvc
 			services.AddControllersWithViews(x =>

@@ -1,21 +1,26 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RMS.Domain;
 using RMS.Models;
+using RMS.Service;
+using System.Security.Claims;
 
 namespace RMS.Controllers
 {
 	[Authorize]
 	public class AccountController : Controller
 	{
-		private readonly UserManager<IdentityUser> userManager;
-		private readonly SignInManager<IdentityUser> signInManager;
-		public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+		private readonly AppDbContext _db;
+		private readonly IHttpContextAccessor _httpContextAccessor;
+		public AccountController(AppDbContext db, IHttpContextAccessor httpContextAccessor)
 		{
-			this.userManager = userManager;
-			this.signInManager = signInManager;
+			_db = db;
+			_httpContextAccessor = httpContextAccessor;
 		}
-
+		
 		[AllowAnonymous]
 		public IActionResult Login(string returnUrl)
 		{
@@ -40,15 +45,48 @@ namespace RMS.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				IdentityUser user = await userManager.FindByNameAsync(model.UserName);
-				if (user != null)
+				if (Extensions.ValidateUser(model.Login, model.Password, _db))
 				{
-					await signInManager.SignOutAsync();
-					Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
-					if (result.Succeeded)
+
+					//користувач
+
+                    var user = await _db.Users
+						.FirstOrDefaultAsync(u => u.Login == model.Login);
+
+					//роль користувача
+
+                    var userRole = await _db.UserRole
+						.Include(ur => ur.Role)
+						.FirstOrDefaultAsync(ur => ur.UserId == user.Id);
+
+					//користувач + роль
+
+                    var claims = new List<Claim>
 					{
-						return Redirect(returnUrl ?? "/");
+						new Claim(ClaimTypes.Name, user.FirstName),
+						new Claim(ClaimTypes.Role, userRole.Role.Name)
+					};
+
+                    var identity = new ClaimsIdentity(claims, "Auth");
+                    var principal = new ClaimsPrincipal(identity);
+
+					//авторизація
+
+                    await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                    //редіректи
+
+                    return Redirect(returnUrl);
+
+					/*
+                    if (Url.IsLocalUrl(returnUrl))
+					{
+						return Redirect(returnUrl);
 					}
+					else
+					{
+						return RedirectToAction("Index");
+					}*/
 				}
 				model.ErrorMessage = "Невірний логін або пароль";
 				ViewBag.ReturnUrl = returnUrl;
@@ -67,8 +105,8 @@ namespace RMS.Controllers
 		[Authorize]
 		public async Task<IActionResult> Logout()
 		{
-			await signInManager.SignOutAsync();
-			return RedirectToAction("Index", "Home");
+			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+			return RedirectToAction("Login");
 		}
 	}
 }

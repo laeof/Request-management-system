@@ -6,6 +6,7 @@ namespace RMS.Domain.Repositories.EntityFramework
 {
     public class EFTextFieldsRepository : ITextFieldsRepository
     {
+        /*
         private readonly AppDbContext context;
         public EFTextFieldsRepository(AppDbContext context)
         {
@@ -37,6 +38,6 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             context.TextFields.Remove(new TextField { Id = id });
             context.SaveChanges();
-        }
+        }*/
     }
 }
