@@ -50,13 +50,26 @@ namespace RMS.Models
         public uint LifecycleId { get; set; }
 		// Силка на життєвий цикл заявки - навігаційне
 		public LifecycleModel Lifecycle { get; set; }
-
         // Зовнішній ключ
         // ID користувача - звичайне
-        [ForeignKey("User")]
-        public uint? UserId { get; set; }
+        [ForeignKey("Closed")]
+        public uint? CloseId { get; set; }
         // користувач - навігаційне
-        [Display(Name = "Ким відмінено/закрито")]
-        public UserModel? User { get; set; }
+        [Display(Name = "Ким закрито")]
+        public UserModel? Closed { get; set; }
+        // Зовнішній ключ
+        // ID користувача - звичайне
+        [ForeignKey("Cancelled")]
+        public uint? CancelId { get; set; }
+        // користувач - навігаційне
+        [Display(Name = "Ким відмінено")]
+        public UserModel? Cancelled { get; set; }
+        // Зовнішній ключ
+        // ID користувача - звичайне
+        [ForeignKey("Opened")]
+        public uint? OpenId { get; set; }
+        // користувач - навігаційне
+        [Display(Name = "Ким відкрито")]
+        public UserModel? Opened { get; set; }
     }
 }

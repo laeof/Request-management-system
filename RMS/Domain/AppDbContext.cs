@@ -99,7 +99,20 @@ namespace RMS.Domain
 				Priority = 1,
 				Status = 1
             });
-			modelBuilder.Entity<CategoryModel>().HasData(new CategoryModel
+            modelBuilder.Entity<RequestModel>().HasData(new RequestModel
+            {
+                Id = 2,
+                Address = "some address",
+                CategoryId = 1,
+                Comment = "comment",
+                Description = "description",
+                ExecutorId = 1,
+                LifecycleId = 2,
+                Name = "request 2",
+                Priority = 2,
+                Status = 1
+            });
+            modelBuilder.Entity<CategoryModel>().HasData(new CategoryModel
             {
 				Id = 1,
 				Name = "No internet",
@@ -107,7 +120,12 @@ namespace RMS.Domain
             modelBuilder.Entity<LifecycleModel>().HasData(new LifecycleModel
             {
 				Id = 1,
-				Opened = DateTime.UtcNow
+				Planning = DateTime.UtcNow
+            });
+            modelBuilder.Entity<LifecycleModel>().HasData(new LifecycleModel
+            {
+                Id = 2,
+                Planning = DateTime.UtcNow
             });
         }
 

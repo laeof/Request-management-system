@@ -60,10 +60,10 @@ namespace RMS.Migrations
                     b.Property<DateTime?>("Closed")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("Opened")
+                    b.Property<DateTime?>("Current")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("Proccesing")
+                    b.Property<DateTime>("Planning")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
@@ -74,7 +74,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Opened = new DateTime(2023, 6, 28, 9, 20, 36, 794, DateTimeKind.Utc).AddTicks(200)
+                            Planning = new DateTime(2023, 6, 28, 18, 15, 27, 527, DateTimeKind.Utc).AddTicks(8788)
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Planning = new DateTime(2023, 6, 28, 18, 15, 27, 527, DateTimeKind.Utc).AddTicks(8796)
                         });
                 });
 
@@ -90,7 +95,13 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<long?>("CancelId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("CloseId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Comment")
@@ -111,24 +122,28 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<long?>("OpenId")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("Priority")
                         .HasColumnType("integer");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
 
+                    b.HasIndex("CancelId");
+
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("CloseId");
 
                     b.HasIndex("ExecutorId");
 
                     b.HasIndex("LifecycleId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("OpenId");
 
                     b.ToTable("Requests");
 
@@ -144,6 +159,19 @@ namespace RMS.Migrations
                             LifecycleId = 1L,
                             Name = "request 1",
                             Priority = 1,
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Address = "some address",
+                            CategoryId = 1L,
+                            Comment = "comment",
+                            Description = "description",
+                            ExecutorId = 1L,
+                            LifecycleId = 2L,
+                            Name = "request 2",
+                            Priority = 2,
                             Status = 1
                         });
                 });
@@ -289,11 +317,19 @@ namespace RMS.Migrations
 
             modelBuilder.Entity("RMS.Models.RequestModel", b =>
                 {
+                    b.HasOne("RMS.Models.UserModel", "Cancelled")
+                        .WithMany()
+                        .HasForeignKey("CancelId");
+
                     b.HasOne("RMS.Models.CategoryModel", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("RMS.Models.UserModel", "Closed")
+                        .WithMany()
+                        .HasForeignKey("CloseId");
 
                     b.HasOne("RMS.Models.UserModel", "Executor")
                         .WithMany()
@@ -307,17 +343,21 @@ namespace RMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RMS.Models.UserModel", "User")
+                    b.HasOne("RMS.Models.UserModel", "Opened")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("OpenId");
+
+                    b.Navigation("Cancelled");
 
                     b.Navigation("Category");
+
+                    b.Navigation("Closed");
 
                     b.Navigation("Executor");
 
                     b.Navigation("Lifecycle");
 
-                    b.Navigation("User");
+                    b.Navigation("Opened");
                 });
 
             modelBuilder.Entity("RMS.Models.UserRoleModel", b =>

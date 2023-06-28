@@ -9,16 +9,16 @@ namespace RMS.Models
 		[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint Id { get; set; }
-		// Дата відкриття
-		[Display(Name = "Дата відкриття")]
+        // Дата планування
+        [Display(Name = "Дата планування")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy H:mm:ss}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime Planning { get; set; }
+        // Дата відкриття
+        [Display(Name = "Дата відкриття")]
 		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy H:mm:ss}", ApplyFormatInEditMode = true)]
 		[DataType(DataType.Date)]
-		public DateTime Opened { get; set; }
-        // Дата обробки
-        [Display(Name = "Дата обробки")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy H:mm:ss}", ApplyFormatInEditMode = true)]
-		[DataType(DataType.Date)]
-		public DateTime? Proccesing { get; set; }
+		public DateTime? Current { get; set; }
         // Дата закриття
         [Display(Name = "Дата закриття")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy H:mm:ss}", ApplyFormatInEditMode = true)]

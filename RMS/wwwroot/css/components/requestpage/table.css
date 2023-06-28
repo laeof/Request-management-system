@@ -1,8 +1,44 @@
 ﻿tr {
     border: 1px solid #000000;
-    
+    color: white;
+    font-size: 18px;
 }
 
 th {
-    padding: 5px;
+    padding: 10px;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+td a {
+    padding: 10px;
+    border: 1px solid #000000;
+    border-right: 0;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+.row.default {
+    background: #81A5CA;
+}
+
+.row.critical {
+    background: #DE88DB;
+}
+
+.openlink {
+    background: #64CA7F;
+}
+
+.closelink {
+    background: #DC8D79;
+}
+
+.cancellink {
+    background: #D4C66D;
+}
+
+.first-row {
+    color: black;
+    font-size: 22px;
 }
