@@ -4,6 +4,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace RMS.Migrations
 {
     /// <inheritdoc />
@@ -82,43 +84,38 @@ namespace RMS.Migrations
                     Comment = table.Column<string>(type: "text", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     Priority = table.Column<int>(type: "integer", nullable: false),
-                    File = table.Column<string>(type: "text", nullable: false),
-                    CategoryId = table.Column<int>(type: "integer", nullable: true),
-                    CategoryId1 = table.Column<long>(type: "bigint", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: true),
-                    UserId1 = table.Column<long>(type: "bigint", nullable: false),
-                    ExecutorId = table.Column<int>(type: "integer", nullable: true),
-                    ExecutorId1 = table.Column<long>(type: "bigint", nullable: false),
-                    LifecycleId = table.Column<int>(type: "integer", nullable: false),
-                    LifecycleId1 = table.Column<long>(type: "bigint", nullable: false)
+                    Address = table.Column<string>(type: "text", nullable: false),
+                    CategoryId = table.Column<long>(type: "bigint", nullable: false),
+                    ExecutorId = table.Column<long>(type: "bigint", nullable: false),
+                    LifecycleId = table.Column<long>(type: "bigint", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Requests", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Requests_Categories_CategoryId1",
-                        column: x => x.CategoryId1,
+                        name: "FK_Requests_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Requests_Lifecycles_LifecycleId1",
-                        column: x => x.LifecycleId1,
+                        name: "FK_Requests_Lifecycles_LifecycleId",
+                        column: x => x.LifecycleId,
                         principalTable: "Lifecycles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Requests_Users_ExecutorId1",
-                        column: x => x.ExecutorId1,
+                        name: "FK_Requests_Users_ExecutorId",
+                        column: x => x.ExecutorId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Requests_Users_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Requests_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -148,39 +145,69 @@ namespace RMS.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 1L, "No internet" });
+
+            migrationBuilder.InsertData(
+                table: "Lifecycles",
+                columns: new[] { "Id", "Cancelled", "Closed", "Opened", "Proccesing" },
+                values: new object[] { 1L, null, null, new DateTime(2023, 6, 28, 9, 20, 36, 794, DateTimeKind.Utc).AddTicks(200), null });
+
+            migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { 1L, "admin" });
+                values: new object[,]
+                {
+                    { 1L, "admin" },
+                    { 2L, "manager" },
+                    { 3L, "mounter" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Comment", "FirstName", "Login", "Password", "Surname" },
-                values: new object[] { 1L, "Comment", "Max", "ADMIN", "password", "Akchurin" });
+                values: new object[,]
+                {
+                    { 1L, "Comment", "Max", "ADMIN", "password", "Akchurin" },
+                    { 2L, "Comment", "Anton", "MANAGER", "password", "Guryshkin" },
+                    { 3L, "Comment", "Georgii", "mounter", "password", "Perepelitsa" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Requests",
+                columns: new[] { "Id", "Address", "CategoryId", "Comment", "Description", "ExecutorId", "LifecycleId", "Name", "Priority", "Status", "UserId" },
+                values: new object[] { 1L, "some address", 1L, "comment", "description", 1L, 1L, "request 1", 1, 1, null });
 
             migrationBuilder.InsertData(
                 table: "UserRole",
                 columns: new[] { "UserRoleId", "RoleId", "UserId" },
-                values: new object[] { 1L, 1L, 1L });
+                values: new object[,]
+                {
+                    { 1L, 1L, 1L },
+                    { 2L, 2L, 2L },
+                    { 3L, 3L, 3L }
+                });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_CategoryId1",
+                name: "IX_Requests_CategoryId",
                 table: "Requests",
-                column: "CategoryId1");
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_ExecutorId1",
+                name: "IX_Requests_ExecutorId",
                 table: "Requests",
-                column: "ExecutorId1");
+                column: "ExecutorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_LifecycleId1",
+                name: "IX_Requests_LifecycleId",
                 table: "Requests",
-                column: "LifecycleId1");
+                column: "LifecycleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_UserId1",
+                name: "IX_Requests_UserId",
                 table: "Requests",
-                column: "UserId1");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserRole_RoleId",

@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace RMS.Models
 {
 	public class RequestModel
 	{
+		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public uint Id { get; set; }
 		//Назва
@@ -26,47 +26,37 @@ namespace RMS.Models
 		// Пріорітет заявки
 		[Display(Name = "Пріорітет")]
 		public int Priority { get; set; }
-
-		// Файл ошибки
-		[Display(Name = "Файл с ошибкой")]
-		public string File { get; set; }
-
-		// Внешний ключ Категорія
-		[Display(Name = "Категорія")]
-		public int? CategoryId { get; set; }
+        // Адреса
+        [Display(Name = "Адреса")]
+        public string Address { get; set; }
+        // Зовнішній ключ Категорія
+        [Display(Name = "Категорія")]
+        [ForeignKey("Category")]
+        public uint? CategoryId { get; set; }
 		public CategoryModel Category { get; set; }
 
-		// Зовнішній ключ
-		// ID Користувача - звичайне
-		public int? UserId { get; set; }
-		// Користувач - навігаційне
-		public UserModel User { get; set; }
-
-		// Зовнішній ключ
-		// ID виконувача - звичайне
-		public int? ExecutorId { get; set; }
+        // Зовнішній ключ
+        // ID виконувача - звичайне
+        [Display(Name = "Виконувач")]
+        [ForeignKey("Executor")]
+        public uint? ExecutorId { get; set; }
 		// Виконувач - навігаційне
 		public UserModel Executor { get; set; }
 
-		// Зовнішній ключ
-		// ID життєвого циклу заявки - звичайне
-		public int LifecycleId { get; set; }
+        // Зовнішній ключ
+        // ID життєвого циклу заявки - звичайне
+        [Display(Name = "Життєвий цикл")]
+        [ForeignKey("Lifecycle")]
+        public uint LifecycleId { get; set; }
 		// Силка на життєвий цикл заявки - навігаційне
 		public LifecycleModel Lifecycle { get; set; }
 
-		// Статус заявки
-		public enum RequestStatus
-		{
-			Open = 1,
-			Proccesing = 2,
-			Closed = 3,
-			Cancelled = 4
-		}
-		// Пріорітет заявки
-		public enum RequestPriority
-		{
-			Default = 1,
-			Critical = 2
-		}
-	}
+        // Зовнішній ключ
+        // ID користувача - звичайне
+        [ForeignKey("User")]
+        public uint? UserId { get; set; }
+        // користувач - навігаційне
+        [Display(Name = "Ким відмінено/закрито")]
+        public UserModel? User { get; set; }
+    }
 }

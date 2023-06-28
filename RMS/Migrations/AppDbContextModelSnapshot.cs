@@ -37,6 +37,13 @@ namespace RMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "No internet"
+                        });
                 });
 
             modelBuilder.Entity("RMS.Models.LifecycleModel", b =>
@@ -62,6 +69,13 @@ namespace RMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Lifecycles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Opened = new DateTime(2023, 6, 28, 9, 20, 36, 794, DateTimeKind.Utc).AddTicks(200)
+                        });
                 });
 
             modelBuilder.Entity("RMS.Models.RequestModel", b =>
@@ -72,10 +86,11 @@ namespace RMS.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("integer");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<long>("CategoryId1")
+                    b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Comment")
@@ -86,20 +101,10 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("ExecutorId")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("ExecutorId1")
+                    b.Property<long>("ExecutorId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("File")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("LifecycleId")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("LifecycleId1")
+                    b.Property<long>("LifecycleId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Name")
@@ -112,23 +117,35 @@ namespace RMS.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("UserId1")
+                    b.Property<long?>("UserId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId1");
+                    b.HasIndex("CategoryId");
 
-                    b.HasIndex("ExecutorId1");
+                    b.HasIndex("ExecutorId");
 
-                    b.HasIndex("LifecycleId1");
+                    b.HasIndex("LifecycleId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Requests");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Address = "some address",
+                            CategoryId = 1L,
+                            Comment = "comment",
+                            Description = "description",
+                            ExecutorId = 1L,
+                            LifecycleId = 1L,
+                            Name = "request 1",
+                            Priority = 1,
+                            Status = 1
+                        });
                 });
 
             modelBuilder.Entity("RMS.Models.RoleModel", b =>
@@ -152,6 +169,16 @@ namespace RMS.Migrations
                         {
                             Id = 1L,
                             Name = "admin"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "manager"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "mounter"
                         });
                 });
 
@@ -196,6 +223,24 @@ namespace RMS.Migrations
                             Login = "ADMIN",
                             Password = "password",
                             Surname = "Akchurin"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Comment = "Comment",
+                            FirstName = "Anton",
+                            Login = "MANAGER",
+                            Password = "password",
+                            Surname = "Guryshkin"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Comment = "Comment",
+                            FirstName = "Georgii",
+                            Login = "mounter",
+                            Password = "password",
+                            Surname = "Perepelitsa"
                         });
                 });
 
@@ -227,6 +272,18 @@ namespace RMS.Migrations
                             UserRoleId = 1L,
                             RoleId = 1L,
                             UserId = 1L
+                        },
+                        new
+                        {
+                            UserRoleId = 2L,
+                            RoleId = 2L,
+                            UserId = 2L
+                        },
+                        new
+                        {
+                            UserRoleId = 3L,
+                            RoleId = 3L,
+                            UserId = 3L
                         });
                 });
 
@@ -234,27 +291,25 @@ namespace RMS.Migrations
                 {
                     b.HasOne("RMS.Models.CategoryModel", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId1")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("RMS.Models.UserModel", "Executor")
                         .WithMany()
-                        .HasForeignKey("ExecutorId1")
+                        .HasForeignKey("ExecutorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("RMS.Models.LifecycleModel", "Lifecycle")
                         .WithMany()
-                        .HasForeignKey("LifecycleId1")
+                        .HasForeignKey("LifecycleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("RMS.Models.UserModel", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Category");
 

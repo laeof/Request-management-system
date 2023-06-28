@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DOg4n7ZQMED6JnAaoGrxgtDyoKROP4p1M9UCy9rofP8=",
+  "Hash": "drWXycxm+wu1bNTlmml4osdJoaAgYr83Fl0LjVWqOvk=",
   "Source": "RMS",
   "BasePath": "_content/RMS",
   "Mode": "Default",
@@ -287,6 +287,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\components\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "css/components/requestpage/main.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\table.css",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "css/components/requestpage/table.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\table.css"
     },
     {
       "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\title.css",

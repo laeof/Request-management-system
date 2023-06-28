@@ -6,6 +6,7 @@ namespace RMS.Models
 {
 	public class CategoryModel
 	{
+		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public uint Id { get; set; }
 		[Required]

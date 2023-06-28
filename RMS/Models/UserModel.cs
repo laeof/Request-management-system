@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 
 namespace RMS.Models
 {
 	public class UserModel
 	{
+		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public uint Id { get; set; }
 		[Required]

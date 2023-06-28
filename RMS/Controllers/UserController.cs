@@ -16,7 +16,7 @@ namespace RMS.Controllers
 			_db = db;
 		}
         [HttpGet]
-        public ActionResult Users()
+        public IActionResult Users()
         {
             var userRoles = _db.UserRole
                 .Include(ur => ur.User)

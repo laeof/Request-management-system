@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
@@ -45,13 +46,15 @@ namespace RMS.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				if (Extensions.ValidateUser(model.Login, model.Password, _db))
+				uint userID = 0;
+
+				if (Extensions.ValidateUser(model.Login, model.Password, _db, ref userID))
 				{
 
 					//користувач
 
                     var user = await _db.Users
-						.FirstOrDefaultAsync(u => u.Login == model.Login);
+						.FirstOrDefaultAsync(u => u.Login.ToLower() == model.Login.ToLower());
 
 					//роль користувача
 
@@ -59,7 +62,7 @@ namespace RMS.Controllers
 						.Include(ur => ur.Role)
 						.FirstOrDefaultAsync(ur => ur.UserId == user.Id);
 
-					//користувач + роль
+                    //користувач + роль
 
                     var claims = new List<Claim>
 					{
@@ -70,7 +73,9 @@ namespace RMS.Controllers
                     var identity = new ClaimsIdentity(claims, "Auth");
                     var principal = new ClaimsPrincipal(identity);
 
-					//авторизація
+                    //авторизація
+
+                    Response.Cookies.Append("Id", userID.ToString());
 
                     await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
@@ -78,15 +83,6 @@ namespace RMS.Controllers
 
                     return Redirect(returnUrl);
 
-					/*
-                    if (Url.IsLocalUrl(returnUrl))
-					{
-						return Redirect(returnUrl);
-					}
-					else
-					{
-						return RedirectToAction("Index");
-					}*/
 				}
 				model.ErrorMessage = "Невірний логін або пароль";
 				ViewBag.ReturnUrl = returnUrl;
