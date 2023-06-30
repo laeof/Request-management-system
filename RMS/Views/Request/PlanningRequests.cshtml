@@ -1,5 +1,6 @@
-﻿@model IEnumerable<RequestModel>
+﻿@model IEnumerable<Request>
 @using RMS.Models
+@using RMS.Domain.Entities
 
 @{
     ViewBag.Title = "Список заявок";
@@ -10,71 +11,72 @@
 <a href="/Request/CurrentRequests">Поточних заявок: @ViewBag.CurrentRequestsCount</a>
 <a href="/Request/ClosedRequests">Закритих заявок: @ViewBag.ClosedRequestsCount</a>
 <a href="/Request/CancelledRequests">Відмінених заявок: @ViewBag.CancelledRequestsCount</a>
-<table class="table">
-
-    <tr class="first-row">
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Priority)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lifecycle.Planning)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        string rowClass = "row";
-        if (item.Priority == 1)
-        {
-            rowClass += " default";
-        }
-        else if (item.Priority == 2)
-        {
-            rowClass += " critical";
-        }
-        <tr>
-            <th class="@rowClass">
-                @Html.DisplayFor(modelItem => item.Id)
+<div class="requests">
+    <table class="table">
+        <tr class="first-row">
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
             </th>
-            <th class="@rowClass">
-                @Html.DisplayFor(modelItem => item.Category.Name)
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
             </th>
-            <th class="@rowClass">
-                @Html.Raw(PriorityModel.GetPriority(item.Priority))
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
             </th>
-            <th class="@rowClass">
-                @Html.DisplayFor(modelItem => item.Comment)
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
             </th>
-            <th class="@rowClass">
-                @Html.DisplayFor(modelItem => item.Address)
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
             </th>
-            <th class="@rowClass">
-                @Html.DisplayFor(modelItem => item.Lifecycle.Planning)
+            <th>
+                @Html.DisplayNameFor(model => model.Lifecycle.Planning)
             </th>
-                @if (item.Lifecycle.Current == null)
-                {
-                    if (User.IsInRole("admin") || User.IsInRole("manager"))
-                    {
-                        <td>
-                            <a class="openlink" href="@Url.Action("Open", new { id = item.Id })">Відкрити</a>
-                        </td>
-                        <td>
-                            <a class="closelink" href="@Url.Action("Cancel", new { id = item.Id })">Відмінити</a>
-                        </td>
-                    }
-                }
         </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            string rowClass = "row";
+            if (item.Priority == 1)
+            {
+                rowClass += " default";
+            }
+            else if (item.Priority == 2)
+            {
+                rowClass += " critical";
+            }
+            <tr>
+                <th class="@rowClass">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </th>
+                <th class="@rowClass">
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </th>
+                <th class="@rowClass">
+                    @Html.Raw(PriorityModel.GetPriority(item.Priority))
+                </th>
+                <th class="@rowClass">
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </th>
+                <th class="@rowClass">
+                    @Html.DisplayFor(modelItem => item.Address)
+                </th>
+                <th class="@rowClass">
+                    @Html.DisplayFor(modelItem => item.Lifecycle.Planning)
+                </th>
+                    @if (item.Lifecycle.Current == null)
+                    {
+                        if (User.IsInRole("admin") || User.IsInRole("manager"))
+                        {
+                            <td>
+                                <a class="openlink" href="@Url.Action("Open", new { id = item.Id })">Відкрити</a>
+                            </td>
+                            <td>
+                                <a class="closelink" href="@Url.Action("Cancel", new { id = item.Id })">Відмінити</a>
+                            </td>
+                        }
+                    }
+            </tr>
+        }
 </table>
+</div>

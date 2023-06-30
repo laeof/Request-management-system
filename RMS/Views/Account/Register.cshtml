@@ -1,0 +1,44 @@
+﻿@model RegisterViewModel
+<div class="wrap-login">
+	<form asp-area=""
+		  asp-controller="Account"
+		  asp-action="Register"
+		  method="post"
+		  class="login-form"
+		  asp-route-returnUrl="@ViewBag.ReturnUrl">
+		<span class="title">
+			@ViewBag.Title
+		</span>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="Login">
+			<span asp-validation-for="Login" class="validate"></span>
+		</div>
+		<div class="wrap-input">
+			<input class="input password" type="text" placeholder="@ViewBag.PasswordPlaceholder" asp-for="Password">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="FirstName">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.SurnamePlaceholder" asp-for="Surname">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="Comment">
+		</div>
+		<div class="wrap-input">
+			<select class="input login" asp-for="RoleId">
+				@if (User.IsInRole("admin"))
+				{
+					<option value="1">Admin</option>
+					<option value="2">Manager</option>
+				}
+				<option value="3">Mounter</option>
+			</select>
+		</div>
+		<div class="container-login-form-btn">
+			<button class="login-form-btn" type="submit">
+				Зареєструвати
+			</button>
+		</div>
+	</form>
+</div>

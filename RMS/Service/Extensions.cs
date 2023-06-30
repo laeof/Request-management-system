@@ -1,10 +1,10 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using RMS.Domain;
-using RMS.Models;
+using RMS.Domain.Entities;
 
 namespace RMS.Service
 {
-	public static class Extensions
+    public static class Extensions
 	{
 		public static string CutController(this string str) 
 		{
@@ -16,7 +16,7 @@ namespace RMS.Service
 
 			try
 			{
-				UserModel user = _db.Users.FirstOrDefault(u => u.Login.ToLower() == login.ToLower() && u.Password == password);
+				User user = _db.Users.FirstOrDefault(u => u.Login.ToLower() == login.ToLower() && u.Password == password);
 
 				if (user != null)
 				{

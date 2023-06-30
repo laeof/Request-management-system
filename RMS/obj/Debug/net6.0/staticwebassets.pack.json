@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\css\\components\\header.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu.css",
+      "PackagePath": "staticwebassets\\css\\components\\leftmenu.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\logo.css",
       "PackagePath": "staticwebassets\\css\\components\\logo.css"
     },
@@ -195,6 +199,10 @@
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\user.png",
       "PackagePath": "staticwebassets\\img\\png\\user.png"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.RMS.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -6,3 +6,13 @@
 @import "footer.css";
 @import "content.css";
 @import "logo.css";
+@import "leftmenu.css";
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: #e9faff;
+    min-height: 100vh;
+    width: 100%;
+}

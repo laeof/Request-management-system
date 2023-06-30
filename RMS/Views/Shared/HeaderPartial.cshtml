@@ -1,3 +1,10 @@
 ﻿<div class="wrap-logo">
-	<img class="logo" src="~/img/png/google.png"/>
+	@if (!User.Identity.IsAuthenticated)
+	{
+		<img class="logo" src="~/img/png/google.png"/>
+	}
+	else
+	{
+			
+	}
 </div>

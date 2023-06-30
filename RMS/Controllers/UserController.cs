@@ -7,7 +7,7 @@ using System.Data;
 namespace RMS.Controllers
 {
 
-	[Authorize(Roles = "admin")]
+	[Authorize]
 	public class UserController : Controller
 	{
 		private readonly AppDbContext _db;

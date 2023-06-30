@@ -2,42 +2,41 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain.Entities;
-using RMS.Models;
 using System;
 
 namespace RMS.Domain
 {
-	public class AppDbContext : DbContext
+    public class AppDbContext : DbContext
 	{
 		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-		public DbSet<RoleModel> Roles { get; set; }
-		public DbSet<UserModel> Users { get; set; }
-		public DbSet<UserRoleModel> UserRole { get; set; }
-		public DbSet<RequestModel> Requests { get; set; }
-		public DbSet<LifecycleModel> Lifecycles { get; set; }
-		public DbSet<CategoryModel> Categories { get; set; }
+		public DbSet<Role> Roles { get; set; }
+		public DbSet<User> Users { get; set; }
+		public DbSet<UserRole> UserRole { get; set; }
+		public DbSet<Request> Requests { get; set; }
+		public DbSet<Lifecycle> Lifecycles { get; set; }
+		public DbSet<Category> Categories { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
 
-			modelBuilder.Entity<RoleModel>().HasData(new RoleModel
+			modelBuilder.Entity<Role>().HasData(new Role
 			{
 				Id = 1,
 				Name = "admin",
 			});
-            modelBuilder.Entity<RoleModel>().HasData(new RoleModel
+            modelBuilder.Entity<Role>().HasData(new Role
             {
                 Id = 2,
                 Name = "manager",
             });
-            modelBuilder.Entity<RoleModel>().HasData(new RoleModel
+            modelBuilder.Entity<Role>().HasData(new Role
             {
                 Id = 3,
                 Name = "mounter",
             });
 
-            modelBuilder.Entity<UserModel>().HasData(new UserModel
+            modelBuilder.Entity<User>().HasData(new User
 			{
 				Id = 1,
 				FirstName = "Max",
@@ -46,7 +45,7 @@ namespace RMS.Domain
 				Password = "password",
 				Comment = "Comment"
 			});
-            modelBuilder.Entity<UserModel>().HasData(new UserModel
+            modelBuilder.Entity<User>().HasData(new User
             {
                 Id = 2,
                 FirstName = "Anton",
@@ -55,7 +54,7 @@ namespace RMS.Domain
                 Password = "password",
                 Comment = "Comment"
             });
-            modelBuilder.Entity<UserModel>().HasData(new UserModel
+            modelBuilder.Entity<User>().HasData(new User
             {
                 Id = 3,
                 FirstName = "Georgii",
@@ -65,28 +64,28 @@ namespace RMS.Domain
                 Comment = "Comment"
             });
 
-            modelBuilder.Entity<UserRoleModel>().HasData(new UserRoleModel
+            modelBuilder.Entity<UserRole>().HasData(new UserRole
 			{
 				UserRoleId = 1,
 				RoleId = 1,
 				UserId = 1
 			});
 
-            modelBuilder.Entity<UserRoleModel>().HasData(new UserRoleModel
+            modelBuilder.Entity<UserRole>().HasData(new UserRole
             {
                 UserRoleId = 2,
                 RoleId = 2,
                 UserId = 2
             });
 
-            modelBuilder.Entity<UserRoleModel>().HasData(new UserRoleModel
+            modelBuilder.Entity<UserRole>().HasData(new UserRole
             {
                 UserRoleId = 3,
                 RoleId = 3,
                 UserId = 3
             });
 
-            modelBuilder.Entity<RequestModel>().HasData(new RequestModel
+            modelBuilder.Entity<Request>().HasData(new Request
             {
 				Id = 1,
 				Address = "some address",
@@ -99,7 +98,7 @@ namespace RMS.Domain
 				Priority = 1,
 				Status = 1
             });
-            modelBuilder.Entity<RequestModel>().HasData(new RequestModel
+            modelBuilder.Entity<Request>().HasData(new Request
             {
                 Id = 2,
                 Address = "some address",
@@ -112,17 +111,17 @@ namespace RMS.Domain
                 Priority = 2,
                 Status = 1
             });
-            modelBuilder.Entity<CategoryModel>().HasData(new CategoryModel
+            modelBuilder.Entity<Category>().HasData(new Category
             {
 				Id = 1,
 				Name = "No internet",
 			});
-            modelBuilder.Entity<LifecycleModel>().HasData(new LifecycleModel
+            modelBuilder.Entity<Lifecycle>().HasData(new Lifecycle
             {
 				Id = 1,
 				Planning = DateTime.UtcNow
             });
-            modelBuilder.Entity<LifecycleModel>().HasData(new LifecycleModel
+            modelBuilder.Entity<Lifecycle>().HasData(new Lifecycle
             {
                 Id = 2,
                 Planning = DateTime.UtcNow

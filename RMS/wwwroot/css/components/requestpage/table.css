@@ -1,16 +1,16 @@
-﻿tr {
+﻿.requests tr {
     border: 1px solid #000000;
     color: white;
     font-size: 18px;
 }
 
-th {
+.requests th {
     padding: 10px;
     font-family: 'Roboto';
     font-weight: 300;
 }
 
-td a {
+.requests td a {
     padding: 10px;
     border: 1px solid #000000;
     border-right: 0;
@@ -18,27 +18,30 @@ td a {
     font-weight: 300;
 }
 
-.row.default {
+.requests .row.default {
     background: #81A5CA;
 }
 
-.row.critical {
+.requests .row.critical {
     background: #DE88DB;
 }
 
-.openlink {
+.requests .openlink {
     background: #64CA7F;
+    height: 100%;
 }
 
-.closelink {
+.requests .closelink {
     background: #DC8D79;
+    height: 100%;
 }
 
-.cancellink {
+.requests .cancellink {
     background: #D4C66D;
+    height: 100%;
 }
 
-.first-row {
+.requests .first-row {
     color: black;
     font-size: 22px;
 }

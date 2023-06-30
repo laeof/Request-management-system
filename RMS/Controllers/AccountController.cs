@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RMS.Domain.Entities;
 using RMS.Domain;
 using RMS.Models;
 using RMS.Service;
@@ -104,5 +105,58 @@ namespace RMS.Controllers
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 			return RedirectToAction("Login");
 		}
-	}
+        [Authorize(Roles = "admin, manager")]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+			ViewBag.UserNamePlaceholder = "Логін";
+			ViewBag.PasswordPlaceholder = "Пароль";
+			ViewBag.FirstNamePlaceholder = "Ім'я";
+			ViewBag.SurnamePlaceholder = "Прізвище";
+			ViewBag.CommentPlaceholder = "Коментар";
+			ViewBag.RoleIdPlaceholder = "Роль";
+			if (ModelState.IsValid)
+            {
+                //check for existing
+                var existingUser = await _db.Users.FirstOrDefaultAsync(u => u.Login.ToLower() == model.Login.ToLower());
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError(string.Empty, "Користувач з таким логіном вже існує");
+                    return View(model);
+                }
+
+                // create user
+                var user = new User
+                {
+                    Login = model.Login,
+                    Password = model.Password,
+                    FirstName = model.FirstName,
+                    Surname = model.Surname,
+					Comment = model.Comment
+                };
+
+                // save user to db
+                _db.Users.Add(user);
+
+				await _db.SaveChangesAsync();
+
+				// create role for user
+				var userrole = new UserRole
+				{
+					UserId = user.Id,
+					RoleId = model.RoleId,
+				};
+
+				//save user role to db
+				_db.UserRole.Add(userrole);
+
+                await _db.SaveChangesAsync();
+
+                // redirect to users
+                return Redirect("/User/Users");
+            }
+
+            // if invalid register again
+            return View(model);
+        }
+    }
 }

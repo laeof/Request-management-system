@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RMS.Models.UserModel>
+﻿@model IEnumerable<User>
 
 @{
     ViewBag.Title = "Список користувачів";
@@ -50,7 +50,7 @@
             <th>
                 @Html.DisplayFor(modelItem => item.Comment)
             </th>
-            @if (User.IsInRole("admin"))
+            @if (User.IsInRole("admin") || User.IsInRole("manager"))
             {
                 <td>
                     @Html.ActionLink("Редактировать", "Edit", new { id=item.Id }) |
