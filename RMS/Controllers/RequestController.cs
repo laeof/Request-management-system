@@ -164,5 +164,18 @@ namespace RMS.Controllers
             }
             return RedirectToAction("CancelledRequests");
         }
-    }
+		[HttpGet]
+		public IActionResult Create(uint id)
+		{
+			var request = _db.Requests.Include(r => r.Lifecycle).FirstOrDefault(r => r.Id == id);
+			if (request != null)
+			{
+				request.CancelId = Convert.ToUInt32(Request.Cookies["Id"]);
+				request.Lifecycle.Cancelled = DateTime.UtcNow;
+				request.Status = 4;
+				_db.SaveChanges();
+			}
+			return RedirectToAction("CancelledRequests");
+		}
+	}
 }
