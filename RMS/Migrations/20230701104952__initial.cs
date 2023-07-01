@@ -36,7 +36,7 @@ namespace RMS.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -112,7 +112,7 @@ namespace RMS.Migrations
                     Status = table.Column<int>(type: "integer", nullable: false),
                     Priority = table.Column<int>(type: "integer", nullable: false),
                     Address = table.Column<string>(type: "text", nullable: false),
-                    CategoryId = table.Column<long>(type: "bigint", nullable: true),
+                    CategoryId = table.Column<long>(type: "bigint", nullable: false),
                     ExecutorId = table.Column<long>(type: "bigint", nullable: true),
                     LifecycleId = table.Column<long>(type: "bigint", nullable: false),
                     CloseId = table.Column<long>(type: "bigint", nullable: true),
@@ -127,7 +127,8 @@ namespace RMS.Migrations
                         name: "FK_Requests_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Requests_Lifecycles_LifecycleId",
                         column: x => x.LifecycleId,
@@ -172,8 +173,8 @@ namespace RMS.Migrations
                 columns: new[] { "Id", "Cancelled", "Closed", "Current", "Planning" },
                 values: new object[,]
                 {
-                    { 1L, null, null, null, new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(265) },
-                    { 2L, null, null, null, new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(274) }
+                    { 1L, null, null, null, new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6791) },
+                    { 2L, null, null, null, new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6798) }
                 });
 
             migrationBuilder.InsertData(

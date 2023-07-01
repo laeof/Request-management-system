@@ -4,22 +4,22 @@ using RMS.Domain.Repositories.Abstract;
 
 namespace RMS.Domain.Repositories.EntityFramework
 {
-    public class EFServiceItemsRepository : IServiceItemsRepository
-    {/*
+    public class EFRoleRepository : IRoleRepository
+	{
         private readonly AppDbContext context;
-        public EFServiceItemsRepository(AppDbContext context)
+        public EFRoleRepository(AppDbContext context)
         {
             this.context = context;
         }
-        public IQueryable<ServiceItem> GetServiceItems()
+        public IQueryable<Role> GetRole()
         {
-            return context.ServiceItems;
+            return context.Roles;
         }
-        public ServiceItem? GetServiceItemById(Guid id)
+        public Role? GetRoleById(uint? id)
         {
-            return context.ServiceItems.FirstOrDefault(x => x.Id == id);
+            return context.Roles.FirstOrDefault(x => x.Id == id);
         }
-        public void SaveServiceItem(ServiceItem entity)
+		public void SaveRole(Role entity)
         {
             if (entity.Id == default)
             {
@@ -29,10 +29,10 @@ namespace RMS.Domain.Repositories.EntityFramework
                 context.Entry(entity).State = EntityState.Modified;
             context.SaveChanges();
         }
-        public void DeleteServiceItem(Guid id)
+        public void DeleteRole(uint id)
         {
-            context.ServiceItems.Remove(new ServiceItem { Id = id });
+            context.Roles.Remove(new Role { Id = id });
             context.SaveChanges();
-        }*/
+        }
     }
 }

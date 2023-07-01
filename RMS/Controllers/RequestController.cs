@@ -1,182 +1,149 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
 using RMS.Domain.Entities;
-using RMS.Models;
-using System.Data;
 
 namespace RMS.Controllers
 {
     [Authorize]
     public class RequestController : Controller
-    {
-        private readonly AppDbContext _db;
-        public RequestController(AppDbContext db)
+	{
+		private readonly DataManager dataManager;
+		public RequestController(DataManager dataManager)
         {
-            _db = db;
+			this.dataManager = dataManager;
+	    }
 
-        }
         [HttpGet]
         public IActionResult PlanningRequests()
         {
-            var requests = _db.Requests
-               .Include(ur => ur.Category)
-               .Include(ur => ur.Executor)
-               .Include(ur => ur.Lifecycle)
-               .Where(ur => ur.Status == 1)
-               .ToList();
-
-            var _requests = _db.Requests
-               .Include(ur => ur.Lifecycle)
-               .ToList();
-
-            int plannedRequestsCount = _requests.Count(r => r.Status == 1);
-            int openedRequestsCount = _requests.Count(r => r.Status == 2);
-            int closedRequestsCount = _requests.Count(r => r.Status == 3);
-            int cancelledRequestsCount = _requests.Count(r => r.Status == 4);
-
-            ViewBag.PlanningRequestsCount = plannedRequestsCount;
-            ViewBag.CurrentRequestsCount = openedRequestsCount;
-            ViewBag.ClosedRequestsCount = closedRequestsCount;
-            ViewBag.CancelledRequestsCount = cancelledRequestsCount;
-
-            return View(requests);
+            return View(ShowRequests(1));
         }
+
         [HttpGet]
         public IActionResult CurrentRequests()
         {
-            var requests = _db.Requests
-               .Include(ur => ur.Category)
-               .Include(ur => ur.Executor)
-               .Include(ur => ur.Lifecycle)
-               .Include(ur => ur.Opened)
-               .Where(ur => ur.Status == 2)
-               .ToList();
-
-            var _requests = _db.Requests
-               .Include(ur => ur.Lifecycle)
-               .ToList();
-
-            int plannedRequestsCount = _requests.Count(r => r.Status == 1);
-            int openedRequestsCount = _requests.Count(r => r.Status == 2);
-            int closedRequestsCount = _requests.Count(r => r.Status == 3);
-            int cancelledRequestsCount = _requests.Count(r => r.Status == 4);
-
-            ViewBag.PlanningRequestsCount = plannedRequestsCount;
-            ViewBag.CurrentRequestsCount = openedRequestsCount;
-            ViewBag.ClosedRequestsCount = closedRequestsCount;
-            ViewBag.CancelledRequestsCount = cancelledRequestsCount;
-
-            return View(requests);
+            return View(ShowRequests(2));
         }
+
         [HttpGet]
         public IActionResult ClosedRequests()
         {
-            var requests = _db.Requests
-               .Include(ur => ur.Category)
-               .Include(ur => ur.Executor)
-               .Include(ur => ur.Lifecycle)
-               .Include(ur => ur.Opened)
-               .Include(ur => ur.Closed)
-               .Where(ur => ur.Status == 3)
-               .ToList();
-
-            var _requests = _db.Requests
-               .Include(ur => ur.Lifecycle)
-               .ToList();
-
-            int plannedRequestsCount = _requests.Count(r => r.Status == 1);
-            int openedRequestsCount = _requests.Count(r => r.Status == 2);
-            int closedRequestsCount = _requests.Count(r => r.Status == 3);
-            int cancelledRequestsCount = _requests.Count(r => r.Status == 4);
-
-            ViewBag.PlanningRequestsCount = plannedRequestsCount;
-            ViewBag.CurrentRequestsCount = openedRequestsCount;
-            ViewBag.ClosedRequestsCount = closedRequestsCount;
-            ViewBag.CancelledRequestsCount = cancelledRequestsCount;
-
-            return View(requests);
+            return View(ShowRequests(3));
         }
+
         [HttpGet]
         public IActionResult CancelledRequests()
         {
-            var requests = _db.Requests
-               .Include(ur => ur.Category)
-               .Include(ur => ur.Executor)
-               .Include(ur => ur.Lifecycle)
-               .Include(ur => ur.Opened)
-               .Include(ur => ur.Cancelled)
-               .Where(ur => ur.Status == 4)
-               .ToList();
-
-            var _requests = _db.Requests
-               .Include(ur => ur.Lifecycle)
-               .ToList();
-
-            int plannedRequestsCount = _requests.Count(r => r.Status == 1);
-            int openedRequestsCount = _requests.Count(r => r.Status == 2);
-            int closedRequestsCount = _requests.Count(r => r.Status == 3);
-            int cancelledRequestsCount = _requests.Count(r => r.Status == 4);
-
-            ViewBag.PlanningRequestsCount = plannedRequestsCount;
-            ViewBag.CurrentRequestsCount = openedRequestsCount;
-            ViewBag.ClosedRequestsCount = closedRequestsCount;
-            ViewBag.CancelledRequestsCount = cancelledRequestsCount;
-
-            return View(requests);
+            return View(ShowRequests(4));
         }
+
+        private List<Request> ShowRequests(int status) 
+        {
+            var requests = dataManager.Requests.GetRequestByStatus(status).ToList();
+
+            if (dataManager == null
+                || dataManager.Requests == null
+                || dataManager.Users == null
+                || dataManager.Categories == null
+                || dataManager.Lifecycles == null)
+            {
+                return requests;
+            }
+
+            foreach (var r in requests)
+            {
+                r.Closed = dataManager.Users.GetUserById(r.CloseId);
+                r.Category = dataManager.Categories.GetCategoryById(r.CategoryId);
+                r.Lifecycle = dataManager.Lifecycles.GetLifecycleById(r.LifecycleId);
+                r.Cancelled = dataManager.Users.GetUserById(r.CancelId);
+            }
+
+            ViewBag.PlanningRequestsCount = dataManager.Requests.GetRequestByStatus(1).Count();
+            ViewBag.CurrentRequestsCount = dataManager.Requests.GetRequestByStatus(2).Count();
+            ViewBag.ClosedRequestsCount = dataManager.Requests.GetRequestByStatus(3).Count();
+            ViewBag.CancelledRequestsCount = dataManager.Requests.GetRequestByStatus(4).Count();
+
+            return requests;
+        }
+
         [HttpGet]
         public IActionResult Open(uint id)
         {
-            var request = _db.Requests.Include(r => r.Lifecycle).FirstOrDefault(r => r.Id == id);
+            var request = dataManager.Requests.GetRequestById(id);
+
             if (request != null)
             {
+                //кто відкрив
                 request.OpenId = Convert.ToUInt32(Request.Cookies["Id"]);
+
+                //життєвий цикл заявки
+                request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
                 request.Lifecycle.Current = DateTime.UtcNow;
+
+                //заявка відкрита
                 request.Status = 2;
-                _db.SaveChanges();
+
+                //зберегти
+                dataManager.Requests.SaveRequest(request);
             }
             return RedirectToAction("CurrentRequests");
         }
         [HttpGet]
         public IActionResult Close(uint id)
         {
-            var request = _db.Requests.Include(r => r.Lifecycle).FirstOrDefault(r => r.Id == id);
-            if (request != null)
-            {
+			var request = dataManager.Requests.GetRequestById(id);
+
+			if (request != null)
+			{
+                //кто закрив
                 request.CloseId = Convert.ToUInt32(Request.Cookies["Id"]);
-                request.Lifecycle.Closed = DateTime.UtcNow;
-                request.Status = 3;
-                _db.SaveChanges();
-            }
-            return RedirectToAction("ClosedRequests");
-        }
+
+				//життєвий цикл заявки
+				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
+				request.Lifecycle.Closed = DateTime.UtcNow;
+
+				//заявка закрита
+				request.Status = 3;
+
+				//зберегти
+				dataManager.Requests.SaveRequest(request);
+			}
+			return RedirectToAction("ClosedRequests");
+		}
         [HttpGet]
         public IActionResult Cancel(uint id)
         {
-            var request = _db.Requests.Include(r => r.Lifecycle).FirstOrDefault(r => r.Id == id);
-            if (request != null)
-            {
-                request.CancelId = Convert.ToUInt32(Request.Cookies["Id"]);
-                request.Lifecycle.Cancelled = DateTime.UtcNow;
-                request.Status = 4;
-                _db.SaveChanges();
-            }
-            return RedirectToAction("CancelledRequests");
-        }
-        [HttpGet]
-        public async Task<IActionResult> Create()
-        {
-			var category = new Request
-			{
-				Categories = await _db.Categories.ToListAsync()
-			};
+			var request = dataManager.Requests.GetRequestById(id);
 
-			return View(category);
+			if (request != null)
+			{
+				//кто відмінив
+				request.CancelId = Convert.ToUInt32(Request.Cookies["Id"]);
+
+				//життєвий цикл заявки
+				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
+				request.Lifecycle.Cancelled = DateTime.UtcNow;
+
+				//заявка відмінена
+				request.Status = 4;
+
+				//зберегти
+				dataManager.Requests.SaveRequest(request);
+			}
+			return RedirectToAction("CancelledRequests");
+		}
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var Request = new Request
+            {
+                Categories = dataManager.Categories.GetCategories().ToList()
+            };
+			return View(Request);
 		}
 		[HttpPost]
-		public async Task<IActionResult> Create(Request model)
+		public IActionResult Create(Request model)
 		{
 			if (ModelState.IsValid)
 			{
@@ -185,9 +152,7 @@ namespace RMS.Controllers
                     Planning = DateTime.UtcNow
                 };
 
-                _db.Lifecycles.Add(lifecycle);
-
-                await _db.SaveChangesAsync();
+                dataManager.Lifecycles.SaveLifecycle(lifecycle);
 
                 // create request
                 var request = new Request
@@ -202,12 +167,10 @@ namespace RMS.Controllers
                     LifecycleId = lifecycle.Id
 				};
 
-				// save user to db
-				_db.Requests.Add(request);
+                // save request to db
+                dataManager.Requests.SaveRequest(request);
 
-				await _db.SaveChangesAsync();
-
-				// redirect to users
+				// redirect to requests
 				return Redirect("/Request/PlanningRequests");
 			}
 
@@ -215,8 +178,8 @@ namespace RMS.Controllers
 
 			var category = new Request
             {
-                Categories = await _db.Categories.ToListAsync()
-		    };
+				Categories = dataManager.Categories.GetCategories().ToList()
+			};
 
 			return View(category);
 		}

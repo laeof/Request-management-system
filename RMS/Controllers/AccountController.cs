@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain.Entities;
@@ -12,17 +11,17 @@ using System.Security.Claims;
 
 namespace RMS.Controllers
 {
-	[Authorize]
 	public class AccountController : Controller
 	{
-		private readonly AppDbContext _db;
-		private readonly IHttpContextAccessor _httpContextAccessor;
-		public AccountController(AppDbContext db, IHttpContextAccessor httpContextAccessor)
+		private readonly DataManager dataManager;
+		private readonly IHttpContextAccessor httpContextAccessor;
+		public AccountController(IHttpContextAccessor httpContextAccessor, DataManager dataManager)
 		{
-			_db = db;
-			_httpContextAccessor = httpContextAccessor;
+            this.httpContextAccessor = httpContextAccessor;
+			this.dataManager = dataManager;
 		}
-		
+
+		[HttpGet]
 		[AllowAnonymous]
 		public IActionResult Login(string returnUrl)
 		{
@@ -35,12 +34,12 @@ namespace RMS.Controllers
 			}
 			if (User.Identity.IsAuthenticated)
 			{
-				returnUrl = "/Account/PersonalPage";
-				return Redirect(returnUrl);
+				return Redirect("/Account/PersonalPage");
 			}
 			ViewBag.ReturnUrl = returnUrl;
 			return View(new LoginViewModel());
 		}
+
 		[HttpPost]
 		[AllowAnonymous]
 		public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
@@ -49,26 +48,23 @@ namespace RMS.Controllers
 			{
 				uint userID = 0;
 
-				if (Extensions.ValidateUser(model.Login, model.Password, _db, ref userID))
+				if (Extensions.ValidateUser(model.Login, model.Password, dataManager, ref userID))
 				{
-
 					//користувач
 
-                    var user = await _db.Users
-						.FirstOrDefaultAsync(u => u.Login.ToLower() == model.Login.ToLower());
+					var User = await dataManager.Users.GetUsers().FirstOrDefaultAsync(u => u.Login.ToLower() == model.Login.ToLower());
 
 					//роль користувача
 
-                    var userRole = await _db.UserRole
-						.Include(ur => ur.Role)
-						.FirstOrDefaultAsync(ur => ur.UserId == user.Id);
+					var Role = dataManager.Role.GetRoleById(
+						dataManager.UserRole.GetUserRole().FirstOrDefault(ur => ur.UserId == userID).RoleId);
 
                     //користувач + роль
 
                     var claims = new List<Claim>
 					{
-						new Claim(ClaimTypes.Name, user.FirstName),
-						new Claim(ClaimTypes.Role, userRole.Role.Name)
+						new Claim(ClaimTypes.Name, User.Login),
+						new Claim(ClaimTypes.Role, Role.Name)
 					};
 
                     var identity = new ClaimsIdentity(claims, "Auth");
@@ -78,7 +74,7 @@ namespace RMS.Controllers
 
                     Response.Cookies.Append("Id", userID.ToString());
 
-                    await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                    await httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
                     //редіректи
 
@@ -94,20 +90,23 @@ namespace RMS.Controllers
 			ViewBag.ReturnUrl = returnUrl;
 			return View(model);
 		}
+
 		[Authorize]
 		public IActionResult PersonalPage()
 		{
 			return View("PersonalPage");
 		}
+
 		[Authorize]
 		public async Task<IActionResult> Logout()
 		{
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 			return RedirectToAction("Login");
 		}
+
 		[HttpGet]
 		[Authorize(Roles = "admin, manager")]
-		public async Task<IActionResult> Register()
+		public IActionResult Register()
 		{
 			ViewBag.UserNamePlaceholder = "Логін";
 			ViewBag.PasswordPlaceholder = "Пароль";
@@ -117,9 +116,10 @@ namespace RMS.Controllers
 			ViewBag.RoleIdPlaceholder = "Роль";
 			return View(new RegisterViewModel());
 		}
+
 		[HttpPost]
         [Authorize(Roles = "admin, manager")]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public IActionResult Register(RegisterViewModel model)
         {
 			ViewBag.UserNamePlaceholder = "Логін";
 			ViewBag.PasswordPlaceholder = "Пароль";
@@ -127,30 +127,29 @@ namespace RMS.Controllers
 			ViewBag.SurnamePlaceholder = "Прізвище";
 			ViewBag.CommentPlaceholder = "Коментар";
 			ViewBag.RoleIdPlaceholder = "Роль";
+
 			if (ModelState.IsValid)
             {
                 //check for existing
-                var existingUser = await _db.Users.FirstOrDefaultAsync(u => u.Login.ToLower() == model.Login.ToLower());
+                var existingUser = dataManager.Users.GetUsers().FirstOrDefault(u => u.Login.ToLower() == model.Login.ToLower());
                 if (existingUser != null)
                 {
                     ModelState.AddModelError(string.Empty, "Користувач з таким логіном вже існує");
                     return View(model);
-                }
+				}
 
-                // create user
-                var user = new User
-                {
-                    Login = model.Login,
-                    Password = model.Password,
-                    FirstName = model.FirstName,
-                    Surname = model.Surname,
+				// create user
+				var user = new User
+				{
+					Login = model.Login,
+					Password = model.Password,
+					FirstName = model.FirstName,
+					Surname = model.Surname,
 					Comment = model.Comment
-                };
+				};
 
-                // save user to db
-                _db.Users.Add(user);
-
-				await _db.SaveChangesAsync();
+				//save user
+				dataManager.Users.SaveUser(user);
 
 				// create role for user
 				var userrole = new UserRole
@@ -160,9 +159,8 @@ namespace RMS.Controllers
 				};
 
 				//save user role to db
-				_db.UserRole.Add(userrole);
 
-                await _db.SaveChangesAsync();
+				dataManager.UserRole.SaveUserRole(userrole);
 
                 // redirect to users
                 return Redirect("/User/Users");

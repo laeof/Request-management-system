@@ -8,9 +8,7 @@
 		<div class="container">
 			@await Html.PartialAsync("LeftmenuPartial")
 			<div class="main">
-				<header class="header">
-					@await Html.PartialAsync("HeaderPartial")
-				</header>
+				@await Html.PartialAsync("HeaderPartial")
 				<div class="content">
 					@RenderBody()
 				</div>

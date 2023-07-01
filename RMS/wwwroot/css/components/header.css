@@ -1,2 +1,4 @@
-﻿body {
+﻿.header {
+    height: 40px;
+    background: #20c997;
 }

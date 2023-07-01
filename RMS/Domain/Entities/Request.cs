@@ -6,15 +6,16 @@ namespace RMS.Domain.Entities
 {
     public class Request
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint Id { get; set; }
         //Назва
-        [Required]
+        [Required(ErrorMessage = "Введіть назву заявки")]
         [Display(Name = "Назва заявки")]
         public string Name { get; set; } = "default name";
         // Опис
-        [Required]
+        [Required(ErrorMessage = "Введіть опис заявки")]
         [Display(Name = "Опис")]
         public string Description { get; set; } = "default descr";
         // Коментар
@@ -32,13 +33,13 @@ namespace RMS.Domain.Entities
         // Зовнішній ключ Категорія
         [Display(Name = "Категорія")]
         [ForeignKey("Category")]
-        public uint? CategoryId { get; set; }
+        public uint CategoryId { get; set; }
         public Category? Category { get; set; }
-		public List<Category>? Categories { get; set; }
+        public List<Category>? Categories { get; set; }
 
-		// Зовнішній ключ
-		// ID виконувача - звичайне
-		[Display(Name = "Виконувач")]
+        // Зовнішній ключ
+        // ID виконувача - звичайне
+        [Display(Name = "Виконувач")]
         [ForeignKey("Executor")]
         public uint? ExecutorId { get; set; }
         // Виконувач - навігаційне

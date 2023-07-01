@@ -10,13 +10,13 @@ namespace RMS.Service
 		{
 			return str.Replace("Controller", "");
 		}
-		public static bool ValidateUser(string login, string password, AppDbContext _db, ref uint userId)
+		public static bool ValidateUser(string login, string password, DataManager dataManager, ref uint userId)
 		{
 			bool isValid = false;
 
 			try
 			{
-				User user = _db.Users.FirstOrDefault(u => u.Login.ToLower() == login.ToLower() && u.Password == password);
+				User user = dataManager.Users.GetUsers().FirstOrDefault(u => u.Login.ToLower() == login.ToLower() && u.Password == password);
 
 				if (user != null)
 				{

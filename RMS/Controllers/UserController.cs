@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
-using System.Data;
 
 namespace RMS.Controllers
 {
@@ -10,20 +8,15 @@ namespace RMS.Controllers
 	[Authorize]
 	public class UserController : Controller
 	{
-		private readonly AppDbContext _db;
-		public UserController(AppDbContext db)
+        private readonly DataManager dataManager;
+		public UserController(DataManager dataManager)
 		{
-			_db = db;
+            this.dataManager = dataManager;
 		}
         [HttpGet]
         public IActionResult Users()
         {
-            var userRoles = _db.UserRole
-                .Include(ur => ur.User)
-                .Include(ur => ur.Role)
-                .ToList();
-
-            var users = userRoles.Select(ur => ur.User).ToList();
+            var users = dataManager.Users.GetUsers();
 
             return View(users);
         }

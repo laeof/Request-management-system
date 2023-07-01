@@ -20,23 +20,16 @@
 			Configuration.Bind("Project", new Config());
 
 			//add services
-			services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>();
-			services.AddTransient<IServiceItemsRepository, EFServiceItemsRepository>();
+			services.AddTransient<IRequestRepository, EFRequestRepository>();
+			services.AddTransient<ICategoryRepository, EFCategoryRepository>();
+			services.AddTransient<ILifecycleRepository, EFLifecycleRepository>();
+			services.AddTransient<IUserRepository, EFUserRepository>();
+			services.AddTransient<IUserRoleRepository, EFUserRoleRepository>();
+			services.AddTransient<IRoleRepository, EFRoleRepository>();
 			services.AddTransient<DataManager>();
 
 			//db context
 			services.AddDbContext<AppDbContext>(x => x.UseNpgsql(Config.ConnectionString));
-
-			/*//identity
-			services.AddIdentity<UserModel, RoleModel>(opts =>
-			{
-				opts.User.RequireUniqueEmail = true;
-				opts.Password.RequiredLength = 6;
-				opts.Password.RequireNonAlphanumeric = false;
-				opts.Password.RequireUppercase = false;
-				opts.Password.RequireLowercase = false;
-				opts.Password.RequireDigit = false;
-			}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();*/
 
 			//cookie
 			services.ConfigureApplicationCookie(options =>
@@ -64,10 +57,7 @@
 			services.AddHttpContextAccessor();
 
 			//add mvc
-			services.AddControllersWithViews(x =>
-			{
-				x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
-			})
+			services.AddControllersWithViews()
 				.AddSessionStateTempDataProvider();
 		}
 

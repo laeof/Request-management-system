@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jiai1TYRNymco1mwucbgOT37lfjJae6PGBO71e0kNBc=",
+  "Hash": "7gQKEmmfsPZdBvMgEwmMf4TMZv98Rrby0lFqeKPVSFg=",
   "Source": "RMS",
   "BasePath": "_content/RMS",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "RMS\\wwwroot",
       "Source": "RMS",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\common.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\common.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/common.css",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\css\\common.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\container-login-form-btn.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\container-login-form-btn.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/authpage/container-login-form-btn.css",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\authpage\\container-login-form-btn.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\login-form.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\login-form.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/authpage/login-form.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\authpage\\login-form.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\main.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\main.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/authpage/main.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\authpage\\main.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\validate.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\validate.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/authpage/validate.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\authpage\\validate.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\wrap-check.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-check.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/authpage/wrap-check.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\authpage\\wrap-check.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\wrap-input.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-input.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/authpage/wrap-input.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\authpage\\wrap-input.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\wrap-login.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-login.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/authpage/wrap-login.css",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\authpage\\wrap-login.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\button.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\button.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/button.css",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\button.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\container.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\container.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/container.css",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\container.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\content.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\content.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/content.css",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\content.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\footer.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\footer.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/footer.css",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\footer.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\header.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/header.css",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\header.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\Input.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\Input.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/Input.css",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\Input.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\leftmenu.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/leftmenu.css",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\leftmenu.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\logo.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\logo.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/logo.css",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\logo.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\main.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\main.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/main.css",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\main.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/requestpage/main.css",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\main.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\requestpage\\table.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\table.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/requestpage/table.css",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\table.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\table.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\table.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/table.css",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\table.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\title.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\title.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/components/title.css",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\title.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\fonts.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\fonts.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/fonts.css",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\main.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\main.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/main.css",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\css\\main.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\reset.css",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\reset.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "css/reset.css",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\css\\reset.css"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Black.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Black.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Black.woff",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Black.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Black.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Black.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Black.woff2",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Black.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-BlackItalic.woff",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-BlackItalic.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-BlackItalic.woff2",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-BlackItalic.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Bold.woff",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Bold.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Bold.woff2",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Bold.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-BoldItalic.woff",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-BoldItalic.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-BoldItalic.woff2",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-BoldItalic.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Italic.woff",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Italic.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Italic.woff2",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Italic.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Light.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Light.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Light.woff",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Light.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Light.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Light.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Light.woff2",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Light.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-LightItalic.woff",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-LightItalic.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-LightItalic.woff2",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-LightItalic.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Medium.woff",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Medium.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Medium.woff2",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Medium.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-MediumItalic.woff",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-MediumItalic.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-MediumItalic.woff2",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-MediumItalic.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Regular.woff",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Regular.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Regular.woff2",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Regular.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Thin.woff",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Thin.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-Thin.woff2",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Thin.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-ThinItalic.woff",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-ThinItalic.woff"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff2",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff2",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "fonts/Roboto-ThinItalic.woff2",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-ThinItalic.woff2"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\png\\google.png",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\google.png",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "img/png/google.png",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\img\\png\\google.png"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\png\\key.png",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\key.png",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "img/png/key.png",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\img\\png\\key.png"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\png\\user.png",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\user.png",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "img/png/user.png",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\img\\png\\user.png"
     },
     {
-      "Identity": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\js\\main.js",
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\js\\main.js",
       "SourceId": "RMS",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
       "BasePath": "_content/RMS",
       "RelativePath": "js/main.js",
       "AssetKind": "All",

@@ -79,12 +79,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(265)
+                            Planning = new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6791)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(274)
+                            Planning = new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6798)
                         });
                 });
 
@@ -103,7 +103,7 @@ namespace RMS.Migrations
                     b.Property<long?>("CancelId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("CategoryId")
+                    b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CloseId")
@@ -197,7 +197,6 @@ namespace RMS.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -341,7 +340,9 @@ namespace RMS.Migrations
 
                     b.HasOne("RMS.Domain.Entities.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("RMS.Domain.Entities.User", "Closed")
                         .WithMany()
