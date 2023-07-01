@@ -1,21 +1,5 @@
 ﻿.requests tr {
-    border: 1px solid #000000;
-    color: white;
-    font-size: 18px;
-}
-
-.requests th {
-    padding: 10px;
-    font-family: 'Roboto';
-    font-weight: 300;
-}
-
-.requests td a {
-    padding: 10px;
-    border: 1px solid #000000;
-    border-right: 0;
-    font-family: 'Roboto';
-    font-weight: 300;
+    color: #fff;
 }
 
 .requests .row.default {

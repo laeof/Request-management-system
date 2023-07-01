@@ -15,19 +15,6 @@ namespace RMS.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Lifecycles",
                 columns: table => new
                 {
@@ -66,68 +53,11 @@ namespace RMS.Migrations
                     Surname = table.Column<string>(type: "text", nullable: false),
                     Login = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
-                    Comment = table.Column<string>(type: "text", nullable: false)
+                    Comment = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Requests",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    Comment = table.Column<string>(type: "text", nullable: false),
-                    Status = table.Column<int>(type: "integer", nullable: false),
-                    Priority = table.Column<int>(type: "integer", nullable: false),
-                    Address = table.Column<string>(type: "text", nullable: false),
-                    CategoryId = table.Column<long>(type: "bigint", nullable: false),
-                    ExecutorId = table.Column<long>(type: "bigint", nullable: false),
-                    LifecycleId = table.Column<long>(type: "bigint", nullable: false),
-                    CloseId = table.Column<long>(type: "bigint", nullable: true),
-                    CancelId = table.Column<long>(type: "bigint", nullable: true),
-                    OpenId = table.Column<long>(type: "bigint", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Requests", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Requests_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Requests_Lifecycles_LifecycleId",
-                        column: x => x.LifecycleId,
-                        principalTable: "Lifecycles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Requests_Users_CancelId",
-                        column: x => x.CancelId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Requests_Users_CloseId",
-                        column: x => x.CloseId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Requests_Users_ExecutorId",
-                        column: x => x.ExecutorId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Requests_Users_OpenId",
-                        column: x => x.OpenId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -156,18 +86,94 @@ namespace RMS.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    RequestId = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Requests",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    Comment = table.Column<string>(type: "text", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    Priority = table.Column<int>(type: "integer", nullable: false),
+                    Address = table.Column<string>(type: "text", nullable: false),
+                    CategoryId = table.Column<long>(type: "bigint", nullable: true),
+                    ExecutorId = table.Column<long>(type: "bigint", nullable: true),
+                    LifecycleId = table.Column<long>(type: "bigint", nullable: false),
+                    CloseId = table.Column<long>(type: "bigint", nullable: true),
+                    CancelId = table.Column<long>(type: "bigint", nullable: true),
+                    OpenId = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Requests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Requests_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Requests_Lifecycles_LifecycleId",
+                        column: x => x.LifecycleId,
+                        principalTable: "Lifecycles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Requests_Users_CancelId",
+                        column: x => x.CancelId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Requests_Users_CloseId",
+                        column: x => x.CloseId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Requests_Users_CreatedId",
+                        column: x => x.CreatedId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Requests_Users_ExecutorId",
+                        column: x => x.ExecutorId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Requests_Users_OpenId",
+                        column: x => x.OpenId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1L, "No internet" });
+                columns: new[] { "Id", "Name", "RequestId" },
+                values: new object[] { 1L, "No internet", null });
 
             migrationBuilder.InsertData(
                 table: "Lifecycles",
                 columns: new[] { "Id", "Cancelled", "Closed", "Current", "Planning" },
                 values: new object[,]
                 {
-                    { 1L, null, null, null, new DateTime(2023, 6, 28, 18, 15, 27, 527, DateTimeKind.Utc).AddTicks(8788) },
-                    { 2L, null, null, null, new DateTime(2023, 6, 28, 18, 15, 27, 527, DateTimeKind.Utc).AddTicks(8796) }
+                    { 1L, null, null, null, new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(265) },
+                    { 2L, null, null, null, new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(274) }
                 });
 
             migrationBuilder.InsertData(
@@ -192,11 +198,11 @@ namespace RMS.Migrations
 
             migrationBuilder.InsertData(
                 table: "Requests",
-                columns: new[] { "Id", "Address", "CancelId", "CategoryId", "CloseId", "Comment", "Description", "ExecutorId", "LifecycleId", "Name", "OpenId", "Priority", "Status" },
+                columns: new[] { "Id", "Address", "CancelId", "CategoryId", "CloseId", "Comment", "CreatedId", "Description", "ExecutorId", "LifecycleId", "Name", "OpenId", "Priority", "Status" },
                 values: new object[,]
                 {
-                    { 1L, "some address", null, 1L, null, "comment", "description", 1L, 1L, "request 1", null, 1, 1 },
-                    { 2L, "some address", null, 1L, null, "comment", "description", 1L, 2L, "request 2", null, 2, 1 }
+                    { 1L, "some address", null, 1L, null, "comment", 1L, "description", 1L, 1L, "request 1", null, 1, 1 },
+                    { 2L, "some address", null, 1L, null, "comment", 1L, "description", 1L, 2L, "request 2", null, 2, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -208,6 +214,11 @@ namespace RMS.Migrations
                     { 2L, 2L, 2L },
                     { 3L, 3L, 3L }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Categories_RequestId",
+                table: "Categories",
+                column: "RequestId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Requests_CancelId",
@@ -223,6 +234,11 @@ namespace RMS.Migrations
                 name: "IX_Requests_CloseId",
                 table: "Requests",
                 column: "CloseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Requests_CreatedId",
+                table: "Requests",
+                column: "CreatedId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Requests_ExecutorId",
@@ -248,25 +264,36 @@ namespace RMS.Migrations
                 name: "IX_UserRole_UserId",
                 table: "UserRole",
                 column: "UserId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Categories_Requests_RequestId",
+                table: "Categories",
+                column: "RequestId",
+                principalTable: "Requests",
+                principalColumn: "Id");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Requests");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Categories_Requests_RequestId",
+                table: "Categories");
 
             migrationBuilder.DropTable(
                 name: "UserRole");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Requests");
 
             migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Lifecycles");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Users");

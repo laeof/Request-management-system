@@ -12,7 +12,7 @@ using RMS.Domain;
 namespace RMS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230628181527__initial")]
+    [Migration("20230701030553__initial")]
     partial class _initial
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace RMS.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("RMS.Models.CategoryModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.Category", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,7 +37,12 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<long?>("RequestId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RequestId");
 
                     b.ToTable("Categories");
 
@@ -49,7 +54,7 @@ namespace RMS.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RMS.Models.LifecycleModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.Lifecycle", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,16 +82,16 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 6, 28, 18, 15, 27, 527, DateTimeKind.Utc).AddTicks(8788)
+                            Planning = new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(265)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 6, 28, 18, 15, 27, 527, DateTimeKind.Utc).AddTicks(8796)
+                            Planning = new DateTime(2023, 7, 1, 3, 5, 53, 105, DateTimeKind.Utc).AddTicks(274)
                         });
                 });
 
-            modelBuilder.Entity("RMS.Models.RequestModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.Request", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,7 +106,7 @@ namespace RMS.Migrations
                     b.Property<long?>("CancelId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CategoryId")
+                    b.Property<long?>("CategoryId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CloseId")
@@ -111,11 +116,14 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<long>("CreatedId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("ExecutorId")
+                    b.Property<long?>("ExecutorId")
                         .HasColumnType("bigint");
 
                     b.Property<long>("LifecycleId")
@@ -142,6 +150,8 @@ namespace RMS.Migrations
 
                     b.HasIndex("CloseId");
 
+                    b.HasIndex("CreatedId");
+
                     b.HasIndex("ExecutorId");
 
                     b.HasIndex("LifecycleId");
@@ -157,6 +167,7 @@ namespace RMS.Migrations
                             Address = "some address",
                             CategoryId = 1L,
                             Comment = "comment",
+                            CreatedId = 1L,
                             Description = "description",
                             ExecutorId = 1L,
                             LifecycleId = 1L,
@@ -170,6 +181,7 @@ namespace RMS.Migrations
                             Address = "some address",
                             CategoryId = 1L,
                             Comment = "comment",
+                            CreatedId = 1L,
                             Description = "description",
                             ExecutorId = 1L,
                             LifecycleId = 2L,
@@ -179,7 +191,7 @@ namespace RMS.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RMS.Models.RoleModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.Role", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -213,7 +225,7 @@ namespace RMS.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RMS.Models.UserModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -222,7 +234,6 @@ namespace RMS.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Comment")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("FirstName")
@@ -275,7 +286,7 @@ namespace RMS.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RMS.Models.UserRoleModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.UserRole", b =>
                 {
                     b.Property<long>("UserRoleId")
                         .ValueGeneratedOnAdd()
@@ -318,35 +329,44 @@ namespace RMS.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RMS.Models.RequestModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.Category", b =>
                 {
-                    b.HasOne("RMS.Models.UserModel", "Cancelled")
+                    b.HasOne("RMS.Domain.Entities.Request", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("RequestId");
+                });
+
+            modelBuilder.Entity("RMS.Domain.Entities.Request", b =>
+                {
+                    b.HasOne("RMS.Domain.Entities.User", "Cancelled")
                         .WithMany()
                         .HasForeignKey("CancelId");
 
-                    b.HasOne("RMS.Models.CategoryModel", "Category")
+                    b.HasOne("RMS.Domain.Entities.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
-                    b.HasOne("RMS.Models.UserModel", "Closed")
+                    b.HasOne("RMS.Domain.Entities.User", "Closed")
                         .WithMany()
                         .HasForeignKey("CloseId");
 
-                    b.HasOne("RMS.Models.UserModel", "Executor")
+                    b.HasOne("RMS.Domain.Entities.User", "Created")
                         .WithMany()
-                        .HasForeignKey("ExecutorId")
+                        .HasForeignKey("CreatedId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RMS.Models.LifecycleModel", "Lifecycle")
+                    b.HasOne("RMS.Domain.Entities.User", "Executor")
+                        .WithMany()
+                        .HasForeignKey("ExecutorId");
+
+                    b.HasOne("RMS.Domain.Entities.Lifecycle", "Lifecycle")
                         .WithMany()
                         .HasForeignKey("LifecycleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RMS.Models.UserModel", "Opened")
+                    b.HasOne("RMS.Domain.Entities.User", "Opened")
                         .WithMany()
                         .HasForeignKey("OpenId");
 
@@ -356,6 +376,8 @@ namespace RMS.Migrations
 
                     b.Navigation("Closed");
 
+                    b.Navigation("Created");
+
                     b.Navigation("Executor");
 
                     b.Navigation("Lifecycle");
@@ -363,15 +385,15 @@ namespace RMS.Migrations
                     b.Navigation("Opened");
                 });
 
-            modelBuilder.Entity("RMS.Models.UserRoleModel", b =>
+            modelBuilder.Entity("RMS.Domain.Entities.UserRole", b =>
                 {
-                    b.HasOne("RMS.Models.RoleModel", "Role")
+                    b.HasOne("RMS.Domain.Entities.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RMS.Models.UserModel", "User")
+                    b.HasOne("RMS.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -380,6 +402,11 @@ namespace RMS.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RMS.Domain.Entities.Request", b =>
+                {
+                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }

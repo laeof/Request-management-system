@@ -105,6 +105,19 @@ namespace RMS.Controllers
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 			return RedirectToAction("Login");
 		}
+		[HttpGet]
+		[Authorize(Roles = "admin, manager")]
+		public async Task<IActionResult> Register()
+		{
+			ViewBag.UserNamePlaceholder = "Логін";
+			ViewBag.PasswordPlaceholder = "Пароль";
+			ViewBag.FirstNamePlaceholder = "Ім'я";
+			ViewBag.SurnamePlaceholder = "Прізвище";
+			ViewBag.CommentPlaceholder = "Коментар";
+			ViewBag.RoleIdPlaceholder = "Роль";
+			return View(new RegisterViewModel());
+		}
+		[HttpPost]
         [Authorize(Roles = "admin, manager")]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {

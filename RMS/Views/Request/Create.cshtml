@@ -1,0 +1,45 @@
+﻿@model Request
+
+<div class="wrap-login">
+	<form asp-area=""
+		  asp-controller="Request"
+		  asp-action="Create"
+		  method="post"
+		  class="login-form">
+		<span class="title">
+			@ViewBag.Title
+		</span>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Name)" asp-for="Name">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Description)" asp-for="Description">
+		</div>
+		<div class="wrap-input">
+			<select class="input login" asp-for="Priority">
+				<option value="1">Звичайний</option>
+				<option value="2">Критичний</option>
+			</select>
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Address)" asp-for="Address">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Comment)" asp-for="Comment">
+		</div>
+		<div class="wrap-input">
+			<select class="input login" asp-for="CategoryId">
+				@foreach (var item in Model.Categories)
+				{
+					<option value="@item.Id">@item.Name</option>
+				}
+			</select>
+		</div>
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="container-login-form-btn">
+			<button class="login-form-btn" type="submit">
+				Створити
+			</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,27 @@
+﻿tr {
+    border: 1px solid #000000;
+    color: black;
+    font-size: 18px;
+}
+
+th {
+    padding: 10px;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+td a {
+    padding: 10px;
+    border: 1px solid #000000;
+    border-right: 0;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+tr:nth-child(2n+1){
+    background-color: #C9E4F6;
+}
+
+tr:nth-child(2n){
+    background-color: #B4DAF2;
+}

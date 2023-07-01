@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
+using RMS.Domain.Entities;
 using RMS.Models;
 using System.Data;
 
@@ -164,18 +165,60 @@ namespace RMS.Controllers
             }
             return RedirectToAction("CancelledRequests");
         }
-		[HttpGet]
-		public IActionResult Create(uint id)
-		{
-			var request = _db.Requests.Include(r => r.Lifecycle).FirstOrDefault(r => r.Id == id);
-			if (request != null)
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+			var category = new Request
 			{
-				request.CancelId = Convert.ToUInt32(Request.Cookies["Id"]);
-				request.Lifecycle.Cancelled = DateTime.UtcNow;
-				request.Status = 4;
-				_db.SaveChanges();
+				Categories = await _db.Categories.ToListAsync()
+			};
+
+			return View(category);
+		}
+		[HttpPost]
+		public async Task<IActionResult> Create(Request model)
+		{
+			if (ModelState.IsValid)
+			{
+                var lifecycle = new Lifecycle()
+                {
+                    Planning = DateTime.UtcNow
+                };
+
+                _db.Lifecycles.Add(lifecycle);
+
+                await _db.SaveChangesAsync();
+
+                // create request
+                var request = new Request
+                {
+                    Name = model.Name,
+                    Description = model.Description,
+                    Priority = model.Priority,
+                    Address = model.Address,
+                    CategoryId = model.CategoryId,
+                    Comment = model.Comment,
+                    CreatedId = Convert.ToUInt32(Request.Cookies["Id"]),
+                    LifecycleId = lifecycle.Id
+				};
+
+				// save user to db
+				_db.Requests.Add(request);
+
+				await _db.SaveChangesAsync();
+
+				// redirect to users
+				return Redirect("/Request/PlanningRequests");
 			}
-			return RedirectToAction("CancelledRequests");
+
+			ModelState.AddModelError("", "Помилка валідації форми");
+
+			var category = new Request
+            {
+                Categories = await _db.Categories.ToListAsync()
+		    };
+
+			return View(category);
 		}
 	}
 }

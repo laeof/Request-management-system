@@ -12,9 +12,9 @@ namespace RMS.Domain.Entities
         public uint UserRoleId { get; set; }
         [ForeignKey("Role")]
         public uint RoleId { get; set; }
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
         [ForeignKey("User")]
         public uint UserId { get; set; }
-        public User User { get; set; }
+        public User? User { get; set; }
     }
 }

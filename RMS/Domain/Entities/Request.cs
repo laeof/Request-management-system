@@ -12,36 +12,37 @@ namespace RMS.Domain.Entities
         //Назва
         [Required]
         [Display(Name = "Назва заявки")]
-        public string Name { get; set; }
+        public string Name { get; set; } = "default name";
         // Опис
         [Required]
         [Display(Name = "Опис")]
-        public string Description { get; set; }
+        public string Description { get; set; } = "default descr";
         // Коментар
         [Display(Name = "Коментар")]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = "default coment";
         // Статус заявки
         [Display(Name = "Статус")]
-        public int Status { get; set; }
+        public int Status { get; set; } = 1;
         // Пріорітет заявки
         [Display(Name = "Пріорітет")]
-        public int Priority { get; set; }
+        public int Priority { get; set; } = 1;
         // Адреса
         [Display(Name = "Адреса")]
-        public string Address { get; set; }
+        public string Address { get; set; } = "default address";
         // Зовнішній ключ Категорія
         [Display(Name = "Категорія")]
         [ForeignKey("Category")]
         public uint? CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
+		public List<Category>? Categories { get; set; }
 
-        // Зовнішній ключ
-        // ID виконувача - звичайне
-        [Display(Name = "Виконувач")]
+		// Зовнішній ключ
+		// ID виконувача - звичайне
+		[Display(Name = "Виконувач")]
         [ForeignKey("Executor")]
         public uint? ExecutorId { get; set; }
         // Виконувач - навігаційне
-        public User Executor { get; set; }
+        public User? Executor { get; set; }
 
         // Зовнішній ключ
         // ID життєвого циклу заявки - звичайне
@@ -49,7 +50,7 @@ namespace RMS.Domain.Entities
         [ForeignKey("Lifecycle")]
         public uint LifecycleId { get; set; }
         // Силка на життєвий цикл заявки - навігаційне
-        public Lifecycle Lifecycle { get; set; }
+        public Lifecycle? Lifecycle { get; set; }
         // Зовнішній ключ
         // ID користувача - звичайне
         [ForeignKey("Closed")]
@@ -71,5 +72,11 @@ namespace RMS.Domain.Entities
         // користувач - навігаційне
         [Display(Name = "Ким відкрито")]
         public User? Opened { get; set; }
+        //зовнішній ключ
+        //користувач - звичайне
+        [ForeignKey("Created")]
+        public uint CreatedId { get; set; }
+        //користувач - навігаційне
+        public User? Created { get; set; }
     }
 }

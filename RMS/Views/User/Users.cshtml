@@ -53,7 +53,7 @@
             @if (User.IsInRole("admin") || User.IsInRole("manager"))
             {
                 <td>
-                    @Html.ActionLink("Редактировать", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Редактировать", "Edit", new { id=item.Id })
                     @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
                 </td>
             }

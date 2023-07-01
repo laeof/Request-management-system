@@ -12,16 +12,16 @@ namespace RMS.Domain.Entities
 		public uint Id { get; set; }
         [Required]
         [Display(Name = "Ім'я")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = "default firstname";
         [Required]
         [Display(Name = "Прізвище")]
-        public string Surname { get; set; }
+        public string Surname { get; set; } = "default surname";
         [Required]
         [Display(Name = "Логін")]
-        public string Login { get; set; }
+        public string Login { get; set; } = "login";
         [Required]
         [Display(Name = "Пароль")]
-        public string Password { get; set; }
+        public string Password { get; set; } = "password";
 
         [Display(Name = "Коментар")]
         public string? Comment { get; set; }

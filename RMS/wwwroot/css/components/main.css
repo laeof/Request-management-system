@@ -7,6 +7,7 @@
 @import "content.css";
 @import "logo.css";
 @import "leftmenu.css";
+@import "table.css";
 
 .main {
     display: flex;

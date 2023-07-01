@@ -11,6 +11,6 @@ namespace RMS.Domain.Entities
         public uint Id { get; set; }
         [Required]
         [Display(Name = "Назва категорії")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }
