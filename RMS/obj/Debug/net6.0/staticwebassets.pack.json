@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets\\css\\components\\title.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\user.css",
+      "PackagePath": "staticwebassets\\css\\components\\user.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\fonts.css",
       "PackagePath": "staticwebassets\\css\\fonts.css"
     },
@@ -203,6 +207,14 @@
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\user.png",
       "PackagePath": "staticwebassets\\img\\png\\user.png"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\arrow.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\arrow.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\exit.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\exit.svg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\js\\main.js",

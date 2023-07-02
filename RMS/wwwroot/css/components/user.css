@@ -1,0 +1,37 @@
+﻿.userimg {
+    border-radius: 100px;
+    height: 65px;
+}
+
+.user:hover {
+    background: #3C444E;
+    border-radius: 8px;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+
+.user {
+    font-weight: 300;
+    width: 90%;
+    display: flex;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 25px;
+    padding-right: 30px;
+}
+
+.user .info {
+    margin-left: 30px;
+}
+
+.user .name{
+    font-size: 18px;
+}
+
+.user .status {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #46BD82;
+}

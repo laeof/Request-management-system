@@ -4,11 +4,21 @@
     height: 100vh;
 }
 
-.leftmenu .nav > *{
+.leftmenu .nav > * {
     border-top: 0.01px solid #B2B2B2;
 }
 
-.leftmenu .nav .list, .drop-list{
+.leftmenu .nav .list .item .text .drop.bottom {
+    transform-origin: center center;
+    transform: rotate(-90deg);
+    transition: transform 0.25s;
+}
+
+.leftmenu .nav .list .item .text .drop {
+    transition: transform 0.25s;
+}
+
+.leftmenu .nav .list, .drop-list {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,18 +26,22 @@
     padding-bottom: 10px;
 }
 
-.leftmenu .drop-list {
-    display: none;
+.leftmenu .nav .list .item .drop-list {
+    padding: 0;
 }
 
 .leftmenu button {
     cursor: pointer;
     padding-top: 15px;
     padding-bottom: 15px;
-    width: 100%;
+    padding-right: 0;
     height: 100%;
     background: transparent;
     color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
     font-weight: 300;
     font-size: 16px;
 }
@@ -43,6 +57,28 @@
     padding-bottom: 15px;
     font-size: 16px;
     width: 90%;
+}
+
+.leftmenu .nav .list .item .drop-list .drop-item {
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.leftmenu .nav .list .item .drop-list {
+    opacity: 0;
+    height: 0;
+    transition: all 0.3s;
+}
+
+.leftmenu .nav .list .item .list {
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.leftmenu .nav .list .item .list .item{
+    transform: translateY(0);
+    transition: all 0.3s;
 }
 
 .leftmenu .nav:last-child .list:last-child .text {
@@ -61,14 +97,14 @@
     padding-bottom: 0;
 }
 
+#exit .text {
+    padding-right: 17px;
+}
+
 .leftmenu .nav .item:hover {
     background: #3C444E;
     border-radius: 8px;
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-}
-
-.leftmenu .drop-item{
-    display: none;
 }
 
 .leftmenu .wrap-logo {

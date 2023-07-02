@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RMS.Domain;
+using RMS.Models;
 
 namespace RMS.Controllers
 {
@@ -10,6 +12,7 @@ namespace RMS.Controllers
 		{
             return RedirectToAction("Login", "Account");
         }
+
 		[Authorize]
 		public IActionResult Index()
 		{

@@ -53,7 +53,8 @@ namespace RMS.Migrations
                     Surname = table.Column<string>(type: "text", nullable: false),
                     Login = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
-                    Comment = table.Column<string>(type: "text", nullable: true)
+                    Comment = table.Column<string>(type: "text", nullable: true),
+                    ImgPath = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -173,8 +174,8 @@ namespace RMS.Migrations
                 columns: new[] { "Id", "Cancelled", "Closed", "Current", "Planning" },
                 values: new object[,]
                 {
-                    { 1L, null, null, null, new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6791) },
-                    { 2L, null, null, null, new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6798) }
+                    { 1L, null, null, null, new DateTime(2023, 7, 2, 11, 37, 24, 414, DateTimeKind.Utc).AddTicks(1897) },
+                    { 2L, null, null, null, new DateTime(2023, 7, 2, 11, 37, 24, 414, DateTimeKind.Utc).AddTicks(1908) }
                 });
 
             migrationBuilder.InsertData(
@@ -189,12 +190,12 @@ namespace RMS.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Comment", "FirstName", "Login", "Password", "Surname" },
+                columns: new[] { "Id", "Comment", "FirstName", "ImgPath", "Login", "Password", "Surname" },
                 values: new object[,]
                 {
-                    { 1L, "Comment", "Max", "ADMIN", "password", "Akchurin" },
-                    { 2L, "Comment", "Anton", "MANAGER", "password", "Guryshkin" },
-                    { 3L, "Comment", "Georgii", "mounter", "password", "Perepelitsa" }
+                    { 1L, "Comment", "Max", "~/img/png/user.png", "ADMIN", "password", "Akchurin" },
+                    { 2L, "Comment", "Anton", "~/img/png/user.png", "MANAGER", "password", "Guryshkin" },
+                    { 3L, "Comment", "Georgii", "~/img/png/user.png", "mounter", "password", "Perepelitsa" }
                 });
 
             migrationBuilder.InsertData(

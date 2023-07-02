@@ -1,0 +1,57 @@
+﻿@model LeftMenuModel
+
+<form asp-controller="Account" asp-action="Logout">
+	<div class="leftmenu">
+		<nav class="nav">
+			<ul class="list">
+				<li class="item" onclick="window.location.href = '/Home';"><div class="wrap-logo"><img class="logo" src="~/img/png/google.png" />Компанія</div></li>
+			</ul>
+			<ul class="list">
+				<li class="user" onclick="window.location.href = '/Account/PersonalPage';">
+					<img class="userimg" src="~/img/png/user.png" />
+					<div class="info">
+						<div class="name">
+							@Model.User.FirstName @Model.User.Surname
+						</div>
+						<div class="status">
+							online
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="list">
+				<li class="item" onclick="toggleRequests(1)">
+					<div class="text">
+						<a class="drop">Заявки</a>
+						<img class="drop" id="1img" src="~/img/svg/arrow.svg" />
+					</div>
+					<ul class="drop-list" id="1">
+						<li class="drop-item" onclick="window.location.href = '/Request/PlanningRequests';"><a>Заплановані заявки</a></li>
+						<li class="drop-item" onclick="window.location.href = '/Request/CurrentRequests';"><a>Поточні заявки</a></li>
+						<li class="drop-item" onclick="window.location.href = '/Request/ClosedRequests';"><a>Закриті заявки</a></li>
+						<li class="drop-item" onclick="window.location.href = '/Request/CancelledRequests';"><a>Відмінені заявки</a></li>
+						<li class="drop-item" onclick="window.location.href = '/Request/Create';"><a>Створити заявку</a></li>
+					</ul>
+				</li>
+				<li class="item" onclick="toggleRequests(2)">
+					<div class="text">
+						<a class="drop">Користувачі</a>
+						<img class="drop" id="2img" src="~/img/svg/arrow.svg" />
+					</div>
+					<ul class="drop-list" id="2">
+						<li class="drop-item" onclick="window.location.href = '/User/Users';"><a>Облікові записи</a></li>
+						<li class="drop-item" onclick="window.location.href = '/Account/Register';"><a>Створити обліковий запис</a></li>
+					</ul>
+				</li>
+				<li class="item" id="exit">
+					<div class="text">
+						<button type="submit">
+							<p>Вийти</p>
+							<img class="drop" src="~/img/svg/exit.svg" />
+						</button>
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</form>

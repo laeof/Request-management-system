@@ -1,6 +1,7 @@
 function toggleRequests(arg) {
     var ulItem = document.getElementById(arg);
     var liItems = ulItem.getElementsByTagName('li');
+    var imgItem = document.getElementById(arg + 'img');
 
     if (ulItem.classList.contains("drop-list")) {
         ulItem.classList.remove("drop-list");
@@ -10,7 +11,21 @@ function toggleRequests(arg) {
         ulItem.classList.add("drop-list");
     }
 
+    if (imgItem.classList.contains("bottom")) {
+        imgItem.classList.remove("bottom");
+    }
+    else {
+        imgItem.classList.add("bottom");
+    }
+
+    
     for (var i = 0; i < liItems.length; i++) {
-        liItems[i].className = liItems[i].className === 'drop-item' ? 'item' : 'drop-item';
+        if (liItems[i].classList.contains("drop-item")) {
+            liItems[i].classList.remove("drop-item");
+            liItems[i].classList.add("item");
+        } else {
+            liItems[i].classList.remove("item");
+            liItems[i].classList.add("drop-item");
+        }
     }
 }

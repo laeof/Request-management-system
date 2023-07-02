@@ -1,22 +1,36 @@
-﻿<!DOCTYPE html>
+﻿@using RMS.Controllers
+
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		@await Html.PartialAsync("MetatagsPartial")
 		@await Html.PartialAsync("CssPartial")
 	</head>
 	<body>
-		<div class="container">
-			@await Html.PartialAsync("LeftmenuPartial")
-			<div class="main">
+	<div class="container">
+		<div class="main">
+			<div>
+				@if (User.Identity.IsAuthenticated)
+				{
+					<vc:Leftmenu />
+				}
+			</div>
+			<div>
 				@await Html.PartialAsync("HeaderPartial")
+
 				<div class="content">
 					@RenderBody()
+
 				</div>
 				<footer class="footer">
-					@await Html.PartialAsync("FooterPartial")
+
+				@await Html.PartialAsync("FooterPartial")
+
 				</footer>
 			</div>
 		</div>
-		@await Html.PartialAsync("ScriptsPartial")
+	</div>
+	@await Html.PartialAsync("ScriptsPartial")
+
 	</body>
 </html>

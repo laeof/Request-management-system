@@ -25,5 +25,6 @@ namespace RMS.Domain.Entities
 
         [Display(Name = "Коментар")]
         public string? Comment { get; set; }
+        public string? ImgPath { get; set; } = "~/img/png/user.png";
     }
 }

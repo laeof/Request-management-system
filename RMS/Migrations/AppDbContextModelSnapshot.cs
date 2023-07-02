@@ -79,12 +79,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6791)
+                            Planning = new DateTime(2023, 7, 2, 11, 37, 24, 414, DateTimeKind.Utc).AddTicks(1897)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 1, 10, 49, 52, 769, DateTimeKind.Utc).AddTicks(6798)
+                            Planning = new DateTime(2023, 7, 2, 11, 37, 24, 414, DateTimeKind.Utc).AddTicks(1908)
                         });
                 });
 
@@ -236,6 +236,9 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("ImgPath")
+                        .HasColumnType("text");
+
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasColumnType("text");
@@ -258,6 +261,7 @@ namespace RMS.Migrations
                             Id = 1L,
                             Comment = "Comment",
                             FirstName = "Max",
+                            ImgPath = "~/img/png/user.png",
                             Login = "ADMIN",
                             Password = "password",
                             Surname = "Akchurin"
@@ -267,6 +271,7 @@ namespace RMS.Migrations
                             Id = 2L,
                             Comment = "Comment",
                             FirstName = "Anton",
+                            ImgPath = "~/img/png/user.png",
                             Login = "MANAGER",
                             Password = "password",
                             Surname = "Guryshkin"
@@ -276,6 +281,7 @@ namespace RMS.Migrations
                             Id = 3L,
                             Comment = "Comment",
                             FirstName = "Georgii",
+                            ImgPath = "~/img/png/user.png",
                             Login = "mounter",
                             Password = "password",
                             Surname = "Perepelitsa"

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RMS.Domain;
+using RMS.Domain.Entities;
 
 namespace RMS.Controllers
 {
@@ -20,5 +21,6 @@ namespace RMS.Controllers
 
             return View(users);
         }
-    }
+	}
+	
 }

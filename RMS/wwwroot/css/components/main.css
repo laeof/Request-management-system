@@ -8,12 +8,16 @@
 @import "logo.css";
 @import "leftmenu.css";
 @import "table.css";
+@import "user.css";
 
 .main {
     display: flex;
-    flex-direction: column;
     margin: 0 auto;
     background-color: #e9faff;
     min-height: 100vh;
+    width: 100%;
+}
+
+.main div:last-child {
     width: 100%;
 }
