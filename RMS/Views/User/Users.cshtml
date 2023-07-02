@@ -1,10 +1,6 @@
 ﻿@model IEnumerable<User>
 
-@{
-    ViewBag.Title = "Список користувачів";
-}
-
-<h2>Список користувачів</h2>
+<h2>@ViewBag.Title</h2>
 
 <table>
     <tr>
@@ -26,7 +22,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Comment)
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)

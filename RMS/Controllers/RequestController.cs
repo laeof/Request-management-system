@@ -136,6 +136,8 @@ namespace RMS.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Title = "Запланувати заявку";
+
             var Request = new Request
             {
                 Categories = dataManager.Categories.GetCategories().ToList()
@@ -145,6 +147,8 @@ namespace RMS.Controllers
 		[HttpPost]
 		public IActionResult Create(Request model)
 		{
+			ViewBag.Title = "Запланувати заявку";
+
 			if (ModelState.IsValid)
 			{
                 var lifecycle = new Lifecycle()

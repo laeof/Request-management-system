@@ -108,6 +108,7 @@ namespace RMS.Controllers
 		[Authorize(Roles = "admin, manager")]
 		public IActionResult Register()
 		{
+			ViewBag.Title = "Створити обліковий запис";
 			ViewBag.UserNamePlaceholder = "Логін";
 			ViewBag.PasswordPlaceholder = "Пароль";
 			ViewBag.FirstNamePlaceholder = "Ім'я";
@@ -120,7 +121,8 @@ namespace RMS.Controllers
 		[HttpPost]
         [Authorize(Roles = "admin, manager")]
         public IActionResult Register(RegisterViewModel model)
-        {
+		{
+			ViewBag.Title = "Створити обліковий запис";
 			ViewBag.UserNamePlaceholder = "Логін";
 			ViewBag.PasswordPlaceholder = "Пароль";
 			ViewBag.FirstNamePlaceholder = "Ім'я";

@@ -17,6 +17,8 @@ namespace RMS.Controllers
         [HttpGet]
         public IActionResult Users()
         {
+			@ViewBag.Title = "Список облікових записів";
+
             var users = dataManager.Users.GetUsers();
 
             return View(users);

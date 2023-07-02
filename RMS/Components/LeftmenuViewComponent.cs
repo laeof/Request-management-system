@@ -13,8 +13,7 @@ namespace RMS.Components
 		}
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			var a = new LeftMenuModel { User = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])) };
-			return View(a);
+			return View(new LeftMenuModel { User = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])) });
 		}
 	}
 }
