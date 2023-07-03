@@ -19,7 +19,8 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             return context.Roles.FirstOrDefault(x => x.Id == id);
         }
-		public void SaveRole(Role entity)
+
+        public void SaveRole(Role entity)
         {
             if (entity.Id == default)
             {

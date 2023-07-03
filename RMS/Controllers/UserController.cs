@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
 using RMS.Domain.Entities;
 
@@ -14,15 +15,62 @@ namespace RMS.Controllers
 		{
             this.dataManager = dataManager;
 		}
+        [Authorize]
         [HttpGet]
-        public IActionResult Users()
+		[Authorize(Roles = "admin, manager")]
+		public IActionResult Users()
         {
 			@ViewBag.Title = "Список облікових записів";
 
-            var users = dataManager.Users.GetUsers();
+            var users = dataManager.UserRole.GetUserRole()
+                 .Include(a => a.User)
+                 .ToList();
 
             return View(users);
         }
-	}
+        [HttpGet]
+        public IActionResult Edit(uint id)
+        {
+            var userrole = dataManager.UserRole.GetUserRoleById(id);
+            userrole.User = dataManager.Users.GetUserById(userrole.UserId);
+            userrole.User.Id = userrole.UserId;
+            userrole.Role = dataManager.Role.GetRoleById(userrole.RoleId);
+            userrole.UserRoleId = id;
+            return View(userrole);
+        }
+        [HttpPost]
+        public IActionResult Edit(UserRole userrole)
+        {
+            if (userrole != null)
+            {
+                dataManager.Users.SaveUser(userrole.User);
+                dataManager.UserRole.SaveUserRole(userrole);
+            }
+
+            return RedirectToAction("Users");
+        }
+        public IActionResult ActivityChange(uint id)
+        {
+            var user = dataManager.Users.GetUserById(id);
+
+            if (user != null)
+            {
+                user.IsActive = !user.IsActive;
+                dataManager.Users.SaveUser(user);
+            }
+            return RedirectToAction("Users");
+        }
+        public IActionResult Delete(uint id)
+        {
+            var user = dataManager.Users.GetUserById(id);
+
+            if (user != null)
+            {
+                dataManager.Users.DeleteUser(user);
+            }
+
+            return RedirectToAction("Users");
+        }
+    }
 	
 }

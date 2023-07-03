@@ -9,9 +9,10 @@ namespace RMS.Domain.Entities
     {
         [Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[ForeignKey("Key")]
 		public uint Id { get; set; }
-        [Required]
-        [Display(Name = "Ім'я")]
+		[Display(Name = "Ім'я")]
+		[Required]
         public string FirstName { get; set; } = "default firstname";
         [Required]
         [Display(Name = "Прізвище")]
@@ -25,6 +26,7 @@ namespace RMS.Domain.Entities
 
         [Display(Name = "Коментар")]
         public string? Comment { get; set; }
-        public string? ImgPath { get; set; } = "~/img/png/user.png";
+        public string? ImgPath { get; set; } = "../../img/png/user.png";
+        public bool IsActive { get; set; } = true;
     }
 }

@@ -133,7 +133,8 @@ namespace RMS.Controllers
 			}
 			return RedirectToAction("CancelledRequests");
 		}
-        [HttpGet]
+		[Authorize(Roles = "admin, manager")]
+		[HttpGet]
         public IActionResult Create()
         {
             ViewBag.Title = "Запланувати заявку";

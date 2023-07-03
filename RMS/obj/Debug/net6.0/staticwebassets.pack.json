@@ -69,6 +69,34 @@
       "PackagePath": "staticwebassets\\css\\components\\main.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\accountinfo.css",
+      "PackagePath": "staticwebassets\\css\\components\\personalpage\\accountinfo.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\button.css",
+      "PackagePath": "staticwebassets\\css\\components\\personalpage\\button.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\input.css",
+      "PackagePath": "staticwebassets\\css\\components\\personalpage\\input.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\label.css",
+      "PackagePath": "staticwebassets\\css\\components\\personalpage\\label.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\main.css",
+      "PackagePath": "staticwebassets\\css\\components\\personalpage\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\personalpage.css",
+      "PackagePath": "staticwebassets\\css\\components\\personalpage\\personalpage.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\profileimage.css",
+      "PackagePath": "staticwebassets\\css\\components\\personalpage\\profileimage.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\main.css"
     },
@@ -195,6 +223,10 @@
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-ThinItalic.woff2"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\jpg\\preview.jpg",
+      "PackagePath": "staticwebassets\\img\\jpg\\preview.jpg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\google.png",

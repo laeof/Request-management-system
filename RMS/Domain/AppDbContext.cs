@@ -43,7 +43,8 @@ namespace RMS.Domain
 				Surname = "Akchurin",
 				Login = "ADMIN",
 				Password = "password",
-				Comment = "Comment"
+				Comment = "Comment",
+                ImgPath = "../../img/jpg/preview.jpg"
 			});
             modelBuilder.Entity<User>().HasData(new User
             {

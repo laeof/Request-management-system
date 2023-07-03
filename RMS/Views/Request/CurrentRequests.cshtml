@@ -4,6 +4,7 @@
 
 @{
     ViewBag.Title = "Список заявок";
+    var role = false;
 }
 
 <h2>Список заявок</h2>
@@ -32,6 +33,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.Lifecycle.Current)
             </th>
+            <th></th>
+            @if(!User.IsInRole("mounter"))
+            {
+                <th></th>
+            }
         </tr>
 
         @foreach (var item in Model)

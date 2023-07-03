@@ -1,0 +1,11 @@
+﻿.personalpage form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    margin-left: -130px;
+}
+
+.personalpage form .profile{
+    display: flex;
+}

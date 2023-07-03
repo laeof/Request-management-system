@@ -1,58 +1,94 @@
-﻿@model IEnumerable<User>
+﻿@model IEnumerable<UserRole>
 
 <h2>@ViewBag.Title</h2>
 
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.User.FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Surname)
+            @Html.DisplayNameFor(model => model.User.Surname)
         </th>
         @if (User.IsInRole("admin"))
         {
             <th>
-                @Html.DisplayNameFor(model => model.Login)
+                @Html.DisplayNameFor(model => model.User.Login)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Password)
+                @Html.DisplayNameFor(model => model.User.Password)
             </th>
         }
         <th>
-            @Html.DisplayNameFor(model => model.Comment)
+            @Html.DisplayNameFor(model => model.User.Comment)
         </th>
+        @if(!User.IsInRole("mounter"))
+        {
+            <th></th>          
+        }
     </tr>
-
     @foreach (var item in Model)
     {
-        <tr>
-            <th>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </th>
-            @if (User.IsInRole("admin"))
+        @if (User.IsInRole("manager"))
+        {
+            if(item.RoleId > 2)
             {
-                <th>
-                    @Html.DisplayFor(modelItem => item.Login)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelItem => item.Password)
-                </th>
+                <tr>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.User.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.User.Surname)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.User.Comment)
+                    </th>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.UserRoleId })">Редагувати</a>
+                        @if (item.User.IsActive)
+                        {
+                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
+                        }
+                        <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
+                    </td>
+                </tr>
             }
-            <th>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </th>
-            @if (User.IsInRole("admin") || User.IsInRole("manager"))
-            {
+        }
+        else if(User.IsInRole("admin"))
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.User.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.User.Surname)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.User.Login)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.User.Password)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.User.Comment)
+                </th>
                 <td>
-                    @Html.ActionLink("Редактировать", "Edit", new { id=item.Id })
-                    @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+                    <a href="@Url.Action("Edit", new { id = item.UserRoleId })">Редагувати</a>
+                    @if (item.User.IsActive)
+                    {
+                        <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
+                    }
+                    <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
                 </td>
-            }
-            <th></th>
-        </tr>
+            </tr>
+        }
     }
 </table>

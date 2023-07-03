@@ -19,16 +19,18 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             return context.UserRole.FirstOrDefault(x => x.UserRoleId == id);
         }
-		public void SaveUserRole(UserRole entity)
+        public void SaveUserRole(UserRole entity)
         {
-            if (entity.UserRoleId == default)
-            {
-                context.Entry(entity).State = EntityState.Added;
-            }
-            else
-                context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
-        }
+			if (entity.UserRoleId == default)
+			{
+				context.Entry(entity).State = EntityState.Added;
+			}
+			else
+			{
+				context.Entry(entity).State = EntityState.Modified;
+			}
+			context.SaveChanges();
+		}
         public void DeleteUserRole(uint id)
         {
             context.UserRole.Remove(new UserRole { UserRoleId = id });

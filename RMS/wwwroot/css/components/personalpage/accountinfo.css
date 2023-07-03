@@ -1,0 +1,10 @@
+﻿.personalpage .accountinfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+}
+
+.personalpage .accountinfo .name {
+    display: flex;
+    flex-direction: column;
+}

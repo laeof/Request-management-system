@@ -79,12 +79,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 2, 11, 37, 24, 414, DateTimeKind.Utc).AddTicks(1897)
+                            Planning = new DateTime(2023, 7, 3, 19, 24, 2, 987, DateTimeKind.Utc).AddTicks(483)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 2, 11, 37, 24, 414, DateTimeKind.Utc).AddTicks(1908)
+                            Planning = new DateTime(2023, 7, 3, 19, 24, 2, 987, DateTimeKind.Utc).AddTicks(530)
                         });
                 });
 
@@ -239,6 +239,9 @@ namespace RMS.Migrations
                     b.Property<string>("ImgPath")
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasColumnType("text");
@@ -261,7 +264,8 @@ namespace RMS.Migrations
                             Id = 1L,
                             Comment = "Comment",
                             FirstName = "Max",
-                            ImgPath = "~/img/png/user.png",
+                            ImgPath = "../../img/jpg/preview.jpg",
+                            IsActive = true,
                             Login = "ADMIN",
                             Password = "password",
                             Surname = "Akchurin"
@@ -271,7 +275,8 @@ namespace RMS.Migrations
                             Id = 2L,
                             Comment = "Comment",
                             FirstName = "Anton",
-                            ImgPath = "~/img/png/user.png",
+                            ImgPath = "../../img/png/user.png",
+                            IsActive = true,
                             Login = "MANAGER",
                             Password = "password",
                             Surname = "Guryshkin"
@@ -281,7 +286,8 @@ namespace RMS.Migrations
                             Id = 3L,
                             Comment = "Comment",
                             FirstName = "Georgii",
-                            ImgPath = "~/img/png/user.png",
+                            ImgPath = "../../img/png/user.png",
+                            IsActive = true,
                             Login = "mounter",
                             Password = "password",
                             Surname = "Perepelitsa"

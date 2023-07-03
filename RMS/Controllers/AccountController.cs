@@ -90,11 +90,20 @@ namespace RMS.Controllers
 			ViewBag.ReturnUrl = returnUrl;
 			return View(model);
 		}
-
+		[HttpGet]
 		[Authorize]
 		public IActionResult PersonalPage()
 		{
-			return View("PersonalPage");
+			var model = new PersonalPageModel();
+			model.User = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"]));
+			return View(model);
+		}
+		[HttpPost]
+		[Authorize]
+		public IActionResult PersonalPage(PersonalPageModel model)
+		{
+			dataManager.Users.SaveUser(model.User);
+			return View(model);
 		}
 
 		[Authorize]

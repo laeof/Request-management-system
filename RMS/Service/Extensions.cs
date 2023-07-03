@@ -12,24 +12,24 @@ namespace RMS.Service
 		}
 		public static bool ValidateUser(string login, string password, DataManager dataManager, ref uint userId)
 		{
-			bool isValid = false;
 
 			try
 			{
 				User user = dataManager.Users.GetUsers().FirstOrDefault(u => u.Login.ToLower() == login.ToLower() && u.Password == password);
 
 				if (user != null)
-				{
-					userId = user.Id;
-					isValid = true;
+                {
+                    userId = user.Id;
+                    if (!user.IsActive)
+						return false;
+                    return true;
 				}
 			}
 			catch
 			{
-				isValid = false;
+				return false;
 			}
-
-			return isValid;
+			return false;
 		}
 	}
 }

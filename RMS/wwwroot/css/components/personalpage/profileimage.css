@@ -1,0 +1,25 @@
+﻿.personalpage .profileimage {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    position: relative;
+}
+
+.personalpage .profileimage img {
+    width: 300px;
+    border-radius: 100%;
+    border: 3px solid #A6A6A6;
+}
+
+.personalpage .profileimage .imageedit {
+    position: absolute;
+    margin-top: 235px;
+    margin-left: 170px;
+    background-color: #e9faff;
+    color: rgba(0,0,0);
+    text-align: center;
+    width: auto;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}

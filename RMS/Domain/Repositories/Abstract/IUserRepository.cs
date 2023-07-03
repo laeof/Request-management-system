@@ -7,6 +7,6 @@ namespace RMS.Domain.Repositories.Abstract
         IQueryable<User> GetUsers();
         User? GetUserById(uint? id);
         void SaveUser(User entity);
-        void DeleteUser(uint id);
+        void DeleteUser(User user);
     }
 }

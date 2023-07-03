@@ -19,19 +19,23 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             return context.Users.FirstOrDefault(x => x.Id == id);
         }
-		public void SaveUser(User entity)
+
+        public void SaveUser(User entity)
         {
-            if (entity.Id == default)
-            {
-                context.Entry(entity).State = EntityState.Added;
-            }
-            else
-                context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
-        }
-        public void DeleteUser(uint id)
+			if (entity.Id == default)
+			{
+				context.Entry(entity).State = EntityState.Added;
+			}
+			else
+			{
+				context.Entry(entity).State = EntityState.Modified;
+			}
+
+			context.SaveChanges();
+		}
+        public void DeleteUser(User user)
         {
-            context.Users.Remove(new User { Id = id });
+            context.Users.Remove(user);
             context.SaveChanges();
         }
     }

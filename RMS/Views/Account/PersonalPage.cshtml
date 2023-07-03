@@ -1,4 +1,28 @@
-﻿<div>personal page</div>
-<form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
-	<input type="submit" value="Exit" />
-</form>
+﻿@model PersonalPageModel
+
+<div class="personalpage">
+	<form asp-controller="Account" asp-action="PersonalPage" method="post">
+		<div class="profile">
+			<div class="profileimage">
+				<a href=""><img src="@Model.User.ImgPath" /></a>
+				<a class="imageedit" href="">Редагувати</a>
+			</div>
+			<div class="accountinfo">
+				<div class="name">
+					<input type="hidden" asp-for="@Model.User.Id" />
+					<input type="hidden" asp-for="@Model.User.Login" />
+					<input type="hidden" asp-for="@Model.User.ImgPath" />
+					<input type="hidden" asp-for="@Model.User.Comment" />
+					<input type="hidden" asp-for="@Model.User.IsActive" />
+					<label asp-for="@Model.User.FirstName"></label>
+					<input type="text" asp-for="@Model.User.FirstName"/>
+					<label asp-for="@Model.User.Surname"></label>
+					<input type="text" asp-for="@Model.User.Surname"/>
+					<label asp-for="@Model.User.Password"></label>
+					<input type="password" asp-for="@Model.User.Password"/>
+				</div>
+			</div>
+		</div>
+		<button type="submit">Зберегти</button>
+	</form>
+</div>

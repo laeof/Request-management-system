@@ -1,0 +1,53 @@
+﻿@model UserRole
+
+<div class="wrap-login">
+	<form asp-area=""
+		  asp-controller="User"
+		  asp-action="Edit"
+		  method="post"
+		  class="login-form"
+		  asp-route-returnUrl="@ViewBag.ReturnUrl">
+		<span class="title">
+			@ViewBag.Title
+		</span>
+		<input type="hidden" asp-for="User.Id" />
+		<input type="hidden" asp-for="UserRoleId" />
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="User.FirstName">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.SurnamePlaceholder" asp-for="User.Surname">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="User.Login">
+			<span asp-validation-for="User.Login" class="validate"></span>
+		</div>
+		<div class="wrap-input">
+			<input class="input password" type="text" placeholder="@ViewBag.PasswordPlaceholder" asp-for="User.Password">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="User.Comment">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="User.IsActive">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="User.ImgPath">
+		</div>
+		<div class="wrap-input">
+			<select class="input login" asp-for="RoleId">
+				@if (User.IsInRole("admin"))
+				{
+					<option value="1">Admin</option>
+					<option value="2">Manager</option>
+				}
+				<option value="3">Mounter</option>
+			</select>
+		</div>
+		<div class="container-login-form-btn">
+			<button class="login-form-btn" type="submit">
+				Редагувати
+			</button>
+		</div>
+	</form>
+</div>
