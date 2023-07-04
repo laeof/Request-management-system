@@ -66,8 +66,8 @@ namespace RMS.Controllers
 
             return requests;
         }
-
-        [HttpGet]
+		[Authorize(Roles = "admin, manager")]
+		[HttpGet]
         public IActionResult Open(uint id)
         {
             var request = dataManager.Requests.GetRequestById(id);
@@ -111,7 +111,8 @@ namespace RMS.Controllers
 			}
 			return RedirectToAction("ClosedRequests");
 		}
-        [HttpGet]
+		[Authorize(Roles = "admin, manager")]
+		[HttpGet]
         public IActionResult Cancel(uint id)
         {
 			var request = dataManager.Requests.GetRequestById(id);
@@ -145,6 +146,7 @@ namespace RMS.Controllers
             };
 			return View(Request);
 		}
+		[Authorize(Roles = "admin, manager")]
 		[HttpPost]
 		public IActionResult Create(Request model)
 		{
@@ -168,7 +170,8 @@ namespace RMS.Controllers
                     Address = model.Address,
                     CategoryId = model.CategoryId,
                     Comment = model.Comment,
-                    CreatedId = Convert.ToUInt32(Request.Cookies["Id"]),
+                    CreatedName = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])).FirstName 
+                    + " " + dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])).Surname,
                     LifecycleId = lifecycle.Id
 				};
 

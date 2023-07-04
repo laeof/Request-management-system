@@ -18,6 +18,7 @@ namespace RMS.Domain
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+
 			base.OnModelCreating(modelBuilder);
 
 			modelBuilder.Entity<Role>().HasData(new Role
@@ -93,12 +94,11 @@ namespace RMS.Domain
 				CategoryId = 1,
 				Comment = "comment",
 				Description = "description",
-				ExecutorId = 1,
 				LifecycleId = 1,
 				Name = "request 1",
 				Priority = 1,
 				Status = 1,
-                CreatedId = 1
+                CreatedName = "Max Akchurin"
             });
             modelBuilder.Entity<Request>().HasData(new Request
             {
@@ -107,12 +107,11 @@ namespace RMS.Domain
                 CategoryId = 1,
                 Comment = "comment",
                 Description = "description",
-                ExecutorId = 1,
                 LifecycleId = 2,
                 Name = "request 2",
                 Priority = 2,
                 Status = 1,
-                CreatedId = 1
+                CreatedName = "Max Akchurin"
             });
             modelBuilder.Entity<Category>().HasData(new Category
             {

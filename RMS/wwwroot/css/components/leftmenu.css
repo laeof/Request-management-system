@@ -1,7 +1,7 @@
 ﻿.leftmenu {
     width: 300px;
     background: #2A2F35;
-    height: 100vh;
+    height: 100%;
 }
 
 .leftmenu .nav > * {

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using RMS.Domain;
 using RMS.Models;
 
@@ -13,7 +15,7 @@ namespace RMS.Components
 		}
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View(new LeftMenuModel { User = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])) });
+            return View(new LeftMenuModel { User = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])) });
 		}
 	}
 }

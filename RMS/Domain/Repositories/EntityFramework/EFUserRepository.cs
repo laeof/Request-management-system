@@ -28,6 +28,10 @@ namespace RMS.Domain.Repositories.EntityFramework
 			}
 			else
 			{
+                if(entity.Password == null)
+                {
+					entity.Password = context.Users.AsNoTracking().FirstOrDefault(u => u.Id == entity.Id).Password;
+				}
 				context.Entry(entity).State = EntityState.Modified;
 			}
 

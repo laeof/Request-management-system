@@ -32,7 +32,7 @@
         @if (User.IsInRole("manager"))
         {
             if(item.RoleId > 2)
-            {
+            {   
                 <tr>
                     <th>
                         @Html.DisplayFor(modelItem => item.User.FirstName)
@@ -45,21 +45,24 @@
                     </th>
                     <td>
                         <a href="@Url.Action("Edit", new { id = item.UserRoleId })">Редагувати</a>
-                        @if (item.User.IsActive)
+                        @if (!(item.UserId == ViewBag.Id))
                         {
-                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
+                            @if (item.User.IsActive)
+                            {
+                                <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
+                            }
+                            <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
                         }
-                        else
-                        {
-                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
-                        }
-                        <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
-                    </td>
-                </tr>
+                </td>
+            </tr>
             }
         }
         else if(User.IsInRole("admin"))
-        {
+        {   
             <tr>
                 <th>
                     @Html.DisplayFor(modelItem => item.User.FirstName)
@@ -78,15 +81,18 @@
                 </th>
                 <td>
                     <a href="@Url.Action("Edit", new { id = item.UserRoleId })">Редагувати</a>
-                    @if (item.User.IsActive)
+                    @if (!(item.UserId == ViewBag.Id))
                     {
-                        <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
+                        @if (item.User.IsActive)
+                        {
+                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
+                        }
+                        <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
                     }
-                    else
-                    {
-                        <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
-                    }
-                    <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
                 </td>
             </tr>
         }

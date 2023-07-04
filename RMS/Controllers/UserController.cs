@@ -20,7 +20,8 @@ namespace RMS.Controllers
 		[Authorize(Roles = "admin, manager")]
 		public IActionResult Users()
         {
-			@ViewBag.Title = "Список облікових записів";
+			ViewBag.Title = "Список облікових записів";
+            ViewBag.Id = Convert.ToUInt32(Request.Cookies["Id"]);
 
             var users = dataManager.UserRole.GetUserRole()
                  .Include(a => a.User)
@@ -28,7 +29,8 @@ namespace RMS.Controllers
 
             return View(users);
         }
-        [HttpGet]
+		[Authorize(Roles = "admin, manager")]
+		[HttpGet]
         public IActionResult Edit(uint id)
         {
             var userrole = dataManager.UserRole.GetUserRoleById(id);
@@ -38,7 +40,8 @@ namespace RMS.Controllers
             userrole.UserRoleId = id;
             return View(userrole);
         }
-        [HttpPost]
+		[Authorize(Roles = "admin, manager")]
+		[HttpPost]
         public IActionResult Edit(UserRole userrole)
         {
             if (userrole != null)
@@ -49,7 +52,8 @@ namespace RMS.Controllers
 
             return RedirectToAction("Users");
         }
-        public IActionResult ActivityChange(uint id)
+		[Authorize(Roles = "admin, manager")]
+		public IActionResult ActivityChange(uint id)
         {
             var user = dataManager.Users.GetUserById(id);
 
@@ -60,7 +64,8 @@ namespace RMS.Controllers
             }
             return RedirectToAction("Users");
         }
-        public IActionResult Delete(uint id)
+		[Authorize(Roles = "admin, manager")]
+		public IActionResult Delete(uint id)
         {
             var user = dataManager.Users.GetUserById(id);
 

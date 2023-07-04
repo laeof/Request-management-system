@@ -19,8 +19,7 @@
 			<input class="input login" type="text" placeholder="@ViewBag.SurnamePlaceholder" asp-for="User.Surname">
 		</div>
 		<div class="wrap-input">
-			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="User.Login">
-			<span asp-validation-for="User.Login" class="validate"></span>
+			<input class="input login" type="hidden" placeholder="@ViewBag.UserNamePlaceholder" asp-for="User.Login">
 		</div>
 		<div class="wrap-input">
 			<input class="input password" type="text" placeholder="@ViewBag.PasswordPlaceholder" asp-for="User.Password">

@@ -6,7 +6,6 @@ namespace RMS.Domain.Entities
 {
     public class Request
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint Id { get; set; }
@@ -36,47 +35,32 @@ namespace RMS.Domain.Entities
         public uint CategoryId { get; set; }
         public Category? Category { get; set; }
         public List<Category>? Categories { get; set; }
-
-        // Зовнішній ключ
-        // ID виконувача - звичайне
-        [Display(Name = "Виконувач")]
-        [ForeignKey("Executor")]
-        public uint? ExecutorId { get; set; }
-        // Виконувач - навігаційне
-        public User? Executor { get; set; }
-
         // Зовнішній ключ
         // ID життєвого циклу заявки - звичайне
         [Display(Name = "Життєвий цикл")]
-        [ForeignKey("Lifecycle")]
         public uint LifecycleId { get; set; }
         // Силка на життєвий цикл заявки - навігаційне
         public Lifecycle? Lifecycle { get; set; }
         // Зовнішній ключ
         // ID користувача - звичайне
-        [ForeignKey("Closed")]
         public uint? CloseId { get; set; }
         // користувач - навігаційне
         [Display(Name = "Ким закрито")]
         public User? Closed { get; set; }
         // Зовнішній ключ
         // ID користувача - звичайне
-        [ForeignKey("Cancelled")]
         public uint? CancelId { get; set; }
         // користувач - навігаційне
         [Display(Name = "Ким відмінено")]
         public User? Cancelled { get; set; }
         // Зовнішній ключ
         // ID користувача - звичайне
-        [ForeignKey("Opened")]
         public uint? OpenId { get; set; }
         // користувач - навігаційне
         [Display(Name = "Ким відкрито")]
         public User? Opened { get; set; }
-        //зовнішній ключ
         //користувач - звичайне
-        [ForeignKey("Created")]
-        public uint CreatedId { get; set; }
+        public string CreatedName { get; set; } = "1";
         //користувач - навігаційне
         public User? Created { get; set; }
     }
