@@ -9,15 +9,3 @@
 @import "leftmenu.css";
 @import "table.css";
 @import "user.css";
-
-.main {
-    display: flex;
-    margin: 0 auto;
-    background-color: #e9faff;
-    height: 100%;
-    width: 100%;
-}
-
-.main div:last-child {
-    width: 100%;
-}

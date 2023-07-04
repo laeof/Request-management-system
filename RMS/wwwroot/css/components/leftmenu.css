@@ -1,6 +1,7 @@
 ﻿.leftmenu {
     width: 300px;
     background: #2A2F35;
+    position: fixed;
     height: 100%;
 }
 

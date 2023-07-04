@@ -7,29 +7,30 @@
 		@await Html.PartialAsync("CssPartial")
 	</head>
 	<body>
-	<div class="container">
-		<div class="main">
-			<div>
-				@if (User.Identity.IsAuthenticated)
-				{
+			@if (User.Identity.IsAuthenticated)
+			{
+				<style>
+					.container {
+						margin-left: 300px;
+					}
+				</style>
+				<div class="leftmenu">
 					<vc:Leftmenu />
-				}
-			</div>
-			<div>
-				@await Html.PartialAsync("HeaderPartial")
-
-				<div class="content">
-					@RenderBody()
-
 				</div>
-				<footer class="footer">
+			}
+		<div class="container">
+			@await Html.PartialAsync("HeaderPartial")
 
-				@await Html.PartialAsync("FooterPartial")
+			<div class="content">
+				@RenderBody()
 
-				</footer>
 			</div>
+			<footer class="footer">
+
+			@await Html.PartialAsync("FooterPartial")
+
+			</footer>
 		</div>
-	</div>
 	@await Html.PartialAsync("ScriptsPartial")
 
 	</body>
