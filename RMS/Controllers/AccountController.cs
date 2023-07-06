@@ -94,6 +94,7 @@ namespace RMS.Controllers
 		[Authorize]
 		public IActionResult PersonalPage()
 		{
+			ViewBag.Title = "Персональна сторінка";
 			var model = new PersonalPageModel();
 			model.User = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"]));
 			return View(model);
@@ -102,6 +103,7 @@ namespace RMS.Controllers
 		[Authorize]
 		public IActionResult PersonalPage(PersonalPageModel model)
 		{
+			ViewBag.Title = "Персональна сторінка";
 			dataManager.Users.SaveUser(model.User);
 			return View(model);
 		}
@@ -109,6 +111,7 @@ namespace RMS.Controllers
 		[Authorize]
 		public async Task<IActionResult> Logout()
 		{
+			ViewBag.Title = "Вихід";
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 			return RedirectToAction("Login");
 		}

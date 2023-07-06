@@ -17,24 +17,28 @@ namespace RMS.Controllers
         [HttpGet]
         public IActionResult PlanningRequests()
         {
+            ViewBag.Title = "Заплановані заявки";
             return View(ShowRequests(1));
         }
 
         [HttpGet]
         public IActionResult CurrentRequests()
         {
+            ViewBag.Title = "Поточні заявки";
             return View(ShowRequests(2));
         }
 
         [HttpGet]
         public IActionResult ClosedRequests()
         {
+            ViewBag.Title = "Закриті заявки";
             return View(ShowRequests(3));
         }
 
         [HttpGet]
         public IActionResult CancelledRequests()
         {
+            ViewBag.Title = "Відмінені заявки";
             return View(ShowRequests(4));
         }
 

@@ -1,5 +1,5 @@
 ﻿table {
-    margin-top: 30px;
+    margin-top: 10px;
     width: 100%;
 }
 
@@ -15,8 +15,12 @@ th:not(:first-child) {
 
 th {
     font-family: 'Roboto';
-    font-weight: 300;
-    padding: 20px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+th a {
+    font-weight: 400;
 }
 
 .editlink.inactive {
@@ -59,22 +63,42 @@ th {
     cursor: pointer;
 }
 
+.editlink:hover a {
+    font-weight: 500;
+}
+
+.openlink:hover a {
+    font-weight: 500;
+}
+
+.closelink:hover a {
+    font-weight: 500;
+}
+
+.cancellink:hover a {
+    font-weight: 500;
+}
+
+.first-row {
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 .first-row th {
     padding: 22px;
     font-weight: 500;
-    font-size: 23px;
+    font-size: 18px;
     color: black;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-bottom: 10px;
 }
 
-td a {
-    padding: 10px;
-    border: 1px solid #000000;
-    border-right: 0;
-    font-family: 'Roboto';
-    font-weight: 300;
-}
-
-tr:nth-child(2n+1){
+tr:nth-child(2n+1):not(.first-row){
     background-color: #C9E4F6;
 }
 

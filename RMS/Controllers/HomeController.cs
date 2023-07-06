@@ -16,6 +16,7 @@ namespace RMS.Controllers
 		[Authorize]
 		public IActionResult Index()
 		{
+			ViewBag.Title = "Домашня сторінка";
 			return View();
 		}
 	}

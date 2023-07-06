@@ -32,8 +32,10 @@ namespace RMS.Controllers
 		[Authorize(Roles = "admin, manager")]
 		[HttpGet]
         public IActionResult Edit(uint id)
-        {
-            var userrole = dataManager.UserRole.GetUserRoleById(id);
+		{
+			ViewBag.Title = "Редагування облікових записів";
+
+			var userrole = dataManager.UserRole.GetUserRoleById(id);
 
             if (userrole == null)
                 return RedirectToAction("Users");
@@ -60,8 +62,9 @@ namespace RMS.Controllers
 		[HttpPost]
         public IActionResult Edit(UserRole userrole)
         {
+			ViewBag.Title = "Редагування облікових записів";
 
-            if (userrole == null)
+			if (userrole == null)
                 return RedirectToAction("Users");
 
             var user_role = userrole.RoleId;
@@ -82,8 +85,10 @@ namespace RMS.Controllers
         }
 		[Authorize(Roles = "admin, manager")]
 		public IActionResult ActivityChange(uint id)
-        {
-            var user = dataManager.Users.GetUserById(id); 
+		{
+			ViewBag.Title = "Редагування облікових записів";
+
+			var user = dataManager.Users.GetUserById(id); 
             
             if(user == null)
                 return RedirectToAction("Users");
@@ -109,7 +114,9 @@ namespace RMS.Controllers
 		[Authorize(Roles = "admin, manager")]
 		public IActionResult Delete(uint id)
         {
-            var user = dataManager.Users.GetUserById(id);
+			ViewBag.Title = "Редагування облікових записів";
+
+			var user = dataManager.Users.GetUserById(id);
 
             if (user == null)
                 return RedirectToAction("Users");

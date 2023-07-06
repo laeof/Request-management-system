@@ -3,10 +3,10 @@
     justify-content: center;
 }
 
-.requests .row.default {
-    background: #81A5CA;
-}
+    .requests .row.default {
+        background: #BDF0FF;
+    }
 
-.requests .row.critical {
-    background: #DE88DB;
-}
+    .requests .row.critical {
+        background: #F096CC;
+    }

@@ -57,6 +57,14 @@
       "PackagePath": "staticwebassets\\css\\components\\header.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header\\image.css",
+      "PackagePath": "staticwebassets\\css\\components\\header\\image.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header\\main.css",
+      "PackagePath": "staticwebassets\\css\\components\\header\\main.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu.css",
       "PackagePath": "staticwebassets\\css\\components\\leftmenu.css"
     },
@@ -95,6 +103,10 @@
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\profileimage.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\profileimage.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\card.css",
+      "PackagePath": "staticwebassets\\css\\components\\requestpage\\card.css"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
@@ -225,6 +237,10 @@
       "PackagePath": "staticwebassets\\fonts\\Roboto-ThinItalic.woff2"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\ico\\favicon.ico",
+      "PackagePath": "staticwebassets\\img\\ico\\favicon.ico"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\jpg\\preview.jpg",
       "PackagePath": "staticwebassets\\img\\jpg\\preview.jpg"
     },
@@ -245,8 +261,32 @@
       "PackagePath": "staticwebassets\\img\\svg\\arrow.svg"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\burgerbtn.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\burgerbtn.svg"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\exit.svg",
       "PackagePath": "staticwebassets\\img\\svg\\exit.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\home.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\home.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\night.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\night.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\night_day.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\night_day.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\questionmark.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\questionmark.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\search.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\search.svg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\js\\main.js",
