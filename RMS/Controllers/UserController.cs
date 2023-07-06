@@ -70,6 +70,7 @@ namespace RMS.Controllers
             var user_role = userrole.RoleId;
 
             var current_user_role = dataManager.UserRole.GetUserRole()
+			.AsNoTracking()
             .FirstOrDefault(role => role.UserId == Convert.ToUInt32(Request.Cookies["Id"]))
             .RoleId;
 
