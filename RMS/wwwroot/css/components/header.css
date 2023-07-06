@@ -1,5 +1,5 @@
 ﻿.header {
-    height: 60px;
+    min-height: 60px;
     background: #20c997;
     display: flex;
     min-width: 100vh;
