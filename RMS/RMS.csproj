@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="appsettings.production.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 

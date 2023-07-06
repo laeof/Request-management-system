@@ -3,7 +3,7 @@
 <h2>@ViewBag.Title</h2>
 
 <table>
-    <tr>
+    <tr class="first-row">
         <th>
             @Html.DisplayNameFor(model => model.User.FirstName)
         </th>
@@ -24,7 +24,9 @@
         </th>
         @if(!User.IsInRole("mounter"))
         {
-            <th></th>          
+            <th></th>
+            <th></th>
+            <th></th>
         }
     </tr>
     @foreach (var item in Model)
@@ -43,22 +45,46 @@
                     <th>
                         @Html.DisplayFor(modelItem => item.User.Comment)
                     </th>
-                    <td>
-                        <a href="@Url.Action("Edit", new { id = item.UserRoleId })">Редагувати</a>
-                        @if (!(item.UserId == ViewBag.Id))
+                    <th class="editlink" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                        <a>Редагувати</a>
+                    </th>
+                    @if (!(item.UserId == ViewBag.Id))
+                    {
+                        @if (item.User.IsActive)
                         {
-                            @if (item.User.IsActive)
-                            {
-                                <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
-                            }
-                            <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
+                            <th class="cancellink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                <a>Відключити</a>
+                            </th>
                         }
-                </td>
-            </tr>
+                        else
+                        {
+                            <th class="openlink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                <a>Включити</a>
+                            </th>
+                        }
+                        <th class="closelink" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
+                            <a>Видалити</a>
+                        </th>
+                    }
+                    else
+                    {
+                        if (item.User.IsActive)
+                        {
+                            <th class="cancellink inactive">
+                                <a>Відключити</a>
+                            </th>
+                        }
+                        else
+                        {
+                            <th class="openlink inactive">
+                                <a>Включити</a>
+                            </th>
+                        }
+                        <th class="closelink inactive">
+                            <a>Видалити</a>
+                        </th>
+                    }
+                </tr>
             }
         }
         else if(User.IsInRole("admin"))
@@ -79,21 +105,45 @@
                 <th>
                     @Html.DisplayFor(modelItem => item.User.Comment)
                 </th>
-                <td>
-                    <a href="@Url.Action("Edit", new { id = item.UserRoleId })">Редагувати</a>
-                    @if (!(item.UserId == ViewBag.Id))
+                <th class="editlink" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                    <a>Редагувати</a>
+                </th>
+                @if (!(item.UserId == ViewBag.Id))
+                {
+                    @if (item.User.IsActive)
                     {
-                        @if (item.User.IsActive)
-                        {
-                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Відключити</a>
-                        }
-                        else
-                        {
-                            <a href="@Url.Action("ActivityChange", new { id = item.User.Id })">Включити</a>
-                        }
-                        <a href="@Url.Action("Delete", new { id = item.User.Id })">Видалити</a>
+                    <th class="cancellink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                            <a>Відключити</a>
+                        </th>
                     }
-                </td>
+                    else
+                    {
+                        <th class="openlink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                            <a>Включити</a>
+                        </th>
+                    }
+                    <th class="closelink" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
+                        <a>Видалити</a>
+                    </th>
+                }
+                else
+                {
+                    if (item.User.IsActive)
+                    {
+                        <th class="cancellink inactive">
+                            <a>Відключити</a>
+                        </th>
+                    }
+                    else
+                    {
+                        <th class="openlink inactive">
+                            <a>Включити</a>
+                        </th>
+                    }
+                    <th class="closelink inactive">
+                        <a>Видалити</a>
+                    </th>
+                }
             </tr>
         }
     }

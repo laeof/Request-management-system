@@ -1,5 +1,6 @@
-﻿.requests tr {
-    color: #fff;
+﻿.requests {
+    display: flex;
+    justify-content: center;
 }
 
 .requests .row.default {
@@ -8,24 +9,4 @@
 
 .requests .row.critical {
     background: #DE88DB;
-}
-
-.requests .openlink {
-    background: #64CA7F;
-    height: 100%;
-}
-
-.requests .closelink {
-    background: #DC8D79;
-    height: 100%;
-}
-
-.requests .cancellink {
-    background: #D4C66D;
-    height: 100%;
-}
-
-.requests .first-row {
-    color: black;
-    font-size: 22px;
 }

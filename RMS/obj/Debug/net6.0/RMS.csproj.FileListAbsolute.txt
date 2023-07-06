@@ -496,3 +496,4 @@ C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\obj\Debug\net6.
 C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\obj\Debug\net6.0\RMS.pdb
 C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\obj\Debug\net6.0\RMS.genruntimeconfig.cache
 C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\obj\Debug\net6.0\ref\RMS.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\appsettings.production.json

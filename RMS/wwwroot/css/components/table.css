@@ -1,13 +1,69 @@
-﻿tr {
+﻿table {
+    margin-top: 30px;
+    width: 100%;
+}
+
+tr {
     border: 1px solid #000000;
     color: black;
     font-size: 18px;
 }
 
+th:not(:first-child) {
+    border-left: 1px solid #000000;
+}
+
 th {
-    padding: 10px;
     font-family: 'Roboto';
     font-weight: 300;
+    padding: 20px;
+}
+
+.editlink.inactive {
+    background: #9F9F9F;
+}
+
+.openlink.inactive {
+    background: #9F9F9F;
+}
+
+.closelink.inactive {
+    background: #9F9F9F;
+}
+
+.cancellink.inactive {
+    background: #9F9F9F;
+}
+
+.editlink {
+    cursor: pointer;
+    background: #86CB6C;
+    height: 100%;
+}
+
+.openlink {
+    cursor: pointer;
+    background: #64CA7F;
+    height: 100%;
+}
+
+.closelink {
+    background: #DC8D79;
+    height: 100%;
+    cursor: pointer;
+}
+
+.cancellink {
+    background: #D4C66D;
+    height: 100%;
+    cursor: pointer;
+}
+
+.first-row th {
+    padding: 22px;
+    font-weight: 500;
+    font-size: 23px;
+    color: black;
 }
 
 td a {

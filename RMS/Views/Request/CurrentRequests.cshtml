@@ -74,13 +74,13 @@
                     {
                         if (User.IsInRole("admin") || User.IsInRole("manager"))
                         {
-                            <td>
-                                <a class="cancellink" href="@Url.Action("Cancel", new { id = item.Id })">Відмінити</a>
-                            </td>
+                            <th class="cancellink" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
+                                <a>Відмінити</a>
+                            </th>
                         }
-                        <td>
-                            <a class="closelink" href="@Url.Action("Close", new { id = item.Id })">Закрити</a>
-                        </td>
+                        <th class="closelink" onclick="window.location.href = '@Url.Action("Close", new { id = item.Id })'">
+                            <a>Закрити</a>
+                        </th>
                     }
             </tr>
         }
