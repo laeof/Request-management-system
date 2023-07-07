@@ -11,10 +11,14 @@ namespace RMS.Domain
 	{
 		private readonly DataManager dataManager;
 		private readonly IHttpContextAccessor httpContextAccessor;
+		public User User { get; }
 		public UserManager(DataManager dataManager, IHttpContextAccessor httpContextAccessor)
 		{
 			this.dataManager = dataManager;
 			this.httpContextAccessor = httpContextAccessor;
+			this.User = dataManager.Users.GetUserById(
+				(uint)Convert.ToInt32(
+					httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
 		}
 
 		public async Task<bool> SignInAsync(string login)
@@ -43,7 +47,6 @@ namespace RMS.Domain
 		public async Task<bool> SignOutAsync()
 		{
 			await httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
 			return true;
 		}
 

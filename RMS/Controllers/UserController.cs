@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
 using RMS.Domain.Entities;
-using System.Security.Claims;
 
 namespace RMS.Controllers
 {
@@ -12,14 +10,12 @@ namespace RMS.Controllers
 	[Authorize]
 	public class UserController : Controller
 	{
-		private readonly uint CurrentUserId = 0;
+        private readonly UserManager userManager;
 		private readonly DataManager dataManager;
-		private readonly IHttpContextAccessor httpContextAccessor;
-		public UserController(DataManager dataManager, IHttpContextAccessor httpContextAccessor)
+		public UserController(DataManager dataManager, UserManager userManager)
 		{
 			this.dataManager = dataManager;
-			this.httpContextAccessor = httpContextAccessor;
-			this.CurrentUserId = (uint)Convert.ToInt32(httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            this.userManager = userManager;
 		}
 		[Authorize]
         [HttpGet]
@@ -27,7 +23,7 @@ namespace RMS.Controllers
 		public IActionResult Users()
         {
 			ViewBag.Title = "Список облікових записів";
-            ViewBag.Id = dataManager.Users.GetUserById(CurrentUserId).Id;
+            ViewBag.Id = userManager.User.Id;
 
 			var users = dataManager.UserRole.GetUserRole()
                  .Include(a => a.User)
@@ -49,7 +45,7 @@ namespace RMS.Controllers
             var user_role = userrole.RoleId;
 
             var current_user_role = dataManager.UserRole.GetUserRole()
-                .FirstOrDefault(role => role.UserId == CurrentUserId).RoleId;
+                .FirstOrDefault(role => role.UserId == userManager.User.Id).RoleId;
 
             //if current user is manager or less
             if (current_user_role >= 2)
@@ -76,7 +72,7 @@ namespace RMS.Controllers
 
             var current_user_role = dataManager.UserRole.GetUserRole()
 			.AsNoTracking()
-            .FirstOrDefault(role => role.UserId == CurrentUserId)
+            .FirstOrDefault(role => role.UserId == userManager.User.Id)
             .RoleId;
 
             //if current user is manager or less
@@ -104,7 +100,7 @@ namespace RMS.Controllers
             .RoleId;
 
             var current_user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == CurrentUserId)
+            .FirstOrDefault(role => role.UserId == userManager.User.Id)
             .RoleId;
 
             //if current user is manager or less
@@ -132,7 +128,7 @@ namespace RMS.Controllers
             .RoleId;
 
             var current_user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == CurrentUserId)
+            .FirstOrDefault(role => role.UserId == userManager.User.Id)
             .RoleId;
 
             //if current user is manager or less

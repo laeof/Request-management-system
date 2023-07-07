@@ -75,9 +75,7 @@ namespace RMS.Controllers
 		{
 			ViewBag.Title = "Персональна сторінка";
 			var model = new PersonalPageModel();
-			model.User = dataManager.Users.GetUserById(
-				(uint)Convert.ToInt32(
-					HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
+			model.User = userManager.User;
 			return View(model);
 		}
 		[HttpPost]

@@ -1,23 +1,19 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RMS.Domain;
 using RMS.Domain.Entities;
-using System.Security.Claims;
 
 namespace RMS.Controllers
 {
     [Authorize]
     public class RequestController : Controller
 	{
-		private readonly uint CurrentUserId = 0;
+        private readonly UserManager userManager;
 		private readonly DataManager dataManager;
-        private readonly IHttpContextAccessor httpContextAccessor;
-		public RequestController(DataManager dataManager, IHttpContextAccessor httpContextAccessor)
+		public RequestController(DataManager dataManager, UserManager userManager)
         {
 			this.dataManager = dataManager;
-			this.httpContextAccessor = httpContextAccessor;
-			this.CurrentUserId = (uint)Convert.ToInt32(httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            this.userManager = userManager;
 		}
 
 		[HttpGet]
@@ -85,7 +81,7 @@ namespace RMS.Controllers
             if (request != null)
             {
                 //кто відкрив
-                request.OpenId = (uint)Convert.ToInt32(CurrentUserId);
+                request.OpenId = userManager.User.Id;
 
                 //життєвий цикл заявки
                 request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
@@ -107,7 +103,7 @@ namespace RMS.Controllers
 			if (request != null)
 			{
                 //кто закрив
-                request.CloseId = CurrentUserId;
+                request.CloseId = userManager.User.Id;
 
 				//життєвий цикл заявки
 				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
@@ -130,7 +126,7 @@ namespace RMS.Controllers
 			if (request != null)
 			{
 				//кто відмінив
-				request.CancelId = CurrentUserId;
+				request.CancelId = userManager.User.Id;
 
 				//життєвий цикл заявки
 				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
@@ -180,8 +176,8 @@ namespace RMS.Controllers
                     Address = model.Address,
                     CategoryId = model.CategoryId,
                     Comment = model.Comment,
-                    CreatedName = dataManager.Users.GetUserById(CurrentUserId).FirstName 
-                    + " " + dataManager.Users.GetUserById(CurrentUserId).Surname,
+                    CreatedName = dataManager.Users.GetUserById(userManager.User.Id).FirstName 
+                    + " " + dataManager.Users.GetUserById(userManager.User.Id).Surname,
                     LifecycleId = lifecycle.Id
 				};
 
