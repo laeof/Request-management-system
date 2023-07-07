@@ -33,35 +33,38 @@ namespace RMS.Controllers
         }
 		[Authorize(Roles = "admin, manager")]
 		[HttpGet]
-        public IActionResult Edit(uint id)
+        public async Task<IActionResult> Edit(uint id)
 		{
 			ViewBag.Title = "Редагування облікових записів";
 
-			var userrole = dataManager.UserRole.GetUserRoleById(id);
+			var userrole = await dataManager.UserRole.GetUserRoleByIdAsync(id);
 
             if (userrole == null)
                 return RedirectToAction("Users");
 
             var user_role = userrole.RoleId;
 
-            var current_user_role = dataManager.UserRole.GetUserRole()
-                .FirstOrDefault(role => role.UserId == userManager.User.Id).RoleId;
+            var current_user_role = await dataManager.UserRole.GetUserRole()
+                .FirstOrDefaultAsync(role => role.UserId == userManager.User.Id);
 
             //if current user is manager or less
-            if (current_user_role >= 2)
-                if (current_user_role > user_role)
+            if (current_user_role.RoleId >= 2)
+                if (current_user_role.RoleId > user_role)
                     return RedirectToAction("Users");
 
-            userrole.User = dataManager.Users.GetUserById(userrole.UserId);
+            userrole.User = await dataManager.Users.GetUserByIdAsync(userrole.UserId);
+
             userrole.User.Id = userrole.UserId;
-            userrole.Role = dataManager.Role.GetRoleById(userrole.RoleId);
+
+            userrole.Role = await dataManager.Role.GetRoleByIdAsync(userrole.RoleId);
+
             userrole.UserRoleId = id;
 
             return View(userrole);
         }
 		[Authorize(Roles = "admin, manager")]
 		[HttpPost]
-        public IActionResult Edit(UserRole userrole)
+        public async Task<IActionResult> Edit(UserRole userrole)
         {
 			ViewBag.Title = "Редагування облікових записів";
 
@@ -70,73 +73,67 @@ namespace RMS.Controllers
 
             var user_role = userrole.RoleId;
 
-            var current_user_role = dataManager.UserRole.GetUserRole()
-			.AsNoTracking()
-            .FirstOrDefault(role => role.UserId == userManager.User.Id)
-            .RoleId;
+            var current_user_role = await dataManager.UserRole.GetUserRole()
+            .FirstOrDefaultAsync(role => role.UserId == userManager.User.Id);
 
             //if current user is manager or less
-            if (current_user_role >= 2)
-                if (current_user_role > user_role)
+            if (current_user_role.RoleId >= 2)
+                if (current_user_role.RoleId > user_role)
                     return RedirectToAction("Users");
 
-            dataManager.Users.SaveUser(userrole.User);
-            dataManager.UserRole.SaveUserRole(userrole);
+            await dataManager.Users.SaveUserAsync(userrole.User);
+            await dataManager.UserRole.SaveUserRoleAsync(userrole);
 
             return RedirectToAction("Users");
         }
 		[Authorize(Roles = "admin, manager")]
-		public IActionResult ActivityChange(uint id)
+		public async Task<IActionResult> ActivityChange(uint id)
 		{
 			ViewBag.Title = "Редагування облікових записів";
 
-			var user = dataManager.Users.GetUserById(id); 
+			var user = await dataManager.Users.GetUserByIdAsync(id); 
             
             if(user == null)
                 return RedirectToAction("Users");
 
-            var user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == id)
-            .RoleId;
+            var user_role = await dataManager.UserRole.GetUserRole()
+            .FirstOrDefaultAsync(role => role.UserId == id);
 
-            var current_user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == userManager.User.Id)
-            .RoleId;
+            var current_user_role = await dataManager.UserRole.GetUserRole()
+            .FirstOrDefaultAsync(role => role.UserId == userManager.User.Id);
 
             //if current user is manager or less
-            if(current_user_role >= 2)
-                if (current_user_role > user_role)
+            if(current_user_role.RoleId >= 2)
+                if (current_user_role.RoleId > user_role.RoleId)
                     return RedirectToAction("Users");
 
             user.IsActive = !user.IsActive;
-            dataManager.Users.SaveUser(user);
+            await dataManager.Users.SaveUserAsync(user);
 
             return RedirectToAction("Users");
         }
 		[Authorize(Roles = "admin, manager")]
-		public IActionResult Delete(uint id)
+		public async Task<IActionResult> Delete(uint id)
         {
 			ViewBag.Title = "Редагування облікових записів";
 
-			var user = dataManager.Users.GetUserById(id);
+			var user = await dataManager.Users.GetUserByIdAsync(id);
 
             if (user == null)
                 return RedirectToAction("Users");
 
-            var user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == id)
-            .RoleId;
+            var user_role = await dataManager.UserRole.GetUserRole()
+            .FirstOrDefaultAsync(role => role.UserId == id);
 
-            var current_user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == userManager.User.Id)
-            .RoleId;
+            var current_user_role = await dataManager.UserRole.GetUserRole()
+            .FirstOrDefaultAsync(role => role.UserId == userManager.User.Id);
 
             //if current user is manager or less
-            if (current_user_role >= 2)
-                if (current_user_role > user_role)
+            if (current_user_role.RoleId >= 2)
+                if (current_user_role.RoleId > user_role.RoleId)
                     return RedirectToAction("Users");
 
-            dataManager.Users.DeleteUser(user);
+            await dataManager.Users.DeleteUserAsync(user);
 
             return RedirectToAction("Users");
         }

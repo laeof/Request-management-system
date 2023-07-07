@@ -19,7 +19,10 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             return context.Users.FirstOrDefault(x => x.Id == id);
         }
-
+        public async Task<User?> GetUserByIdAsync(uint? id)
+        {
+            return await context.Users.FirstOrDefaultAsync(x => x.Id == id);
+        }
         public void SaveUser(User entity)
         {
 			if (entity.Id == default)
@@ -37,10 +40,51 @@ namespace RMS.Domain.Repositories.EntityFramework
 
 			context.SaveChanges();
 		}
+        public async Task<bool> SaveUserAsync(User entity)
+        {
+            try
+            {
+                if (entity.Id == default)
+                {
+                    context.Entry(entity).State = EntityState.Added;
+                }
+                else
+                {
+                    if (entity.Password == null)
+                    {
+						var pw = await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == entity.Id);
+                        entity.Password = pw.Password;
+                    }
+                    context.Entry(entity).State = EntityState.Modified;
+                }
+
+			    await context.SaveChangesAsync();
+
+                return true;
+			}
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+		}
         public void DeleteUser(User user)
         {
             context.Users.Remove(user);
             context.SaveChanges();
+        }
+        public async Task<bool> DeleteUserAsync(User user)
+        {
+            try
+            {
+                context.Users.Remove(user);
+                await context.SaveChangesAsync();
+				return true;
+			}
+            catch
+            {
+                return false;
+            }
         }
     }
 }

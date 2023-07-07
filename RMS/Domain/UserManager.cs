@@ -16,9 +16,14 @@ namespace RMS.Domain
 		{
 			this.dataManager = dataManager;
 			this.httpContextAccessor = httpContextAccessor;
-			this.User = dataManager.Users.GetUserById(
+			if (httpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+			{
+				this.User = dataManager.Users.GetUsers()
+				.AsNoTracking()
+				.FirstOrDefault(u => u.Id ==
 				(uint)Convert.ToInt32(
 					httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
+			}
 		}
 
 		public async Task<bool> SignInAsync(string login)
@@ -26,7 +31,7 @@ namespace RMS.Domain
 
 			var User = await dataManager.Users.GetUsers().FirstOrDefaultAsync(u => u.Login.ToLower() == login.ToLower());
 
-			var Role = dataManager.Role.GetRoleById(
+			var Role = await dataManager.Role.GetRoleByIdAsync(
 				dataManager.UserRole.GetUserRole().FirstOrDefault(ur => ur.UserId == User.Id).RoleId);
 
 			var claims = new List<Claim>
@@ -63,7 +68,7 @@ namespace RMS.Domain
 			};
 
 			//save user
-			dataManager.Users.SaveUser(user);
+			await dataManager.Users.SaveUserAsync(user);
 
 			// create role for user
 			var userrole = new UserRole
@@ -74,7 +79,7 @@ namespace RMS.Domain
 
 			//save user role to db
 
-			dataManager.UserRole.SaveUserRole(userrole);
+			await dataManager.UserRole.SaveUserRoleAsync(userrole);
 
 			return true;
 		}

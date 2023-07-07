@@ -6,7 +6,10 @@ namespace RMS.Domain.Repositories.Abstract
     {
         IQueryable<User> GetUsers();
         User? GetUserById(uint? id);
+        Task<User?> GetUserByIdAsync(uint? id);
         void SaveUser(User entity);
+        Task<bool> SaveUserAsync(User entity);
         void DeleteUser(User user);
+        Task<bool> DeleteUserAsync(User user);
     }
 }

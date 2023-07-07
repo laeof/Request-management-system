@@ -6,7 +6,10 @@ namespace RMS.Domain.Repositories.Abstract
     {
         IQueryable<UserRole> GetUserRole();
         UserRole? GetUserRoleById(uint? id);
+        Task<UserRole?> GetUserRoleByIdAsync(uint? id);
         void SaveUserRole(UserRole entity);
-        void DeleteUserRole(uint id);
-    }
+		Task<bool> SaveUserRoleAsync(UserRole entity);
+		void DeleteUserRole(uint id);
+		Task<bool> DeleteUserRoleAsync(uint id);
+	}
 }

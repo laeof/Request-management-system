@@ -19,6 +19,10 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             return context.UserRole.FirstOrDefault(x => x.UserRoleId == id);
         }
+        public async Task<UserRole?> GetUserRoleByIdAsync(uint? id)
+        {
+            return await context.UserRole.FirstOrDefaultAsync(x => x.UserRoleId == id);
+        }
         public void SaveUserRole(UserRole entity)
         {
 			if (entity.UserRoleId == default)
@@ -31,10 +35,43 @@ namespace RMS.Domain.Repositories.EntityFramework
 			}
 			context.SaveChanges();
 		}
+        public async Task<bool> SaveUserRoleAsync(UserRole entity)
+        {
+            try
+            {
+                if (entity.UserRoleId == default)
+                {
+                    context.Entry(entity).State = EntityState.Added;
+                }
+                else
+                {
+                    context.Entry(entity).State = EntityState.Modified;
+                }
+                await context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+		}
         public void DeleteUserRole(uint id)
         {
             context.UserRole.Remove(new UserRole { UserRoleId = id });
             context.SaveChanges();
         }
+        public async Task<bool> DeleteUserRoleAsync(uint id)
+        {
+            try
+            {
+                context.UserRole.Remove(new UserRole { UserRoleId = id });
+                await context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+		}
     }
 }

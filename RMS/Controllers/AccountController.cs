@@ -80,10 +80,10 @@ namespace RMS.Controllers
 		}
 		[HttpPost]
 		[Authorize]
-		public IActionResult PersonalPage(PersonalPageModel model)
+		public async Task<IActionResult> PersonalPage(PersonalPageModel model)
 		{
 			ViewBag.Title = "Персональна сторінка";
-			dataManager.Users.SaveUser(model.User);
+			await dataManager.Users.SaveUserAsync(model.User);
 			return View(model);
 		}
 
@@ -124,7 +124,7 @@ namespace RMS.Controllers
 			if (ModelState.IsValid)
             {
 				//check for existing
-				var existingUser = dataManager.Users.GetUsers().FirstOrDefault(u => u.Login.ToLower() == model.Login.ToLower());
+				var existingUser = await dataManager.Users.GetUsers().FirstOrDefaultAsync(u => u.Login.ToLower() == model.Login.ToLower());
 				if (existingUser != null)
 				{
 					ModelState.AddModelError(string.Empty, "Користувач з таким логіном вже існує");
