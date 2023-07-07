@@ -10,7 +10,7 @@ namespace RMS.Service
 		{
 			return str.Replace("Controller", "");
 		}
-		public static bool ValidateUser(string login, string password, DataManager dataManager, ref uint userId)
+		public static bool ValidateUser(string login, string password, DataManager dataManager)
 		{
 
 			try
@@ -19,7 +19,6 @@ namespace RMS.Service
 
 				if (user != null)
                 {
-                    userId = user.Id;
                     if (!user.IsActive)
 						return false;
                     return true;

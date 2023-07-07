@@ -17,10 +17,8 @@ namespace RMS.Controllers
 	{
 		private readonly DataManager dataManager;
 		private readonly UserManager userManager;
-		private readonly IHttpContextAccessor httpContextAccessor;
-		public AccountController(IHttpContextAccessor httpContextAccessor, DataManager dataManager, UserManager userManager)
+		public AccountController( DataManager dataManager, UserManager userManager)
 		{
-            this.httpContextAccessor = httpContextAccessor;
 			this.dataManager = dataManager;
 			this.userManager = userManager;
 		}
@@ -50,9 +48,7 @@ namespace RMS.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				uint userID = 0;
-
-				if (Extensions.ValidateUser(model.Login, model.Password, dataManager, ref userID))
+				if (Extensions.ValidateUser(model.Login, model.Password, dataManager))
 				{
 					await userManager.SignInAsync(model.Login);
 
