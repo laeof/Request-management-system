@@ -1,25 +1,24 @@
 ﻿@using RMS.Controllers
-
+@{
+	string containerClass = "container";
+	if (ViewContext.RouteData.Values["controller"].ToString() == "Account" && ViewContext.RouteData.Values["action"].ToString() == "Login")
+	{
+		containerClass += " auth";
+	}
+}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		@await Html.PartialAsync("MetatagsPartial")
 		@await Html.PartialAsync("CssPartial")
-	<link rel="icon" href="../../../../../img/ico/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="~/img/ico/favicon.ico" type="image/x-icon">
 	</head>
 	<body>
 			@if (User.Identity.IsAuthenticated)
 			{
-				<style>
-					.container {
-						margin-left: 300px;
-					}
-				</style>
-				<div class="leftmenu">
-					<vc:Leftmenu />
-				</div>
+				<vc:Leftmenu />
 			}
-		<div class="container">
+		<div class="@containerClass" id="container">
 			@await Html.PartialAsync("HeaderPartial")
 
 			<div class="content">

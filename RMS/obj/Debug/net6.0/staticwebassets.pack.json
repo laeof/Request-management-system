@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\css\\common.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\Input.css",
-      "PackagePath": "staticwebassets\\css\\components\\Input.css"
-    },
-    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\container-login-form-btn.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\container-login-form-btn.css"
     },
@@ -65,8 +61,20 @@
       "PackagePath": "staticwebassets\\css\\components\\header\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu.css",
-      "PackagePath": "staticwebassets\\css\\components\\leftmenu.css"
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\input.css",
+      "PackagePath": "staticwebassets\\css\\components\\input.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu\\leftmenu.css",
+      "PackagePath": "staticwebassets\\css\\components\\leftmenu\\leftmenu.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu\\main.css",
+      "PackagePath": "staticwebassets\\css\\components\\leftmenu\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu\\user.css",
+      "PackagePath": "staticwebassets\\css\\components\\leftmenu\\user.css"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\logo.css",
@@ -123,10 +131,6 @@
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\title.css",
       "PackagePath": "staticwebassets\\css\\components\\title.css"
-    },
-    {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\user.css",
-      "PackagePath": "staticwebassets\\css\\components\\user.css"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\fonts.css",

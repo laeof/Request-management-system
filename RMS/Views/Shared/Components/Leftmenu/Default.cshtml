@@ -1,10 +1,10 @@
 ﻿@model LeftMenuModel
 
 <form asp-controller="Account" asp-action="Logout">
-	<div class="leftmenu">
+	<div class="leftmenu" id="leftmenu">
 		<nav class="nav">
 			<ul class="list">
-				<li class="item" onclick="window.location.href = '/Home';"><div class="wrap-logo"><img class="logo" src="~/img/png/google.png" />Компанія</div></li>
+				<li class="item" onclick="window.location.href = '/Home';"><div class="wrap-logo"><img class="logo" src="~/img/png/google.png" /><p>Компанія</p></div></li>
 			</ul>
 			<ul class="list">
 				<li class="user" onclick="window.location.href = '/Account/PersonalPage';">

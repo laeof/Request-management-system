@@ -9,6 +9,8 @@
 	using RMS.Service;
 	using RMS.Models;
 	using Microsoft.AspNetCore.Authentication.Cookies;
+	using Microsoft.JSInterop;
+	using Microsoft.JSInterop.Infrastructure;
 
 	public class Startup
 	{
@@ -82,7 +84,6 @@
 			//routes
 			app.UseEndpoints(endpoints =>
 			{
-				endpoints.MapControllerRoute("admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 				endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 			});
 		}

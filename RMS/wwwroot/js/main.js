@@ -1,3 +1,6 @@
+var sideBar = document.getElementById("leftmenu");
+var container = document.getElementById("container");
+var minimized = false;
 function toggleRequests(arg) {
     var ulItem = document.getElementById(arg);
     var liItems = ulItem.getElementsByTagName('li');
@@ -17,7 +20,6 @@ function toggleRequests(arg) {
     else {
         imgItem.classList.add("bottom");
     }
-
     
     for (var i = 0; i < liItems.length; i++) {
         if (liItems[i].classList.contains("drop-item")) {
@@ -29,3 +31,29 @@ function toggleRequests(arg) {
         }
     }
 }
+function toggleLeftSideBar() {
+
+    if (sideBar.classList.contains("minimized")) {
+        sideBar.classList.remove("minimized");
+        container.classList.remove("minimized");
+        minimized = false;
+    }
+    else {
+        sideBar.classList.add("minimized");
+        container.classList.add("minimized");
+        minimized = true;
+    }
+}
+function handleHover() {
+    if (minimized) {
+        sideBar.classList.remove("minimized");
+    }
+}
+function handleOver() {
+    if (minimized) {
+        sideBar.classList.add("minimized");
+    }
+}
+
+sideBar.addEventListener('mouseleave', handleOver);
+sideBar.addEventListener('mouseenter', handleHover);

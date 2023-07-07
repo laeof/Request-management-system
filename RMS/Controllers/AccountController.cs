@@ -8,6 +8,8 @@ using RMS.Domain;
 using RMS.Models;
 using RMS.Service;
 using System.Security.Claims;
+using Microsoft.JSInterop;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RMS.Controllers
 {
@@ -76,9 +78,9 @@ namespace RMS.Controllers
 
                     await httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    //редіректи
+					//редіректи
 
-                    return Redirect(returnUrl);
+					return Redirect(returnUrl);
 
 				}
 				model.ErrorMessage = "Невірний логін або пароль";
