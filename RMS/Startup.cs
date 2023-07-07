@@ -29,6 +29,7 @@
 			services.AddTransient<IUserRoleRepository, EFUserRoleRepository>();
 			services.AddTransient<IRoleRepository, EFRoleRepository>();
 			services.AddTransient<DataManager>();
+			services.AddTransient<UserManager>();
 
 			//db context
 			services.AddDbContext<AppDbContext>(x => x.UseNpgsql(Config.ConnectionString));

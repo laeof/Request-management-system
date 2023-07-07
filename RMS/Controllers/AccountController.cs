@@ -16,11 +16,13 @@ namespace RMS.Controllers
 	public class AccountController : Controller
 	{
 		private readonly DataManager dataManager;
+		private readonly UserManager userManager;
 		private readonly IHttpContextAccessor httpContextAccessor;
-		public AccountController(IHttpContextAccessor httpContextAccessor, DataManager dataManager)
+		public AccountController(IHttpContextAccessor httpContextAccessor, DataManager dataManager, UserManager userManager)
 		{
             this.httpContextAccessor = httpContextAccessor;
 			this.dataManager = dataManager;
+			this.userManager = userManager;
 		}
 
 		[HttpGet]
@@ -52,35 +54,11 @@ namespace RMS.Controllers
 
 				if (Extensions.ValidateUser(model.Login, model.Password, dataManager, ref userID))
 				{
-					//користувач
-
-					var User = await dataManager.Users.GetUsers().FirstOrDefaultAsync(u => u.Login.ToLower() == model.Login.ToLower());
-
-					//роль користувача
-
-					var Role = dataManager.Role.GetRoleById(
-						dataManager.UserRole.GetUserRole().FirstOrDefault(ur => ur.UserId == userID).RoleId);
-
-					//користувач + роль
-
-					var claims = new List<Claim>
-					{
-						new Claim(ClaimTypes.NameIdentifier, User.Id.ToString()),
-						new Claim(ClaimTypes.Name, User.Login),
-						new Claim(ClaimTypes.Role, Role.Name)
-					};
-
-                    var identity = new ClaimsIdentity(claims, "Auth");
-                    var principal = new ClaimsPrincipal(identity);
-
-					//авторизація
-
-					await httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+					await userManager.SignInAsync(model.Login);
 
 					//редіректи
 
 					return Redirect(returnUrl);
-
 				}
 				model.ErrorMessage = "Невірний логін або пароль";
 				ViewBag.ReturnUrl = returnUrl;
@@ -115,7 +93,7 @@ namespace RMS.Controllers
 		public async Task<IActionResult> Logout()
 		{
 			ViewBag.Title = "Вихід";
-			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+			await userManager.SignOutAsync();
 			return RedirectToAction("Login");
 		}
 
@@ -135,7 +113,7 @@ namespace RMS.Controllers
 
 		[HttpPost]
         [Authorize(Roles = "admin, manager")]
-        public IActionResult Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
 		{
 			ViewBag.Title = "Створити обліковий запис";
 			ViewBag.UserNamePlaceholder = "Логін";
@@ -147,40 +125,18 @@ namespace RMS.Controllers
 
 			if (ModelState.IsValid)
             {
-                //check for existing
-                var existingUser = dataManager.Users.GetUsers().FirstOrDefault(u => u.Login.ToLower() == model.Login.ToLower());
-                if (existingUser != null)
-                {
-                    ModelState.AddModelError(string.Empty, "Користувач з таким логіном вже існує");
-                    return View(model);
+				//check for existing
+				var existingUser = dataManager.Users.GetUsers().FirstOrDefault(u => u.Login.ToLower() == model.Login.ToLower());
+				if (existingUser != null)
+				{
+					ModelState.AddModelError(string.Empty, "Користувач з таким логіном вже існує");
+					return View(model);
 				}
 
-				// create user
-				var user = new User
-				{
-					Login = model.Login,
-					Password = model.Password,
-					FirstName = model.FirstName,
-					Surname = model.Surname,
-					Comment = model.Comment
-				};
+				await userManager.SingUpAsync(model);
 
-				//save user
-				dataManager.Users.SaveUser(user);
-
-				// create role for user
-				var userrole = new UserRole
-				{
-					UserId = user.Id,
-					RoleId = model.RoleId,
-				};
-
-				//save user role to db
-
-				dataManager.UserRole.SaveUserRole(userrole);
-
-                // redirect to users
-                return Redirect("/User/Users");
+				// redirect to users
+				return Redirect("/User/Users");
             }
 
             // if invalid register again
