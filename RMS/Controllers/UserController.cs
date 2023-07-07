@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
 using RMS.Domain.Entities;
+using System.Security.Claims;
 
 namespace RMS.Controllers
 {
@@ -10,20 +12,24 @@ namespace RMS.Controllers
 	[Authorize]
 	public class UserController : Controller
 	{
-        private readonly DataManager dataManager;
-		public UserController(DataManager dataManager)
+		private readonly uint CurrentUserId = 0;
+		private readonly DataManager dataManager;
+		private readonly IHttpContextAccessor httpContextAccessor;
+		public UserController(DataManager dataManager, IHttpContextAccessor httpContextAccessor)
 		{
-            this.dataManager = dataManager;
+			this.dataManager = dataManager;
+			this.httpContextAccessor = httpContextAccessor;
+			this.CurrentUserId = (uint)Convert.ToInt32(httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
 		}
-        [Authorize]
+		[Authorize]
         [HttpGet]
 		[Authorize(Roles = "admin, manager")]
 		public IActionResult Users()
         {
 			ViewBag.Title = "Список облікових записів";
-            ViewBag.Id = Convert.ToUInt32(Request.Cookies["Id"]);
+            ViewBag.Id = dataManager.Users.GetUserById(CurrentUserId).Id;
 
-            var users = dataManager.UserRole.GetUserRole()
+			var users = dataManager.UserRole.GetUserRole()
                  .Include(a => a.User)
                  .ToList();
 
@@ -43,8 +49,7 @@ namespace RMS.Controllers
             var user_role = userrole.RoleId;
 
             var current_user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == Convert.ToUInt32(Request.Cookies["Id"]))
-            .RoleId;
+                .FirstOrDefault(role => role.UserId == CurrentUserId).RoleId;
 
             //if current user is manager or less
             if (current_user_role >= 2)
@@ -71,7 +76,7 @@ namespace RMS.Controllers
 
             var current_user_role = dataManager.UserRole.GetUserRole()
 			.AsNoTracking()
-            .FirstOrDefault(role => role.UserId == Convert.ToUInt32(Request.Cookies["Id"]))
+            .FirstOrDefault(role => role.UserId == CurrentUserId)
             .RoleId;
 
             //if current user is manager or less
@@ -99,7 +104,7 @@ namespace RMS.Controllers
             .RoleId;
 
             var current_user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == Convert.ToUInt32(Request.Cookies["Id"]))
+            .FirstOrDefault(role => role.UserId == CurrentUserId)
             .RoleId;
 
             //if current user is manager or less
@@ -127,7 +132,7 @@ namespace RMS.Controllers
             .RoleId;
 
             var current_user_role = dataManager.UserRole.GetUserRole()
-            .FirstOrDefault(role => role.UserId == Convert.ToUInt32(Request.Cookies["Id"]))
+            .FirstOrDefault(role => role.UserId == CurrentUserId)
             .RoleId;
 
             //if current user is manager or less

@@ -61,10 +61,11 @@ namespace RMS.Controllers
 					var Role = dataManager.Role.GetRoleById(
 						dataManager.UserRole.GetUserRole().FirstOrDefault(ur => ur.UserId == userID).RoleId);
 
-                    //користувач + роль
+					//користувач + роль
 
-                    var claims = new List<Claim>
+					var claims = new List<Claim>
 					{
+						new Claim(ClaimTypes.NameIdentifier, User.Id.ToString()),
 						new Claim(ClaimTypes.Name, User.Login),
 						new Claim(ClaimTypes.Role, Role.Name)
 					};
@@ -72,11 +73,9 @@ namespace RMS.Controllers
                     var identity = new ClaimsIdentity(claims, "Auth");
                     var principal = new ClaimsPrincipal(identity);
 
-                    //авторизація
+					//авторизація
 
-                    Response.Cookies.Append("Id", userID.ToString());
-
-                    await httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+					await httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
 					//редіректи
 
@@ -98,7 +97,9 @@ namespace RMS.Controllers
 		{
 			ViewBag.Title = "Персональна сторінка";
 			var model = new PersonalPageModel();
-			model.User = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"]));
+			model.User = dataManager.Users.GetUserById(
+				(uint)Convert.ToInt32(
+					HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
 			return View(model);
 		}
 		[HttpPost]

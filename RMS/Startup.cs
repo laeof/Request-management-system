@@ -56,6 +56,14 @@
 				options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 			}).AddCookie();
 
+			services.AddSession(options =>
+			{
+				options.Cookie.Name = "Session";
+				options.IdleTimeout = TimeSpan.FromMinutes(30);
+			});
+
+			services.AddDistributedMemoryCache();
+
 			services.AddHttpContextAccessor();
 
 			//add mvc
@@ -70,6 +78,8 @@
 			{
 				app.UseDeveloperExceptionPage();
 			}
+
+			app.UseSession();
 
 			app.UseRouting();
 

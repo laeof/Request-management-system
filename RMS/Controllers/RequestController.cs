@@ -1,20 +1,26 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RMS.Domain;
 using RMS.Domain.Entities;
+using System.Security.Claims;
 
 namespace RMS.Controllers
 {
     [Authorize]
     public class RequestController : Controller
 	{
+		private readonly uint CurrentUserId = 0;
 		private readonly DataManager dataManager;
-		public RequestController(DataManager dataManager)
+        private readonly IHttpContextAccessor httpContextAccessor;
+		public RequestController(DataManager dataManager, IHttpContextAccessor httpContextAccessor)
         {
 			this.dataManager = dataManager;
-	    }
+			this.httpContextAccessor = httpContextAccessor;
+			this.CurrentUserId = (uint)Convert.ToInt32(httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+		}
 
-        [HttpGet]
+		[HttpGet]
         public IActionResult PlanningRequests()
         {
             ViewBag.Title = "Заплановані заявки";
@@ -79,7 +85,7 @@ namespace RMS.Controllers
             if (request != null)
             {
                 //кто відкрив
-                request.OpenId = Convert.ToUInt32(Request.Cookies["Id"]);
+                request.OpenId = (uint)Convert.ToInt32(CurrentUserId);
 
                 //життєвий цикл заявки
                 request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
@@ -93,7 +99,7 @@ namespace RMS.Controllers
             }
             return RedirectToAction("CurrentRequests");
         }
-        [HttpGet]
+		[HttpGet]
         public IActionResult Close(uint id)
         {
 			var request = dataManager.Requests.GetRequestById(id);
@@ -101,7 +107,7 @@ namespace RMS.Controllers
 			if (request != null)
 			{
                 //кто закрив
-                request.CloseId = Convert.ToUInt32(Request.Cookies["Id"]);
+                request.CloseId = CurrentUserId;
 
 				//життєвий цикл заявки
 				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
@@ -124,7 +130,7 @@ namespace RMS.Controllers
 			if (request != null)
 			{
 				//кто відмінив
-				request.CancelId = Convert.ToUInt32(Request.Cookies["Id"]);
+				request.CancelId = CurrentUserId;
 
 				//життєвий цикл заявки
 				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
@@ -174,8 +180,8 @@ namespace RMS.Controllers
                     Address = model.Address,
                     CategoryId = model.CategoryId,
                     Comment = model.Comment,
-                    CreatedName = dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])).FirstName 
-                    + " " + dataManager.Users.GetUserById(Convert.ToUInt32(Request.Cookies["Id"])).Surname,
+                    CreatedName = dataManager.Users.GetUserById(CurrentUserId).FirstName 
+                    + " " + dataManager.Users.GetUserById(CurrentUserId).Surname,
                     LifecycleId = lifecycle.Id
 				};
 
