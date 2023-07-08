@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="appsettings.production.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\img\ico\" />
   </ItemGroup>
