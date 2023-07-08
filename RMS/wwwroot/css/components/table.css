@@ -1,23 +1,26 @@
 ﻿table {
     margin-top: 10px;
     width: 100%;
-    overflow-x: scroll;
 }
 
 tr {
-    border: 1px solid #000000;
     color: black;
     font-size: 18px;
 }
 
-th:not(:first-child) {
-    border-left: 1px solid #000000;
+tr:first-child th{
+    border: 0;
 }
 
 th {
     font-family: 'Roboto';
     font-weight: 500;
     padding: 10px;
+    border: 1px solid #000000;
+}
+
+tr {
+    margin-right: 30px;
 }
 
 th a {
@@ -25,42 +28,34 @@ th a {
 }
 
 .editlink.inactive {
-    background: #9F9F9F;
+    fill: #9F9F9F;
 }
 
 .openlink.inactive {
-    background: #9F9F9F;
+    fill: #9F9F9F;
 }
 
 .closelink.inactive {
-    background: #9F9F9F;
+    fill: #9F9F9F;
 }
 
 .cancellink.inactive {
-    background: #9F9F9F;
+    fill: #9F9F9F;
 }
 
 .editlink {
     cursor: pointer;
-    background: #86CB6C;
-    height: 100%;
 }
 
 .openlink {
     cursor: pointer;
-    background: #64CA7F;
-    height: 100%;
 }
 
 .closelink {
-    background: #DC8D79;
-    height: 100%;
     cursor: pointer;
 }
 
 .cancellink {
-    background: #D4C66D;
-    height: 100%;
     cursor: pointer;
 }
 
@@ -93,16 +88,23 @@ th a {
     font-size: 18px;
     color: black;
     background: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     padding-bottom: 10px;
 }
 
-tr:nth-child(2n+1):not(.first-row){
-    background-color: #C9E4F6;
+tr:nth-child(2n+1):not(.first-row):not(.actions){
+    background-color: rgba(201,228,246,0.9);
 }
 
-tr:nth-child(2n){
-    background-color: #B4DAF2;
+tr:nth-child(2n):not(.actions) {
+    background-color: rgba(180,218,242,0.9);
+}
+
+.actions {
+    border: 0px;
+    background: #e9faff;
+    padding-top: 5px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 5px;
+    width: 55px;
 }

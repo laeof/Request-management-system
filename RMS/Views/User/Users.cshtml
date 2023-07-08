@@ -24,12 +24,6 @@
         <th>
             @Html.DisplayNameFor(model => model.User.Comment)
         </th>
-        @if(!User.IsInRole("mounter"))
-        {
-            <th></th>
-            <th></th>
-            <th></th>
-        }
     </tr>
     @foreach (var item in Model)
     {
@@ -47,7 +41,8 @@
                     <th>
                         @Html.DisplayFor(modelItem => item.User.Comment)
                     </th>
-                    <th class="editlink" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                    <th>
+                        <img src="~/img/svg/edit.svg" class="editlink" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
                         <a>Редагувати</a>
                     </th>
                     @if (!(item.UserId == ViewBag.Id))
@@ -107,43 +102,43 @@
                 <th>
                     @Html.DisplayFor(modelItem => item.User.Comment)
                 </th>
-                <th class="editlink" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
-                    <a>Редагувати</a>
+                <th class="actions">
+                    <img src="~/img/svg/edit.svg" class="editlink" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
                 </th>
                 @if (!(item.UserId == ViewBag.Id))
                 {
                     @if (item.User.IsActive)
                     {
-                    <th class="cancellink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                            <a>Відключити</a>
+                        <th class="actions">
+                            <img src="~/img/svg/disable.svg" class="cancellink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
                         </th>
                     }
                     else
                     {
-                        <th class="openlink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                            <a>Включити</a>
+                        <th class="actions">
+                            <img src="~/img/svg/active.svg" class="openlink" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
                         </th>
                     }
-                    <th class="closelink" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
-                        <a>Видалити</a>
+                    <th class="actions">
+                        <img src="~/img/svg/delete.svg" class="closelink" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
                     </th>
                 }
                 else
                 {
-                    if (item.User.IsActive)
+                    @if (item.User.IsActive)
                     {
-                        <th class="cancellink inactive">
-                            <a>Відключити</a>
+                        <th class="actions">
+                            <img src="~/img/svg/disable.svg" class="cancellink inactive">
                         </th>
                     }
                     else
                     {
-                        <th class="openlink inactive">
-                            <a>Включити</a>
+                        <th class="actions">
+                            <img src="~/img/svg/active.svg" class="openlink inactive">
                         </th>
                     }
-                    <th class="closelink inactive">
-                        <a>Видалити</a>
+                    <th class="actions">
+                        <img src="~/img/svg/delete.svg" class="closelink inactive">
                     </th>
                 }
             </tr>

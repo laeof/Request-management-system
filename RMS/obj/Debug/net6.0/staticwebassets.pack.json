@@ -261,12 +261,40 @@
       "PackagePath": "staticwebassets\\img\\png\\user.png"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\active.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\active.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\add.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\add.svg"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\arrow.svg",
       "PackagePath": "staticwebassets\\img\\svg\\arrow.svg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\burgerbtn.svg",
       "PackagePath": "staticwebassets\\img\\svg\\burgerbtn.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\cancel.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\cancel.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\close.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\close.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\delete.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\delete.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\disable.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\disable.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\edit.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\edit.svg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\exit.svg",

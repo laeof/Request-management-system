@@ -30,11 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Lifecycle.Current)
             </th>
-            <th></th>
-            @if(!User.IsInRole("mounter"))
-            {
-                <th></th>
-            }
         </tr>
 
         @foreach (var item in Model)
@@ -71,12 +66,15 @@
                     {
                         if (User.IsInRole("admin") || User.IsInRole("manager"))
                         {
-                            <th class="cancellink" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
-                                <a>Відмінити</a>
+                            <th class="actions">
+                                <img src="~/img/svg/edit.svg" class="editlink">
+                            </th>
+                            <th class="actions">
+                                <img src="~/img/svg/cancel.svg" class="cancellink" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
                             </th>
                         }
-                        <th class="closelink" onclick="window.location.href = '@Url.Action("Close", new { id = item.Id })'">
-                            <a>Закрити</a>
+                        <th class="actions">
+                            <img src="~/img/svg/close.svg" class="closelink" onclick="window.location.href = '@Url.Action("Close", new { id = item.Id })'">
                         </th>
                     }
             </tr>
