@@ -34,7 +34,7 @@ namespace RMS.Controllers
 			{
 				returnUrl = "/";
 			}
-			if (User.Identity.IsAuthenticated)
+			if (userManager.User != null)
 			{
 				return Redirect("/Account/PersonalPage");
 			}
