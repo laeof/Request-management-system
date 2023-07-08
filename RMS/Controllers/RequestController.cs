@@ -74,9 +74,9 @@ namespace RMS.Controllers
         }
 		[Authorize(Roles = "admin, manager")]
 		[HttpGet]
-        public IActionResult Open(uint id)
+        public async Task<IActionResult> Open(uint id)
         {
-            var request = dataManager.Requests.GetRequestById(id);
+            var request = await dataManager.Requests.GetRequestByIdAsync(id);
 
             if (request != null)
             {
@@ -84,21 +84,21 @@ namespace RMS.Controllers
                 request.OpenId = userManager.User.Id;
 
                 //життєвий цикл заявки
-                request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
+                request.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(request.LifecycleId);
                 request.Lifecycle.Current = DateTime.UtcNow;
 
                 //заявка відкрита
                 request.Status = 2;
 
                 //зберегти
-                dataManager.Requests.SaveRequest(request);
+                await dataManager.Requests.SaveRequestAsync(request);
             }
             return RedirectToAction("CurrentRequests");
         }
 		[HttpGet]
-        public IActionResult Close(uint id)
+        public async Task<IActionResult> Close(uint id)
         {
-			var request = dataManager.Requests.GetRequestById(id);
+			var request = await dataManager.Requests.GetRequestByIdAsync(id);
 
 			if (request != null)
 			{
@@ -106,22 +106,22 @@ namespace RMS.Controllers
                 request.CloseId = userManager.User.Id;
 
 				//життєвий цикл заявки
-				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
+				request.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(request.LifecycleId);
 				request.Lifecycle.Closed = DateTime.UtcNow;
 
 				//заявка закрита
 				request.Status = 3;
 
 				//зберегти
-				dataManager.Requests.SaveRequest(request);
+				await dataManager.Requests.SaveRequestAsync(request);
 			}
 			return RedirectToAction("ClosedRequests");
 		}
 		[Authorize(Roles = "admin, manager")]
 		[HttpGet]
-        public IActionResult Cancel(uint id)
+        public async Task<IActionResult> Cancel(uint id)
         {
-			var request = dataManager.Requests.GetRequestById(id);
+			var request = await dataManager.Requests.GetRequestByIdAsync(id);
 
 			if (request != null)
 			{
@@ -129,14 +129,14 @@ namespace RMS.Controllers
 				request.CancelId = userManager.User.Id;
 
 				//життєвий цикл заявки
-				request.Lifecycle = dataManager.Lifecycles.GetLifecycleById(request.LifecycleId);
+				request.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(request.LifecycleId);
 				request.Lifecycle.Cancelled = DateTime.UtcNow;
 
 				//заявка відмінена
 				request.Status = 4;
 
 				//зберегти
-				dataManager.Requests.SaveRequest(request);
+				await dataManager.Requests.SaveRequestAsync(request);
 			}
 			return RedirectToAction("CancelledRequests");
 		}
@@ -154,7 +154,7 @@ namespace RMS.Controllers
 		}
 		[Authorize(Roles = "admin, manager")]
 		[HttpPost]
-		public IActionResult Create(Request model)
+		public async Task<IActionResult> Create(Request model)
 		{
 			ViewBag.Title = "Запланувати заявку";
 
@@ -165,10 +165,12 @@ namespace RMS.Controllers
                     Planning = DateTime.UtcNow
                 };
 
-                dataManager.Lifecycles.SaveLifecycle(lifecycle);
+                await dataManager.Lifecycles.SaveLifecycleAsync(lifecycle);
 
-                // create request
-                var request = new Request
+                var currentUser = await dataManager.Users.GetUserByIdAsync(userManager.User.Id);
+
+				// create request
+				var request = new Request
                 {
                     Name = model.Name,
                     Description = model.Description,
@@ -176,13 +178,13 @@ namespace RMS.Controllers
                     Address = model.Address,
                     CategoryId = model.CategoryId,
                     Comment = model.Comment,
-                    CreatedName = dataManager.Users.GetUserById(userManager.User.Id).FirstName 
-                    + " " + dataManager.Users.GetUserById(userManager.User.Id).Surname,
+                    CreatedName = currentUser.FirstName
+                    + " " + currentUser.Surname,
                     LifecycleId = lifecycle.Id
 				};
 
                 // save request to db
-                dataManager.Requests.SaveRequest(request);
+                await dataManager.Requests.SaveRequestAsync(request);
 
 				// redirect to requests
 				return Redirect("/Request/PlanningRequests");

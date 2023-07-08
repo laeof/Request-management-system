@@ -42,32 +42,25 @@ namespace RMS.Domain.Repositories.EntityFramework
 		}
         public async Task<bool> SaveUserAsync(User entity)
         {
-            try
+            if (entity.Id == default)
             {
-                if (entity.Id == default)
-                {
-                    context.Entry(entity).State = EntityState.Added;
-                }
-                else
-                {
-                    if (entity.Password == null)
-                    {
-						var pw = await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == entity.Id);
-                        entity.Password = pw.Password;
-                    }
-                    context.Entry(entity).State = EntityState.Modified;
-                }
-
-			    await context.SaveChangesAsync();
-
-                return true;
-			}
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
+                context.Entry(entity).State = EntityState.Added;
             }
-		}
+            else
+            {
+                if (entity.Password == null)
+                {
+                    var pw = await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == entity.Id);
+                    entity.Password = pw.Password;
+                }
+                context.Entry(entity).State = EntityState.Modified;
+            }
+            var saveTask = context.SaveChangesAsync();
+
+            await saveTask;
+
+            return saveTask.IsCompletedSuccessfully;
+        }
         public void DeleteUser(User user)
         {
             context.Users.Remove(user);
@@ -75,16 +68,13 @@ namespace RMS.Domain.Repositories.EntityFramework
         }
         public async Task<bool> DeleteUserAsync(User user)
         {
-            try
-            {
-                context.Users.Remove(user);
-                await context.SaveChangesAsync();
-				return true;
-			}
-            catch
-            {
-                return false;
-            }
+            context.Users.Remove(user);
+
+            var saveTask = context.SaveChangesAsync();
+
+            await saveTask;
+
+            return saveTask.IsCompletedSuccessfully;
         }
     }
 }

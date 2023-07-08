@@ -19,6 +19,10 @@ namespace RMS.Domain.Repositories.EntityFramework
         {
             return context.Requests.FirstOrDefault(x => x.Id == id);
         }
+        public async Task<Request?> GetRequestByIdAsync(uint id)
+        {
+            return await context.Requests.FirstOrDefaultAsync(x => x.Id == id);
+        }
 		public IQueryable<Request>? GetRequestByStatus(int id)
 		{
 			return context.Requests.Where(x => x.Status == id);
@@ -33,10 +37,35 @@ namespace RMS.Domain.Repositories.EntityFramework
                 context.Entry(entity).State = EntityState.Modified;
             context.SaveChanges();
         }
+        public async Task<bool> SaveRequestAsync(Request entity)
+        {
+            if (entity.Id == default)
+            {
+                context.Entry(entity).State = EntityState.Added;
+            }
+            else
+                context.Entry(entity).State = EntityState.Modified;
+
+			var saveTask = context.SaveChangesAsync();
+
+			await saveTask;
+
+			return saveTask.IsCompletedSuccessfully;
+		}
         public void DeleteRequest(uint id)
         {
             context.Requests.Remove(new Request { Id = id });
             context.SaveChanges();
         }
+        public async Task<bool> DeleteRequestAsync(uint id)
+        {
+			context.Requests.Remove(new Request { Id = id });
+
+			var saveTask = context.SaveChangesAsync();
+
+			await saveTask;
+
+			return saveTask.IsCompletedSuccessfully;
+		}
     }
 }
