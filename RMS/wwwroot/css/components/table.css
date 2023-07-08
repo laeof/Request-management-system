@@ -15,7 +15,7 @@ tr:first-child th{
 th {
     font-family: 'Roboto';
     font-weight: 500;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #000000;
 }
 
@@ -59,20 +59,36 @@ th a {
     cursor: pointer;
 }
 
-.editlink:hover a {
-    font-weight: 500;
+.editlink:hover {
+    height: 29px;
 }
 
-.openlink:hover a {
-    font-weight: 500;
+.openlink:hover {
+    height: 34px;
 }
 
-.closelink:hover a {
-    font-weight: 500;
+.closelink:hover {
+    height: 34px;
 }
 
-.cancellink:hover a {
-    font-weight: 500;
+.cancellink:hover {
+    height: 34px;
+}
+
+.openlink.req:hover {
+    height: 29px;
+}
+
+.cancellink.req:hover {
+    height: 29px;
+}
+
+.editlink.req:hover {
+    height: 29px;
+}
+
+.closelink.req:hover {
+    height: 29px;
 }
 
 .first-row {
@@ -102,9 +118,7 @@ tr:nth-child(2n):not(.actions) {
 .actions {
     border: 0px;
     background: #e9faff;
-    padding-top: 5px;
     padding-right: 0;
     padding-left: 0;
-    padding-bottom: 5px;
     width: 55px;
 }

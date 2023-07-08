@@ -33,7 +33,7 @@ body {
     width: 100%;
     margin: 0 auto;
     margin-left: 300px;
-    transition: all 0.5s ease;
+    transition: all 0.5s;
 }
 
 @media screen and (max-width: 1366px){

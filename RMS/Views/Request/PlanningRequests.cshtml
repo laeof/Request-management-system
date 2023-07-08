@@ -67,13 +67,13 @@
                         if (User.IsInRole("admin") || User.IsInRole("manager"))
                         {
                             <th class="actions">
-                                <img src="~/img/svg/edit.svg" class="editlink">
+                                <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати заявку">
                             </th>
                             <th class="actions">
-                                <img src="~/img/svg/add.svg" class="openlink" onclick="window.location.href = '@Url.Action("Open", new { id = item.Id })'">
+                            <img src="~/img/svg/add.svg" class="openlink req" title="Відкрити заявку" onclick="window.location.href = '@Url.Action("Open", new { id = item.Id })'">
                             </th>
                             <th class="actions">
-                                <img src="~/img/svg/cancel.svg" class="cancellink" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
+                                <img src="~/img/svg/cancel.svg" class="cancellink req" title="Відмінити заявку" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
                             </th>
                         }
                     }

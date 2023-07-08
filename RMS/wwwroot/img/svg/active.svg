@@ -1,5 +1,5 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="45" height="45" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="35" height="35" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
 <path d="M16 2a14 14 0 0 0 0 28h1.08a1 1 0 0 0 .92-1.11 1 1 0 0 0-1.08-.89H16a12 12 0 0 1-8.94-4 9 9 0 0 1 6.33-7.59A5.86 5.86 0 0 0 16 17a6 6 0 0 0 2.61-.6 8.12 8.12 0 0 1 1.32.5 1 1 0 0 0 .43.1 1 1 0 0 0 .44-1.9l-.31-.1a6 6 0 1 0-9 0 11 11 0 0 0-6 6.81A12 12 0 1 1 28 16v.92a1 1 0 0 0 2 .16V16A14 14 0 0 0 16 2zm0 5a4 4 0 1 1-4 4 4 4 0 0 1 4-4z" fill="#000000" data-original="#000000" class=""></path>
 <circle cx="24" cy="24" r="6.5" fill="rgba(100,202,127,0.8)" stroke="#000000" stroke-width="2"  />
     <polyline points="20.2 23.9 23.6 26.9 27.8 21.9" fill="none" stroke="#000000" stroke-width="2" />
