@@ -6,6 +6,7 @@
 tr {
     color: black;
     font-size: 18px;
+    height: 45px;
 }
 
 tr:first-child th{
@@ -21,10 +22,6 @@ th {
 
 tr {
     margin-right: 30px;
-}
-
-th a {
-    font-weight: 400;
 }
 
 .editlink.inactive {

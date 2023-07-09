@@ -285,6 +285,10 @@
       "PackagePath": "staticwebassets\\img\\svg\\close.svg"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\comment.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\comment.svg"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\delete.svg",
       "PackagePath": "staticwebassets\\img\\svg\\delete.svg"
     },
@@ -317,8 +321,40 @@
       "PackagePath": "staticwebassets\\img\\svg\\questionmark.svg"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\address.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\request\\address.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\category.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\request\\category.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\descr.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\request\\descr.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\priority.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\request\\priority.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\title.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\request\\title.svg"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\search.svg",
       "PackagePath": "staticwebassets\\img\\svg\\search.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\user\\img.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\user\\img.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\user\\namesurname.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\user\\namesurname.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\user\\role.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\user\\role.svg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\js\\main.js",

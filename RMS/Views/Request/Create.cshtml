@@ -12,12 +12,15 @@
 			@ViewBag.Title
 		</span>
 		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/title.svg" />
 			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Name)" asp-for="Name">
 		</div>
 		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/descr.svg" />
 			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Description)" asp-for="Description">
 		</div>
 		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/priority.svg" />
 			<select class="input login" asp-for="Priority">
 				<option value="1">Звичайний</option>
 				<option value="2">Критичний</option>
@@ -27,12 +30,15 @@
 			<input class="input login" type="hidden" placeholder="@Html.DisplayNameFor(model => model.CreatedName)" asp-for="CreatedName">
 		</div>
 		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/address.svg" />
 			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Address)" asp-for="Address">
 		</div>
 		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/comment.svg" />
 			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Comment)" asp-for="Comment">
 		</div>
 		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/category.svg" />
 			<select class="input login" asp-for="CategoryId">
 				@foreach (var item in Model.Categories)
 				{
