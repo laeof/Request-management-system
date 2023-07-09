@@ -13,7 +13,7 @@ namespace RMS.Domain.Repositories.EntityFramework
         }
         public IQueryable<UserRole> GetUserRole()
         {
-            return context.UserRole;
+            return context.UserRole.AsNoTracking();
         }
         public UserRole? GetUserRoleById(uint? id)
         {

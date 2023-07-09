@@ -74,14 +74,14 @@
                 <th class="@rowClass">
                     @Html.DisplayFor(modelItem => item.Lifecycle.Cancelled)
                 </th>
-                <th class="@rowClass">
                     @if (User.IsInRole("admin") || User.IsInRole("manager"))
                     {
-                        @Html.DisplayFor(modelItem => item.Cancelled.FirstName)
-                        @Html.Raw(" ")
-                        @Html.DisplayFor(modelItem => item.Cancelled.Surname)
+                        <th class="@rowClass">
+                                @Html.DisplayFor(modelItem => item.Cancelled.FirstName)
+                                @Html.Raw(" ")
+                                @Html.DisplayFor(modelItem => item.Cancelled.Surname)
+                        </th>
                     }
-                </th>
             </tr>
         }
 </table>
