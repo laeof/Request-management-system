@@ -1,30 +1,4 @@
-﻿table {
-    margin-top: 10px;
-    width: 100%;
-}
-
-tr {
-    color: black;
-    font-size: 18px;
-    height: 45px;
-}
-
-tr:first-child th{
-    border: 0;
-}
-
-th {
-    font-family: 'Roboto';
-    font-weight: 500;
-    padding: 5px;
-    border: 1px solid #000000;
-}
-
-tr {
-    margin-right: 30px;
-}
-
-.editlink.inactive {
+﻿.editlink.inactive {
     fill: #9F9F9F;
 }
 
@@ -56,36 +30,44 @@ tr {
     cursor: pointer;
 }
 
-.editlink:hover {
-    height: 29px;
+.table .namefor {
+    display: none;
 }
 
-.openlink:hover {
-    height: 34px;
+.table tr .actions img {
+    transition: all 0.5s;
 }
 
-.closelink:hover {
-    height: 34px;
+.table tr .actions img:hover {
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
 }
 
-.cancellink:hover {
-    height: 34px;
+.table .tbody .row{
+    border: 1px solid #000000;
 }
 
-.openlink.req:hover {
-    height: 29px;
+.table {
+    margin-top: 10px;
+    width: 100%;
 }
 
-.cancellink.req:hover {
-    height: 29px;
+tr {
+    color: black;
+    font-size: 18px;
+    height: 45px;
+    margin-right: 30px;
 }
 
-.editlink.req:hover {
-    height: 29px;
+tr:first-child th{
+    border: 0;
 }
 
-.closelink.req:hover {
-    height: 29px;
+th {
+    font-family: 'Roboto';
+    font-weight: 500;
+    padding: 5px;
+    border: 1px solid #000000;
 }
 
 .first-row {
@@ -117,5 +99,6 @@ tr:nth-child(2n):not(.actions) {
     background: #e9faff;
     padding-right: 0;
     padding-left: 0;
-    width: 55px;
+    display: flex;
+    justify-content: space-around;
 }

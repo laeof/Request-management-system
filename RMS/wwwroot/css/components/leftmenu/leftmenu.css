@@ -178,3 +178,10 @@
         height: 14px;
     }
 }
+
+@media screen and (max-width: 1024px){
+    .leftmenu {
+        width: 0;
+        visibility: hidden;
+    }
+}

@@ -1,1 +1,88 @@
-﻿
+﻿.table.card {
+    display: flex;
+    border-collapse: separate;
+    transition: all 0.5s;
+}
+
+.table.card .tbody{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.table.card tr {
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: inline-table;
+    flex-wrap: wrap;
+    width: 320px;
+    margin-top: 30px;
+    transition: all 0.5s ease;
+}
+
+.table.card tr th:first-child {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.table.card tr th:not(:last-child) {
+    flex-basis: 0;
+    flex-grow: 1;
+    display: flex;
+    border: none;
+    border-bottom: 1px solid rgba(176,176,176,0.3);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.table.card th:not(.actions){
+    height: 60px;
+    align-items: center;
+}
+
+.table.card tr .actions {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    background: transparent;
+    width: 100%;
+    padding: 10px;
+}
+
+.table.card .first-row {
+    display: none;
+}
+
+.table.card .namefor {
+    width: 130px;
+    text-align: left;
+    color: #4B4747;
+    display: block;
+}
+
+.table.card .displayfor {
+    color: #000000;
+    text-align: left;
+}
+
+@media screen and (max-width: 1600px){
+    .table.card tr {
+        width: 250px;
+        transition: all 0.5s ease;
+        margin-top: 30px;
+    }
+    .table.card .namefor {
+        width: 110px;
+        text-align: left;
+        color: #4B4747;
+        font-size: 16px;
+    }
+    .table.card .displayfor {
+        font-size: 16px;
+        text-align: center;
+    }
+    .table.card th:not(.actions) {
+        height: 50px;
+    }
+}

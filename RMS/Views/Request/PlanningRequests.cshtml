@@ -3,14 +3,23 @@
 @using RMS.Domain.Entities
 
 <title>@ViewBag.Title</title>
+<div>
+    <h2>@ViewBag.Title</h2>
 
-<h2>@ViewBag.Title</h2>
+    <div style="display: flex;">
+        <h2 style ="display: flex; margin-right: 30px;">Включити режим карток</h2>
+        <label class="switch">
+            <input type="checkbox" id="tablecheck" onclick="toggleTable()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
 <a href="/Request/PlanningRequests">Запланованих заявок: @ViewBag.PlanningRequestsCount</a>
 <a href="/Request/CurrentRequests">Поточних заявок: @ViewBag.CurrentRequestsCount</a>
 <a href="/Request/ClosedRequests">Закритих заявок: @ViewBag.ClosedRequestsCount</a>
 <a href="/Request/CancelledRequests">Відмінених заявок: @ViewBag.CancelledRequestsCount</a>
 <div class="requests">
-    <table class="table">
+    <table class="table" id="table">
         <tr class="first-row">
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -32,52 +41,80 @@
             </th>
         </tr>
 
-        @foreach (var item in Model)
-        {
-            string rowClass = "row";
-            if (item.Priority == 1)
+        <tbody class="tbody">
+            @foreach (var item in Model)
             {
-                rowClass += " default";
-            }
-            else if (item.Priority == 2)
-            {
-                rowClass += " critical";
-            }
-            <tr>
-                <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Id)
-                </th>
-                <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Category.Name)
-                </th>
-                <th class="@rowClass">
-                    @Html.Raw(PriorityModel.GetPriority(item.Priority))
-                </th>
-                <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Comment)
-                </th>
-                <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Address)
-                </th>
-                <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Lifecycle.Planning)
-                </th>
+                string rowClass = "row";
+                if (item.Priority == 1)
+                {
+                    rowClass += " default";
+                }
+                else if (item.Priority == 2)
+                {
+                    rowClass += " critical";
+                }
+                <tr>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Id)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </div>
+                    </th>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Category.Name)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Category.Name)
+                        </div>
+                    </th>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Priority)
+                        </div>
+                        <div class="displayfor">
+                            @Html.Raw(PriorityModel.GetPriority(item.Priority))
+                        </div>
+                    </th>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Comment)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </div>
+                    </th>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Address)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </div>
+                    </th>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Lifecycle.Planning)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Lifecycle.Planning)
+                        </div>
+                    </th>
                     @if (item.Lifecycle.Current == null)
                     {
-                        if (User.IsInRole("admin") || User.IsInRole("manager"))
+                        @if (User.IsInRole("admin") || User.IsInRole("manager"))
                         {
                             <th class="actions">
                                 <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати заявку">
-                            </th>
-                            <th class="actions">
-                            <img src="~/img/svg/add.svg" class="openlink req" title="Відкрити заявку" onclick="window.location.href = '@Url.Action("Open", new { id = item.Id })'">
-                            </th>
-                            <th class="actions">
+                                <img src="~/img/svg/add.svg" class="openlink req" title="Відкрити заявку" onclick="window.location.href = '@Url.Action("Open", new { id = item.Id })'">
                                 <img src="~/img/svg/cancel.svg" class="cancellink req" title="Відмінити заявку" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
                             </th>
                         }
                     }
-            </tr>
-        }
+                </tr>
+            }
+        </tbody>
 </table>
 </div>

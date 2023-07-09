@@ -4,7 +4,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-<table>
+<table class="table">
     <tr class="first-row">
         <th>
             @Html.DisplayNameFor(model => model.User.FirstName)
@@ -41,46 +41,34 @@
                     <th>
                         @Html.DisplayFor(modelItem => item.User.Comment)
                     </th>
-                    <th>
-                        <img src="~/img/svg/edit.svg" class="editlink" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
-                        <a>Редагувати</a>
-                    </th>
-                    <th class="actions">
-                        <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
-                    </th>
                     @if (!(item.UserId == ViewBag.Id))
                     {
-                        @if (item.User.IsActive)
-                        {
-                            <th class="actions">
-                                <img src="~/img/svg/disable.svg" class="cancellink" title="Відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                            </th>
-                        }
-                        else
-                        {
-                            <th class="actions">
-                                <img src="~/img/svg/active.svg" class="openlink" title="Включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                            </th>
-                        }
                         <th class="actions">
+                            <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                            @if (item.User.IsActive)
+                            {
+                                <img src="~/img/svg/disable.svg" class="cancellink" title="Відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                            }
+                            else
+                            {
+                                <img src="~/img/svg/active.svg" class="openlink" title="Включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                            
+                            }
                             <img src="~/img/svg/delete.svg" class="closelink" title="Видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
                         </th>
                     }
                     else
-                    {
-                        @if (item.User.IsActive)
-                        {
-                            <th class="actions">
-                                <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                            </th>
-                        }
-                        else
-                        {
-                            <th class="actions">
-                                <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                            </th>
-                        }
+                    {   
                         <th class="actions">
+                            <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                            @if (item.User.IsActive)
+                            {
+                                <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                            }
+                            else
+                            {
+                                <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                            }
                             <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
                         </th>
                     }
@@ -106,44 +94,35 @@
                     @Html.DisplayFor(modelItem => item.User.Comment)
                 </th>
                 <th class="actions">
-                    <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
-                </th>
-                @if (!(item.UserId == ViewBag.Id))
-                {
-                    @if (item.User.IsActive)
+                    @if (!(item.UserId == ViewBag.Id))
                     {
-                        <th class="actions">
+                    
+                        <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                        @if (item.User.IsActive)
+                        {
                             <img src="~/img/svg/disable.svg" class="cancellink" title="Відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        </th>
-                    }
-                    else
-                    {
-                        <th class="actions">
+                        }
+                        else
+                        {
                             <img src="~/img/svg/active.svg" class="openlink" title="Включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        </th>
-                    }
-                    <th class="actions">
+                        }
                         <img src="~/img/svg/delete.svg" class="closelink" title="Видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
-                    </th>
-                }
-                else
-                {
-                    @if (item.User.IsActive)
-                    {
-                        <th class="actions">
-                            <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        </th>
                     }
                     else
                     {
-                        <th class="actions">
+                        <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                        @if (item.User.IsActive)
+                        {
+                            <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                        }
+                        else
+                        {
                             <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        </th>
-                    }
-                    <th class="actions">
+                        }
                         <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
-                    </th>
-                }
+
+                    }
+                </th>
             </tr>
         }
     }

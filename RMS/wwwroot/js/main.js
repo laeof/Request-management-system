@@ -1,5 +1,7 @@
 var sideBar = document.getElementById("leftmenu");
 var container = document.getElementById("container");
+var table = document.getElementById("table");
+
 var minimized = false;
 function toggleRequests(arg) {
     var ulItem = document.getElementById(arg);
@@ -20,7 +22,7 @@ function toggleRequests(arg) {
     else {
         imgItem.classList.add("bottom");
     }
-    
+
     for (var i = 0; i < liItems.length; i++) {
         if (liItems[i].classList.contains("drop-item")) {
             liItems[i].classList.remove("drop-item");
@@ -31,8 +33,18 @@ function toggleRequests(arg) {
         }
     }
 }
-function toggleLeftSideBar() {
+var checkedInputs = document.getElementById("tablecheck");
 
+function toggleTable() {
+    if (!checkedInputs.checked) {
+        table.classList.remove("card");
+    }
+    else {
+        table.classList.add("card");
+    }
+}
+
+function toggleLeftSideBar() {
     if (sideBar.classList.contains("minimized")) {
         sideBar.classList.remove("minimized");
         container.classList.remove("minimized");

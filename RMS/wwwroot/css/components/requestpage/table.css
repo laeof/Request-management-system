@@ -3,18 +3,18 @@
     justify-content: center;
 }
 
-    .requests tr:nth-child(2n+1):not(.first-row) {
-        background-color: transparent;
-    }
+.requests tr:nth-child(2n+1):not(.first-row) {
+    background-color: transparent;
+}
 
 .requests tr:nth-child(2n) {
     background-color: transparent;
 }
 
-    .requests .row.default {
-        background: rgba(189,240,255,0.6);
-    }
+.requests .row.default {
+    background: rgba(189,240,255,0.6);
+}
 
-    .requests .row.critical {
-        background: rgba(240,150,204,0.6);
-    }
+.requests .row.critical {
+    background: rgba(240,150,204,0.6);
+}
