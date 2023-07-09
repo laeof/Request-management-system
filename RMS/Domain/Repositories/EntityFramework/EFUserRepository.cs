@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using RMS.Domain.Entities;
 using RMS.Domain.Repositories.Abstract;
 
@@ -48,12 +49,18 @@ namespace RMS.Domain.Repositories.EntityFramework
             }
             else
             {
-                if (entity.Password == null)
+				context.Entry(entity).Property(u => u.FirstName).IsModified = true;
+				context.Entry(entity).Property(u => u.Surname).IsModified = true;
+                context.Entry(entity).Property(u => u.IsActive).IsModified = true;
+                context.Entry(entity).Property(u => u.Comment).IsModified = true;
+                context.Entry(entity).Property(u => u.Login).IsModified = true;
+				context.Entry(entity).Property(u => u.ImgPath).IsModified = true;
+
+                if(entity.Password != null)
                 {
-                    var pw = await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == entity.Id);
-                    entity.Password = pw.Password;
+                    
+					context.Entry(entity).Property(u => u.Password).IsModified = true;
                 }
-                context.Entry(entity).State = EntityState.Modified;
             }
             var saveTask = context.SaveChangesAsync();
 

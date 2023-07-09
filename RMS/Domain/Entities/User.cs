@@ -22,9 +22,21 @@ namespace RMS.Domain.Entities
         public string Login { get; set; } = "login";
         [Required]
         [Display(Name = "Пароль")]
-        public string Password { get; set; } = "password";
+        public string Password
+        {
+            get 
+            { 
+                return password;
+            }
+            set
+            {
+                if(value != null)
+					password = SecurePasswordHasher.Hash(value);
+			}
+		}
+        private string password;
 
-        [Display(Name = "Коментар")]
+		[Display(Name = "Коментар")]
         public string? Comment { get; set; }
         public string? ImgPath { get; set; } = "../../img/png/user.png";
         public bool IsActive { get; set; } = true;

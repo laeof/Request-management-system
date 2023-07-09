@@ -172,8 +172,8 @@ namespace RMS.Migrations
                 columns: new[] { "Id", "Cancelled", "Closed", "Current", "Planning" },
                 values: new object[,]
                 {
-                    { 1L, null, null, null, new DateTime(2023, 7, 4, 15, 36, 1, 726, DateTimeKind.Utc).AddTicks(7924) },
-                    { 2L, null, null, null, new DateTime(2023, 7, 4, 15, 36, 1, 726, DateTimeKind.Utc).AddTicks(7931) }
+                    { 1L, null, null, null, new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6058) },
+                    { 2L, null, null, null, new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6065) }
                 });
 
             migrationBuilder.InsertData(
@@ -191,9 +191,9 @@ namespace RMS.Migrations
                 columns: new[] { "Id", "Comment", "FirstName", "ImgPath", "IsActive", "Login", "Password", "Surname" },
                 values: new object[,]
                 {
-                    { 1L, "Comment", "Max", "../../img/jpg/preview.jpg", true, "ADMIN", "password", "Akchurin" },
-                    { 2L, "Comment", "Anton", "../../img/png/user.png", true, "MANAGER", "password", "Guryshkin" },
-                    { 3L, "Comment", "Georgii", "../../img/png/user.png", true, "mounter", "password", "Perepelitsa" }
+                    { 1L, "Comment", "Max", "../../img/jpg/preview.jpg", true, "ADMIN", "$HASH|V1$10000$eops/PkcWy3qbyQ1J3HPeJeTHPXnlyvXm2MH6QcC8TBin0jW", "Akchurin" },
+                    { 2L, "Comment", "Anton", "../../img/png/user.png", true, "MANAGER", "$HASH|V1$10000$Q3Nlq14QMZgz+I0NWTSu28PLSBAKLSogyN+SASlSFRc5Awg2", "Guryshkin" },
+                    { 3L, "Comment", "Georgii", "../../img/png/user.png", true, "mounter", "$HASH|V1$10000$5WghRis1Ima6rPhWiRXfb8QgmFxMpUDm+e6XwL/o+hyukZdx", "Perepelitsa" }
                 });
 
             migrationBuilder.InsertData(

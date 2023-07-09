@@ -48,7 +48,7 @@ namespace RMS.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				if (Extensions.ValidateUser(model.Login, model.Password, dataManager))
+				if (await Extensions.ValidateUser(model.Login, model.Password, dataManager))
 				{
 					await userManager.SignInAsync(model.Login);
 

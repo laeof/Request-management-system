@@ -12,7 +12,7 @@ using RMS.Domain;
 namespace RMS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230704153601__initial")]
+    [Migration("20230709093244__initial")]
     partial class _initial
     {
         /// <inheritdoc />
@@ -82,12 +82,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 4, 15, 36, 1, 726, DateTimeKind.Utc).AddTicks(7924)
+                            Planning = new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6058)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 4, 15, 36, 1, 726, DateTimeKind.Utc).AddTicks(7931)
+                            Planning = new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6065)
                         });
                 });
 
@@ -276,7 +276,7 @@ namespace RMS.Migrations
                             ImgPath = "../../img/jpg/preview.jpg",
                             IsActive = true,
                             Login = "ADMIN",
-                            Password = "password",
+                            Password = "$HASH|V1$10000$eops/PkcWy3qbyQ1J3HPeJeTHPXnlyvXm2MH6QcC8TBin0jW",
                             Surname = "Akchurin"
                         },
                         new
@@ -287,7 +287,7 @@ namespace RMS.Migrations
                             ImgPath = "../../img/png/user.png",
                             IsActive = true,
                             Login = "MANAGER",
-                            Password = "password",
+                            Password = "$HASH|V1$10000$Q3Nlq14QMZgz+I0NWTSu28PLSBAKLSogyN+SASlSFRc5Awg2",
                             Surname = "Guryshkin"
                         },
                         new
@@ -298,7 +298,7 @@ namespace RMS.Migrations
                             ImgPath = "../../img/png/user.png",
                             IsActive = true,
                             Login = "mounter",
-                            Password = "password",
+                            Password = "$HASH|V1$10000$5WghRis1Ima6rPhWiRXfb8QgmFxMpUDm+e6XwL/o+hyukZdx",
                             Surname = "Perepelitsa"
                         });
                 });

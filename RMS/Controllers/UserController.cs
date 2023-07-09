@@ -81,7 +81,7 @@ namespace RMS.Controllers
                 if (current_user_role.RoleId > user_role)
                     return RedirectToAction("Users");
 
-            await dataManager.Users.SaveUserAsync(userrole.User);
+			await dataManager.Users.SaveUserAsync(userrole.User);
             await dataManager.UserRole.SaveUserRoleAsync(userrole);
 
             return RedirectToAction("Users");
