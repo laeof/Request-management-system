@@ -59,7 +59,7 @@ tr {
     margin-right: 30px;
 }
 
-tr:first-child th{
+.first-row th{
     border: 0;
 }
 

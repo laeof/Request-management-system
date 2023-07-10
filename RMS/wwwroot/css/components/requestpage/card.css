@@ -4,10 +4,11 @@
     transition: all 0.5s;
 }
 
-.table.card .tbody{
+.table.card .tbody {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .table.card tr {

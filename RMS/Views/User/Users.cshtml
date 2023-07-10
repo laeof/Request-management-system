@@ -2,9 +2,18 @@
 
 <title>@ViewBag.Title</title>
 
-<h2>@ViewBag.Title</h2>
+<div>
+    <h2>@ViewBag.Title</h2>
 
-<table class="table">
+    <div style="display: flex;">
+        <h2 style="display: flex; margin-right: 30px;">Включити режим карток</h2>
+        <label class="switch">
+            <input type="checkbox" id="tablecheck" onclick="toggleTable()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
+<table class="table" id="table">
     <tr class="first-row">
         <th>
             @Html.DisplayNameFor(model => model.User.FirstName)
@@ -17,14 +26,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.User.Login)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User.Password)
-            </th>
         }
         <th>
             @Html.DisplayNameFor(model => model.User.Comment)
         </th>
     </tr>
+    <tbody class="tbody">
     @foreach (var item in Model)
     {
         @if (User.IsInRole("manager"))
@@ -33,13 +40,28 @@
             {   
                 <tr>
                     <th>
-                        @Html.DisplayFor(modelItem => item.User.FirstName)
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.User.FirstName)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.User.FirstName)
+                        </div>
                     </th>
                     <th>
-                        @Html.DisplayFor(modelItem => item.User.Surname)
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.User.Surname)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.User.Surname)
+                        </div>
                     </th>
                     <th>
-                        @Html.DisplayFor(modelItem => item.User.Comment)
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.User.Comment)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.User.Comment)
+                        </div>
                     </th>
                     @if (!(item.UserId == ViewBag.Id))
                     {
@@ -79,19 +101,36 @@
         {   
             <tr>
                 <th>
-                    @Html.DisplayFor(modelItem => item.User.FirstName)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.User.FirstName)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.User.FirstName)
+                    </div>
                 </th>
                 <th>
-                    @Html.DisplayFor(modelItem => item.User.Surname)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.User.Surname)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.User.Surname)
+                    </div>
                 </th>
                 <th>
-                    @Html.DisplayFor(modelItem => item.User.Login)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.User.Login)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.User.Login)
+                    </div>
                 </th>
                 <th>
-                    @Html.DisplayFor(modelItem => item.User.Password)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelItem => item.User.Comment)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.User.Comment)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.User.Comment)
+                    </div>
                 </th>
                 <th class="actions">
                     @if (!(item.UserId == ViewBag.Id))
@@ -126,4 +165,5 @@
             </tr>
         }
     }
+    </tbody>
 </table>
