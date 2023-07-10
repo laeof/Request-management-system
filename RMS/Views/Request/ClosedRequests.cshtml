@@ -5,13 +5,23 @@
 
 <title>@ViewBag.Title</title>
 
-<h2>@ViewBag.Title</h2>
+<div>
+    <h2>@ViewBag.Title</h2>
+
+    <div style="display: flex;">
+        <h2 style="display: flex; margin-right: 30px;">Включити режим карток</h2>
+        <label class="switch">
+            <input type="checkbox" id="tablecheck" onclick="toggleTable()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
 <a href="/Request/PlanningRequests">Запланованих заявок: @ViewBag.PlanningRequestsCount</a>
 <a href="/Request/CurrentRequests">Поточних заявок: @ViewBag.CurrentRequestsCount</a>
 <a href="/Request/ClosedRequests">Закритих заявок: @ViewBag.ClosedRequestsCount</a>
 <a href="/Request/CancelledRequests">Відмінених заявок: @ViewBag.CancelledRequestsCount</a>
 <div class="requests">
-    <table class="table">
+    <table class="table" id="table">
         <tr class="first-row">
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -41,7 +51,7 @@
                 </th>
             }
         </tr>
-
+        <tbody class="tbody">
         @foreach (var item in Model)
         {
             string rowClass = "row";
@@ -55,35 +65,76 @@
             }
             <tr>
                 <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Id)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </div>
                 </th>
                 <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Category.Name)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.Category.Name)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </div>
                 </th>
                 <th class="@rowClass">
-                    @Html.Raw(PriorityModel.GetPriority(item.Priority))
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.Priority)
+                    </div>
+                    <div class="displayfor">
+                        @Html.Raw(PriorityModel.GetPriority(item.Priority))
+                    </div>
                 </th>
                 <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Comment)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.Comment)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </div>
                 </th>
                 <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Address)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </div>
                 </th>
                 <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Lifecycle.Current)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.Lifecycle.Current)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.Lifecycle.Current)
+                    </div>
                 </th>
                 <th class="@rowClass">
-                    @Html.DisplayFor(modelItem => item.Lifecycle.Closed)
+                    <div class="namefor">
+                        @Html.DisplayNameFor(model => model.Lifecycle.Closed)
+                    </div>
+                    <div class="displayfor">
+                        @Html.DisplayFor(modelItem => item.Lifecycle.Closed)
+                    </div>
                 </th>
-                <th class="@rowClass">
                     @if (User.IsInRole("admin") || User.IsInRole("manager"))
                     {
-                        @Html.DisplayFor(modelItem => item.Closed.FirstName)
-                        @Html.Raw(" ")
-                        @Html.DisplayFor(modelItem => item.Closed.Surname)
+                        <th class="@rowClass">
+                            <div class="namefor">
+                                @Html.DisplayNameFor(model => model.Closed.FirstName)
+                            </div>
+                            <div class="displayfor">
+                                @Html.DisplayFor(modelItem => item.Closed.FirstName)
+                                @Html.Raw(" ")
+                                @Html.DisplayFor(modelItem => item.Closed.Surname)
+                            </div>
+                        </th>
                     }
-                </th>
             </tr>
         }
+        </tbody>
 </table>
 </div>

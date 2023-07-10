@@ -105,13 +105,12 @@
                         @if (item.Lifecycle.Closed == null && item.Lifecycle.Cancelled == null)
                         {   
                             <th class="actions">
-                            @if (User.IsInRole("admin") || User.IsInRole("manager"))
-                            {
-                            
+                                @if (User.IsInRole("admin") || User.IsInRole("manager"))
+                                {
                                     <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати заявку">
                                     <img src="~/img/svg/cancel.svg" class="cancellink req" title="Відмінити заявку" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
-                            }
-                                    <img src="~/img/svg/close.svg" class="closelink req" title="Закрити заявку" onclick="window.location.href = '@Url.Action("Close", new { id = item.Id })'">
+                                }
+                                <img src="~/img/svg/close.svg" class="closelink req" title="Закрити заявку" onclick="window.location.href = '@Url.Action("Close", new { id = item.Id })'">
                             </th>
                         }
                 </tr>

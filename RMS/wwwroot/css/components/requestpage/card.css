@@ -25,7 +25,12 @@
     border-top-right-radius: 15px;
 }
 
-.table.card tr th:not(:last-child) {
+.table.card tr th:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.table.card tr th:not(.actions) {
     flex-basis: 0;
     flex-grow: 1;
     display: flex;
