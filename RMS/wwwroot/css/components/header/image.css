@@ -1,5 +1,9 @@
-﻿.header .img{
+﻿.header .img {
     width: 30px;
+}
+
+.header .img:hover {
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
 }
 
 .header .wrap-img {
@@ -31,21 +35,28 @@
     margin-right: 0;
 }
 
-.header .wrap-left-img .search-img {
-    position: absolute;
-    margin-left: 180px;
-    width: 20px;
-}
+@media screen and (max-width: 768px) {
+    .header .img {
+        width: 25px;
+    }
 
-.header .wrap-left-img input {
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 12px;
-    border: 0;
-    padding-left: 15px;
-    padding-right: 15px;
-}
+    .header .wrap-left-img {
+        margin-right: 20px;
+    }
 
-.header .wrap-left-img input:focus {
-    outline: 3px solid #96EAF0;
+    .header .wrap-img {
+        margin-left: 15px;
+    }
+
+    .header .wrap-img :not(:first-child) {
+        margin-left: 10px;
+    }
+
+    .header .wrap-left-img :not(:last-child) {
+        margin-right: 15px;
+    }
+
+    .header .wrap-left-img .search{
+        margin-right: 0;
+    }
 }

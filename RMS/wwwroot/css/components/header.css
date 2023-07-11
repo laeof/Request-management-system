@@ -5,3 +5,9 @@
     width: 100%;
     align-items: center;
 }
+
+@media screen and (max-width: 768px){
+    .header {
+        min-height: 45px;
+    }
+}
