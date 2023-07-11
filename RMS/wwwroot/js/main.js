@@ -37,16 +37,16 @@ function toggleRequests(arg) {
         }
     }
 }
-function togglePageMode(act) {
-    if (night.checked) {
+function togglePageMode(isDark) {
+    if (isDark) {
         body.classList.add("night");
     }
     else {
         body.classList.remove("night");
     }
 }
-function toggleTable(act) {
-    if (!checkedInputs.checked) {
+function toggleTable(isCard) {
+    if (!isCard) {
         table.classList.remove("card");
     }
     else {
@@ -99,6 +99,29 @@ function handleOver() {
         }
     }
 }
+function savePreference(parameterName, checkboxId, applyFunction) {
+    var checkbox = document.getElementById(checkboxId);
+    var parameterValue = checkbox.checked;
+
+    document.cookie = parameterName + '=' + parameterValue + '; path=/';
+
+    applyFunction(parameterValue);
+}
+function checkPreference(parameterName, checkboxId, applyFunction) {
+    var parameterValue = document.cookie.replace(new RegExp('(?:(?:^|.*;\\s*)' + parameterName + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1');
+    var checkbox = document.getElementById(checkboxId);
+
+    if (parameterValue === 'true') {
+        checkbox.checked = true;
+    } else {
+        checkbox.checked = false;
+    }
+
+    applyFunction(checkbox.checked);
+}
 
 sideBar.addEventListener('mouseleave', handleOver);
 sideBar.addEventListener('mouseenter', handleHover);
+
+checkPreference('themePreference', 'night', togglePageMode);
+checkPreference('modePreference', 'tablecheck', toggleTable);

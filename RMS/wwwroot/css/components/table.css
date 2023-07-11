@@ -99,7 +99,6 @@ th {
     padding-left: 0;
     display: flex;
     justify-content: space-around;
-    background: rgba(233,250,255,0.1);
 }
 
 .tbody tr:nth-child(2n+1) {
@@ -190,14 +189,15 @@ th {
         align-items: center;
     }
 
-    .table tr .actions {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        padding: 10px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
+        .table tr .actions {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: rgba(233,250,255,0.1);
+        }
 
     .table .first-row {
         display: none;

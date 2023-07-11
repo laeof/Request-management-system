@@ -18,7 +18,7 @@ else
 			</div>
 			<img class="img" onclick="window.location.href = '/Help/Help';" src="~/img/svg/questionmark.svg" />
 			<label style="cursor: pointer; display: flex; align-items: center;">
-				<input type="checkbox" style="width: 0; height: 0; margin-right: 0;" id="night" onclick="togglePageMode(1)">
+				<input type="checkbox" style="width: 0; height: 0; margin-right: 0;" id="night" onclick="savePreference('themePreference', 'night', togglePageMode);">
 				<img class="img" src="~/img/svg/night_day.svg" />
 			</label>
 		</div>
