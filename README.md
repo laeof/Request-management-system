@@ -40,4 +40,3 @@ Manage it
 Or if you are manager you can register only mounters
 
 The website has adaptation and correctly works on phones tablets etc
-
