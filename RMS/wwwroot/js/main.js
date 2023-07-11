@@ -57,13 +57,37 @@ function toggleLeftSideBar() {
     }
 }
 function handleHover() {
-    if (minimized) {
-        sideBar.classList.remove("minimized");
+    if (window.innerWidth < 1024) {
+        if (minimized) {
+            sideBar.classList.remove("minimized");
+            sideBar.classList.add("min");
+        }
+        else {
+            sideBar.classList.remove("min");
+            sideBar.classList.add("minimized");
+        }
+    }
+    else {
+        if (minimized) {
+            sideBar.classList.remove("minimized");
+        }
     }
 }
 function handleOver() {
-    if (minimized) {
-        sideBar.classList.add("minimized");
+    if (window.innerWidth < 1024) {
+        if (minimized) {
+            sideBar.classList.remove("min");
+            sideBar.classList.add("minimized");
+        }
+        else {
+            sideBar.classList.remove("minimized");
+            sideBar.classList.add("min");
+        }
+    }
+    else {
+        if (minimized) {
+            sideBar.classList.add("minimized");
+        }
     }
 }
 

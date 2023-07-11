@@ -10,15 +10,15 @@
     border-top: 0.01px solid #B2B2B2;
 }
 
-.leftmenu .nav .list .item .text .drop.bottom {
-    transform-origin: center center;
-    transform: rotate(-90deg);
-    transition: transform 0.25s;
-}
+    .leftmenu .nav .list .item .text .drop.bottom {
+        transform-origin: center center;
+        transform: rotate(-90deg);
+        transition: all 0.25s;
+    }
 
-.leftmenu .nav .list .item .text .drop {
-    transition: transform 0.25s;
-}
+    .leftmenu .nav .list .item .text .drop {
+        transition: all 0.25s;
+    }
 
 .leftmenu .nav .list, .drop-list {
     display: flex;
@@ -68,21 +68,21 @@
     transition: all 0.3s;
 }
 
-.leftmenu .nav .list .item .drop-list {
-    opacity: 0;
-    height: 0;
-    transition: all 0.3s;
-}
+    .leftmenu .nav .list .item .drop-list {
+        opacity: 0;
+        height: 0;
+        transition: all 0.3s;
+    }
 
-.leftmenu .nav .list .item .list {
-    opacity: 1;
-    transition: all 0.3s;
-}
+    .leftmenu .nav .list .item .list {
+        opacity: 1;
+        transition: all 0.3s;
+    }
 
-.leftmenu .nav .list .item .list .item{
-    transform: translateY(0);
-    transition: all 0.3s;
-}
+        .leftmenu .nav .list .item .list .item {
+            transform: translateY(0);
+            transition: all 0.3s;
+        }
 
 .leftmenu .nav:last-child .list:last-child .text {
     display: flex;
@@ -181,7 +181,13 @@
 
 @media screen and (max-width: 1024px){
     .leftmenu {
-        width: 0;
-        visibility: hidden;
+        transform: translateX(-100%);
+    }
+    .leftmenu.minimized {
+        transform: translateX(0);
+    }
+    .leftmenu.min {
+        width: 225px;
+        transform: translateX(0);
     }
 }
