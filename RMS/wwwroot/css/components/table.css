@@ -56,7 +56,6 @@ tr {
     color: black;
     font-size: 18px;
     height: 45px;
-    margin-right: 30px;
 }
 
 .first-row th{
@@ -101,4 +100,141 @@ tr:nth-child(2n):not(.actions) {
     padding-left: 0;
     display: flex;
     justify-content: space-around;
+}
+
+.switcher{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .switcher {
+        display: none;
+    }
+
+    .table {
+        display: flex;
+        border-collapse: separate;
+        transition: all 0.5s;
+    }
+
+    .table .tbody {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .table .tbody .row{
+        border: none;
+    }
+
+    .table tr {
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        display: inline-table;
+        flex-wrap: wrap;
+        width: 250px;
+        transition: all 0.5s ease;
+        margin-top: 30px;
+    }
+
+    .table tr th:first-child {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .table tr th:last-child {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .table .tbody tr th:not(.actions) {
+        flex-basis: 0;
+        flex-grow: 1;
+        display: flex;
+        border: none;
+        border-bottom: 1px solid rgba(176,176,176,0.3);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .table th:not(.actions) {
+        height: 60px;
+        align-items: center;
+    }
+
+    .table tr .actions {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: space-around;
+        background: transparent;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .table .first-row {
+        display: none;
+    }
+
+    .table .namefor {
+        width: 130px;
+        text-align: left;
+        color: #4B4747;
+        display: block;
+    }
+
+    .table .displayfor {
+        color: #000000;
+        text-align: left;
+    }
+
+    .table .namefor {
+        width: 110px;
+        text-align: left;
+        color: #4B4747;
+        font-size: 16px;
+    }
+
+    .table .displayfor {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .table th:not(.actions) {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .table tr {
+        width: 150px;
+    }
+
+    .table .namefor {
+        width: 70px;
+        text-align: left;
+        color: #4B4747;
+        font-size: 12px;
+    }
+
+    .table .displayfor {
+        font-size: 12px;
+        text-align: center;
+        width: 80px;
+    }
+
+    .table th:not(.actions) {
+        height: 35px;
+    }
+
+    .actions {
+        height: 30px;
+    }
+
+    .actions img {
+        height: 20px;
+        margin-top: -8px;
+    }
 }

@@ -4,12 +4,13 @@
     transition: all 0.5s;
 }
 
-.table.card .tbody {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-}
+    .table.card .tbody {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-evenly;
+    }
 
 .table.card tr {
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
@@ -90,5 +91,37 @@
     }
     .table.card th:not(.actions) {
         height: 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .table.card tr {
+        width: 150px;
+    }
+
+    .table.card .namefor {
+        width: 70px;
+        text-align: left;
+        color: #4B4747;
+        font-size: 12px;
+    }
+
+    .table.card .displayfor {
+        font-size: 12px;
+        text-align: center;
+        width: 80px;
+    }
+
+    .table.card th:not(.actions) {
+        height: 35px;
+    }
+
+    .actions {
+        height: 30px;
+    }
+
+    .actions img {
+        height: 20px;
+        margin-top: -8px;
     }
 }
