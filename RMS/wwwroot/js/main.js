@@ -3,9 +3,6 @@ var container = document.getElementById("container");
 var table = document.getElementById("table");
 var body = document.getElementById("body");
 
-var night = document.getElementById("night");
-var checkedInputs = document.getElementById("tablecheck");
-
 var minimized = false;
 function toggleRequests(arg) {
     var ulItem = document.getElementById(arg);

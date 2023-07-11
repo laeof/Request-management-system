@@ -17,36 +17,56 @@ namespace RMS.Controllers
 		}
 
 		[HttpGet]
-        public IActionResult PlanningRequests()
+        public async Task<IActionResult> PlanningRequests()
         {
             ViewBag.Title = "Заплановані заявки";
-            return View(ShowRequests(1));
+            return View(await ShowRequests(1));
         }
 
         [HttpGet]
-        public IActionResult CurrentRequests()
+        public async Task<IActionResult> CurrentRequests()
         {
             ViewBag.Title = "Поточні заявки";
-            return View(ShowRequests(2));
+            return View(await ShowRequests(2));
         }
 
         [HttpGet]
-        public IActionResult ClosedRequests()
+        public async Task<IActionResult> ClosedRequests()
         {
             ViewBag.Title = "Закриті заявки";
-            return View(ShowRequests(3));
+            return View(await ShowRequests(3));
         }
 
         [HttpGet]
-        public IActionResult CancelledRequests()
+        public async Task<IActionResult> CancelledRequests()
         {
             ViewBag.Title = "Відмінені заявки";
-            return View(ShowRequests(4));
+            return View(await ShowRequests(4));
         }
 
-        private List<Request> ShowRequests(int status) 
+        private async Task<List<Request>> ShowRequests(int status) 
         {
-            var requests = dataManager.Requests.GetRequestByStatus(status).ToList();
+            var requests = dataManager.Requests.GetRequestByStatus(status);
+
+            switch (status)
+            {
+                case 1:
+                    requests = requests.OrderByDescending(x => x.Priority).ThenByDescending(x => x.Lifecycle.Planning);
+                    break;
+                case 2:
+                    requests = requests.OrderByDescending(x => x.Priority).ThenByDescending(x => x.Lifecycle.Current);
+                    break;
+                case 3:
+                    requests = requests.OrderByDescending(x => x.Priority).ThenByDescending(x => x.Lifecycle.Closed);
+                    break;
+                case 4:
+                    requests = requests.OrderByDescending(x => x.Priority).ThenByDescending(x => x.Lifecycle.Cancelled);
+                    break;
+            }
+
+            var reqs = requests.ToList();
+
+            requests = null;
 
             if (dataManager == null
                 || dataManager.Requests == null
@@ -54,15 +74,15 @@ namespace RMS.Controllers
                 || dataManager.Categories == null
                 || dataManager.Lifecycles == null)
             {
-                return requests;
+                return reqs;
             }
 
-            foreach (var r in requests)
+            foreach (var r in reqs)
             {
-                r.Closed = dataManager.Users.GetUserById(r.CloseId);
-                r.Category = dataManager.Categories.GetCategoryById(r.CategoryId);
-                r.Lifecycle = dataManager.Lifecycles.GetLifecycleById(r.LifecycleId);
-                r.Cancelled = dataManager.Users.GetUserById(r.CancelId);
+                r.Closed = await dataManager.Users.GetUserByIdAsync(r.CloseId);
+                r.Category = await dataManager.Categories.GetCategoryByIdAsync(r.CategoryId);
+                r.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(r.LifecycleId);
+                r.Cancelled = await dataManager.Users.GetUserByIdAsync(r.CancelId);
             }
 
             ViewBag.PlanningRequestsCount = dataManager.Requests.GetRequestByStatus(1).Count();
@@ -70,7 +90,7 @@ namespace RMS.Controllers
             ViewBag.ClosedRequestsCount = dataManager.Requests.GetRequestByStatus(3).Count();
             ViewBag.CancelledRequestsCount = dataManager.Requests.GetRequestByStatus(4).Count();
 
-            return requests;
+            return reqs;
         }
 		[Authorize(Roles = "admin, manager")]
 		[HttpGet]
