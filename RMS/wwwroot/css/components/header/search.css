@@ -32,6 +32,10 @@
 
 @media screen and (max-width: 480px) {
     
+    .container .search input{
+        width: 160px;
+    }
+
     .container.minimized .search input{
         width: 100px;
     }
