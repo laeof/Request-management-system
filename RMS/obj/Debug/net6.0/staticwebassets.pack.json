@@ -145,6 +145,14 @@
       "PackagePath": "staticwebassets\\css\\components\\title.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\userspage\\main.css",
+      "PackagePath": "staticwebassets\\css\\components\\userspage\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\userspage\\users.css",
+      "PackagePath": "staticwebassets\\css\\components\\userspage\\users.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\fonts.css",
       "PackagePath": "staticwebassets\\css\\fonts.css"
     },

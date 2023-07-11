@@ -1,0 +1,9 @@
+﻿.users .table.card .actions {
+    background: rgba(233,250,255,0.2);
+}
+
+@media screen and (max-width: 768px){
+    .users .table .actions {
+        background: rgba(233,250,255,0.2);
+    }
+}

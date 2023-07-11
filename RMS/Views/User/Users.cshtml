@@ -12,30 +12,92 @@
         </label>
     </div>
 </div>
-<table class="table" id="table">
-    <tr class="first-row">
-        <th>
-            @Html.DisplayNameFor(model => model.User.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Surname)
-        </th>
-        @if (User.IsInRole("admin"))
-        {
+<div class="users">
+    <table class="table" id="table">
+        <tr class="first-row">
             <th>
-                @Html.DisplayNameFor(model => model.User.Login)
+                @Html.DisplayNameFor(model => model.User.FirstName)
             </th>
-        }
-        <th>
-            @Html.DisplayNameFor(model => model.User.Comment)
-        </th>
-    </tr>
-    <tbody class="tbody">
-    @foreach (var item in Model)
-    {
-        @if (User.IsInRole("manager"))
+            <th>
+                @Html.DisplayNameFor(model => model.User.Surname)
+            </th>
+            @if (User.IsInRole("admin"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Login)
+                </th>
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.User.Comment)
+            </th>
+        </tr>
+        <tbody class="tbody">
+        @foreach (var item in Model)
         {
-            if(item.RoleId > 2)
+            @if (User.IsInRole("manager"))
+            {
+                if(item.RoleId > 2)
+                {   
+                    <tr>
+                        <th>
+                            <div class="namefor">
+                                @Html.DisplayNameFor(model => model.User.FirstName)
+                            </div>
+                            <div class="displayfor">
+                                @Html.DisplayFor(modelItem => item.User.FirstName)
+                            </div>
+                        </th>
+                        <th>
+                            <div class="namefor">
+                                @Html.DisplayNameFor(model => model.User.Surname)
+                            </div>
+                            <div class="displayfor">
+                                @Html.DisplayFor(modelItem => item.User.Surname)
+                            </div>
+                        </th>
+                        <th>
+                            <div class="namefor">
+                                @Html.DisplayNameFor(model => model.User.Comment)
+                            </div>
+                            <div class="displayfor">
+                                @Html.DisplayFor(modelItem => item.User.Comment)
+                            </div>
+                        </th>
+                        @if (!(item.UserId == ViewBag.Id))
+                        {
+                            <th class="actions">
+                                <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                                @if (item.User.IsActive)
+                                {
+                                    <img src="~/img/svg/disable.svg" class="cancellink" title="Відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                }
+                                else
+                                {
+                                    <img src="~/img/svg/active.svg" class="openlink" title="Включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                            
+                                }
+                                <img src="~/img/svg/delete.svg" class="closelink" title="Видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
+                            </th>
+                        }
+                        else
+                        {   
+                            <th class="actions">
+                                <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                                @if (item.User.IsActive)
+                                {
+                                    <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                }
+                                else
+                                {
+                                    <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                }
+                                <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
+                            </th>
+                        }
+                    </tr>
+                }
+            }
+            else if(User.IsInRole("admin"))
             {   
                 <tr>
                     <th>
@@ -56,15 +118,24 @@
                     </th>
                     <th>
                         <div class="namefor">
+                            @Html.DisplayNameFor(model => model.User.Login)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.User.Login)
+                        </div>
+                    </th>
+                    <th>
+                        <div class="namefor">
                             @Html.DisplayNameFor(model => model.User.Comment)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.Comment)
                         </div>
                     </th>
-                    @if (!(item.UserId == ViewBag.Id))
-                    {
-                        <th class="actions">
+                    <th class="actions">
+                        @if (!(item.UserId == ViewBag.Id))
+                        {
+                    
                             <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
                             @if (item.User.IsActive)
                             {
@@ -73,14 +144,11 @@
                             else
                             {
                                 <img src="~/img/svg/active.svg" class="openlink" title="Включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                            
                             }
                             <img src="~/img/svg/delete.svg" class="closelink" title="Видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
-                        </th>
-                    }
-                    else
-                    {   
-                        <th class="actions">
+                        }
+                        else
+                        {
                             <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
                             @if (item.User.IsActive)
                             {
@@ -91,78 +159,12 @@
                                 <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
                             }
                             <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
-                        </th>
-                    }
+
+                        }
+                    </th>
                 </tr>
             }
         }
-        else if(User.IsInRole("admin"))
-        {   
-            <tr>
-                <th>
-                    <div class="namefor">
-                        @Html.DisplayNameFor(model => model.User.FirstName)
-                    </div>
-                    <div class="displayfor">
-                        @Html.DisplayFor(modelItem => item.User.FirstName)
-                    </div>
-                </th>
-                <th>
-                    <div class="namefor">
-                        @Html.DisplayNameFor(model => model.User.Surname)
-                    </div>
-                    <div class="displayfor">
-                        @Html.DisplayFor(modelItem => item.User.Surname)
-                    </div>
-                </th>
-                <th>
-                    <div class="namefor">
-                        @Html.DisplayNameFor(model => model.User.Login)
-                    </div>
-                    <div class="displayfor">
-                        @Html.DisplayFor(modelItem => item.User.Login)
-                    </div>
-                </th>
-                <th>
-                    <div class="namefor">
-                        @Html.DisplayNameFor(model => model.User.Comment)
-                    </div>
-                    <div class="displayfor">
-                        @Html.DisplayFor(modelItem => item.User.Comment)
-                    </div>
-                </th>
-                <th class="actions">
-                    @if (!(item.UserId == ViewBag.Id))
-                    {
-                    
-                        <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
-                        @if (item.User.IsActive)
-                        {
-                            <img src="~/img/svg/disable.svg" class="cancellink" title="Відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        }
-                        else
-                        {
-                            <img src="~/img/svg/active.svg" class="openlink" title="Включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        }
-                        <img src="~/img/svg/delete.svg" class="closelink" title="Видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
-                    }
-                    else
-                    {
-                        <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
-                        @if (item.User.IsActive)
-                        {
-                            <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        }
-                        else
-                        {
-                            <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
-                        }
-                        <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
-
-                    }
-                </th>
-            </tr>
-        }
-    }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>

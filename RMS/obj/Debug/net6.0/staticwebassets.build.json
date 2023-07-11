@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "caO+7SK3vA/HC5C/ZPjEOyNB+8DVwNc42hw8ufOQdzc=",
+  "Hash": "ATOcrxV0r6xTjpFCPoVQ+stC3iVhmB+g+ZsRpzNQZr4=",
   "Source": "RMS",
   "BasePath": "_content/RMS",
   "Mode": "Default",
@@ -627,6 +627,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\components\\title.css"
+    },
+    {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\userspage\\main.css",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "css/components/userspage/main.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\userspage\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\userspage\\users.css",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "css/components/userspage/users.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\userspage\\users.css"
     },
     {
       "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\fonts.css",

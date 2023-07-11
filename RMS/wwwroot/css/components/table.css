@@ -101,12 +101,12 @@ th {
     justify-content: space-around;
 }
 
-.tbody tr:nth-child(2n+1) {
-    background-color: rgba(201,228,246,0.7);
+.tbody tr:nth-child(2n+1) th:not(.first-row):not(.actions):not(.row.critical):not(.row.default) {
+    background-color: rgba(201,228,246,0.6);
 }
 
-.tbody tr:nth-child(2n) {
-    background-color: rgba(180,218,242,0.7);
+.tbody tr:nth-child(2n) th:not(.first-row):not(.actions):not(.row.critical):not(.row.default) {
+    background-color: rgba(180,218,242,0.6);
 }
 
 .switcher{
@@ -174,7 +174,7 @@ th {
         border-bottom-right-radius: 15px;
     }
 
-    .table .tbody tr th:not(.actions) {
+    .table .tbody .row th:not(.actions) {
         flex-basis: 0;
         flex-grow: 1;
         display: flex;
@@ -189,15 +189,15 @@ th {
         align-items: center;
     }
 
-        .table tr .actions {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            padding: 10px;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            background: rgba(233,250,255,0.1);
-        }
+    .table tr .actions {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: rgba(233,250,255,0.1);
+    }
 
     .table .first-row {
         display: none;
