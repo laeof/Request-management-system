@@ -4,13 +4,13 @@
     transition: all 0.5s;
 }
 
-    .table.card .tbody {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: space-evenly;
-    }
+.table.card .tbody {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
 
 .table.card tr {
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
@@ -37,7 +37,7 @@
     flex-grow: 1;
     display: flex;
     border: none;
-    border-bottom: 1px solid rgba(176,176,176,0.3);
+    border-bottom: 1px solid rgba(176,176,176,0.5);
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -47,50 +47,68 @@
     align-items: center;
 }
 
-.table.card tr .actions {
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: space-around;
-    background: transparent;
-    width: 100%;
-    padding: 10px;
-}
+    .table.card tr .actions {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: rgba(233,250,255,0.1);
+    }
 
 .table.card .first-row {
     display: none;
 }
 
-.table.card .namefor {
+.table.card .namefor{
     width: 130px;
     text-align: left;
     color: #4B4747;
     display: block;
 }
 
-.table.card .displayfor {
+.displayfor {
     color: #000000;
-    text-align: left;
+    font-size: 16px;
+    text-align: center;
 }
 
-@media screen and (max-width: 1600px){
+.body.night .first-row th {
+    color: #E9FAFF;
+}
+
+.body.night .namefor {
+    color: rgba(220,230,233,0.9);
+}
+
+@media screen and (max-width: 1600px) {
     .table.card tr {
         width: 250px;
         transition: all 0.5s ease;
         margin-top: 30px;
     }
+
     .table.card .namefor {
         width: 110px;
         text-align: left;
-        color: #4B4747;
         font-size: 16px;
     }
+
     .table.card .displayfor {
         font-size: 16px;
         text-align: center;
     }
+
     .table.card th:not(.actions) {
         height: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table.card tr .actions {
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }
 
@@ -102,7 +120,6 @@
     .table.card .namefor {
         width: 70px;
         text-align: left;
-        color: #4B4747;
         font-size: 12px;
     }
 
@@ -120,8 +137,8 @@
         height: 30px;
     }
 
-    .actions img {
-        height: 20px;
-        margin-top: -8px;
-    }
+        .actions img {
+            height: 20px;
+            margin-top: -8px;
+        }
 }

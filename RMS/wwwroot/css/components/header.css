@@ -1,6 +1,6 @@
 ﻿.header {
-    min-height: 60px;
-    background: #20c997;
+    min-height: 50px;
+    background-color: rgba(33,202,112,0.7);
     display: flex;
     width: 100%;
     align-items: center;

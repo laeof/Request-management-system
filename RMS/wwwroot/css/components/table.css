@@ -85,25 +85,45 @@ th {
     padding-bottom: 10px;
 }
 
-tr:nth-child(2n+1):not(.first-row):not(.actions){
-    background-color: rgba(201,228,246,0.9);
+.body.night .first-row th {
+    color: #E9FAFF;
 }
 
-tr:nth-child(2n):not(.actions) {
-    background-color: rgba(180,218,242,0.9);
+.body.night .namefor {
+    color: rgba(220,230,233,0.9);
 }
 
 .actions {
     border: 0px;
-    background: #e9faff;
     padding-right: 0;
     padding-left: 0;
     display: flex;
     justify-content: space-around;
+    background: rgba(233,250,255,0.1);
+}
+
+.tbody tr:nth-child(2n+1) {
+    background-color: rgba(201,228,246,0.7);
+}
+
+.tbody tr:nth-child(2n) {
+    background-color: rgba(180,218,242,0.7);
 }
 
 .switcher{
     display: flex;
+}
+
+.namefor {
+    width: 130px;
+    text-align: left;
+    color: #4B4747;
+}
+
+.displayfor {
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -139,6 +159,12 @@ tr:nth-child(2n):not(.actions) {
         margin-top: 30px;
     }
 
+    .table .namefor {
+        width: 110px;
+        text-align: left;
+        display: block;
+    }
+
     .table tr th:first-child {
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
@@ -166,40 +192,15 @@ tr:nth-child(2n):not(.actions) {
 
     .table tr .actions {
         display: flex;
-        margin-top: 10px;
-        margin-bottom: 10px;
         justify-content: space-around;
-        background: transparent;
         width: 100%;
         padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .table .first-row {
         display: none;
-    }
-
-    .table .namefor {
-        width: 130px;
-        text-align: left;
-        color: #4B4747;
-        display: block;
-    }
-
-    .table .displayfor {
-        color: #000000;
-        text-align: left;
-    }
-
-    .table .namefor {
-        width: 110px;
-        text-align: left;
-        color: #4B4747;
-        font-size: 16px;
-    }
-
-    .table .displayfor {
-        font-size: 16px;
-        text-align: center;
     }
 
     .table th:not(.actions) {
@@ -215,7 +216,6 @@ tr:nth-child(2n):not(.actions) {
     .table .namefor {
         width: 70px;
         text-align: left;
-        color: #4B4747;
         font-size: 12px;
     }
 

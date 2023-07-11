@@ -129,6 +129,10 @@
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\table.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\select.css",
+      "PackagePath": "staticwebassets\\css\\components\\select.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\switch.css",
       "PackagePath": "staticwebassets\\css\\components\\switch.css"
     },

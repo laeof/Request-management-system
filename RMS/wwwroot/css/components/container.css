@@ -4,9 +4,10 @@
     padding: 0;
 }
 
-body {
+.body {
     display: flex;
     background-color: #e9faff;
+    transition: all 0.5s;
 }
 
 .container.auth {
@@ -25,6 +26,19 @@ body {
     margin: 0 auto;
     margin-left: 85px;
 }
+
+.body.night {
+    background: #16171A;
+    color: rgba(233,250,255,0.8);
+    transition: all 0.5s;
+}
+
+    .body.night::-webkit-scrollbar {
+        background: #16171A;
+    }
+    .body.night::-webkit-scrollbar-thumb {
+        background-color: rgba(233,250,255, 0.4);
+    }
 
 .container {
     display: flex;

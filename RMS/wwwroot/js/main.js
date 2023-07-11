@@ -1,6 +1,10 @@
 var sideBar = document.getElementById("leftmenu");
 var container = document.getElementById("container");
 var table = document.getElementById("table");
+var body = document.getElementById("body");
+
+var night = document.getElementById("night");
+var checkedInputs = document.getElementById("tablecheck");
 
 var minimized = false;
 function toggleRequests(arg) {
@@ -33,9 +37,15 @@ function toggleRequests(arg) {
         }
     }
 }
-var checkedInputs = document.getElementById("tablecheck");
-
-function toggleTable() {
+function togglePageMode(act) {
+    if (night.checked) {
+        body.classList.add("night");
+    }
+    else {
+        body.classList.remove("night");
+    }
+}
+function toggleTable(act) {
     if (!checkedInputs.checked) {
         table.classList.remove("card");
     }
@@ -43,7 +53,6 @@ function toggleTable() {
         table.classList.add("card");
     }
 }
-
 function toggleLeftSideBar() {
     if (sideBar.classList.contains("minimized")) {
         sideBar.classList.remove("minimized");

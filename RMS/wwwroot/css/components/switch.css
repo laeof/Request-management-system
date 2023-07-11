@@ -1,4 +1,11 @@
-﻿.switch {
+﻿.page-info {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.switch {
     position: relative;
     display: inline-block;
     width: 40px;
@@ -20,7 +27,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: rgba(204,204,204,0.5);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -32,13 +39,13 @@
     width: 20px;
     left: 0px;
     bottom: 0px;
-    background-color: white;
+    background-color: rgb(255,255,255,0.6);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: rgba(33,150,243, 0.7);
 }
 
 input:focus + .slider {

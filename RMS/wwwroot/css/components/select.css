@@ -1,9 +1,5 @@
-﻿input {
-    font-family: 'Roboto';
-    font-weight: 300;
-}
-
-.body.night input {
+﻿
+.body.night select {
     background-color: rgba(204,204,204,0.9);
     color: rgba(22,23,26,0.8);
     font-weight: 400;

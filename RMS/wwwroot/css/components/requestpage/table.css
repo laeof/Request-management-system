@@ -12,9 +12,17 @@
 }
 
 .requests .row.default {
-    background: rgba(189,240,255,0.6);
+    background: rgba(189,240,255,0.8);
 }
 
 .requests .row.critical {
     background: rgba(240,150,204,0.6);
+}
+
+.body.night .requests .row.default {
+    background: rgba(79, 146, 195, 0.8);
+}
+
+.body.night .requests .row.critical {
+    background: rgba(244, 176, 75, 0.8);
 }

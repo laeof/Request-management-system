@@ -4,21 +4,22 @@
 
 
 <title>@ViewBag.Title</title>
-
-<div>
+<div class="page-info">
     <h2>@ViewBag.Title</h2>
     <div class="switcher">
-        <h2 style="display: flex; margin-right: 30px;">Включити режим карток</h2>
+        <h2 style="display: flex; margin-right: 30px;">Режим карток</h2>
         <label class="switch">
             <input type="checkbox" id="tablecheck" onclick="toggleTable()">
             <span class="slider round"></span>
         </label>
     </div>
 </div>
-<a href="/Request/PlanningRequests">Запланованих заявок: @ViewBag.PlanningRequestsCount</a>
-<a href="/Request/CurrentRequests">Поточних заявок: @ViewBag.CurrentRequestsCount</a>
-<a href="/Request/ClosedRequests">Закритих заявок: @ViewBag.ClosedRequestsCount</a>
-<a href="/Request/CancelledRequests">Відмінених заявок: @ViewBag.CancelledRequestsCount</a>
+<div class="request-list">
+    <a href="/Request/PlanningRequests">Запланованих заявок: @ViewBag.PlanningRequestsCount</a>
+    <a href="/Request/CurrentRequests">Поточних заявок: @ViewBag.CurrentRequestsCount</a>
+    <a href="/Request/ClosedRequests">Закритих заявок: @ViewBag.ClosedRequestsCount</a>
+    <a href="/Request/CancelledRequests">Відмінених заявок: @ViewBag.CancelledRequestsCount</a>
+</div>
 <div class="requests">
     <table class="table" id="table">
         <tr class="first-row">

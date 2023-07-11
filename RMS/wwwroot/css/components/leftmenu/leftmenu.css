@@ -84,6 +84,10 @@
             transition: all 0.3s;
         }
 
+        .leftmenu .nav .list .item .list .item:first-child {
+            margin-top: 10px;
+        }
+
 .leftmenu .nav:last-child .list:last-child .text {
     display: flex;
     justify-content: space-between;
@@ -92,7 +96,7 @@
 }
 
 .leftmenu .nav:last-child .list .item .list .item:hover {
-    background: #525D6B;
+    background: rgba(82,93,107,0.5);
 }
 
 #exit {
@@ -105,7 +109,7 @@
 }
 
 .leftmenu .nav .item:hover {
-    background: #3C444E;
+    background: rgba(60,68,78,0.5);
     border-radius: 8px;
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
 }
@@ -129,7 +133,6 @@
     background: #2A2F35;
     position: fixed;
     height: 100%;
-    transition: all 0.5s;
 }
 
 .leftmenu.minimized .wrap-logo p {
@@ -158,6 +161,14 @@
 
 .leftmenu.minimized .nav:last-child .list:last-child .text {
     justify-content: center;
+}
+
+.body.night .leftmenu {
+    background: rgb(36, 39, 40);
+}
+
+.body.night .leftmenu .nav > * {
+    border-top: 1px solid rgba(178,178,178, 0.4);
 }
 
 @media screen and (max-width: 1366px){

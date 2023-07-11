@@ -6,7 +6,7 @@
 }
 else
 {
-	<header class="header">
+	<header class="header" onload="Onload()">
 		<div class="wrap-img">
 			<img class="img" onclick="toggleLeftSideBar()" src="~/img/svg/burgerbtn.svg" />
 			<img class="img" onclick="window.location.href = '/Home/Index';" src="~/img/svg/home.svg" />
@@ -17,7 +17,10 @@ else
 				<img class="search-img" src="~/img/svg/search.svg" />
 			</div>
 			<img class="img" onclick="window.location.href = '/Help/Help';" src="~/img/svg/questionmark.svg" />
-			<img class="img" src="~/img/svg/night_day.svg" />
+			<label style="cursor: pointer; display: flex; align-items: center;">
+				<input type="checkbox" style="width: 0; height: 0; margin-right: 0;" id="night" onclick="togglePageMode(1)">
+				<img class="img" src="~/img/svg/night_day.svg" />
+			</label>
 		</div>
 	</header>
 }

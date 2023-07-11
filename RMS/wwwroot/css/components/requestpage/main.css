@@ -1,2 +1,10 @@
 ﻿@import "table.css";
 @import "card.css";
+
+.request-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

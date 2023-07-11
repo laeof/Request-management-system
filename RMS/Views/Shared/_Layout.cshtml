@@ -9,11 +9,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 		@await Html.PartialAsync("MetatagsPartial")
 		@await Html.PartialAsync("CssPartial")
 	<link rel="icon" href="~/img/ico/favicon.ico" type="image/x-icon">
 	</head>
-	<body>
+	<body class="body" id="body">
 			@if (User.Identity.IsAuthenticated)
 			{
 				<vc:Leftmenu />
