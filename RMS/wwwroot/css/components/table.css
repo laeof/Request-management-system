@@ -174,7 +174,7 @@ th {
         border-bottom-right-radius: 15px;
     }
 
-    .table .tbody .row th:not(.actions) {
+    .table .tbody th:not(.actions) {
         flex-basis: 0;
         flex-grow: 1;
         display: flex;
