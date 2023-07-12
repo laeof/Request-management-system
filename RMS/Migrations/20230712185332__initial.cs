@@ -114,7 +114,7 @@ namespace RMS.Migrations
                     Status = table.Column<int>(type: "integer", nullable: false),
                     Priority = table.Column<int>(type: "integer", nullable: false),
                     Address = table.Column<string>(type: "text", nullable: false),
-                    CategoryId = table.Column<long>(type: "bigint", nullable: false),
+                    CategoryId = table.Column<long>(type: "bigint", nullable: true),
                     LifecycleId = table.Column<long>(type: "bigint", nullable: false),
                     CloseId = table.Column<long>(type: "bigint", nullable: true),
                     ClosedId = table.Column<long>(type: "bigint", nullable: true),
@@ -132,8 +132,7 @@ namespace RMS.Migrations
                         name: "FK_Requests_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Requests_Lifecycles_LifecycleId",
                         column: x => x.LifecycleId,
@@ -172,8 +171,8 @@ namespace RMS.Migrations
                 columns: new[] { "Id", "Cancelled", "Closed", "Current", "Planning" },
                 values: new object[,]
                 {
-                    { 1L, null, null, null, new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6058) },
-                    { 2L, null, null, null, new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6065) }
+                    { 1L, null, null, null, new DateTime(2023, 7, 12, 18, 53, 32, 383, DateTimeKind.Utc).AddTicks(4426) },
+                    { 2L, null, null, null, new DateTime(2023, 7, 12, 18, 53, 32, 383, DateTimeKind.Utc).AddTicks(4446) }
                 });
 
             migrationBuilder.InsertData(
@@ -191,9 +190,9 @@ namespace RMS.Migrations
                 columns: new[] { "Id", "Comment", "FirstName", "ImgPath", "IsActive", "Login", "Password", "Surname" },
                 values: new object[,]
                 {
-                    { 1L, "Comment", "Max", "../../img/jpg/preview.jpg", true, "ADMIN", "$HASH|V1$10000$eops/PkcWy3qbyQ1J3HPeJeTHPXnlyvXm2MH6QcC8TBin0jW", "Akchurin" },
-                    { 2L, "Comment", "Anton", "../../img/png/user.png", true, "MANAGER", "$HASH|V1$10000$Q3Nlq14QMZgz+I0NWTSu28PLSBAKLSogyN+SASlSFRc5Awg2", "Guryshkin" },
-                    { 3L, "Comment", "Georgii", "../../img/png/user.png", true, "mounter", "$HASH|V1$10000$5WghRis1Ima6rPhWiRXfb8QgmFxMpUDm+e6XwL/o+hyukZdx", "Perepelitsa" }
+                    { 1L, "Comment", "Max", "../../img/jpg/preview.jpg", true, "ADMIN", "$HASH|V1$10000$urqg7kuhyAD/7uNoiXf3CEx2aJJrXbRKDNRXRD+CUDtTk9wq", "Akchurin" },
+                    { 2L, "Comment", "Anton", "../../img/Avatar/user.png", true, "MANAGER", "$HASH|V1$10000$dpPG/ZQja2StkcLwG49kIWzowKv4x7F5N/0bmH7HwAdAzAsM", "Guryshkin" },
+                    { 3L, "Comment", "Georgii", "../../img/Avatar/user.png", true, "mounter", "$HASH|V1$10000$VqPQfxDL5/OV5+7RGf1vUEsuf84/U2N2Mxe38FRvK5d6pLQF", "Perepelitsa" }
                 });
 
             migrationBuilder.InsertData(

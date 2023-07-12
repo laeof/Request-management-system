@@ -1,391 +1,399 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\common.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\common.css",
       "PackagePath": "staticwebassets\\css\\common.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\container-login-form-btn.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\container-login-form-btn.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\container-login-form-btn.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\login-form.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\login-form.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\login-form.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\validate.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\validate.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\validate.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-check.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\wrap-check.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\wrap-check.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-input.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\wrap-input.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\wrap-input.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\authpage\\wrap-login.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\authpage\\wrap-login.css",
       "PackagePath": "staticwebassets\\css\\components\\authpage\\wrap-login.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\button.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\button.css",
       "PackagePath": "staticwebassets\\css\\components\\button.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\container.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\container.css",
       "PackagePath": "staticwebassets\\css\\components\\container.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\content.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\content.css",
       "PackagePath": "staticwebassets\\css\\components\\content.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\footer.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\footer.css",
       "PackagePath": "staticwebassets\\css\\components\\footer.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\header.css",
       "PackagePath": "staticwebassets\\css\\components\\header.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header\\image.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\header\\image.css",
       "PackagePath": "staticwebassets\\css\\components\\header\\image.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\header\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\header\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\header\\search.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\header\\search.css",
       "PackagePath": "staticwebassets\\css\\components\\header\\search.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\input.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\input.css",
       "PackagePath": "staticwebassets\\css\\components\\input.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu\\leftmenu.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\leftmenu\\leftmenu.css",
       "PackagePath": "staticwebassets\\css\\components\\leftmenu\\leftmenu.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\leftmenu\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\leftmenu\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\leftmenu\\user.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\leftmenu\\user.css",
       "PackagePath": "staticwebassets\\css\\components\\leftmenu\\user.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\logo.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\logo.css",
       "PackagePath": "staticwebassets\\css\\components\\logo.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\accountinfo.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\personalpage\\accountinfo.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\accountinfo.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\button.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\personalpage\\button.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\button.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\input.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\personalpage\\input.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\input.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\label.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\personalpage\\label.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\label.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\personalpage\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\personalpage.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\personalpage\\personalpage.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\personalpage.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\profileimage.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\personalpage\\profileimage.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\profileimage.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\card.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\requestpage\\card.css",
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\card.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\table.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\requestpage\\table.css",
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\table.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\select.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\select.css",
       "PackagePath": "staticwebassets\\css\\components\\select.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\switch.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\switch.css",
       "PackagePath": "staticwebassets\\css\\components\\switch.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\table.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\table.css",
       "PackagePath": "staticwebassets\\css\\components\\table.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\title.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\title.css",
       "PackagePath": "staticwebassets\\css\\components\\title.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\userspage\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\userspage\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\userspage\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\userspage\\users.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\components\\userspage\\users.css",
       "PackagePath": "staticwebassets\\css\\components\\userspage\\users.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\fonts.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\fonts.css",
       "PackagePath": "staticwebassets\\css\\fonts.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\main.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\main.css",
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\reset.css",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\css\\reset.css",
       "PackagePath": "staticwebassets\\css\\reset.css"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Black.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Black.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Black.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Black.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Black.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Black.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-BlackItalic.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BlackItalic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-BlackItalic.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Bold.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Bold.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Bold.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-BoldItalic.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-BoldItalic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-BoldItalic.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Italic.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Italic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Italic.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Light.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Light.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Light.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Light.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Light.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Light.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-LightItalic.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-LightItalic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-LightItalic.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Medium.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Medium.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Medium.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-MediumItalic.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-MediumItalic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-MediumItalic.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Regular.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Regular.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Regular.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Thin.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-Thin.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-Thin.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff",
       "PackagePath": "staticwebassets\\fonts\\Roboto-ThinItalic.woff"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff2",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\fonts\\Roboto-ThinItalic.woff2",
       "PackagePath": "staticwebassets\\fonts\\Roboto-ThinItalic.woff2"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\preview.jpg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\Avatar\\p0atwyjx.fqq_preview.jpg",
+      "PackagePath": "staticwebassets\\img\\Avatar\\p0atwyjx.fqq_preview.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\Avatar\\preview.jpg",
       "PackagePath": "staticwebassets\\img\\Avatar\\preview.jpg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\user.png",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\Avatar\\user.png",
       "PackagePath": "staticwebassets\\img\\Avatar\\user.png"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\ico\\favicon.ico",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\Avatar\\znosk32j.lkc_db2824a8-ae42-4237-a4ff-ea8959501329.jpg",
+      "PackagePath": "staticwebassets\\img\\Avatar\\znosk32j.lkc_db2824a8-ae42-4237-a4ff-ea8959501329.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\ico\\favicon.ico",
       "PackagePath": "staticwebassets\\img\\ico\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\jpg\\preview.jpg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\jpg\\preview.jpg",
       "PackagePath": "staticwebassets\\img\\jpg\\preview.jpg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\google.png",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\png\\google.png",
       "PackagePath": "staticwebassets\\img\\png\\google.png"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\key.png",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\png\\key.png",
       "PackagePath": "staticwebassets\\img\\png\\key.png"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\png\\user.png",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\png\\user.png",
       "PackagePath": "staticwebassets\\img\\png\\user.png"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\active.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\active.svg",
       "PackagePath": "staticwebassets\\img\\svg\\active.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\add.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\add.svg",
       "PackagePath": "staticwebassets\\img\\svg\\add.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\arrow.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\arrow.svg",
       "PackagePath": "staticwebassets\\img\\svg\\arrow.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\burgerbtn.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\burgerbtn.svg",
       "PackagePath": "staticwebassets\\img\\svg\\burgerbtn.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\cancel.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\cancel.svg",
       "PackagePath": "staticwebassets\\img\\svg\\cancel.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\close.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\close.svg",
       "PackagePath": "staticwebassets\\img\\svg\\close.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\comment.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\comment.svg",
       "PackagePath": "staticwebassets\\img\\svg\\comment.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\delete.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\delete.svg",
       "PackagePath": "staticwebassets\\img\\svg\\delete.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\disable.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\disable.svg",
       "PackagePath": "staticwebassets\\img\\svg\\disable.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\edit.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\edit.svg",
       "PackagePath": "staticwebassets\\img\\svg\\edit.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\exit.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\exit.svg",
       "PackagePath": "staticwebassets\\img\\svg\\exit.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\home.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\home.svg",
       "PackagePath": "staticwebassets\\img\\svg\\home.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\night.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\night.svg",
       "PackagePath": "staticwebassets\\img\\svg\\night.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\night_day.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\night_day.svg",
       "PackagePath": "staticwebassets\\img\\svg\\night_day.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\questionmark.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\questionmark.svg",
       "PackagePath": "staticwebassets\\img\\svg\\questionmark.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\address.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\request\\address.svg",
       "PackagePath": "staticwebassets\\img\\svg\\request\\address.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\category.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\request\\category.svg",
       "PackagePath": "staticwebassets\\img\\svg\\request\\category.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\descr.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\request\\descr.svg",
       "PackagePath": "staticwebassets\\img\\svg\\request\\descr.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\priority.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\request\\priority.svg",
       "PackagePath": "staticwebassets\\img\\svg\\request\\priority.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\request\\title.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\request\\title.svg",
       "PackagePath": "staticwebassets\\img\\svg\\request\\title.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\search.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\search.svg",
       "PackagePath": "staticwebassets\\img\\svg\\search.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\user\\img.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\user\\img.svg",
       "PackagePath": "staticwebassets\\img\\svg\\user\\img.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\user\\namesurname.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\user\\namesurname.svg",
       "PackagePath": "staticwebassets\\img\\svg\\user\\namesurname.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\user\\role.svg",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\img\\svg\\user\\role.svg",
       "PackagePath": "staticwebassets\\img\\svg\\user\\role.svg"
     },
     {
-      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\js\\main.js",
+      "Id": "C:\\Users\\hopeless\\Documents\\GitHub\\Request-management-system\\RMS\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
     {

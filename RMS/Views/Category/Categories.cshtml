@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Category>
+
+<title>@ViewBag.Title</title>
+<div class="page-info">
+    <h2>@ViewBag.Title</h2>
+    <div class="switcher">
+        <h2 style ="display: flex; margin-right: 30px;">Режим карток</h2>
+        <label class="switch">
+            <input type="checkbox" id="tablecheck" onclick="savePreference('modePreference', 'tablecheck', toggleTable);">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
+
+<div class="categories">
+    <table class="table" id="table">
+        <tr class="first-row">
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+
+        <tbody class="tbody">
+            @foreach (var item in Model)
+            {
+                string rowClass = "row";
+                <tr>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Id)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </div>
+                    </th>
+                    <th class="@rowClass">
+                        <div class="namefor">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </div>
+                    </th>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <th class="actions">
+                            <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати категорію" onclick="window.location.href = '@Url.Action("Edit", new { id = item.Id })'">
+                            <img src="~/img/svg/close.svg" class="closelink req" title="Видалити категорію" onclick="window.location.href = '@Url.Action("Delete", new { id = item.Id })'">
+                        </th>
+                    }
+                </tr>
+            }
+        </tbody>
+</table>
+</div>

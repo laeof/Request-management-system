@@ -498,3 +498,5 @@ C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\obj\Debug\net6.
 C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\obj\Debug\net6.0\ref\RMS.dll
 C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\appsettings.production.json
 C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\bin\Debug\net6.0\appsettings.Production.json

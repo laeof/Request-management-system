@@ -79,12 +79,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6058)
+                            Planning = new DateTime(2023, 7, 12, 18, 53, 32, 383, DateTimeKind.Utc).AddTicks(4426)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 9, 9, 32, 43, 921, DateTimeKind.Utc).AddTicks(6065)
+                            Planning = new DateTime(2023, 7, 12, 18, 53, 32, 383, DateTimeKind.Utc).AddTicks(4446)
                         });
                 });
 
@@ -106,7 +106,7 @@ namespace RMS.Migrations
                     b.Property<long?>("CancelledId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CategoryId")
+                    b.Property<long?>("CategoryId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CloseId")
@@ -273,7 +273,7 @@ namespace RMS.Migrations
                             ImgPath = "../../img/jpg/preview.jpg",
                             IsActive = true,
                             Login = "ADMIN",
-                            Password = "$HASH|V1$10000$eops/PkcWy3qbyQ1J3HPeJeTHPXnlyvXm2MH6QcC8TBin0jW",
+                            Password = "$HASH|V1$10000$urqg7kuhyAD/7uNoiXf3CEx2aJJrXbRKDNRXRD+CUDtTk9wq",
                             Surname = "Akchurin"
                         },
                         new
@@ -281,10 +281,10 @@ namespace RMS.Migrations
                             Id = 2L,
                             Comment = "Comment",
                             FirstName = "Anton",
-                            ImgPath = "../../img/png/user.png",
+                            ImgPath = "../../img/Avatar/user.png",
                             IsActive = true,
                             Login = "MANAGER",
-                            Password = "$HASH|V1$10000$Q3Nlq14QMZgz+I0NWTSu28PLSBAKLSogyN+SASlSFRc5Awg2",
+                            Password = "$HASH|V1$10000$dpPG/ZQja2StkcLwG49kIWzowKv4x7F5N/0bmH7HwAdAzAsM",
                             Surname = "Guryshkin"
                         },
                         new
@@ -292,10 +292,10 @@ namespace RMS.Migrations
                             Id = 3L,
                             Comment = "Comment",
                             FirstName = "Georgii",
-                            ImgPath = "../../img/png/user.png",
+                            ImgPath = "../../img/Avatar/user.png",
                             IsActive = true,
                             Login = "mounter",
-                            Password = "$HASH|V1$10000$5WghRis1Ima6rPhWiRXfb8QgmFxMpUDm+e6XwL/o+hyukZdx",
+                            Password = "$HASH|V1$10000$VqPQfxDL5/OV5+7RGf1vUEsuf84/U2N2Mxe38FRvK5d6pLQF",
                             Surname = "Perepelitsa"
                         });
                 });
@@ -358,9 +358,7 @@ namespace RMS.Migrations
 
                     b.HasOne("RMS.Domain.Entities.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("RMS.Domain.Entities.User", "Closed")
                         .WithMany()

@@ -1,0 +1,26 @@
+﻿@model Category
+
+<title>@ViewBag.Title</title>
+
+<div class="wrap-login">
+	<form asp-area=""
+		  asp-controller="Category"
+		  asp-action="Create"
+		  method="post"
+		  class="login-form">
+		<span class="title">
+			@ViewBag.Title
+		</span>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/title.svg" />
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Name)" asp-for="Name">
+			<span asp-validation-for="Name" class="validate"></span>
+		</div>
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="container-login-form-btn">
+			<button class="login-form-btn" type="submit">
+				Створити
+			</button>
+		</div>
+	</form>
+</div>

@@ -31,9 +31,8 @@ namespace RMS.Domain.Entities
         public string Address { get; set; } = "default address";
         // Зовнішній ключ Категорія
         [Display(Name = "Категорія")]
-        [ForeignKey("Category")]
-        public uint CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public uint? CategoryId { get; set; }
+		public Category? Category { get; set; }
         public List<Category>? Categories { get; set; }
         // Зовнішній ключ
         // ID життєвого циклу заявки - звичайне
