@@ -5,6 +5,7 @@
     height: 100%;
     transition: all 0.5s;
     z-index: 2;
+    overflow-y: auto;
 }
 
 .leftmenu .nav > * {
@@ -164,12 +165,29 @@
     justify-content: center;
 }
 
+.leftmenu::-webkit-scrollbar {
+    background: #16171A;
+    width: 10px;
+}
+
+.leftmenu::-webkit-scrollbar-thumb {
+    background-color: rgba(233,250,255, 0.4);
+}
+
 .body.night .leftmenu {
     background: rgb(36, 39, 40);
 }
 
 .body.night .leftmenu .nav > * {
     border-top: 1px solid rgba(178,178,178, 0.4);
+}
+
+.body.night .leftmenu::-webkit-scrollbar {
+    background: #16171A;
+}
+
+.body.night .leftmenu::-webkit-scrollbar-thumb {
+    background-color: rgba(233,250,255, 0.4);
 }
 
 @media screen and (max-width: 1366px){
