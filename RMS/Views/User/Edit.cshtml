@@ -7,7 +7,8 @@
 		  asp-action="Edit"
 		  method="post"
 		  class="login-form"
-		  asp-route-returnUrl="@ViewBag.ReturnUrl">
+		  asp-route-returnUrl="@ViewBag.ReturnUrl"
+		  enctype="multipart/form-data">
 		<span class="title">
 			@ViewBag.Title
 		</span>
@@ -38,7 +39,8 @@
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/user/img.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="User.ImgPath">
+			<label for="file" class="input login">@ViewBag.Avatar</label>
+			<input type="file" name="AvatarFile" style="display: none" id="file" />
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/user/role.svg" />

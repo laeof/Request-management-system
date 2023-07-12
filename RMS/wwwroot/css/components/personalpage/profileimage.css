@@ -5,12 +5,13 @@
     position: relative;
 }
 
-.personalpage .profileimage img {
-    width: 300px;
-    border-radius: 100%;
-    border: 3px solid #A6A6A6;
-    transition: all 0.5s;
-}
+    .personalpage .profileimage img {
+        width: 300px;
+        height: 300px;
+        border-radius: 100%;
+        border: 3px solid #A6A6A6;
+        transition: all 0.5s;
+    }
 
 .personalpage .profileimage .imageedit {
     cursor: pointer;
@@ -44,6 +45,7 @@
 @media screen and (max-width: 1300px){
     .personalpage .profileimage img {
         width: 250px;
+        height: 250px;
         transition: all 0.5s;
     }
     .personalpage .profileimage .imageedit {

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
 using RMS.Domain.Entities;
+using System;
 
 namespace RMS.Controllers
 {
@@ -12,10 +13,12 @@ namespace RMS.Controllers
 	{
         private readonly UserManager userManager;
 		private readonly DataManager dataManager;
-		public UserController(DataManager dataManager, UserManager userManager)
+        private readonly IWebHostEnvironment environment;
+        public UserController(DataManager dataManager, UserManager userManager, IWebHostEnvironment environment)
 		{
 			this.dataManager = dataManager;
             this.userManager = userManager;
+            this.environment = environment;
 		}
 		[Authorize]
         [HttpGet]
@@ -36,6 +39,7 @@ namespace RMS.Controllers
         public async Task<IActionResult> Edit(uint id)
 		{
 			ViewBag.Title = "Редагування облікових записів";
+			ViewBag.Avatar = "Аватар";
 
 			var userrole = await dataManager.UserRole.GetUserRoleByIdAsync(id);
 
@@ -64,8 +68,9 @@ namespace RMS.Controllers
         }
 		[Authorize(Roles = "admin, manager")]
 		[HttpPost]
-        public async Task<IActionResult> Edit(UserRole userrole)
+        public async Task<IActionResult> Edit(UserRole userrole, IFormFile AvatarFile)
         {
+            ViewBag.Avatar = "Аватар";
 			ViewBag.Title = "Редагування облікових записів";
 
 			if (userrole == null)
@@ -81,7 +86,21 @@ namespace RMS.Controllers
                 if (current_user_role.RoleId > user_role)
                     return RedirectToAction("Users");
 
-			await dataManager.Users.SaveUserAsync(userrole.User);
+            if (AvatarFile != null && AvatarFile.Length > 0)
+            {
+                string uploadsFolder = Path.Combine(environment.WebRootPath, "img", "Avatar");
+                string uniqueFileName = Path.GetRandomFileName() + "_" + AvatarFile.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await AvatarFile.CopyToAsync(fileStream);
+                }
+
+                userrole.User.ImgPath = "../../img/Avatar/" + uniqueFileName;
+            }
+
+            await dataManager.Users.SaveUserAsync(userrole.User);
             await dataManager.UserRole.SaveUserRoleAsync(userrole);
 
             return RedirectToAction("Users");

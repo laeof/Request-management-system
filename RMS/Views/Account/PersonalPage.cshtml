@@ -2,12 +2,12 @@
 <title>@ViewBag.Title</title>
 
 <div class="personalpage">
-	<form asp-controller="Account" asp-action="PersonalPage" method="post">
+	<form asp-controller="Account" asp-action="PersonalPage" method="post" enctype="multipart/form-data">
 		<div class="profile">
 			<div class="profileimage">
 				<img src="@Model.User.ImgPath">
-				<label class="imageedit" for="file" >Редагувати</label>
-				<input type="file" style="display: none" id="file" />
+				<label class="imageedit" for="file">Редагувати</label>
+				<input type="file" name="AvatarFile" style="display: none" id="file" />
 			</div>
 			<div class="accountinfo">
 				<div class="name">

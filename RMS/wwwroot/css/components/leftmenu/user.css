@@ -1,6 +1,7 @@
 ﻿.leftmenu .userimg {
     border-radius: 100%;
     height: 65px;
+    width: 65px;
 }
 
 .leftmenu .user:hover {

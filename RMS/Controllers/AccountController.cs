@@ -17,10 +17,12 @@ namespace RMS.Controllers
 	{
 		private readonly DataManager dataManager;
 		private readonly UserManager userManager;
-		public AccountController( DataManager dataManager, UserManager userManager)
+        private readonly IWebHostEnvironment environment;
+        public AccountController( DataManager dataManager, UserManager userManager, IWebHostEnvironment environment)
 		{
 			this.dataManager = dataManager;
 			this.userManager = userManager;
+			this.environment = environment;
 		}
 
 		[HttpGet]
@@ -65,7 +67,8 @@ namespace RMS.Controllers
 			ViewBag.ReturnUrl = returnUrl;
 			return View(model);
 		}
-		[HttpGet]
+
+        [HttpGet]
 		[Authorize]
 		public IActionResult PersonalPage()
 		{
@@ -76,11 +79,25 @@ namespace RMS.Controllers
 		}
 		[HttpPost]
 		[Authorize]
-		public async Task<IActionResult> PersonalPage(PersonalPageModel model)
+		public async Task<IActionResult> PersonalPage(PersonalPageModel model, IFormFile AvatarFile)
 		{
 			ViewBag.Title = "Персональна сторінка";
-			await dataManager.Users.SaveUserAsync(model.User);
-			return View(model);
+            if (AvatarFile != null && AvatarFile.Length > 0)
+            {
+                string uploadsFolder = Path.Combine(environment.WebRootPath, "img", "Avatar");
+                string uniqueFileName = Path.GetRandomFileName() + "_" + AvatarFile.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await AvatarFile.CopyToAsync(fileStream);
+                }
+
+				model.User.ImgPath = "../../img/Avatar/" + uniqueFileName;
+            }
+            await dataManager.Users.SaveUserAsync(model.User);
+
+            return View(model);
 		}
 
 		[Authorize]
