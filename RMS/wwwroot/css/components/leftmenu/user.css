@@ -53,6 +53,7 @@
 
 .leftmenu.minimized .user .userimg{
     height: 55px;
+    width: 55px;
 }
 
 @media screen and (max-width: 1366px) {
