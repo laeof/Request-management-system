@@ -8,3 +8,26 @@
     display: flex;
     flex-direction: column;
 }
+
+.body.night .personalpage .accountinfo input {
+    color: rgba(233,250,255,1);
+}
+
+.body.night .personalpage .accountinfo input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgb(22, 23, 26) inset;
+    -webkit-text-fill-color: rgba(233,250,255,1);
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+@media screen and (max-width: 1300px) {
+    .personalpage .accountinfo {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .personalpage .accountinfo {
+        margin-left: 0;
+    }
+}

@@ -4,7 +4,7 @@
     width: 300px;
     margin-top: 20px;
     border: 1px solid #000000;
-    background: #15b043;
+    background: rgba(21,176,67,0.8);
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
     transition: all 0.5s;
     border-radius: 12px;
@@ -15,6 +15,15 @@
 }
 
 .personalpage button:hover {
-    background: #2ec155;
+    background: rgba(46,193,85,0.8);
+    transition: all 0.5s;
+}
+
+.body.night .personalpage button {
+    background: rgba(18,142,55,0.3);
+}
+
+.body.night .personalpage button:hover {
+    background: rgba(46,193,85,0.8);
     transition: all 0.5s;
 }

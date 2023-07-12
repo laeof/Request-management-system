@@ -261,6 +261,14 @@
       "PackagePath": "staticwebassets\\fonts\\Roboto-ThinItalic.woff2"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\preview.jpg",
+      "PackagePath": "staticwebassets\\img\\Avatar\\preview.jpg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\user.png",
+      "PackagePath": "staticwebassets\\img\\Avatar\\user.png"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\ico\\favicon.ico",
       "PackagePath": "staticwebassets\\img\\ico\\favicon.ico"
     },

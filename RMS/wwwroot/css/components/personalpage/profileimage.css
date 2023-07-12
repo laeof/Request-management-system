@@ -9,17 +9,56 @@
     width: 300px;
     border-radius: 100%;
     border: 3px solid #A6A6A6;
+    transition: all 0.5s;
 }
 
 .personalpage .profileimage .imageedit {
+    cursor: pointer;
     position: absolute;
     margin-top: 235px;
     margin-left: 170px;
-    background-color: #e9faff;
+    background-color: rgba(233,250,255,0.8);
     color: rgba(0,0,0);
     text-align: center;
     width: auto;
-    padding: 5px;
+    padding: 7px;
     border-radius: 12px;
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    font-weight: 300;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+}
+
+.personalpage .profileimage .imageedit:hover {
+    background-color: rgba(233,250,255,0.9);
+}
+
+.body.night .personalpage .profileimage .imageedit {
+    background: rgba(22,23,26,0.8);
+    color: #e9faff;
+}
+
+.body.night .personalpage .profileimage .imageedit:hover {
+    background: rgba(22,23,26,0.9);
+}
+
+@media screen and (max-width: 1300px){
+    .personalpage .profileimage img {
+        width: 250px;
+        transition: all 0.5s;
+    }
+    .personalpage .profileimage .imageedit {
+        margin-top: 185px;
+        margin-left: 140px;
+        width: auto;
+        padding: 7px;
+        font-size: 18px;
+        transition: all 0.5s;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .personalpage .profileimage{
+        display: flex;
+        align-items: center;
+    }
 }

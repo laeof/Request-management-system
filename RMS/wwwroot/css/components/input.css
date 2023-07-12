@@ -8,3 +8,17 @@
     color: rgba(22,23,26,0.8);
     font-weight: 400;
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-text-fill-color: #808080;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+.body.night input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(204,204,204,0.9) inset;
+    -webkit-text-fill-color: rgba(22,23,26,0.8);
+    font-family: 'Roboto';
+    font-weight: 300;
+}

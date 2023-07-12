@@ -4,3 +4,9 @@
 @import "button.css";
 @import "label.css";
 @import "input.css";
+@media screen and (max-width: 650px){
+    .profile {
+        display: flex;
+        flex-direction: column;
+    }
+}

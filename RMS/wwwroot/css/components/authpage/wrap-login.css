@@ -3,3 +3,17 @@
     justify-content: center;
     margin-top: 10vh;
 }
+
+@media screen and (max-width: 1366px){
+    .wrap-login{
+        margin-top: 5vh;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .wrap-login {
+        margin: auto;
+        margin-top: 6vh;
+    }
+}

@@ -38,7 +38,7 @@ namespace RMS.Domain.Entities
 
 		[Display(Name = "Коментар")]
         public string? Comment { get; set; }
-        public string? ImgPath { get; set; } = "../../img/png/user.png";
+        public string? ImgPath { get; set; } = "../../img/Avatar/user.png";
         public bool IsActive { get; set; } = true;
     }
 }

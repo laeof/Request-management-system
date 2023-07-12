@@ -33,12 +33,13 @@
     transition: all 0.5s;
 }
 
-    .body.night::-webkit-scrollbar {
-        background: #16171A;
-    }
-    .body.night::-webkit-scrollbar-thumb {
-        background-color: rgba(233,250,255, 0.4);
-    }
+.body.night::-webkit-scrollbar {
+    background: #16171A;
+}
+
+.body.night::-webkit-scrollbar-thumb {
+    background-color: rgba(233,250,255, 0.4);
+}
 
 .container {
     display: flex;

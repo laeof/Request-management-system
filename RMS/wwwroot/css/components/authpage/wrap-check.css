@@ -46,3 +46,9 @@
     font-size: 18px;
     font-weight: 300;
 }
+
+@media screen and (max-width: 400px) {
+    .checklbl {
+        font-size: 14px;
+    }
+}

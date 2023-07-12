@@ -7,8 +7,26 @@
     border-radius: 12px;
     background: transparent;
     box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+    transition: all 0.5s;
 }
 
 .personalpage .accountinfo .name input:focus {
     outline: 0.2px solid #0294ff;
+}
+
+.body.night .personalpage .accountinfo .name input {
+    border: solid 0.2px rgba(244, 176, 75, 0.8);
+}
+
+.body.night .personalpage .accountinfo .name input:focus {
+    outline: 0.2px solid rgba(244, 176, 75, 0.8);
+}
+
+@media screen and (max-width: 1300px) {
+    .personalpage .accountinfo .name input {
+        font-size: 16px;
+        width: 300px;
+        padding: 15px;
+        transition: all 0.5s;
+    }
 }

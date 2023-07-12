@@ -5,8 +5,9 @@
 	<form asp-controller="Account" asp-action="PersonalPage" method="post">
 		<div class="profile">
 			<div class="profileimage">
-				<a href=""><img src="@Model.User.ImgPath" /></a>
-				<a class="imageedit" href="">Редагувати</a>
+				<img src="@Model.User.ImgPath">
+				<label class="imageedit" for="file" >Редагувати</label>
+				<input type="file" style="display: none" id="file" />
 			</div>
 			<div class="accountinfo">
 				<div class="name">

@@ -18,3 +18,16 @@
     transition: all 0.2s ease-in-out;
     background-color: #3D88BA;
 }
+
+@media screen and (max-width: 550px) {
+    .container-login-form-btn .login-form-btn{
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container-login-form-btn .login-form-btn {
+        width: 250px;
+        font-size: 14px;
+    }
+}
