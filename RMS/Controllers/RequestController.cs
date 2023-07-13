@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using RMS.Domain;
 using RMS.Domain.Entities;
+using System.Drawing.Printing;
 
 namespace RMS.Controllers
 {
@@ -16,35 +18,37 @@ namespace RMS.Controllers
             this.userManager = userManager;
 		}
 
-		[HttpGet]
-        public async Task<IActionResult> PlanningRequests()
+        private const int PageSize = 10;
+
+        [HttpGet]
+        public async Task<IActionResult> PlanningRequests(int page = 1)
         {
             ViewBag.Title = "Заплановані заявки";
-            return View(await ShowRequests(1));
+            return View(await ShowRequests(1, page));
         }
 
         [HttpGet]
-        public async Task<IActionResult> CurrentRequests()
+        public async Task<IActionResult> CurrentRequests(int page = 1)
         {
             ViewBag.Title = "Поточні заявки";
-            return View(await ShowRequests(2));
+            return View(await ShowRequests(2, page));
         }
 
         [HttpGet]
-        public async Task<IActionResult> ClosedRequests()
+        public async Task<IActionResult> ClosedRequests(int page = 1)
         {
             ViewBag.Title = "Закриті заявки";
-            return View(await ShowRequests(3));
+            return View(await ShowRequests(3, page));
         }
 
         [HttpGet]
-        public async Task<IActionResult> CancelledRequests()
+        public async Task<IActionResult> CancelledRequests(int page = 1)
         {
             ViewBag.Title = "Відмінені заявки";
-            return View(await ShowRequests(4));
+            return View(await ShowRequests(4, page));
         }
 
-        private async Task<List<Request>> ShowRequests(int status) 
+        private async Task<List<Request>> ShowRequests(int status, int page) 
         {
             var requests = dataManager.Requests.GetRequestByStatus(status);
 
@@ -64,18 +68,17 @@ namespace RMS.Controllers
                     break;
             }
 
-            var reqs = requests.ToList();
+            var totalItems = requests.Count();
+
+            var reqs = requests
+                .Skip((page - 1) * PageSize)
+                    .Take(PageSize)
+                    .ToList();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling(totalItems / (double)PageSize);
 
             requests = null;
-
-            if (dataManager == null
-                || dataManager.Requests == null
-                || dataManager.Users == null
-                || dataManager.Categories == null
-                || dataManager.Lifecycles == null)
-            {
-                return reqs;
-            }
 
             foreach (var r in reqs)
             {

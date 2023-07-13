@@ -1,0 +1,43 @@
+﻿.pagination {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    font-size: 22px;
+    border-radius: 5px;
+}
+
+    .pagination a.active {
+        background-color: rgba(33,202,112,0.7);
+        color: white;
+        border-radius: 10px;
+    }
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.body.night .pagination a {
+    background: rgba(233,250,255,0.1);
+    border: 1px solid rgba(233,250,255,0.1);
+    color: white;
+}
+
+.body.night .pagination a:hover:not(.active) {
+    background: rgba(233,250,255,0.3);
+    color: rgba(244, 176, 75, 0.8);
+}
+
+.body.night .pagination a.active {
+    background: rgba(33,202,112,0.7);
+}

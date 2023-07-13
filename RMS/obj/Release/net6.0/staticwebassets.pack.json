@@ -89,6 +89,10 @@
       "PackagePath": "staticwebassets\\css\\components\\main.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\pagination.css",
+      "PackagePath": "staticwebassets\\css\\components\\pagination.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\personalpage\\accountinfo.css",
       "PackagePath": "staticwebassets\\css\\components\\personalpage\\accountinfo.css"
     },
@@ -261,12 +265,20 @@
       "PackagePath": "staticwebassets\\fonts\\Roboto-ThinItalic.woff2"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\p0atwyjx.fqq_preview.jpg",
+      "PackagePath": "staticwebassets\\img\\Avatar\\p0atwyjx.fqq_preview.jpg"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\preview.jpg",
       "PackagePath": "staticwebassets\\img\\Avatar\\preview.jpg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\user.png",
       "PackagePath": "staticwebassets\\img\\Avatar\\user.png"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\znosk32j.lkc_db2824a8-ae42-4237-a4ff-ea8959501329.jpg",
+      "PackagePath": "staticwebassets\\img\\Avatar\\znosk32j.lkc_db2824a8-ae42-4237-a4ff-ea8959501329.jpg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\ico\\favicon.ico",

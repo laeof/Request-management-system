@@ -9,105 +9,105 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RMS
 build_property.RootNamespace = RMS
-build_property.ProjectDir = C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\
+build_property.ProjectDir = C:\Users\laoef\source\repos\RMS\RMS\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS
+build_property.MSBuildProjectDirectory = C:\Users\laoef\source\repos\RMS\RMS
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Account/Login.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Account/PersonalPage.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Account/PersonalPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQZXJzb25hbFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Account/Register.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Category/Categories.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Category/Categories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ2F0ZWdvcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Category/Create.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Category/Edit.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Category/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Help/Help.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Help/Help.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVscFxIZWxwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Home/Index.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Request/CancelledRequests.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Request/CancelledRequests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDYW5jZWxsZWRSZXF1ZXN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Request/ClosedRequests.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Request/ClosedRequests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDbG9zZWRSZXF1ZXN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Request/Create.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Request/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Request/CurrentRequests.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Request/CurrentRequests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDdXJyZW50UmVxdWVzdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Request/PlanningRequests.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Request/PlanningRequests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxQbGFubmluZ1JlcXVlc3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Shared/Components/Leftmenu/Default.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Shared/Components/Leftmenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTGVmdG1lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Shared/CssPartial.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Shared/CssPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENzc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Shared/FooterPartial.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Shared/FooterPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZvb3RlclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Shared/HeaderPartial.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Shared/HeaderPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhlYWRlclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Shared/MetatagsPartial.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Shared/MetatagsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1ldGF0YWdzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Shared/ScriptsPartial.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Shared/ScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/Shared/_Layout.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/User/Edit.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/User/Users.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/User/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/_ViewImports.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hopeless/Documents/GitHub/Request-management-system/RMS/Views/_ViewStart.cshtml]
+[C:/Users/laoef/source/repos/RMS/RMS/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

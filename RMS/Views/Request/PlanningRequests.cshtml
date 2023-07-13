@@ -101,19 +101,33 @@
                             @Html.DisplayFor(modelItem => item.Lifecycle.Planning)
                         </div>
                     </th>
-                    @if (item.Lifecycle.Current == null)
+                    @if (User.IsInRole("admin") || User.IsInRole("manager"))
                     {
-                        @if (User.IsInRole("admin") || User.IsInRole("manager"))
-                        {
-                            <th class="actions">
-                                <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати заявку">
-                                <img src="~/img/svg/add.svg" class="openlink req" title="Відкрити заявку" onclick="window.location.href = '@Url.Action("Open", new { id = item.Id })'">
-                                <img src="~/img/svg/cancel.svg" class="cancellink req" title="Відмінити заявку" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
-                            </th>
-                        }
+                        <th class="actions">
+                            <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати заявку">
+                            <img src="~/img/svg/add.svg" class="openlink req" title="Відкрити заявку" onclick="window.location.href = '@Url.Action("Open", new { id = item.Id })'">
+                            <img src="~/img/svg/cancel.svg" class="cancellink req" title="Відмінити заявку" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
+                        </th>
                     }
                 </tr>
             }
         </tbody>
 </table>
+</div>
+
+<div class="pagination">
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a href="@Url.Action("PlanningRequests", new { page = ViewBag.CurrentPage - 1 })">Previous</a>
+    }
+
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        <a href="@Url.Action("PlanningRequests", new { page = i })" @(i == ViewBag.CurrentPage ? "class=active" : "")>@i</a>
+    }
+
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a href="@Url.Action("PlanningRequests", new { page = ViewBag.CurrentPage + 1 })">Next</a>
+    }
 </div>
