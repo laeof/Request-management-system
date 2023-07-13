@@ -146,7 +146,7 @@
 
     @for (int i = 1; i <= ViewBag.TotalPages; i++)
     {
-        <a href="@Url.Action("CancelledRequests", new { page = i })" @(i == ViewBag.CurrentPage ? "class=current" : "")>@i</a>
+        <a href="@Url.Action("CancelledRequests", new { page = i })" @(i == ViewBag.CurrentPage ? "class=active" : "")>@i</a>
     }
 
     @if (ViewBag.CurrentPage < ViewBag.TotalPages)
