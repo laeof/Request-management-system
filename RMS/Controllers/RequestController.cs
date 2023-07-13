@@ -19,35 +19,30 @@ namespace RMS.Controllers
 		}
 
         private const int PageSize = 10;
-
         [HttpGet]
         public async Task<IActionResult> PlanningRequests(int page = 1)
         {
             ViewBag.Title = "Заплановані заявки";
             return View(await ShowRequests(1, page));
         }
-
         [HttpGet]
         public async Task<IActionResult> CurrentRequests(int page = 1)
         {
             ViewBag.Title = "Поточні заявки";
             return View(await ShowRequests(2, page));
         }
-
         [HttpGet]
         public async Task<IActionResult> ClosedRequests(int page = 1)
         {
             ViewBag.Title = "Закриті заявки";
             return View(await ShowRequests(3, page));
         }
-
         [HttpGet]
         public async Task<IActionResult> CancelledRequests(int page = 1)
         {
             ViewBag.Title = "Відмінені заявки";
             return View(await ShowRequests(4, page));
         }
-
         private async Task<List<Request>> ShowRequests(int status, int page) 
         {
             var requests = dataManager.Requests.GetRequestByStatus(status);
@@ -95,7 +90,60 @@ namespace RMS.Controllers
 
             return reqs;
         }
-		[Authorize(Roles = "admin, manager")]
+        [HttpGet]
+        [Authorize(Roles ="admin, manager")]
+        public async Task<IActionResult> Edit(uint id)
+        {
+            ViewBag.Title = "Редагувати заявку";
+
+            var request = await dataManager.Requests.GetRequestByIdAsync(id);
+
+            request.Categories = dataManager.Categories.GetCategories().ToList();
+
+            return View(request);
+        }
+        [HttpPost]
+        [Authorize(Roles = "admin, manager")]
+        public async Task<IActionResult> Edit(Request model)
+        {
+            model.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(model.LifecycleId);
+
+			switch (model.Status)
+			{
+				case 1:
+					model.Lifecycle.Planning = DateTime.UtcNow;
+					break;
+				case 2:
+					model.Lifecycle.Current = DateTime.UtcNow;
+					model.OpenId = userManager.User.Id;
+					break;
+				case 3:
+					model.Lifecycle.Closed = DateTime.UtcNow;
+					model.CloseId = userManager.User.Id;
+					break;
+				case 4:
+					model.Lifecycle.Cancelled = DateTime.UtcNow;
+                    model.CancelId = userManager.User.Id;
+					break;
+			}
+
+            await dataManager.Requests.SaveRequestAsync(model);
+
+            switch (model.Status)
+            {
+                case 1:
+					return RedirectToAction("PlanningRequests");
+				case 2:
+					return RedirectToAction("CurrentRequests");
+				case 3:
+					return RedirectToAction("ClosedRequests");
+				case 4:
+					return RedirectToAction("CancelledRequests");
+                default:
+                    return RedirectToAction("Home");
+			}
+        }
+        [Authorize(Roles = "admin, manager")]
 		[HttpGet]
         public async Task<IActionResult> Open(uint id)
         {
