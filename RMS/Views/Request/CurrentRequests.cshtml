@@ -118,7 +118,7 @@
         </tbody>
     </table>
 </div>
-<div>
+<div class="pagination">
     @if (ViewBag.CurrentPage > 1)
     {
         <a href="@Url.Action("CurrentRequests", new { page = ViewBag.CurrentPage - 1 })">Previous</a>
@@ -126,7 +126,7 @@
 
     @for (int i = 1; i <= ViewBag.TotalPages; i++)
     {
-        <a href="@Url.Action("CurrentRequests", new { page = i })" @(i == ViewBag.CurrentPage ? "class=current" : "")>@i</a>
+        <a href="@Url.Action("CurrentRequests", new { page = i })" @(i == ViewBag.CurrentPage ? "class=active" : "")>@i</a>
     }
 
     @if (ViewBag.CurrentPage < ViewBag.TotalPages)
