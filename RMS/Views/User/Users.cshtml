@@ -37,8 +37,8 @@
             @if (User.IsInRole("manager"))
             {
                 if(item.RoleId > 2)
-                {   
-                    <tr>
+                {
+                    <tr class="trow">
                         <th>
                             <div class="namefor">
                                 @Html.DisplayNameFor(model => model.User.FirstName)
@@ -98,9 +98,9 @@
                 }
             }
             else if(User.IsInRole("admin"))
-            {   
-                <tr>
-                    <th>
+            {
+                    <tr class="trow">
+                        <th>
                         <div class="namefor">
                             @Html.DisplayNameFor(model => model.User.FirstName)
                         </div>

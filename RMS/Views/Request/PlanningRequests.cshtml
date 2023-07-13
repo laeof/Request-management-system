@@ -52,7 +52,7 @@
                 {
                     rowClass += " critical";
                 }
-                <tr>
+                <tr class="trow" onclick="if (!event.target.closest('.actions')) { window.location.href = '@Url.Action("Info", new { id = item.Id })'; }">
                     <th class="@rowClass">
                         <div class="namefor">
                             @Html.DisplayNameFor(model => model.Id)

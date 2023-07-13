@@ -58,6 +58,10 @@ tr {
     height: 45px;
 }
 
+.trow{
+    cursor: pointer;
+}
+
 .first-row th{
     border: 0;
 }
@@ -101,12 +105,24 @@ th {
     justify-content: space-around;
 }
 
-.tbody tr:nth-child(2n+1) th:not(.first-row):not(.actions):not(.row.critical):not(.row.default) {
+.tbody .trow:nth-child(2n+1) th:not(.actions):not(.row.critical):not(.row.default) {
     background-color: rgba(201,228,246,0.6);
+    transition: all 0.3s;
 }
 
-.tbody tr:nth-child(2n) th:not(.first-row):not(.actions):not(.row.critical):not(.row.default) {
+.tbody .trow:nth-child(2n+1):hover th:not(.actions):not(.row.critical):not(.row.default) {
+    background-color: rgba(171,198,216,0.6);
+    transition: all 0.3s;
+}
+
+.tbody .trow:nth-child(2n) th:not(.actions):not(.row.critical):not(.row.default) {
     background-color: rgba(180,218,242,0.6);
+    transition: all 0.3s;
+}
+
+.tbody .trow:nth-child(2n):hover th:not(.actions):not(.row.critical):not(.row.default) {
+    background-color: rgba(150,188,212,0.6);
+    transition: all 0.3s;
 }
 
 .switcher{

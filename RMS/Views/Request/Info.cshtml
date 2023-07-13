@@ -1,0 +1,71 @@
+﻿@model Request
+
+<title>@ViewBag.Title</title>
+
+<div class="wrap-login">
+	<form asp-area=""
+		  asp-controller="Request"
+		  asp-action="Info"
+		  method="post"
+		  class="login-form"
+		  asp-route-returnUrl="@ViewBag.ReturnUrl">
+		<span class="title">
+			@ViewBag.Title
+		</span>
+		<div class="wrap-input">
+			<input class="input login" type="hidden" asp-for="LifecycleId">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="hidden" asp-for="LifecycleId">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="hidden" asp-for="CreatedName">
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/title.svg" />
+			<input class="input login" type="text" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="Name">
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/descr.svg" />
+			<input class="input login" type="text" placeholder="@ViewBag.SurnamePlaceholder" asp-for="Description">
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/comment.svg" />
+			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="Comment">
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/png/key.png" />
+			<select class="input login" asp-for="Status">
+				<option value="1">Заплановано</option>
+				<option value="2">Відкрито</option>
+				<option value="3">Закрито</option>
+				<option value="4">Відмінено</option>
+			</select>
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/priority.svg" />
+			<select class="input login" asp-for="Priority">
+				<option value="1">Звичайний</option>
+				<option value="2">Критичний</option>
+			</select>
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/address.svg" />
+			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="Address">
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/request/category.svg" />
+			<select class="input login" asp-for="CategoryId">
+				@foreach (var item in Model.Categories)
+				{
+					<option value="@item.Id">@item.Name</option>
+				}
+			</select>
+		</div>
+		<div class="container-login-form-btn">
+			<button class="login-form-btn" type="submit">
+				Редагувати
+			</button>
+		</div>
+	</form>
+</div>

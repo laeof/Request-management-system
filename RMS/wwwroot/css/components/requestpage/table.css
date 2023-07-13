@@ -11,18 +11,42 @@
     background-color: transparent;
 }
 
-.requests .row.default {
-    background: rgba(189,240,255,0.8);
-}
+    .requests .row.default {
+        background: rgba(189,240,255,0.8);
+        transition: all 0.3s;
+    }
 
-.requests .row.critical {
-    background: rgba(240,150,204,0.6);
-}
+    .requests .row.critical {
+        background: rgba(240,150,204,0.6);
+        transition: all 0.3s;
+    }
 
 .body.night .requests .row.default {
     background: rgba(79, 146, 195, 0.8);
+    transition: all 0.3s;
 }
 
 .body.night .requests .row.critical {
     background: rgba(244, 176, 75, 0.8);
+    transition: all 0.3s;
+}
+
+.requests .trow:hover .row.default {
+    background-color: rgba(155, 220, 240, 0.8);
+    transition: all 0.3s;
+}
+
+.requests .trow:hover .row.critical {
+    background-color: rgba(210, 120, 170, 0.6);
+    transition: all 0.3s;
+}
+
+.body.night .requests .trow:hover .row.default {
+    background: rgba(49, 116, 165, 0.8);
+    transition: all 0.3s;
+}
+
+.body.night .requests .trow:hover .row.critical {
+    background: rgba(220, 150, 50, 0.8);
+    transition: all 0.3s;
 }

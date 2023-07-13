@@ -91,6 +91,18 @@ namespace RMS.Controllers
             return reqs;
         }
         [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Info(uint id)
+		{
+			ViewBag.Title = "Інформація про заявку";
+
+            var request = await dataManager.Requests.GetRequestByIdAsync(id);
+
+            request.Categories = dataManager.Categories.GetCategories().ToList();
+
+            return View(request);
+        }
+        [HttpGet]
         [Authorize(Roles ="admin, manager")]
         public async Task<IActionResult> Edit(uint id)
         {
