@@ -11,5 +11,6 @@ namespace RMS.Domain.Repositories.Abstract
         Task<bool> SaveCategoryAsync(Category entity);
         void DeleteCategory(uint id);
         Task<bool> DeleteCategoryAsync(uint id);
+        Task<bool> SoftDeleteCategoryAsync(uint id);
     }
 }

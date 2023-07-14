@@ -14,7 +14,7 @@ namespace RMS.Domain.Repositories.EntityFramework
         }
         public IQueryable<Category> GetCategories()
         {
-            return context.Categories;
+            return context.Categories.Where(x => x.IsDeleted != true);
         }
         public Category? GetCategoryById(uint? id)
         {
@@ -64,5 +64,18 @@ namespace RMS.Domain.Repositories.EntityFramework
 
 			return saveTask.IsCompletedSuccessfully;
 		}
+        public async Task<bool> SoftDeleteCategoryAsync(uint id)
+        {
+            var category = await context.Categories.FirstOrDefaultAsync(r => r.Id == id);
+            if (category != null)
+            {
+                category.IsDeleted = true;
+
+                await context.SaveChangesAsync();
+
+                return true;
+            }
+            return false;
+        }
     }
 }

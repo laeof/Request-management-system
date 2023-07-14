@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Category>
+﻿@model CategoryViewModel
 
 <title>@ViewBag.Title</title>
 <div class="page-info">
@@ -24,7 +24,7 @@
         </tr>
 
         <tbody class="tbody">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Categories)
             {
                 string rowClass = "row";
                 <tr class="trow">

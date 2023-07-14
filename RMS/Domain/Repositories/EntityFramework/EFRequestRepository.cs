@@ -13,7 +13,7 @@ namespace RMS.Domain.Repositories.EntityFramework
         }
         public IQueryable<Request> GetRequests()
         {
-            return context.Requests;
+            return context.Requests.Where(x => x.IsDeleted != true);
         }
         public Request? GetRequestById(uint id)
         {

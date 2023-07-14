@@ -13,7 +13,7 @@ namespace RMS.Components
 		}
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View(new LeftMenuModel { User = userManager.User });
+			return View(new LeftMenuViewModel { User = userManager.User });
 		}
 	}
 }

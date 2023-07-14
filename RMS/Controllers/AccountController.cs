@@ -73,13 +73,13 @@ namespace RMS.Controllers
 		public IActionResult PersonalPage()
 		{
 			ViewBag.Title = "Персональна сторінка";
-			var model = new PersonalPageModel();
+			var model = new PersonalPageViewModel();
 			model.User = userManager.User;
 			return View(model);
 		}
 		[HttpPost]
 		[Authorize]
-		public async Task<IActionResult> PersonalPage(PersonalPageModel model, IFormFile AvatarFile)
+		public async Task<IActionResult> PersonalPage(PersonalPageViewModel model, IFormFile AvatarFile)
 		{
 			ViewBag.Title = "Персональна сторінка";
             if (AvatarFile != null && AvatarFile.Length > 0)

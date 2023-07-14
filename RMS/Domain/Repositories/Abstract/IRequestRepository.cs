@@ -12,5 +12,6 @@ namespace RMS.Domain.Repositories.Abstract
         Task<bool> SaveRequestAsync(Request entity);
         void DeleteRequest(uint id);
         Task<bool> DeleteRequestAsync(uint id);
+        Task<bool> SoftDeleteRequestAsync(uint id);
     }
 }

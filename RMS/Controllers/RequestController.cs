@@ -46,7 +46,7 @@ namespace RMS.Controllers
         }
         private async Task<RequestViewModel> ShowRequests(int status, int page) 
         {
-            var requests = dataManager.Requests.GetRequestByStatus(status).Where(x => x.IsDeleted != true);
+            var requests = dataManager.Requests.GetRequestByStatus(status);
 
             switch (status)
             {

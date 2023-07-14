@@ -13,5 +13,6 @@ namespace RMS.Domain.Entities
         [Required]
         [Display(Name = "Назва категорії")]
         public string? Name { get; set; }
+        public bool? IsDeleted { get; set; } = false;
     }
 }

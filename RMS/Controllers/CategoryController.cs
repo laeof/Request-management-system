@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RMS.Domain;
 using RMS.Domain.Entities;
+using RMS.Models;
 
 namespace RMS.Controllers
 {
@@ -13,17 +14,21 @@ namespace RMS.Controllers
 		}
 		public IActionResult Categories()
 		{
-			return View(dataManager.Categories.GetCategories());
+			var categories = new CategoryViewModel()
+			{
+				Categories = dataManager.Categories.GetCategories().ToList()
+			};
+			return View(categories);
 		}
 		[HttpGet]
 		public IActionResult Create() 
 		{
-			var category = new Category();
+			var category = new CategoryViewModel();
 			ViewBag.Title = "Створити категорію";
 			return View(category);
 		}
         [HttpPost]
-        public async Task<IActionResult> Create(Category model)
+        public async Task<IActionResult> Create(CategoryViewModel model)
         {
 			ViewBag.Title = "Створити категорію";
 
@@ -42,13 +47,38 @@ namespace RMS.Controllers
 
 			return RedirectToAction("Categories");
         }
+		[HttpGet]
         public IActionResult Edit() 
 		{
-			return View();
-		}
+            var category = new CategoryViewModel();
+            ViewBag.Title = "Редагувати категорію";
+            return View(category);
+        }
+		[HttpPost]
+		public async Task<IActionResult> Edit(CategoryViewModel model)
+		{
+            ViewBag.Title = "Редагувати категорію";
+
+            var existname = dataManager.Categories.GetCategories()
+                .Where(x => x.Name.ToLower() == model.Name.ToLower()).FirstOrDefault();
+
+            if (existname != null)
+                return View();
+
+			var category = await dataManager.Categories.GetCategoryByIdAsync(model.Id);
+
+			if(model.IsDeleted != category.IsDeleted)
+				category.IsDeleted = model.IsDeleted;
+
+			category.Name = model.Name;
+
+            await dataManager.Categories.SaveCategoryAsync(category);
+
+            return RedirectToAction("Categories");
+        }
 		public async Task<IActionResult> Delete(uint id) 
 		{
-			await dataManager.Categories.DeleteCategoryAsync(id);
+			await dataManager.Categories.SoftDeleteCategoryAsync(id);
 			return RedirectToAction("Categories");
 		}
 	}
