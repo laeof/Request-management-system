@@ -39,5 +39,6 @@ namespace RMS.Domain.Entities
         public string? Comment { get; set; }
         public string? ImgPath { get; set; } = "../../img/Avatar/user.png";
         public bool IsActive { get; set; } = true;
+        public bool IsDeleted { get; set; } = false;
     }
 }

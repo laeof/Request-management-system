@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UserRole>
+﻿@model UserViewModel
 
 <title>@ViewBag.Title</title>
 
@@ -16,23 +16,23 @@
     <table class="table" id="table">
         <tr class="first-row">
             <th>
-                @Html.DisplayNameFor(model => model.User.FirstName)
+                @Html.DisplayNameFor(model => model.UserRole.User.FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User.Surname)
+                @Html.DisplayNameFor(model => model.UserRole.User.Surname)
             </th>
             @if (User.IsInRole("admin"))
             {
                 <th>
-                    @Html.DisplayNameFor(model => model.User.Login)
+                    @Html.DisplayNameFor(model => model.UserRole.User.Login)
                 </th>
             }
             <th>
-                @Html.DisplayNameFor(model => model.User.Comment)
+                @Html.DisplayNameFor(model => model.UserRole.User.Comment)
             </th>
         </tr>
         <tbody class="tbody">
-        @foreach (var item in Model)
+        @foreach (var item in Model.UserRoles)
         {
             @if (User.IsInRole("manager"))
             {
@@ -41,7 +41,7 @@
                     <tr class="trow">
                         <th>
                             <div class="namefor">
-                                @Html.DisplayNameFor(model => model.User.FirstName)
+                                @Html.DisplayNameFor(model => model.UserRole.User.FirstName)
                             </div>
                             <div class="displayfor">
                                 @Html.DisplayFor(modelItem => item.User.FirstName)
@@ -49,7 +49,7 @@
                         </th>
                         <th>
                             <div class="namefor">
-                                @Html.DisplayNameFor(model => model.User.Surname)
+                                @Html.DisplayNameFor(model => model.UserRole.User.Surname)
                             </div>
                             <div class="displayfor">
                                 @Html.DisplayFor(modelItem => item.User.Surname)
@@ -57,7 +57,7 @@
                         </th>
                         <th>
                             <div class="namefor">
-                                @Html.DisplayNameFor(model => model.User.Comment)
+                                @Html.DisplayNameFor(model => model.UserRole.User.Comment)
                             </div>
                             <div class="displayfor">
                                 @Html.DisplayFor(modelItem => item.User.Comment)
@@ -102,7 +102,7 @@
                     <tr class="trow">
                         <th>
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.User.FirstName)
+                            @Html.DisplayNameFor(model => model.UserRole.User.FirstName)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.FirstName)
@@ -110,7 +110,7 @@
                     </th>
                     <th>
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.User.Surname)
+                                @Html.DisplayNameFor(model => model.UserRole.User.Surname)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.Surname)
@@ -118,7 +118,7 @@
                     </th>
                     <th>
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.User.Login)
+                                @Html.DisplayNameFor(model => model.UserRole.User.Login)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.Login)
@@ -126,7 +126,7 @@
                     </th>
                     <th>
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.User.Comment)
+                                @Html.DisplayNameFor(model => model.UserRole.User.Comment)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.Comment)

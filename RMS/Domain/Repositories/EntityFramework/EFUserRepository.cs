@@ -14,7 +14,7 @@ namespace RMS.Domain.Repositories.EntityFramework
         }
         public IQueryable<User> GetUsers()
         {
-            return context.Users;
+            return context.Users.Where(x => x.IsDeleted != true);
         }
         public User? GetUserById(uint? id)
         {
@@ -83,5 +83,18 @@ namespace RMS.Domain.Repositories.EntityFramework
 
             return saveTask.IsCompletedSuccessfully;
         }
+        public async Task<bool> SoftDeleteUserAsync(User user)
+        {
+			var category = await context.Users.FirstOrDefaultAsync(r => r.Id == user.Id);
+			if (category != null)
+			{
+				category.IsDeleted = true;
+
+				await context.SaveChangesAsync();
+
+				return true;
+			}
+			return false;
+		}
     }
 }

@@ -1,4 +1,4 @@
-﻿@model UserRole
+﻿@model UserViewModel
 <title>@ViewBag.Title</title>
 
 <div class="wrap-login">
@@ -12,30 +12,30 @@
 		<span class="title">
 			@ViewBag.Title
 		</span>
-		<input type="hidden" asp-for="User.Id" />
-		<input type="hidden" asp-for="UserRoleId" />
+		<input type="hidden" asp-for="UserRole.User.Id" />
+		<input type="hidden" asp-for="UserRole.UserRoleId" />
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/user/namesurname.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="User.FirstName">
+			<input class="input login" type="text" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="UserRole.User.FirstName">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/user/namesurname.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.SurnamePlaceholder" asp-for="User.Surname">
+			<input class="input login" type="text" placeholder="@ViewBag.SurnamePlaceholder" asp-for="UserRole.User.Surname">
 		</div>
 		<div class="wrap-input">
-			<input class="input login" type="hidden" placeholder="@ViewBag.UserNamePlaceholder" asp-for="User.Login">
+			<input class="input login" type="hidden" placeholder="@ViewBag.UserNamePlaceholder" asp-for="UserRole.User.Login">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/png/key.png" />
-			<input class="input password" type="password" placeholder="@ViewBag.PasswordPlaceholder" asp-for="User.Password">
+			<input class="input password" type="password" placeholder="@ViewBag.PasswordPlaceholder" asp-for="UserRole.User.Password">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/comment.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="User.Comment">
+			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="UserRole.User.Comment">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/png/user.png" />
-			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="User.IsActive">
+			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="UserRole.User.IsActive">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/user/img.svg" />
@@ -44,7 +44,7 @@
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/user/role.svg" />
-			<select class="input login" asp-for="RoleId">
+			<select class="input login" asp-for="UserRole.RoleId">
 				@if (User.IsInRole("admin"))
 				{
 					<option value="1">Admin</option>

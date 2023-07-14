@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain;
 using RMS.Domain.Entities;
+using RMS.Models;
 using System;
 
 namespace RMS.Controllers
@@ -31,6 +32,11 @@ namespace RMS.Controllers
 			var users = dataManager.UserRole.GetUserRole()
                  .Include(a => a.User)
                  .ToList();
+
+            var model = new UserViewModel()
+            {
+                UserRoles = users
+            };
 
             return View(users);
         }
@@ -64,12 +70,19 @@ namespace RMS.Controllers
 
             userrole.UserRoleId = id;
 
-            return View(userrole);
+            var model = new UserViewModel
+            {
+                UserRole = userrole
+            };
+
+            return View(model);
         }
 		[Authorize(Roles = "admin, manager")]
 		[HttpPost]
-        public async Task<IActionResult> Edit(UserRole userrole, IFormFile AvatarFile)
+        public async Task<IActionResult> Edit(UserViewModel model, IFormFile AvatarFile)
         {
+            var userrole = model.UserRole;
+
             ViewBag.Avatar = "Аватар";
 			ViewBag.Title = "Редагування облікових записів";
 
@@ -152,7 +165,7 @@ namespace RMS.Controllers
                 if (current_user_role.RoleId > user_role.RoleId)
                     return RedirectToAction("Users");
 
-            await dataManager.Users.DeleteUserAsync(user);
+            await dataManager.Users.SoftDeleteUserAsync(user);
 
             return RedirectToAction("Users");
         }

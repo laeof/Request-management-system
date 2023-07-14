@@ -78,12 +78,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 14, 12, 38, 47, 822, DateTimeKind.Utc).AddTicks(1343)
+                            Planning = new DateTime(2023, 7, 14, 12, 56, 23, 22, DateTimeKind.Utc).AddTicks(2607)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 14, 12, 38, 47, 822, DateTimeKind.Utc).AddTicks(1352)
+                            Planning = new DateTime(2023, 7, 14, 12, 56, 23, 22, DateTimeKind.Utc).AddTicks(2615)
                         });
                 });
 
@@ -237,6 +237,9 @@ namespace RMS.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasColumnType("text");
@@ -261,8 +264,9 @@ namespace RMS.Migrations
                             FirstName = "Max",
                             ImgPath = "../../img/jpg/preview.jpg",
                             IsActive = true,
+                            IsDeleted = false,
                             Login = "ADMIN",
-                            Password = "$HASH|V1$10000$1WLZEzwhA5beVDmOI2ETQpRMkLCD/02r3fwOIhvZbyEjavPz",
+                            Password = "$HASH|V1$10000$zcy8cfPnAXiw79GzzZgcF5bEqAFE9kc5Q816P2jjHXsXopg+",
                             Surname = "Akchurin"
                         },
                         new
@@ -272,8 +276,9 @@ namespace RMS.Migrations
                             FirstName = "Anton",
                             ImgPath = "../../img/Avatar/user.png",
                             IsActive = true,
+                            IsDeleted = false,
                             Login = "MANAGER",
-                            Password = "$HASH|V1$10000$T0vpShBJCYaBp1dpXs/wSt9/VcukFVniSSMYTvnUsC448o7i",
+                            Password = "$HASH|V1$10000$D0eaXRZmAzs2QFkFO2W2TVJtgoZG2DkqG4DRq+WEuZ2enXPU",
                             Surname = "Guryshkin"
                         },
                         new
@@ -283,8 +288,9 @@ namespace RMS.Migrations
                             FirstName = "Georgii",
                             ImgPath = "../../img/Avatar/user.png",
                             IsActive = true,
+                            IsDeleted = false,
                             Login = "mounter",
-                            Password = "$HASH|V1$10000$WcjM0EF5yzz7oOsh8L6yuiz+Db8MFlPSK02Jg575EjBHfjfk",
+                            Password = "$HASH|V1$10000$M+lxPKxnvcVlTVGokEolqN52/tYlMTO41kSFKvFuJY1VF3Ht",
                             Surname = "Perepelitsa"
                         });
                 });

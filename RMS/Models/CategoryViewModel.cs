@@ -9,6 +9,7 @@ namespace RMS.Models
     {
         public uint Id { get; set; }
         [Required]
+        [Display(Name="Назва")]
         public string? Name { get; set; }
         public bool IsDeleted { get; set; } = false;
         public List<Category> Categories { get; set; }

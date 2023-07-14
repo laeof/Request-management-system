@@ -11,5 +11,7 @@ namespace RMS.Domain.Repositories.Abstract
         Task<bool> SaveUserAsync(User entity);
         void DeleteUser(User user);
         Task<bool> DeleteUserAsync(User user);
-    }
+        Task<bool> SoftDeleteUserAsync(User user);
+
+	}
 }
