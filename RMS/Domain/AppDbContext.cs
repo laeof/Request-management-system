@@ -98,7 +98,7 @@ namespace RMS.Domain
 				Name = "request 1",
 				Priority = 1,
 				Status = 1,
-				CreatedName = "Max Akchurin"
+				CreatedId = 1
 			});
 			modelBuilder.Entity<Request>().HasData(new Request
 			{
@@ -111,7 +111,7 @@ namespace RMS.Domain
 				Name = "request 2",
 				Priority = 2,
 				Status = 1,
-				CreatedName = "Max Akchurin"
+				CreatedId = 1
 			});
 			modelBuilder.Entity<Category>().HasData(new Category
 			{

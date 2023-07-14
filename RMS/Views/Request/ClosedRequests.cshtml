@@ -1,7 +1,4 @@
-﻿@model IEnumerable<Request>
-@using RMS.Models
-@using RMS.Domain.Entities
-
+﻿@model RequestViewModel
 
 <title>@ViewBag.Title</title>
 <div class="page-info">
@@ -27,7 +24,7 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayNameFor(model => model.CategoryId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Priority)
@@ -39,20 +36,20 @@
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lifecycle.Current)
+                @Html.DisplayNameFor(model => model.Requests[0].Lifecycle.Current)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lifecycle.Closed)
+                @Html.DisplayNameFor(model => model.Requests[0].ClosedId)
             </th>
             @if (User.IsInRole("admin") || User.IsInRole("manager"))
             {
                 <th>
-                    @Html.DisplayNameFor(model => model.Closed)
+                    @Html.DisplayNameFor(model => model.Requests[0].ClosedId)
                 </th>
             }
         </tr>
         <tbody class="tbody">
-        @foreach (var item in Model)
+        @foreach (var item in Model.Requests)
         {
             string rowClass = "row";
             if (item.Priority == 1)
@@ -66,7 +63,7 @@
             <tr class="trow" onclick="if (!event.target.closest('.actions')) { window.location.href = '@Url.Action("Info", new { id = item.Id })'; }">
                 <th class="@rowClass">
                     <div class="namefor">
-                        @Html.DisplayNameFor(model => model.Id)
+                        @Html.DisplayNameFor(model => item.Id)
                     </div>
                     <div class="displayfor">
                         @Html.DisplayFor(modelItem => item.Id)
@@ -74,7 +71,7 @@
                 </th>
                 <th class="@rowClass">
                     <div class="namefor">
-                        @Html.DisplayNameFor(model => model.Category.Name)
+                            @Html.DisplayNameFor(model => item.Category.Name)
                     </div>
                     <div class="displayfor">
                         @Html.DisplayFor(modelItem => item.Category.Name)
@@ -82,7 +79,7 @@
                 </th>
                 <th class="@rowClass">
                     <div class="namefor">
-                        @Html.DisplayNameFor(model => model.Priority)
+                        @Html.DisplayNameFor(model => item.Priority)
                     </div>
                     <div class="displayfor">
                         @Html.Raw(PriorityModel.GetPriority(item.Priority))
@@ -90,7 +87,7 @@
                 </th>
                 <th class="@rowClass">
                     <div class="namefor">
-                        @Html.DisplayNameFor(model => model.Comment)
+                        @Html.DisplayNameFor(model => item.Comment)
                     </div>
                     <div class="displayfor">
                         @Html.DisplayFor(modelItem => item.Comment)
@@ -98,7 +95,7 @@
                 </th>
                 <th class="@rowClass">
                     <div class="namefor">
-                        @Html.DisplayNameFor(model => model.Address)
+                        @Html.DisplayNameFor(model => item.Address)
                     </div>
                     <div class="displayfor">
                         @Html.DisplayFor(modelItem => item.Address)
@@ -106,7 +103,7 @@
                 </th>
                 <th class="@rowClass">
                     <div class="namefor">
-                        @Html.DisplayNameFor(model => model.Lifecycle.Current)
+                        @Html.DisplayNameFor(model => item.Lifecycle.Current)
                     </div>
                     <div class="displayfor">
                         @Html.DisplayFor(modelItem => item.Lifecycle.Current)
@@ -114,7 +111,7 @@
                 </th>
                 <th class="@rowClass">
                     <div class="namefor">
-                        @Html.DisplayNameFor(model => model.Lifecycle.Closed)
+                        @Html.DisplayNameFor(model => item.Lifecycle.Closed)
                     </div>
                     <div class="displayfor">
                         @Html.DisplayFor(modelItem => item.Lifecycle.Closed)
@@ -124,12 +121,12 @@
                     {
                         <th class="@rowClass">
                             <div class="namefor">
-                                @Html.DisplayNameFor(model => model.Closed.FirstName)
+                                @Html.DisplayNameFor(model => item.ClosedId)
                             </div>
                             <div class="displayfor">
-                                @Html.DisplayFor(modelItem => item.Closed.FirstName)
+                                @Html.DisplayFor(modelItem => item.Close.FirstName)
                                 @Html.Raw(" ")
-                                @Html.DisplayFor(modelItem => item.Closed.Surname)
+                                @Html.DisplayFor(modelItem => item.Close.Surname)
                             </div>
                         </th>
                     }

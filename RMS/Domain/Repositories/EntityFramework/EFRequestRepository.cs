@@ -57,6 +57,19 @@ namespace RMS.Domain.Repositories.EntityFramework
             context.Requests.Remove(new Request { Id = id });
             context.SaveChanges();
         }
+        public async Task<bool> SoftDeleteRequestAsync(uint id) 
+        {
+            var request = await context.Requests.FirstOrDefaultAsync(r => r.Id == id);
+            if (request != null)
+            {
+                request.IsDeleted = true;
+
+                await context.SaveChangesAsync();
+
+                return true;
+            }
+            return false;
+        }
         public async Task<bool> DeleteRequestAsync(uint id)
         {
 			context.Requests.Remove(new Request { Id = id });

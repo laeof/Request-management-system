@@ -1,12 +1,10 @@
-﻿@model IEnumerable<Request>
-@using RMS.Models
-@using RMS.Domain.Entities
+﻿@model RequestViewModel
 
 <title>@ViewBag.Title</title>
 <div class="page-info">
     <h2>@ViewBag.Title</h2>
     <div class="switcher">
-        <h2 style="display: flex; margin-right: 30px;">Режим карток</h2>
+        <h2 style ="display: flex; margin-right: 30px;">Режим карток</h2>
         <label class="switch">
             <input type="checkbox" id="tablecheck" onclick="savePreference('modePreference', 'tablecheck', toggleTable);">
             <span class="slider round"></span>
@@ -26,7 +24,7 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayNameFor(model => model.CategoryId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Priority)
@@ -38,11 +36,11 @@
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lifecycle.Current)
+                @Html.DisplayNameFor(model => model.Requests[0].Lifecycle.Current)
             </th>
         </tr>
-         <tbody class="tbody">
-            @foreach (var item in Model)
+        <tbody class="tbody">
+            @foreach (var item in Model.Requests)
             {
                 string rowClass = "row";
                 if (item.Priority == 1)
@@ -56,7 +54,7 @@
                 <tr class="trow" onclick="if (!event.target.closest('.actions')) { window.location.href = '@Url.Action("Info", new { id = item.Id })'; }">
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Id)
+                            @Html.DisplayNameFor(modelItem => item.Id)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Id)
@@ -64,7 +62,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Category.Name)
+                            @Html.DisplayNameFor(modelItem => item.Category.Name)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Category.Name)
@@ -72,7 +70,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Priority)
+                            @Html.DisplayNameFor(modelItem => item.Priority)
                         </div>
                         <div class="displayfor">
                             @Html.Raw(PriorityModel.GetPriority(item.Priority))
@@ -80,7 +78,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Comment)
+                            @Html.DisplayNameFor(modelItem => item.Comment)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Comment)
@@ -88,7 +86,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Address)
+                            @Html.DisplayNameFor(modelItem => item.Address)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Address)
@@ -96,28 +94,29 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Lifecycle.Current)
+                            @Html.DisplayNameFor(modelItem => item.Lifecycle.Current)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Lifecycle.Current)
                         </div>
                     </th>
-                        @if (item.Lifecycle.Closed == null && item.Lifecycle.Cancelled == null)
-                        {   
-                            <th class="actions">
-                                @if (User.IsInRole("admin") || User.IsInRole("manager"))
-                                {
-                                    <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати заявку" onclick="window.location.href = '@Url.Action("Edit", new { id = item.Id })'">
-                                    <img src="~/img/svg/cancel.svg" class="cancellink req" title="Відмінити заявку" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
-                                }
-                                <img src="~/img/svg/close.svg" class="closelink req" title="Закрити заявку" onclick="window.location.href = '@Url.Action("Close", new { id = item.Id })'">
-                            </th>
-                        }
+                    @if (item.Lifecycle.Closed == null && item.Lifecycle.Cancelled == null)
+                    {
+                        <th class="actions">
+                            @if (User.IsInRole("admin") || User.IsInRole("manager"))
+                            {
+                                <img src="~/img/svg/edit.svg" class="editlink req" title="Редагувати заявку" onclick="window.location.href = '@Url.Action("Edit", new { id = item.Id })'">
+                                <img src="~/img/svg/cancel.svg" class="cancellink req" title="Відмінити заявку" onclick="window.location.href = '@Url.Action("Cancel", new { id = item.Id })'">
+                            }
+                            <img src="~/img/svg/close.svg" class="closelink req" title="Закрити заявку" onclick="window.location.href = '@Url.Action("Close", new { id = item.Id })'">
+                        </th>
+                    }
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
 <div class="pagination">
     @if (ViewBag.CurrentPage > 1)
     {

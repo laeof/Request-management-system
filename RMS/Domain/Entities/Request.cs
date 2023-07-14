@@ -30,36 +30,36 @@ namespace RMS.Domain.Entities
         public string Address { get; set; } = "default address";
         // Зовнішній ключ Категорія
         [Display(Name = "Категорія")]
-        public uint? CategoryId { get; set; }
-		public Category? Category { get; set; }
-        public List<Category>? Categories { get; set; }
+		[ForeignKey("Category")]
+		public uint CategoryId { get; set; }
+        public Category? Category { get; set; }
         // Зовнішній ключ
         // ID життєвого циклу заявки - звичайне
         [Display(Name = "Життєвий цикл")]
-        public uint LifecycleId { get; set; }
-        // Силка на життєвий цикл заявки - навігаційне
-        public Lifecycle? Lifecycle { get; set; }
-        // Зовнішній ключ
-        // ID користувача - звичайне
-        public uint? CloseId { get; set; }
-        // користувач - навігаційне
-        [Display(Name = "Ким закрито")]
-        public User? Closed { get; set; }
-        // Зовнішній ключ
-        // ID користувача - звичайне
-        public uint? CancelId { get; set; }
-        // користувач - навігаційне
-        [Display(Name = "Ким відмінено")]
-        public User? Cancelled { get; set; }
-        // Зовнішній ключ
-        // ID користувача - звичайне
-        public uint? OpenId { get; set; }
-        // користувач - навігаційне
-        [Display(Name = "Ким відкрито")]
-        public User? Opened { get; set; }
-        //користувач - звичайне
-        public string CreatedName { get; set; } = "1";
-        //користувач - навігаційне
-        public User? Created { get; set; }
+		[ForeignKey("Lifecycle")]
+		public uint LifecycleId { get; set; } = 1;
+		public Lifecycle? Lifecycle { get; set; }
+		// Зовнішній ключ
+		// ID закриваючого - звичайне
+		[Display(Name = "Ким закрито")]
+		[ForeignKey("Close")]
+		public uint? ClosedId { get; set; }
+		public User? Close { get; set; }
+		// Зовнішній ключ
+		// ID відмінюючого - звичайне
+		[Display(Name = "Ким відмінено")]
+		[ForeignKey("Cancel")]
+		public uint? CancelledId { get; set; }
+		public User? Cancel { get; set; }
+		// Зовнішній ключ
+		// ID відкриваючого - звичайне
+		[Display(Name = "Ким відкрито")]
+		[ForeignKey("Open")]
+		public uint? OpenedId { get; set; }
+        public User? Open { get; set; }
+        //ID створювача - звичайне
+        public uint CreatedId { get; set; } = 1;
+        //чи видалено
+        public bool? IsDeleted { get; set; } = false;
     }
 }

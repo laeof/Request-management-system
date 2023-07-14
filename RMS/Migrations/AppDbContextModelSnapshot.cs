@@ -34,12 +34,7 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long?>("RequestId")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("RequestId");
 
                     b.ToTable("Categories");
 
@@ -79,12 +74,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 12, 18, 53, 32, 383, DateTimeKind.Utc).AddTicks(4426)
+                            Planning = new DateTime(2023, 7, 14, 10, 5, 58, 151, DateTimeKind.Utc).AddTicks(9594)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 12, 18, 53, 32, 383, DateTimeKind.Utc).AddTicks(4446)
+                            Planning = new DateTime(2023, 7, 14, 10, 5, 58, 151, DateTimeKind.Utc).AddTicks(9603)
                         });
                 });
 
@@ -100,16 +95,10 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long?>("CancelId")
-                        .HasColumnType("bigint");
-
                     b.Property<long?>("CancelledId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("CategoryId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("CloseId")
+                    b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("ClosedId")
@@ -119,16 +108,15 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long?>("CreatedId")
+                    b.Property<long>("CreatedId")
                         .HasColumnType("bigint");
-
-                    b.Property<string>("CreatedName")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<long>("LifecycleId")
                         .HasColumnType("bigint");
@@ -136,9 +124,6 @@ namespace RMS.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<long?>("OpenId")
-                        .HasColumnType("bigint");
 
                     b.Property<long?>("OpenedId")
                         .HasColumnType("bigint");
@@ -157,8 +142,6 @@ namespace RMS.Migrations
 
                     b.HasIndex("ClosedId");
 
-                    b.HasIndex("CreatedId");
-
                     b.HasIndex("LifecycleId");
 
                     b.HasIndex("OpenedId");
@@ -172,8 +155,9 @@ namespace RMS.Migrations
                             Address = "some address",
                             CategoryId = 1L,
                             Comment = "comment",
-                            CreatedName = "Max Akchurin",
+                            CreatedId = 1L,
                             Description = "description",
+                            IsDeleted = false,
                             LifecycleId = 1L,
                             Name = "request 1",
                             Priority = 1,
@@ -185,8 +169,9 @@ namespace RMS.Migrations
                             Address = "some address",
                             CategoryId = 1L,
                             Comment = "comment",
-                            CreatedName = "Max Akchurin",
+                            CreatedId = 1L,
                             Description = "description",
+                            IsDeleted = false,
                             LifecycleId = 2L,
                             Name = "request 2",
                             Priority = 2,
@@ -273,7 +258,7 @@ namespace RMS.Migrations
                             ImgPath = "../../img/jpg/preview.jpg",
                             IsActive = true,
                             Login = "ADMIN",
-                            Password = "$HASH|V1$10000$urqg7kuhyAD/7uNoiXf3CEx2aJJrXbRKDNRXRD+CUDtTk9wq",
+                            Password = "$HASH|V1$10000$P4AV9lN9ufaxr+/TATZxniiy7hS0Kpe9r2vo8R8O6dxRBONI",
                             Surname = "Akchurin"
                         },
                         new
@@ -284,7 +269,7 @@ namespace RMS.Migrations
                             ImgPath = "../../img/Avatar/user.png",
                             IsActive = true,
                             Login = "MANAGER",
-                            Password = "$HASH|V1$10000$dpPG/ZQja2StkcLwG49kIWzowKv4x7F5N/0bmH7HwAdAzAsM",
+                            Password = "$HASH|V1$10000$FSWYaCCAZKbiH7wIk7Z9Cu+KSlDlhO3NGNiWwGsG/ANX/Xqc",
                             Surname = "Guryshkin"
                         },
                         new
@@ -295,7 +280,7 @@ namespace RMS.Migrations
                             ImgPath = "../../img/Avatar/user.png",
                             IsActive = true,
                             Login = "mounter",
-                            Password = "$HASH|V1$10000$VqPQfxDL5/OV5+7RGf1vUEsuf84/U2N2Mxe38FRvK5d6pLQF",
+                            Password = "$HASH|V1$10000$5Mpv3n/SnqFvb40XN10xPV6FUM9PKVJS84kLfw1yiiMBAi1K",
                             Surname = "Perepelitsa"
                         });
                 });
@@ -343,30 +328,21 @@ namespace RMS.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RMS.Domain.Entities.Category", b =>
-                {
-                    b.HasOne("RMS.Domain.Entities.Request", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("RequestId");
-                });
-
             modelBuilder.Entity("RMS.Domain.Entities.Request", b =>
                 {
-                    b.HasOne("RMS.Domain.Entities.User", "Cancelled")
+                    b.HasOne("RMS.Domain.Entities.User", "Cancel")
                         .WithMany()
                         .HasForeignKey("CancelledId");
 
                     b.HasOne("RMS.Domain.Entities.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("RMS.Domain.Entities.User", "Closed")
+                    b.HasOne("RMS.Domain.Entities.User", "Close")
                         .WithMany()
                         .HasForeignKey("ClosedId");
-
-                    b.HasOne("RMS.Domain.Entities.User", "Created")
-                        .WithMany()
-                        .HasForeignKey("CreatedId");
 
                     b.HasOne("RMS.Domain.Entities.Lifecycle", "Lifecycle")
                         .WithMany()
@@ -374,21 +350,19 @@ namespace RMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RMS.Domain.Entities.User", "Opened")
+                    b.HasOne("RMS.Domain.Entities.User", "Open")
                         .WithMany()
                         .HasForeignKey("OpenedId");
 
-                    b.Navigation("Cancelled");
+                    b.Navigation("Cancel");
 
                     b.Navigation("Category");
 
-                    b.Navigation("Closed");
-
-                    b.Navigation("Created");
+                    b.Navigation("Close");
 
                     b.Navigation("Lifecycle");
 
-                    b.Navigation("Opened");
+                    b.Navigation("Open");
                 });
 
             modelBuilder.Entity("RMS.Domain.Entities.UserRole", b =>
@@ -408,11 +382,6 @@ namespace RMS.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("RMS.Domain.Entities.Request", b =>
-                {
-                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }

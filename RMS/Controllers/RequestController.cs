@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RMS.Domain;
 using RMS.Domain.Entities;
+using RMS.Models;
 using System.Drawing.Printing;
 
 namespace RMS.Controllers
@@ -43,9 +44,9 @@ namespace RMS.Controllers
             ViewBag.Title = "Відмінені заявки";
             return View(await ShowRequests(4, page));
         }
-        private async Task<List<Request>> ShowRequests(int status, int page) 
+        private async Task<RequestViewModel> ShowRequests(int status, int page) 
         {
-            var requests = dataManager.Requests.GetRequestByStatus(status);
+            var requests = dataManager.Requests.GetRequestByStatus(status).Where(x => x.IsDeleted != true);
 
             switch (status)
             {
@@ -77,18 +78,23 @@ namespace RMS.Controllers
 
             foreach (var r in reqs)
             {
-                r.Closed = await dataManager.Users.GetUserByIdAsync(r.CloseId);
+                r.Close = await dataManager.Users.GetUserByIdAsync(r.ClosedId);
                 r.Category = await dataManager.Categories.GetCategoryByIdAsync(r.CategoryId);
                 r.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(r.LifecycleId);
-                r.Cancelled = await dataManager.Users.GetUserByIdAsync(r.CancelId);
+                r.Cancel = await dataManager.Users.GetUserByIdAsync(r.CancelledId);
             }
+
+            var model = new RequestViewModel
+            {
+                Requests = reqs
+            };
 
             ViewBag.PlanningRequestsCount = dataManager.Requests.GetRequestByStatus(1).Count();
             ViewBag.CurrentRequestsCount = dataManager.Requests.GetRequestByStatus(2).Count();
             ViewBag.ClosedRequestsCount = dataManager.Requests.GetRequestByStatus(3).Count();
             ViewBag.CancelledRequestsCount = dataManager.Requests.GetRequestByStatus(4).Count();
 
-            return reqs;
+            return model;
         }
         [HttpGet]
         [Authorize]
@@ -98,9 +104,21 @@ namespace RMS.Controllers
 
             var request = await dataManager.Requests.GetRequestByIdAsync(id);
 
-            request.Categories = dataManager.Categories.GetCategories().ToList();
+            var model = new RequestViewModel
+            {
+                Id = id,
+                Name = request.Name,
+                Address = request.Address,
+                CategoryId = request.CategoryId,
+                Comment = request.Comment,
+                Description = request.Description,
+                IsDeleted = request.IsDeleted,
+                Priority = request.Priority,
+                Status = request.Status,
+                Categories = dataManager.Categories.GetCategories().ToList()
+            };
 
-            return View(request);
+            return View(model);
         }
         [HttpGet]
         [Authorize(Roles ="admin, manager")]
@@ -110,50 +128,84 @@ namespace RMS.Controllers
 
             var request = await dataManager.Requests.GetRequestByIdAsync(id);
 
-            request.Categories = dataManager.Categories.GetCategories().ToList();
+            var model = new RequestViewModel {
+                Id = id,
+                Name = request.Name,
+                Description = request.Description,
+                Comment = request.Comment,
+                Status = request.Status,
+                Priority = request.Priority,
+                Address = request.Address,
+                CategoryId= request.CategoryId,
+                Categories = dataManager.Categories.GetCategories().ToList()
+            };
 
-            return View(request);
+            return View(model);
         }
         [HttpPost]
         [Authorize(Roles = "admin, manager")]
-        public async Task<IActionResult> Edit(Request model)
+        public async Task<IActionResult> Edit(RequestViewModel model)
         {
-            model.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(model.LifecycleId);
+            var request = await dataManager.Requests.GetRequestByIdAsync((uint)model.Id);
 
-			switch (model.Status)
-			{
-				case 1:
-					model.Lifecycle.Planning = DateTime.UtcNow;
-					break;
-				case 2:
-					model.Lifecycle.Current = DateTime.UtcNow;
-					model.OpenId = userManager.User.Id;
-					break;
-				case 3:
-					model.Lifecycle.Closed = DateTime.UtcNow;
-					model.CloseId = userManager.User.Id;
-					break;
-				case 4:
-					model.Lifecycle.Cancelled = DateTime.UtcNow;
-                    model.CancelId = userManager.User.Id;
-					break;
-			}
+            request.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(request.LifecycleId);
 
-            await dataManager.Requests.SaveRequestAsync(model);
+            request.Address = model.Address;
+            request.Comment = model.Comment;
+            request.Status = (int)model.Status;
+            request.CategoryId = (uint)model.CategoryId;
+            request.Name = model.Name;
+            request.Description = model.Description;
+            request.Priority = (int)model.Priority;
 
             switch (model.Status)
             {
                 case 1:
-					return RedirectToAction("PlanningRequests");
-				case 2:
-					return RedirectToAction("CurrentRequests");
-				case 3:
-					return RedirectToAction("ClosedRequests");
-				case 4:
-					return RedirectToAction("CancelledRequests");
-                default:
-                    return RedirectToAction("Home");
-			}
+                    request.Lifecycle.Planning = DateTime.UtcNow;
+                    request.Lifecycle.Current = null;
+                    request.Lifecycle.Closed = null;
+                    request.Lifecycle.Cancelled = null;
+                    break;
+                case 2:
+                    request.Lifecycle.Current = DateTime.UtcNow;
+                    request.OpenedId = userManager.User.Id;
+                    request.Lifecycle.Closed = null;
+                    request.Lifecycle.Cancelled = null;
+                    break;
+                case 3:
+                    request.Lifecycle.Closed = DateTime.UtcNow;
+                    request.ClosedId = userManager.User.Id;
+                    request.Lifecycle.Cancelled = null;
+                    break;
+                case 4:
+                    request.Lifecycle.Cancelled = DateTime.UtcNow;
+                    request.CancelledId = userManager.User.Id;
+                    request.Lifecycle.Closed = null;
+                    break;
+            }
+
+            request.IsDeleted = model.IsDeleted;
+
+            if (await dataManager.Requests.SaveRequestAsync(request))
+            {
+                switch (model.Status)
+                {
+                    case 1:
+                        return RedirectToAction(nameof(PlanningRequests));
+                    case 2:
+                        return RedirectToAction(nameof(CurrentRequests));
+                    case 3:
+                        return RedirectToAction(nameof(ClosedRequests));
+                    case 4:
+                        return RedirectToAction(nameof(CancelledRequests));
+                    default:
+                        return RedirectToAction("Home");
+                }
+            }
+            else
+            {
+                throw new Exception("Failed to save the request."); // Уточняем причину исключения
+            }
         }
         [Authorize(Roles = "admin, manager")]
 		[HttpGet]
@@ -164,7 +216,7 @@ namespace RMS.Controllers
             if (request != null)
             {
                 //кто відкрив
-                request.OpenId = userManager.User.Id;
+                request.OpenedId = userManager.User.Id;
 
                 //життєвий цикл заявки
                 request.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(request.LifecycleId);
@@ -186,7 +238,7 @@ namespace RMS.Controllers
 			if (request != null)
 			{
                 //кто закрив
-                request.CloseId = userManager.User.Id;
+                request.ClosedId = userManager.User.Id;
 
 				//життєвий цикл заявки
 				request.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(request.LifecycleId);
@@ -209,7 +261,7 @@ namespace RMS.Controllers
 			if (request != null)
 			{
 				//кто відмінив
-				request.CancelId = userManager.User.Id;
+				request.CancelledId = userManager.User.Id;
 
 				//життєвий цикл заявки
 				request.Lifecycle = await dataManager.Lifecycles.GetLifecycleByIdAsync(request.LifecycleId);
@@ -229,20 +281,21 @@ namespace RMS.Controllers
         {
             ViewBag.Title = "Запланувати заявку";
 
-            var Request = new Request
+            var model = new RequestViewModel()
             {
                 Categories = dataManager.Categories.GetCategories().ToList()
-            };
-			return View(Request);
+			};
+
+			return View(model);
 		}
 		[Authorize(Roles = "admin, manager")]
 		[HttpPost]
-		public async Task<IActionResult> Create(Request model)
+		public async Task<IActionResult> Create(RequestViewModel model)
 		{
 			ViewBag.Title = "Запланувати заявку";
 
-			if (ModelState.IsValid)
-			{
+            if (ModelState.IsValid)
+            {
                 var lifecycle = new Lifecycle()
                 {
                     Planning = DateTime.UtcNow
@@ -250,37 +303,34 @@ namespace RMS.Controllers
 
                 await dataManager.Lifecycles.SaveLifecycleAsync(lifecycle);
 
-                var currentUser = await dataManager.Users.GetUserByIdAsync(userManager.User.Id);
-
-				// create request
-				var request = new Request
+                // create request
+                var request = new Request
                 {
                     Name = model.Name,
                     Description = model.Description,
-                    Priority = model.Priority,
+                    Priority = (int)model.Priority,
                     Address = model.Address,
-                    CategoryId = model.CategoryId,
+                    CategoryId = (uint)model.CategoryId,
                     Comment = model.Comment,
-                    CreatedName = currentUser.FirstName
-                    + " " + currentUser.Surname,
+                    CreatedId = userManager.User.Id,
                     LifecycleId = lifecycle.Id
-				};
+                };
 
                 // save request to db
                 await dataManager.Requests.SaveRequestAsync(request);
 
-				// redirect to requests
-				return Redirect("/Request/PlanningRequests");
-			}
+                // redirect to requests
+                return Redirect("/Request/PlanningRequests");
+            }
 
 			ModelState.AddModelError("", "Помилка валідації форми");
 
-			var category = new Request
+			model = new RequestViewModel
             {
 				Categories = dataManager.Categories.GetCategories().ToList()
 			};
 
-			return View(category);
+			return View(model);
 		}
 	}
 }

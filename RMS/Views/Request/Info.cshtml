@@ -1,4 +1,4 @@
-﻿@model Request
+﻿@model RequestViewModel
 
 <title>@ViewBag.Title</title>
 
@@ -13,25 +13,22 @@
 			@ViewBag.Title
 		</span>
 		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="LifecycleId">
+			<input class="input login" type="hidden" asp-for="IsDeleted">
 		</div>
 		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="LifecycleId">
-		</div>
-		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="CreatedName">
+			<input class="input login" type="hidden" asp-for="Id">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/title.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="Name">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Name)" asp-for="Name">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/descr.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.SurnamePlaceholder" asp-for="Description">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Description)" asp-for="Description">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/comment.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="Comment">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Comment)" asp-for="Comment">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/png/key.png" />
@@ -51,7 +48,7 @@
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/address.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="Address">
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Address)" asp-for="Address">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/category.svg" />
@@ -63,9 +60,7 @@
 			</select>
 		</div>
 		<div class="container-login-form-btn">
-			<button class="login-form-btn" type="submit">
-				Редагувати
-			</button>
+			
 		</div>
 	</form>
 </div>

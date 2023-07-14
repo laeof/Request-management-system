@@ -1,4 +1,4 @@
-﻿@model Request
+﻿@model RequestViewModel
 
 <title>@ViewBag.Title</title>
 
@@ -12,12 +12,31 @@
 			@ViewBag.Title
 		</span>
 		<div class="wrap-input">
+			<input class="input login" type="hidden" asp-for="IsDeleted">
+		</div>
+		<div class="wrap-input">
+			<input class="input login" type="hidden" asp-for="Id">
+		</div>
+		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/title.svg" />
 			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Name)" asp-for="Name">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/descr.svg" />
 			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Description)" asp-for="Description">
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/comment.svg" />
+			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Comment)" asp-for="Comment">
+		</div>
+		<div class="wrap-input">
+			<img class="input-img" src="~/img/png/key.png" />
+			<select class="input login" asp-for="Status">
+				<option value="1">Заплановано</option>
+				<option value="2">Відкрито</option>
+				<option value="3">Закрито</option>
+				<option value="4">Відмінено</option>
+			</select>
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/priority.svg" />
@@ -27,15 +46,8 @@
 			</select>
 		</div>
 		<div class="wrap-input">
-			<input class="input login" type="hidden" placeholder="@Html.DisplayNameFor(model => model.CreatedName)" asp-for="CreatedName">
-		</div>
-		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/address.svg" />
 			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Address)" asp-for="Address">
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/comment.svg" />
-			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Comment)" asp-for="Comment">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/category.svg" />

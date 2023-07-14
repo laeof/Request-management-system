@@ -9,7 +9,6 @@ namespace RMS.Domain.Entities
     {
         [Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[ForeignKey("Key")]
 		public uint Id { get; set; }
 		[Display(Name = "Ім'я")]
 		[Required]

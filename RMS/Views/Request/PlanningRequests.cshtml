@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Request>
+﻿@model RequestViewModel
 
 <title>@ViewBag.Title</title>
 <div class="page-info">
@@ -24,7 +24,7 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayNameFor(model => model.CategoryId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Priority)
@@ -36,12 +36,12 @@
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lifecycle.Planning)
+                @Html.DisplayNameFor(model => model.Requests[0].Lifecycle.Planning)
             </th>
         </tr>
 
         <tbody class="tbody">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Requests)
             {
                 string rowClass = "row";
                 if (item.Priority == 1)
@@ -55,7 +55,7 @@
                 <tr class="trow" onclick="if (!event.target.closest('.actions')) { window.location.href = '@Url.Action("Info", new { id = item.Id })'; }">
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Id)
+                            @Html.DisplayNameFor(modelItem => item.Id)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Id)
@@ -63,7 +63,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Category.Name)
+                            @Html.DisplayNameFor(modelItem => item.Category.Name)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Category.Name)
@@ -71,7 +71,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Priority)
+                            @Html.DisplayNameFor(modelItem => item.Priority)
                         </div>
                         <div class="displayfor">
                             @Html.Raw(PriorityModel.GetPriority(item.Priority))
@@ -79,7 +79,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Comment)
+                            @Html.DisplayNameFor(modelItem => item.Comment)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Comment)
@@ -87,7 +87,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Address)
+                            @Html.DisplayNameFor(modelItem => item.Address)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Address)
@@ -95,7 +95,7 @@
                     </th>
                     <th class="@rowClass">
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.Lifecycle.Planning)
+                            @Html.DisplayNameFor(modelItem => item.Lifecycle.Planning)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.Lifecycle.Planning)

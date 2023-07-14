@@ -1,4 +1,4 @@
-﻿@model Request
+﻿@model RequestViewModel
 
 <title>@ViewBag.Title</title>
 
@@ -13,14 +13,10 @@
 			@ViewBag.Title
 		</span>
 		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="LifecycleId">
-		</div>
-
-		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="LifecycleId">
+			<input class="input login" type="hidden" asp-for="IsDeleted">
 		</div>
 		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="CreatedName">
+			<input class="input login" type="hidden" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="Id">
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/title.svg" />
