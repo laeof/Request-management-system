@@ -500,3 +500,6 @@ C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\appsettings.production.json
 C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\bin\Debug\net6.0\appsettings.Production.json
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

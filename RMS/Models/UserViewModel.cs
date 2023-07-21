@@ -2,9 +2,8 @@
 
 namespace RMS.Models
 {
-    public class UserViewModel
+    public class UserViewModel: UserRole
     {
-        public UserRole? UserRole { get; set; }
         public List<UserRole>? UserRoles { get; set; }
     }
 }

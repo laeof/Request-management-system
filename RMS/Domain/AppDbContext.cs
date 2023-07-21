@@ -87,32 +87,6 @@ namespace RMS.Domain
 				UserId = 3
 			});
 
-			modelBuilder.Entity<Request>().HasData(new Request
-			{
-				Id = 1,
-				Address = "some address",
-				CategoryId = 1,
-				Comment = "comment",
-				Description = "description",
-				LifecycleId = 1,
-				Name = "request 1",
-				Priority = 1,
-				Status = 1,
-				CreatedId = 1
-			});
-			modelBuilder.Entity<Request>().HasData(new Request
-			{
-				Id = 2,
-				Address = "some address",
-				CategoryId = 1,
-				Comment = "comment",
-				Description = "description",
-				LifecycleId = 2,
-				Name = "request 2",
-				Priority = 2,
-				Status = 1,
-				CreatedId = 1
-			});
 			modelBuilder.Entity<Category>().HasData(new Category
 			{
 				Id = 1,

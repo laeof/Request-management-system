@@ -78,12 +78,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 14, 12, 56, 23, 22, DateTimeKind.Utc).AddTicks(2607)
+                            Planning = new DateTime(2023, 7, 20, 20, 50, 2, 843, DateTimeKind.Utc).AddTicks(7862)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 14, 12, 56, 23, 22, DateTimeKind.Utc).AddTicks(2615)
+                            Planning = new DateTime(2023, 7, 20, 20, 50, 2, 843, DateTimeKind.Utc).AddTicks(7871)
                         });
                 });
 
@@ -94,6 +94,10 @@ namespace RMS.Migrations
                         .HasColumnType("bigint");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("AbonentUID")
+                        .IsRequired()
+                        .HasColumnType("integer");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -115,19 +119,11 @@ namespace RMS.Migrations
                     b.Property<long>("CreatedId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("boolean");
 
                     b.Property<long>("LifecycleId")
                         .HasColumnType("bigint");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<long?>("OpenedId")
                         .HasColumnType("bigint");
@@ -151,36 +147,6 @@ namespace RMS.Migrations
                     b.HasIndex("OpenedId");
 
                     b.ToTable("Requests");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Address = "some address",
-                            CategoryId = 1L,
-                            Comment = "comment",
-                            CreatedId = 1L,
-                            Description = "description",
-                            IsDeleted = false,
-                            LifecycleId = 1L,
-                            Name = "request 1",
-                            Priority = 1,
-                            Status = 1
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Address = "some address",
-                            CategoryId = 1L,
-                            Comment = "comment",
-                            CreatedId = 1L,
-                            Description = "description",
-                            IsDeleted = false,
-                            LifecycleId = 2L,
-                            Name = "request 2",
-                            Priority = 2,
-                            Status = 1
-                        });
                 });
 
             modelBuilder.Entity("RMS.Domain.Entities.Role", b =>
@@ -266,7 +232,7 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "ADMIN",
-                            Password = "$HASH|V1$10000$zcy8cfPnAXiw79GzzZgcF5bEqAFE9kc5Q816P2jjHXsXopg+",
+                            Password = "$HASH|V1$10000$44Oc0ZT6zyXzeesVBkAAEV4h9L8N4Vqs0XTG5byA5hPCzvRg",
                             Surname = "Akchurin"
                         },
                         new
@@ -278,7 +244,7 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "MANAGER",
-                            Password = "$HASH|V1$10000$D0eaXRZmAzs2QFkFO2W2TVJtgoZG2DkqG4DRq+WEuZ2enXPU",
+                            Password = "$HASH|V1$10000$hNlw2dGyBl8/FPk6Dc95XfbKU6vKUrue6FM0z+5w7UVOhWpB",
                             Surname = "Guryshkin"
                         },
                         new
@@ -290,7 +256,7 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "mounter",
-                            Password = "$HASH|V1$10000$M+lxPKxnvcVlTVGokEolqN52/tYlMTO41kSFKvFuJY1VF3Ht",
+                            Password = "$HASH|V1$10000$0h2V0WY2QapCCk9uAom3qZ8Y/IwSg2v4n+SFt7b4QcO8qyh8",
                             Surname = "Perepelitsa"
                         });
                 });

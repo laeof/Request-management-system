@@ -117,6 +117,42 @@ function checkPreference(parameterName, checkboxId, applyFunction) {
     applyFunction(checkbox.checked);
 }
 
+$(document).ready(function () {
+    $('#searchabon').select2({
+        multiple: true,
+        ajax: {
+            url: '/api/Abonents/search',
+            type: 'GET',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    searchText: params.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (abon) {
+                        var addres = abon.addressFlat == "" ? abon.addressStreet + " буд. " + abon.addressBuild :
+                            abon.addressStreet + " буд. " + abon.addressBuild + " кв. " + abon.addressFlat
+                        return {
+                            id: abon.uid,
+                            text: abon.fio,
+                            address: addres
+                        };
+                    })
+                };
+            }
+        }
+    }).on('select2:select', function (e) {
+
+        var selectedAbon = e.params.data;
+
+        $('#searchabon').append(new Option(selectedAbon.text, selectedAbon.id, true, true)).trigger('change');
+        $('#address').val(selectedAbon.address);
+
+    });
+});
+
 sideBar.addEventListener('mouseleave', handleOver);
 sideBar.addEventListener('mouseenter', handleHover);
 

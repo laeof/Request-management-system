@@ -16,19 +16,19 @@
     <table class="table" id="table">
         <tr class="first-row">
             <th>
-                @Html.DisplayNameFor(model => model.UserRole.User.FirstName)
+                @Html.DisplayNameFor(model => model.User.FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserRole.User.Surname)
+                @Html.DisplayNameFor(model => model.User.Surname)
             </th>
             @if (User.IsInRole("admin"))
             {
                 <th>
-                    @Html.DisplayNameFor(model => model.UserRole.User.Login)
+                    @Html.DisplayNameFor(model => model.User.Login)
                 </th>
             }
             <th>
-                @Html.DisplayNameFor(model => model.UserRole.User.Comment)
+                @Html.DisplayNameFor(model => model.User.Comment)
             </th>
         </tr>
         <tbody class="tbody">
@@ -41,7 +41,7 @@
                     <tr class="trow">
                         <th>
                             <div class="namefor">
-                                @Html.DisplayNameFor(model => model.UserRole.User.FirstName)
+                                @Html.DisplayNameFor(model => model.User.FirstName)
                             </div>
                             <div class="displayfor">
                                 @Html.DisplayFor(modelItem => item.User.FirstName)
@@ -49,7 +49,7 @@
                         </th>
                         <th>
                             <div class="namefor">
-                                @Html.DisplayNameFor(model => model.UserRole.User.Surname)
+                                @Html.DisplayNameFor(model => model.User.Surname)
                             </div>
                             <div class="displayfor">
                                 @Html.DisplayFor(modelItem => item.User.Surname)
@@ -57,7 +57,7 @@
                         </th>
                         <th>
                             <div class="namefor">
-                                @Html.DisplayNameFor(model => model.UserRole.User.Comment)
+                                @Html.DisplayNameFor(model => model.User.Comment)
                             </div>
                             <div class="displayfor">
                                 @Html.DisplayFor(modelItem => item.User.Comment)
@@ -82,16 +82,16 @@
                         else
                         {   
                             <th class="actions">
-                                <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                                <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача">
                                 @if (item.User.IsActive)
                                 {
-                                    <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                    <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача">
                                 }
                                 else
                                 {
-                                    <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                    <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача">
                                 }
-                                <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
+                                <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача">
                             </th>
                         }
                     </tr>
@@ -102,7 +102,7 @@
                     <tr class="trow">
                         <th>
                         <div class="namefor">
-                            @Html.DisplayNameFor(model => model.UserRole.User.FirstName)
+                            @Html.DisplayNameFor(model => model.User.FirstName)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.FirstName)
@@ -110,7 +110,7 @@
                     </th>
                     <th>
                         <div class="namefor">
-                                @Html.DisplayNameFor(model => model.UserRole.User.Surname)
+                                @Html.DisplayNameFor(model => model.User.Surname)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.Surname)
@@ -118,7 +118,7 @@
                     </th>
                     <th>
                         <div class="namefor">
-                                @Html.DisplayNameFor(model => model.UserRole.User.Login)
+                                @Html.DisplayNameFor(model => model.User.Login)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.Login)
@@ -126,7 +126,7 @@
                     </th>
                     <th>
                         <div class="namefor">
-                                @Html.DisplayNameFor(model => model.UserRole.User.Comment)
+                                @Html.DisplayNameFor(model => model.User.Comment)
                         </div>
                         <div class="displayfor">
                             @Html.DisplayFor(modelItem => item.User.Comment)
@@ -149,16 +149,16 @@
                         }
                         else
                         {
-                            <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача" onclick="window.location.href = '@Url.Action("Edit", new { id = item.UserRoleId })'">
+                            <img src="~/img/svg/edit.svg" class="editlink" title="Редагувати користувача">
                             @if (item.User.IsActive)
                             {
-                                <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                <img src="~/img/svg/disable.svg" class="cancellink" title="Неможливо відключити користувача">
                             }
                             else
                             {
-                                <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача" onclick="window.location.href = '@Url.Action("ActivityChange", new { id = item.User.Id })'">
+                                <img src="~/img/svg/active.svg" class="openlink" title="Неможливо включити користувача">
                             }
-                            <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача" onclick="window.location.href = '@Url.Action("Delete", new { id = item.User.Id })'">
+                            <img src="~/img/svg/delete.svg" class="closelink" title="Неможливо видалити користувача">
 
                         }
                     </th>

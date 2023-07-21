@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FfXkPyEX0f2tsKTJCe+EoGfzqb/CVNxPMozgE887yKI=",
+  "Hash": "p8p4maT5BGeVCCVnxnOhivGOM5IlnHMtMXZDftB66mQ=",
   "Source": "RMS",
   "BasePath": "_content/RMS",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto-ThinItalic.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\5ec2spgs.mdc_preview.jpg",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "img/Avatar/5ec2spgs.mdc_preview.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Avatar\\5ec2spgs.mdc_preview.jpg"
     },
     {
       "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\Avatar\\p0atwyjx.fqq_preview.jpg",

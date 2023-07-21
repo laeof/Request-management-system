@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using RMS.Domain;
 using RMS.Domain.Entities;
 using RMS.Models;
+using RMS.Service;
 using System.Drawing.Printing;
 
 namespace RMS.Controllers
@@ -107,11 +108,9 @@ namespace RMS.Controllers
             var model = new RequestViewModel
             {
                 Id = id,
-                Name = request.Name,
                 Address = request.Address,
                 CategoryId = request.CategoryId,
                 Comment = request.Comment,
-                Description = request.Description,
                 IsDeleted = request.IsDeleted,
                 Priority = request.Priority,
                 Status = request.Status,
@@ -130,8 +129,6 @@ namespace RMS.Controllers
 
             var model = new RequestViewModel {
                 Id = id,
-                Name = request.Name,
-                Description = request.Description,
                 Comment = request.Comment,
                 Status = request.Status,
                 Priority = request.Priority,
@@ -154,8 +151,6 @@ namespace RMS.Controllers
             request.Comment = model.Comment;
             request.Status = (int)model.Status;
             request.CategoryId = (uint)model.CategoryId;
-            request.Name = model.Name;
-            request.Description = model.Description;
             request.Priority = (int)model.Priority;
 
             switch (model.Status)
@@ -306,14 +301,13 @@ namespace RMS.Controllers
                 // create request
                 var request = new Request
                 {
-                    Name = model.Name,
-                    Description = model.Description,
                     Priority = (int)model.Priority,
                     Address = model.Address,
                     CategoryId = (uint)model.CategoryId,
                     Comment = model.Comment,
                     CreatedId = userManager.User.Id,
-                    LifecycleId = lifecycle.Id
+                    LifecycleId = lifecycle.Id,
+                    AbonentUID = model.AbonentUID
                 };
 
                 // save request to db

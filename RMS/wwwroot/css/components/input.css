@@ -1,6 +1,25 @@
-﻿input {
+﻿input, .searchabon {
     font-family: 'Roboto';
     font-weight: 300;
+}
+
+.select2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.select2-selection {
+
+}
+
+.select2-container--default .select2-selection--multiple {
+    padding-top: 10px;
+    padding-left: 35px;
+    padding-bottom: 15px;
+    border-radius: 0;
+    font-size: 20px;
+}
+.select2-search {
 }
 
 .body.night input {

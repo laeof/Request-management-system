@@ -38,7 +38,7 @@ namespace RMS.Controllers
                 UserRoles = users
             };
 
-            return View(users);
+            return View(model);
         }
 		[Authorize(Roles = "admin, manager")]
 		[HttpGet]
@@ -70,9 +70,13 @@ namespace RMS.Controllers
 
             userrole.UserRoleId = id;
 
-            var model = new UserViewModel
+            var model = new UserViewModel()
             {
-                UserRole = userrole
+                UserId = userrole.UserId,
+                UserRoleId = userrole.RoleId,
+                RoleId = userrole.RoleId,
+                User = userrole.User,
+                Role = userrole.Role
             };
 
             return View(model);
@@ -81,7 +85,7 @@ namespace RMS.Controllers
 		[HttpPost]
         public async Task<IActionResult> Edit(UserViewModel model, IFormFile AvatarFile)
         {
-            var userrole = model.UserRole;
+            var userrole = model;
 
             ViewBag.Avatar = "Аватар";
 			ViewBag.Title = "Редагування облікових записів";

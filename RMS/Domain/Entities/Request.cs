@@ -8,29 +8,24 @@ namespace RMS.Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint Id { get; set; }
-        //Назва
-        [Required(ErrorMessage = "Введіть назву заявки")]
-        [Display(Name = "Назва заявки")]
-        public string Name { get; set; } = "default name";
-        // Опис
-        [Required(ErrorMessage = "Введіть опис заявки")]
-        [Display(Name = "Опис")]
-        public string Description { get; set; } = "default descr";
         // Коментар
         [Display(Name = "Коментар")]
         public string Comment { get; set; } = "default coment";
         // Статус заявки
         [Display(Name = "Статус")]
-        public int Status { get; set; } = 1;
+		public int Status { get; set; } = 1;
         // Пріорітет заявки
         [Display(Name = "Пріорітет")]
-        public int Priority { get; set; } = 1;
+		[Required]
+		public int Priority { get; set; } = 1;
         // Адреса
         [Display(Name = "Адреса")]
-        public string Address { get; set; } = "default address";
+		[Required]
+		public string Address { get; set; } = "default address";
         // Зовнішній ключ Категорія
         [Display(Name = "Категорія")]
 		[ForeignKey("Category")]
+		[Required]
 		public uint CategoryId { get; set; }
         public Category? Category { get; set; }
         // Зовнішній ключ
@@ -61,5 +56,8 @@ namespace RMS.Domain.Entities
         public uint CreatedId { get; set; } = 1;
         //чи видалено
         public bool? IsDeleted { get; set; } = false;
-    }
+		[Required]
+		[Display(Name = "Користувач")]
+		public int? AbonentUID { get; set; }
+	}
 }
