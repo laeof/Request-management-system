@@ -1,0 +1,32 @@
+﻿.createrequest .title{
+    text-align: center;
+}
+
+.createrequest .requestform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createrequest .wrap-input {
+    margin-bottom: 10px;
+}
+
+.createrequest .wrap-input .input.login, .createrequest span {
+    align-self: center;
+    width: 550px;
+}
+
+.createrequest .wrap-input img {
+    align-self: center;
+    margin-right: 520px;
+}
+
+.createrequest .create-request-section {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 40px 100px 30px 100px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}

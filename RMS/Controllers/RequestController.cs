@@ -109,12 +109,12 @@ namespace RMS.Controllers
             {
                 Id = id,
                 Address = request.Address,
-                CategoryId = request.CategoryId,
                 Comment = request.Comment,
                 IsDeleted = request.IsDeleted,
                 Priority = request.Priority,
                 Status = request.Status,
-                Categories = dataManager.Categories.GetCategories().ToList()
+                AbonentUID = request.AbonentUID,
+                Category = await dataManager.Categories.GetCategoryByIdAsync(request.CategoryId)
             };
 
             return View(model);

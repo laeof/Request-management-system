@@ -1,5 +1,7 @@
 ﻿@import "table.css";
 @import "card.css";
+@import "createrequest.css";
+@import "viewrequest.css";
 
 .request-list {
     display: flex;

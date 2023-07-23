@@ -21,5 +21,11 @@ namespace RMS.API.Controllers
 			var results = await _abonentsService.SearchAbonents(searchText);
 			return Ok(results);
 		}
+		[HttpGet("searchuid")]
+		public async Task<ActionResult<Abonent>> SearchAbonentsByUID(int uid)
+		{
+			var results = await _abonentsService.SearchAbonentByUID(uid);
+			return Ok(results);
+		}
 	}
 }

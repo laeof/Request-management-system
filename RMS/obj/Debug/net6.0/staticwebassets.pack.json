@@ -125,12 +125,20 @@
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\card.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\createrequest.css",
+      "PackagePath": "staticwebassets\\css\\components\\requestpage\\createrequest.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\main.css"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\table.css",
       "PackagePath": "staticwebassets\\css\\components\\requestpage\\table.css"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\viewrequest.css",
+      "PackagePath": "staticwebassets\\css\\components\\requestpage\\viewrequest.css"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\select.css",

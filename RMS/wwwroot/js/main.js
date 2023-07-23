@@ -63,7 +63,7 @@ function toggleLeftSideBar() {
     }
 }
 function handleHover() {
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth <= 1024) {
         if (minimized) {
             sideBar.classList.remove("minimized");
             sideBar.classList.add("min");
@@ -80,7 +80,7 @@ function handleHover() {
     }
 }
 function handleOver() {
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth <= 1024) {
         if (minimized) {
             sideBar.classList.remove("min");
             sideBar.classList.add("minimized");
@@ -132,8 +132,8 @@ $(document).ready(function () {
             processResults: function (data) {
                 return {
                     results: data.map(function (abon) {
-                        var addres = abon.addressFlat == "" ? abon.addressStreet + " буд. " + abon.addressBuild :
-                            abon.addressStreet + " буд. " + abon.addressBuild + " кв. " + abon.addressFlat
+                        var addres = abon.addressFlat == "" ? "вул. " + abon.addressStreet + " буд. " + abon.addressBuild :
+                            "вул. " + abon.addressStreet + " буд. " + abon.addressBuild + " кв. " + abon.addressFlat
                         return {
                             id: abon.uid,
                             text: abon.fio,
@@ -150,6 +150,33 @@ $(document).ready(function () {
         $('#searchabon').append(new Option(selectedAbon.text, selectedAbon.id, true, true)).trigger('change');
         $('#address').val(selectedAbon.address);
 
+    });
+    var uidValue = document.getElementById('uid').value;
+    $.ajax({
+        url: "/api/Abonents/searchuid?uid=" + uidValue,
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var addressElement = $('#address');
+            var fioElement = $('#fio');
+            var phoneElement = $('#phone');
+            var commentElement = $('#comment');
+
+            // Проверяем, что данные получены и не пустые
+            if (data && Object.keys(data).length > 0) {
+                var addres = data.addressFlat == "" ? "вул. " + data.addressStreet + " буд. " + data.addressBuild :
+                    "вул. " + data.addressStreet + " буд. " + data.addressBuild + " кв. " + data.addressFlat;
+                if(addressElement.val == "") addressElement.val(addres);
+                fioElement.val(data.fio);
+                phoneElement.val(data.phone);
+                commentElement.val(data.comments);
+            } else {
+                console.log("Данные не получены или пустые.");
+            }
+        },
+        error: function (error) {
+            console.log("Произошла ошибка при выполнении запроса:", error);
+        }
     });
 });
 

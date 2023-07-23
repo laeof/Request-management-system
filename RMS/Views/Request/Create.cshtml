@@ -2,63 +2,78 @@
 
 <title>@ViewBag.Title</title>
 
-<div class="wrap-login">
+<div class="createrequest">
 	<form asp-area=""
 		  asp-controller="Request"
 		  asp-action="Create"
-		  method="post"
-		  class="login-form">
+		  class="requestform"
+		  method="post">
 		<span class="title">
 			@ViewBag.Title
 		</span>
-		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="IsDeleted">
+		<div class="formcontent">
+			<div class="wrap-input">
+				<input class="input login" type="hidden" asp-for="IsDeleted">
+			</div>
+			<div class="wrap-input">
+				<input class="input login" type="hidden" asp-for="Id">
+			</div>
+
+			<div class="create-request-section">
+				<span class="title">
+					Загальні відомості
+				</span>
+				<div class="wrap-input">
+					<img class="input-img" src="~/img/svg/user/namesurname.svg" />
+					<input type="text" class="input login" placeholder="@Html.DisplayNameFor(model => model.AbonentUID)" id="searchabon" asp-for="AbonentUID" />
+				</div>
+				<div class="wrap-input">
+					<img class="input-img" src="~/img/svg/request/category.svg" />
+					<select class="input login" asp-for="CategoryId">
+						@foreach (var item in Model.Categories)
+						{
+							<option value="@item.Id">@item.Name</option>
+						}
+					</select>
+				</div>
+				<div class="wrap-input">
+					<img class="input-img" src="~/img/svg/request/priority.svg" />
+					<select class="input login" asp-for="Priority">
+						<option value="1">Звичайний</option>
+						<option value="2">Критичний</option>
+					</select>
+				</div>
+
+				<div class="wrap-input">
+					<img class="input-img" src="~/img/svg/comment.svg" />
+					<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Comment)" asp-for="Comment">
+				</div>
+				<div class="wrap-input">
+					<img class="input-img" src="~/img/png/key.png" />
+					<select class="input login" asp-for="Status">
+						<option value="1">Заплановано</option>
+						<option value="2">Відкрито</option>
+						<option value="3">Закрито</option>
+						<option value="4">Відмінено</option>
+					</select>
+				</div>
+			</div>
+			<div class="create-request-section">
+				<span class="title">
+					Відомості про клієнта
+				</span>
+				<div class="wrap-input">
+					<img class="input-img" src="~/img/svg/request/address.svg" />
+					<input class="input login" id="address" type="text" placeholder="@Html.DisplayNameFor(model => model.Address)" asp-for="Address">
+				</div>
+			</div>
+
 		</div>
-		<div class="wrap-input">
-			<input class="input login" type="hidden" asp-for="Id">
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/comment.svg" />
-			<input class="input login" type="text" placeholder="@Html.DisplayNameFor(model => model.Comment)" asp-for="Comment">
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/png/key.png" />
-			<select class="input login" asp-for="Status">
-				<option value="1">Заплановано</option>
-				<option value="2">Відкрито</option>
-				<option value="3">Закрито</option>
-				<option value="4">Відмінено</option>
-			</select>
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/request/priority.svg" />
-			<select class="input login" asp-for="Priority">
-				<option value="1">Звичайний</option>
-				<option value="2">Критичний</option>
-			</select>
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/request/address.svg" />
-			<input class="input login" id="address" type="text" placeholder="@Html.DisplayNameFor(model => model.Address)" asp-for="Address">
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/user/namesurname.svg" />
-			<input type="text" class="input login" placeholder="@Html.DisplayNameFor(model => model.AbonentUID)" id="searchabon" asp-for="AbonentUID" />
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/request/category.svg" />
-			<select class="input login" asp-for="CategoryId">
-				@foreach (var item in Model.Categories)
-				{
-					<option value="@item.Id">@item.Name</option>
-				}
-			</select>
-		</div>
-		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-		<div class="container-login-form-btn">
-			<button class="login-form-btn" type="submit">
-				Створити
-			</button>
-		</div>
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+			<div class="container-login-form-btn">
+				<button class="login-form-btn" type="submit">
+					Створити
+				</button>
+			</div>
 	</form>
 </div>

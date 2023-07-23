@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "p8p4maT5BGeVCCVnxnOhivGOM5IlnHMtMXZDftB66mQ=",
+  "Hash": "bg33xA2R+T0FeAx5/dKbPmakG0BVc6ca3OsED9W2utQ=",
   "Source": "RMS",
   "BasePath": "_content/RMS",
   "Mode": "Default",
@@ -544,6 +544,23 @@
       "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\card.css"
     },
     {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\createrequest.css",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "css/components/requestpage/createrequest.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\createrequest.css"
+    },
+    {
       "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\main.css",
       "SourceId": "RMS",
       "SourceType": "Discovered",
@@ -576,6 +593,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\table.css"
+    },
+    {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\requestpage\\viewrequest.css",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "css/components/requestpage/viewrequest.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\requestpage\\viewrequest.css"
     },
     {
       "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\select.css",

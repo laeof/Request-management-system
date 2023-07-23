@@ -1,0 +1,37 @@
+﻿.viewrequest .title {
+    text-align: center;
+}
+
+.viewrequest .requestform {
+    display: flex;
+    flex-direction: column;
+}
+
+.viewrequest .formcontent{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.viewrequest .wrap-input {
+    margin-bottom: 10px;
+}
+
+.viewrequest .wrap-input .input.login, .viewrequest span {
+    align-self: center;
+    width: 450px;
+}
+
+.viewrequest .wrap-input img {
+    align-self: center;
+    margin-right: 415px;
+}
+
+.viewrequest .create-request-section {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 40px 80px 30px 80px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
