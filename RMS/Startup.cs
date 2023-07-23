@@ -28,6 +28,8 @@
 			services.AddTransient<IUserRepository, EFUserRepository>();
 			services.AddTransient<IUserRoleRepository, EFUserRoleRepository>();
 			services.AddTransient<IRoleRepository, EFRoleRepository>();
+			services.AddTransient<IBrigadeRepository, EFBrigadeRepository>();
+			services.AddTransient<IBrigadeMounterRepository, EFBrigadeMounterRepository>();
 			services.AddTransient<DataManager>();
 			services.AddTransient<UserManager>();
 

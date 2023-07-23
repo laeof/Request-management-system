@@ -1,0 +1,34 @@
+﻿@model BrigadeViewModel
+
+<div class="wrap-login">
+	<form asp-area=""
+		  asp-controller="Brigade"
+		  asp-action="Create"
+		  method="post"
+		  class="login-form"
+		  asp-route-returnUrl="@ViewBag.ReturnUrl">
+		<span class="title">
+			@ViewBag.Title
+		</span>
+		<input type="hidden" id="totalCount" name="TotalCount" value="1" />
+		<div id="mounters-form">
+			<div class="wrap-input" id="mounter-container-0">
+				<img class="input-img" src="~/img/svg/user/role.svg" />
+				<select class="input login" name="Ids">
+					@foreach (var mounter in Model.Mounters)
+					{
+						<option value="@mounter.Id">@mounter.FirstName @mounter.Surname</option>
+					}
+				</select>
+			</div>
+		</div>
+
+		<button type="button" id="add-mounter">Додати монтажника</button>
+
+		<div class="container-login-form-btn">
+			<button class="login-form-btn" type="submit">
+				Створити
+			</button>
+		</div>
+	</form>
+</div>

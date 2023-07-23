@@ -9,7 +9,7 @@ namespace RMS.Service
 	public class Abonents
 	{
 		
-		public string apiUrl = "https://demo.abills.net.ua:9443/api.cgi/users/all?password&fio&locationId&phone&pageRows=2810";
+		public string apiUrl = "https://demo.abills.net.ua:9443/api.cgi/users/all?password&fio&locationId&pageRows=2810";
 		
 		public string apiKey = "testAPI_KEY12";
 

@@ -166,7 +166,7 @@ $(document).ready(function () {
             if (data && Object.keys(data).length > 0) {
                 var addres = data.addressFlat == "" ? "вул. " + data.addressStreet + " буд. " + data.addressBuild :
                     "вул. " + data.addressStreet + " буд. " + data.addressBuild + " кв. " + data.addressFlat;
-                if(addressElement.val == "") addressElement.val(addres);
+                if (addressElement.val == "") addressElement.val(addres);
                 fioElement.val(data.fio);
                 phoneElement.val(data.phone);
                 commentElement.val(data.comments);
@@ -185,3 +185,24 @@ sideBar.addEventListener('mouseenter', handleHover);
 
 checkPreference('themePreference', 'night', togglePageMode);
 checkPreference('modePreference', 'tablecheck', toggleTable);
+
+let mounterCount = 1;
+
+document.getElementById('add-mounter').addEventListener('click', function () {
+    const totalCountInput = document.getElementById('totalCount');
+    const totalCount = parseInt(totalCountInput.value);
+    const newCount = totalCount + 1;
+
+    const container = document.getElementById(`mounter-container-0`);
+    const clone = container.cloneNode(true);
+
+    // Изменяем атрибуты и идентификаторы клонированного контейнера
+    const select = clone.querySelector('select');
+    select.name = `Ids`;
+    select.selectedIndex = 0;
+
+    document.getElementById('mounters-form').appendChild(clone);
+
+    totalCountInput.value = newCount;
+    mounterCount = newCount;
+});

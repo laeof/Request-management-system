@@ -27,6 +27,10 @@
     margin-right: 415px;
 }
 
+.body.night .viewrequest .create-request-section {
+    background: rgba(220,230,233,0.3);
+}
+
 .viewrequest .create-request-section {
     display: flex;
     flex-direction: column;

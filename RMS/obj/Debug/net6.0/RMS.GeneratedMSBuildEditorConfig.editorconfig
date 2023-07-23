@@ -28,6 +28,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Brigade/Brigades.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJpZ2FkZVxCcmlnYWRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/laoef/source/repos/RMS/RMS/Views/Brigade/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJpZ2FkZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/laoef/source/repos/RMS/RMS/Views/Category/Categories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ2F0ZWdvcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

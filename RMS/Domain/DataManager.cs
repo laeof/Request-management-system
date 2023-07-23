@@ -10,13 +10,17 @@ namespace RMS.Domain
 		public IUserRepository Users { get; set; }
 		public IUserRoleRepository UserRole { get; set; }
         public IRoleRepository Role { get; set; }
+		public IBrigadeRepository Brigades { get; set; }
+		public IBrigadeMounterRepository BrigadeMounter { get; set; }
 
         public DataManager(IRequestRepository Requests, 
 						   ICategoryRepository Categories,
 						   ILifecycleRepository Lifecycle,
 						   IUserRepository User,
 						   IUserRoleRepository UserRole,
-						   IRoleRepository Role)
+						   IRoleRepository Role,
+						   IBrigadeRepository Brigade,
+						   IBrigadeMounterRepository BrigadeMounter)
 		{
 			this.Requests = Requests;
 			this.Categories = Categories;
@@ -24,6 +28,8 @@ namespace RMS.Domain
 			this.Users = User;
 			this.UserRole = UserRole;
 			this.Role = Role;
+			this.Brigades = Brigade;
+			this.BrigadeMounter = BrigadeMounter;
 		}
 	}
 }

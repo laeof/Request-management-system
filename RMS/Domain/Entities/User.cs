@@ -40,5 +40,8 @@ namespace RMS.Domain.Entities
         public string? ImgPath { get; set; } = "../../img/Avatar/user.png";
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; } = false;
-    }
+        public string? WorkHours { get; set; }
+        public ICollection<BrigadeMounter>? BrigadeMounters { get; set; }
+		public ICollection<UserRole>? UserRoles { get; set; }
+	}
 }

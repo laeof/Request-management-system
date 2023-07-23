@@ -1,0 +1,67 @@
+﻿@model BrigadeViewModel
+
+<title>@ViewBag.Title</title>
+<div class="page-info">
+    <h2>@ViewBag.Title</h2>
+    <div class="switcher">
+        <h2 style="display: flex; margin-right: 30px;">Режим карток</h2>
+        <label class="switch">
+            <input type="checkbox" id="tablecheck" onclick="savePreference('modePreference', 'tablecheck', toggleTable);">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
+<div class="requests">
+    <table class="table" id="table">
+        <tr class="first-row">
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewBrigades[0].BrigadeMounters[0].UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewBrigades[0].BrigadeMounters[0].Mounter.WorkHours)
+            </th>
+        </tr>
+        <tbody class="tbody">
+            @foreach (var item in Model.ViewBrigades)
+            {
+                <tr class="trow">
+                    <th>
+                        <div class="namefor">
+                            @Html.DisplayNameFor(modelItem => item.Id)
+                        </div>
+                        <div class="displayfor">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </div>
+                    </th>
+                    <th>
+                        <div class="namefor">
+                            @Html.DisplayNameFor(modelItem => item.BrigadeMounters[0].UserId)
+                        </div>
+                        <div class="displayfor">
+                            @foreach(var mounter in item.BrigadeMounters)
+                            {
+                                @Html.DisplayFor(modelItem => mounter.Mounter.FirstName)
+                                @Html.Raw(" ")
+                                @Html.DisplayFor(modelItem => mounter.Mounter.Surname)
+                            }
+                        </div>
+                    </th>
+                    <th>
+                        <div class="namefor">
+                            @Html.DisplayNameFor(modelItem => item.BrigadeMounters[0].Mounter.WorkHours)
+                        </div>
+                        <div class="displayfor">
+                            @foreach (var mounter in item.BrigadeMounters)
+                            {
+                                @Html.DisplayFor(modelItem => mounter.Mounter.WorkHours)
+                            }
+                        </div>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

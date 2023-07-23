@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RMS.Domain.Entities;
 using System;
+using System.Diagnostics.Metrics;
 
 namespace RMS.Domain
 {
@@ -15,8 +16,11 @@ namespace RMS.Domain
 		public DbSet<Request> Requests { get; set; }
 		public DbSet<Lifecycle> Lifecycles { get; set; }
 		public DbSet<Category> Categories { get; set; }
+		public DbSet<Brigade> Brigades { get; set; }
+		public DbSet<BrigadeMounter> BrigadeMounters { get; set; }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 
 			base.OnModelCreating(modelBuilder);

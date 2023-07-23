@@ -10,11 +10,11 @@ namespace RMS.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [ForeignKey("Key")]
         public uint UserRoleId { get; set; }
-        [ForeignKey("Role")]
         public uint RoleId { get; set; }
-        public Role? Role { get; set; }
-        [ForeignKey("User")]
+		[ForeignKey("RoleId")]
+		public Role? Role { get; set; }
         public uint UserId { get; set; }
-        public User? User { get; set; }
+		[ForeignKey("UserId")]
+		public User? User { get; set; }
     }
 }

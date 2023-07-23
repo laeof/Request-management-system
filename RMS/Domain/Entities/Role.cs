@@ -9,5 +9,6 @@ namespace RMS.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint Id { get; set; }
         public string? Name { get; set; }
-    }
+		public ICollection<UserRole>? UserRoles { get; set; }
+	}
 }

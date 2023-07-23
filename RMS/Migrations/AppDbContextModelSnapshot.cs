@@ -22,6 +22,48 @@ namespace RMS.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("RMS.Domain.Entities.Brigade", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brigades");
+                });
+
+            modelBuilder.Entity("RMS.Domain.Entities.BrigadeMounter", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("BrigadeId")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrigadeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BrigadeMounters");
+                });
+
             modelBuilder.Entity("RMS.Domain.Entities.Category", b =>
                 {
                     b.Property<long>("Id")
@@ -78,12 +120,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 20, 20, 50, 2, 843, DateTimeKind.Utc).AddTicks(7862)
+                            Planning = new DateTime(2023, 7, 23, 17, 14, 9, 992, DateTimeKind.Utc).AddTicks(8010)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 20, 20, 50, 2, 843, DateTimeKind.Utc).AddTicks(7871)
+                            Planning = new DateTime(2023, 7, 23, 17, 14, 9, 992, DateTimeKind.Utc).AddTicks(8017)
                         });
                 });
 
@@ -218,6 +260,9 @@ namespace RMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("WorkHours")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -232,7 +277,7 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "ADMIN",
-                            Password = "$HASH|V1$10000$44Oc0ZT6zyXzeesVBkAAEV4h9L8N4Vqs0XTG5byA5hPCzvRg",
+                            Password = "$HASH|V1$10000$b8zG5QPxuZVLXgbVuJNeehvTNjLuk9vPeKCmp9uZjIwzTCW2",
                             Surname = "Akchurin"
                         },
                         new
@@ -244,7 +289,7 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "MANAGER",
-                            Password = "$HASH|V1$10000$hNlw2dGyBl8/FPk6Dc95XfbKU6vKUrue6FM0z+5w7UVOhWpB",
+                            Password = "$HASH|V1$10000$zjTvhXUu69euRd+IUbv+lXk+bAc6Q0dttonlRcRF4pfMwuiN",
                             Surname = "Guryshkin"
                         },
                         new
@@ -256,7 +301,7 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "mounter",
-                            Password = "$HASH|V1$10000$0h2V0WY2QapCCk9uAom3qZ8Y/IwSg2v4n+SFt7b4QcO8qyh8",
+                            Password = "$HASH|V1$10000$k4frJwNrbB7o1w2/FD0smm0pmuDR5tKsPs/ONcWgZNtNm+YT",
                             Surname = "Perepelitsa"
                         });
                 });
@@ -304,6 +349,25 @@ namespace RMS.Migrations
                         });
                 });
 
+            modelBuilder.Entity("RMS.Domain.Entities.BrigadeMounter", b =>
+                {
+                    b.HasOne("RMS.Domain.Entities.Brigade", "Brigade")
+                        .WithMany("BrigadeMounters")
+                        .HasForeignKey("BrigadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RMS.Domain.Entities.User", "Mounter")
+                        .WithMany("BrigadeMounters")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brigade");
+
+                    b.Navigation("Mounter");
+                });
+
             modelBuilder.Entity("RMS.Domain.Entities.Request", b =>
                 {
                     b.HasOne("RMS.Domain.Entities.User", "Cancel")
@@ -344,13 +408,13 @@ namespace RMS.Migrations
             modelBuilder.Entity("RMS.Domain.Entities.UserRole", b =>
                 {
                     b.HasOne("RMS.Domain.Entities.Role", "Role")
-                        .WithMany()
+                        .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("RMS.Domain.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -358,6 +422,23 @@ namespace RMS.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RMS.Domain.Entities.Brigade", b =>
+                {
+                    b.Navigation("BrigadeMounters");
+                });
+
+            modelBuilder.Entity("RMS.Domain.Entities.Role", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("RMS.Domain.Entities.User", b =>
+                {
+                    b.Navigation("BrigadeMounters");
+
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }
