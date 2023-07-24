@@ -33,7 +33,7 @@
                 @Html.DisplayNameFor(model => model.Requests[0].Lifecycle.Current)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Requests[0].ClosedId)
+                @Html.DisplayNameFor(model => model.Requests[0].Lifecycle.Closed)
             </th>
             @if (User.IsInRole("admin") || User.IsInRole("manager"))
             {
