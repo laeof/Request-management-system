@@ -1,42 +1,43 @@
-# Here is a website with request management system functionallity based on ASP.NET Core MVC
+# Here is a website with request management system functionallity based on ASP.NET Core MVC connected to ABILLS Restful JSON Api
+# STILL DEVELOPMENT(80% ready)
 
 # Now you can authorize
-![image](https://github.com/laeof/Request-management-system/assets/66406936/a94b2195-9afb-4642-9d18-0bf527c335ad)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/aa7ffd48-ae56-49cd-bb05-6836ab3a787c)
 
 # You can manage your account
-![image](https://github.com/laeof/Request-management-system/assets/66406936/b508b954-5d17-47cc-8e39-f430efc49a0e)
-
+![image](https://github.com/laeof/Request-management-system/assets/66406936/5359e109-9e9c-4683-bf14-51206864d031)
 
 # You can watch planned, current, closed or cancelled requests
 # Also you can navigate through the pages on the left side of your screen
-![image](https://github.com/laeof/Request-management-system/assets/66406936/7cd2cd73-486a-4381-8d6f-2dcc62b1d99c)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/c2d2d53a-ac0e-4ba0-b070-340b51e0541c)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/1d4d9c2f-f0de-40df-88a7-e6fd941c94c5)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/1b6d91b5-73b3-4d0b-b60f-a7ccbf7603e0)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/6d53c9a3-63e0-4239-aaf7-3b503bbac868)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/2645e8a7-cc98-4dd9-aed3-615a8fe29485)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/08adb077-3376-4bfe-9cae-d749fcdb6307)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/09bfd608-0254-411f-bbf4-f7b15cd8c91f)
 
-If you need to open a planned request, you should press an open green button, or if you need to cancel it, you should press yellow button.
-And if you need to close an open request, you should press a yellow button and red if need to close
+# Show Info
+![image](https://github.com/laeof/Request-management-system/assets/66406936/7e579676-c5c7-4349-a801-bf1688b721a2)
+
+Manage requests
+![image](https://github.com/laeof/Request-management-system/assets/66406936/3a5ee75a-d903-4242-bd9c-2611a2629ac5)
 
 # You can go in dark mode
-![image](https://github.com/laeof/Request-management-system/assets/66406936/734ca7d2-9a36-48ca-994d-2a8e2ed55fbe)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/0d76b76d-31ea-447b-a5e4-e15601b67191)
 
 # And also go to cards mode
-![image](https://github.com/laeof/Request-management-system/assets/66406936/4d32a4cc-bbc5-4660-8b5c-a9d961223157)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/b411ec74-363c-4891-b0e5-0dd2a66612cd)
 
 # You can add a request if you are admin or manager
-![image](https://github.com/laeof/Request-management-system/assets/66406936/b25b9418-a197-4390-8e2d-557d38e544e5)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/e81e99be-40df-481d-bc15-c06efe8a46fc)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/6a99614f-45fe-45c6-be79-0d606d24332e)
 
 # Else you can do is to check all accounts in system
-![image](https://github.com/laeof/Request-management-system/assets/66406936/97271782-dd1b-4e89-95a7-f1d894de7a30)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/05ea7224-2e9b-46e0-bfb8-f71ef99e26a1)
 
 Manage it
-![image](https://github.com/laeof/Request-management-system/assets/66406936/77e5e0a1-6aec-4c4b-b67a-d36c08c28c89)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/07bb899b-f6bc-40df-8025-94bb685e3465)
 
-# And create a new account if you are admin(you can register other admins, managers or mounters)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/4e54aa06-f27e-4827-8131-2a1bcb4073f7)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/57a9bf5e-01b5-4199-adc0-86d08c5905b8)
+# And create a new account if you are admin(you can register other admins, managers or mounters) (Manager can create only mounters)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/b604c1e5-1c01-4891-9bcf-d8cb77b8b93c)
 
-Or if you are manager you can register only mounters
+# You can create a category and show it
 
-The website has adaptation and correctly works on phones tablets etc
+# You can create a brigade of mounters and show it
