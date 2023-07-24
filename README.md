@@ -2,41 +2,41 @@
 # STILL DEVELOPMENT(80% ready)
 
 # Now you can authorize
-![image](https://github.com/laeof/Request-management-system/assets/66406936/aa7ffd48-ae56-49cd-bb05-6836ab3a787c)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/4a645ae4-9685-4a1a-a86d-4e962df26a5f)
 
 # You can manage your account
-![image](https://github.com/laeof/Request-management-system/assets/66406936/5359e109-9e9c-4683-bf14-51206864d031)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/47f103ff-849a-49aa-8d9e-008c38c37d5b)
 
 # You can watch planned, current, closed or cancelled requests
-# Also you can navigate through the pages on the left side of your screen
-![image](https://github.com/laeof/Request-management-system/assets/66406936/6d53c9a3-63e0-4239-aaf7-3b503bbac868)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/2645e8a7-cc98-4dd9-aed3-615a8fe29485)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/08adb077-3376-4bfe-9cae-d749fcdb6307)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/09bfd608-0254-411f-bbf4-f7b15cd8c91f)
+Also you can navigate through the pages on the left side of your screen
+![image](https://github.com/laeof/Request-management-system/assets/66406936/b09743a4-1fff-4ebf-be47-ec670e6429dd)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/bec86670-ede6-4112-bf2c-170bb5492e30)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/085ce22c-aa9c-463f-803a-2aff67fbd547)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/938da39c-2f0d-48c6-b789-3a499c82064f)
 
 # Show Info
-![image](https://github.com/laeof/Request-management-system/assets/66406936/7e579676-c5c7-4349-a801-bf1688b721a2)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/42a5f7e9-287e-4188-8232-3ea30358b7f5)
 
 Manage requests
-![image](https://github.com/laeof/Request-management-system/assets/66406936/3a5ee75a-d903-4242-bd9c-2611a2629ac5)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/c42083a8-4e0f-4a9e-adbb-0190a8481c03)
 
 # You can go in dark mode
-![image](https://github.com/laeof/Request-management-system/assets/66406936/0d76b76d-31ea-447b-a5e4-e15601b67191)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/492b7ec6-e218-47bf-bf2e-a94c2926d035)
 
 # And also go to cards mode
-![image](https://github.com/laeof/Request-management-system/assets/66406936/b411ec74-363c-4891-b0e5-0dd2a66612cd)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/98eb536d-80b1-418d-bf43-8b1fe385619b)
 
 # You can add a request if you are admin or manager
-![image](https://github.com/laeof/Request-management-system/assets/66406936/6a99614f-45fe-45c6-be79-0d606d24332e)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/12a51633-f876-4d6f-b1b3-c670fb182c70)
 
 # Else you can do is to check all accounts in system
-![image](https://github.com/laeof/Request-management-system/assets/66406936/05ea7224-2e9b-46e0-bfb8-f71ef99e26a1)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/c8b1da1b-187f-4045-9cfb-d015ca3da75e)
 
 Manage it
-![image](https://github.com/laeof/Request-management-system/assets/66406936/07bb899b-f6bc-40df-8025-94bb685e3465)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/b7a9b10b-98f8-4c36-8c8f-6ca29294734d)
 
 # And create a new account if you are admin(you can register other admins, managers or mounters) (Manager can create only mounters)
-![image](https://github.com/laeof/Request-management-system/assets/66406936/b604c1e5-1c01-4891-9bcf-d8cb77b8b93c)
+![image](https://github.com/laeof/Request-management-system/assets/66406936/ccb33c99-6277-497e-9773-5edd67a8c655)
 
 # You can create a category and show it
 
