@@ -11,5 +11,7 @@
 		public string? addressBuild { get; set; }
 		public string? addressStreet { get; set; }
 		public string? comments { get; set; }
+		public object? tpName { get; set; }
+		public int id { get; set; }
 	}
 }

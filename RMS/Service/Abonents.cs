@@ -9,7 +9,7 @@ namespace RMS.Service
 	public class Abonents
 	{
 		
-		public string apiUrl = "https://demo.abills.net.ua:9443/api.cgi/users/all?password&fio&locationId&pageRows=2810";
+		public string apiUrl = "https://demo.abills.net.ua:9443/api.cgi/users/all?password&fio&locationId&pageRows=3861";
 		
 		public string apiKey = "testAPI_KEY12";
 
@@ -22,9 +22,17 @@ namespace RMS.Service
 		{
 			_memoryCache = memoryCache;
 		}
+		public async Task<Abonent> SearchAbonentByUIDPI(int uid)
+		{
+			return await GetUserFromApiPI(uid);
+		}
 		public async Task<Abonent> SearchAbonentByUID(int uid)
 		{
 			return await GetUserFromApi(uid);
+		}
+		public async Task<Abonent> SearchAbonentInternetByUID(int uid)
+		{
+			return await GetUserInternetFromApi(uid);
 		}
 		public async Task<List<Abonent>> SearchAbonents(string text)
 		{
@@ -67,7 +75,7 @@ namespace RMS.Service
 
 			return usersByField;
 		}
-		private async Task<Abonent> GetUserFromApi(int uid)
+		private async Task<Abonent> GetUserFromApiPI(int uid)
 		{
 			string apiUserUrl = $"https://demo.abills.net.ua:9443/api.cgi/users/{uid}/pi";
 			using (HttpClient client = new HttpClient())
@@ -86,6 +94,66 @@ namespace RMS.Service
 
 					// Используем Json.NET для десериализации JSON-строки
 					var data = JsonConvert.DeserializeObject<Abonent>(jsonString);
+
+					return data;
+				}
+				else
+				{
+					// Обработка ошибки, если не удалось получить данные
+					return new Abonent();
+				}
+			}
+		}
+		private async Task<Abonent> GetUserFromApi(int uid)
+		{
+			string apiUserUrl = $"https://demo.abills.net.ua:9443/api.cgi/users/{uid}?showPassword=true";
+			using (HttpClient client = new HttpClient())
+			{
+				client.DefaultRequestHeaders.Add("KEY", apiKey);
+
+				HttpResponseMessage response = await client.GetAsync(apiUserUrl);
+
+				if (response.IsSuccessStatusCode)
+				{
+					var byteArray = await response.Content.ReadAsByteArrayAsync();
+					var jsonString = Encoding.UTF8.GetString(byteArray, 0, byteArray.Length);
+
+					// Декодируем строку JSON для правильной обработки экранирования обратных слешей
+					jsonString = System.Text.RegularExpressions.Regex.Unescape(jsonString);
+
+					// Используем Json.NET для десериализации JSON-строки
+					var data = JsonConvert.DeserializeObject<Abonent>(jsonString);
+
+					return data;
+				}
+				else
+				{
+					// Обработка ошибки, если не удалось получить данные
+					return new Abonent();
+				}
+			}
+		}
+		private async Task<Abonent> GetUserInternetFromApi(int uid)
+		{
+			string apiUserUrl = $"https://demo.abills.net.ua:9443/api.cgi/users/{uid}/internet";
+			using (HttpClient client = new HttpClient())
+			{
+				client.DefaultRequestHeaders.Add("KEY", apiKey);
+
+				HttpResponseMessage response = await client.GetAsync(apiUserUrl);
+
+				if (response.IsSuccessStatusCode)
+				{
+					var byteArray = await response.Content.ReadAsByteArrayAsync();
+					var jsonString = Encoding.UTF8.GetString(byteArray, 0, byteArray.Length);
+
+					// Декодируем строку JSON для правильной обработки экранирования обратных слешей
+					jsonString = System.Text.RegularExpressions.Regex.Unescape(jsonString);
+
+					// Используем Json.NET для десериализации JSON-строки
+					var datalist = JsonConvert.DeserializeObject<List<Abonent>>(jsonString);
+
+					var data = datalist.OrderByDescending(x => x.id).First();
 
 					return data;
 				}

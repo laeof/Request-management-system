@@ -369,6 +369,10 @@
       "PackagePath": "staticwebassets\\img\\svg\\night_day.svg"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\phone.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\phone.svg"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\questionmark.svg",
       "PackagePath": "staticwebassets\\img\\svg\\questionmark.svg"
     },
@@ -395,6 +399,10 @@
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\search.svg",
       "PackagePath": "staticwebassets\\img\\svg\\search.svg"
+    },
+    {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\tariff.svg",
+      "PackagePath": "staticwebassets\\img\\svg\\tariff.svg"
     },
     {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\img\\svg\\user\\img.svg",

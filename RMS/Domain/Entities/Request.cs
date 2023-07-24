@@ -11,8 +11,8 @@ namespace RMS.Domain.Entities
         // Коментар
         [Display(Name = "Коментар")]
         public string Comment { get; set; } = "default coment";
-        // Статус заявки
-        [Display(Name = "Статус")]
+		// Статус заявки
+		[Display(Name = "Статус")]
 		public int Status { get; set; } = 1;
         // Пріорітет заявки
         [Display(Name = "Пріорітет")]

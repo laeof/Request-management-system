@@ -291,10 +291,19 @@ namespace RMS.Controllers
 
             if (ModelState.IsValid)
             {
-                var lifecycle = new Lifecycle()
+                var lifecycle = new Lifecycle();
+
+				switch (model.Status)
                 {
-                    Planning = DateTime.UtcNow
-                };
+                    case 1:
+                        lifecycle.Planning = DateTime.UtcNow;
+                        break;
+                    case 2:
+						lifecycle.Planning = DateTime.UtcNow;
+						lifecycle.Current = DateTime.UtcNow;
+                        model.OpenedId = userManager.User.Id;
+						break;
+                }
 
                 await dataManager.Lifecycles.SaveLifecycleAsync(lifecycle);
 
@@ -307,14 +316,22 @@ namespace RMS.Controllers
                     Comment = model.Comment,
                     CreatedId = userManager.User.Id,
                     LifecycleId = lifecycle.Id,
+                    Status = model.Status,
                     AbonentUID = model.AbonentUID
                 };
 
                 // save request to db
                 await dataManager.Requests.SaveRequestAsync(request);
 
-                // redirect to requests
-                return Redirect("/Request/PlanningRequests");
+				// redirect to requests
+				switch (model.Status)
+				{
+					case 1:
+						return Redirect("/Request/PlanningRequests");
+					case 2:
+						return Redirect("/Request/CurrentRequests");
+				}
+				
             }
 
 			ModelState.AddModelError("", "Помилка валідації форми");
