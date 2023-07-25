@@ -106,15 +106,18 @@ function savePreference(parameterName, checkboxId, applyFunction) {
 }
 function checkPreference(parameterName, checkboxId, applyFunction) {
     var parameterValue = document.cookie.replace(new RegExp('(?:(?:^|.*;\\s*)' + parameterName + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1');
-    var checkbox = document.getElementById(checkboxId);
-
-    if (parameterValue === 'true') {
-        checkbox.checked = true;
-    } else {
-        checkbox.checked = false;
+    if(document.getElementById(checkboxId) != null)
+    {
+        var checkbox = document.getElementById(checkboxId);
+    
+        if (parameterValue === 'true') {
+            checkbox.checked = true;
+        } else {
+            checkbox.checked = false;
+        }
+    
+        applyFunction(checkbox.checked);
     }
-
-    applyFunction(checkbox.checked);
 }
 
 $(document).ready(function () {
