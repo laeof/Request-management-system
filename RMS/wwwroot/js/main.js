@@ -152,70 +152,72 @@ $(document).ready(function () {
 
     });
     var uidValue = document.getElementById('uid').value;
-    $.ajax({
-        url: "/api/Abonents/searchuidpi?uid=" + uidValue,
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            var addressElement = $('#address');
-            var fioElement = $('#fio');
-            var phoneElement = $('#phone');
-            var commentElement = $('#comment');
-
-            // Проверяем, что данные получены и не пустые
-            if (data && Object.keys(data).length > 0) {
-                var addres = data.addressFlat == "" ? "вул. " + data.addressStreet + " буд. " + data.addressBuild :
-                    "вул. " + data.addressStreet + " буд. " + data.addressBuild + " кв. " + data.addressFlat;
-                if (addressElement.val == "") addressElement.val(addres);
-                fioElement.val(data.fio);
-                phoneElement.val(data.phone);
-                commentElement.val(data.comments);
-            } else {
-                console.log("Данные не получены или пустые.");
+    if(uidValue != null){
+        $.ajax({
+            url: "/api/Abonents/searchuidpi?uid=" + uidValue,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                var addressElement = $('#address');
+                var fioElement = $('#fio');
+                var phoneElement = $('#phone');
+                var commentElement = $('#comment');
+    
+                // Проверяем, что данные получены и не пустые
+                if (data && Object.keys(data).length > 0) {
+                    var addres = data.addressFlat == "" ? "вул. " + data.addressStreet + " буд. " + data.addressBuild :
+                        "вул. " + data.addressStreet + " буд. " + data.addressBuild + " кв. " + data.addressFlat;
+                    if (addressElement.val == "") addressElement.val(addres);
+                    fioElement.val(data.fio);
+                    phoneElement.val(data.phone);
+                    commentElement.val(data.comments);
+                } else {
+                    console.log("Данные не получены или пустые.");
+                }
+            },
+            error: function (error) {
+                console.log("Произошла ошибка при выполнении запроса:", error);
             }
-        },
-        error: function (error) {
-            console.log("Произошла ошибка при выполнении запроса:", error);
-        }
-    });
-    $.ajax({
-        url: "/api/Abonents/searchuid?uid=" + uidValue,
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            var loginElement = $('#login');
-            var passwordElement = $('#password');
-
-            // Проверяем, что данные получены и не пустые
-            if (data && Object.keys(data).length > 0) {
-                loginElement.val(data.login);
-                passwordElement.val(data.password);
-            } else {
-                console.log("Данные не получены или пустые.");
+        });
+        $.ajax({
+            url: "/api/Abonents/searchuid?uid=" + uidValue,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                var loginElement = $('#login');
+                var passwordElement = $('#password');
+    
+                // Проверяем, что данные получены и не пустые
+                if (data && Object.keys(data).length > 0) {
+                    loginElement.val(data.login);
+                    passwordElement.val(data.password);
+                } else {
+                    console.log("Данные не получены или пустые.");
+                }
+            },
+            error: function (error) {
+                console.log("Произошла ошибка при выполнении запроса:", error);
             }
-        },
-        error: function (error) {
-            console.log("Произошла ошибка при выполнении запроса:", error);
-        }
-    });
-    $.ajax({
-        url: "/api/Abonents/searchuidinternet?uid=" + uidValue,
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            var tpNameElement = $('#tpName');
-
-            // Проверяем, что данные получены и не пустые
-            if (data && Object.keys(data).length > 0) {
-                tpNameElement.val(data.tpName);
-            } else {
-                console.log("Данные не получены или пустые.");
+        });
+        $.ajax({
+            url: "/api/Abonents/searchuidinternet?uid=" + uidValue,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                var tpNameElement = $('#tpName');
+    
+                // Проверяем, что данные получены и не пустые
+                if (data && Object.keys(data).length > 0) {
+                    tpNameElement.val(data.tpName);
+                } else {
+                    console.log("Данные не получены или пустые.");
+                }
+            },
+            error: function (error) {
+                console.log("Произошла ошибка при выполнении запроса:", error);
             }
-        },
-        error: function (error) {
-            console.log("Произошла ошибка при выполнении запроса:", error);
-        }
-    });
+        });
+    }
 });
 
 sideBar.addEventListener('mouseleave', handleOver);
