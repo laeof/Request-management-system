@@ -151,8 +151,9 @@ $(document).ready(function () {
         $('#address').val(selectedAbon.address);
 
     });
-    var uidValue = document.getElementById('uid').value;
-    if(uidValue != null){
+    if(document.getElementById('uid') != null)
+    {
+        var uidValue = document.getElementById('uid').value;
         $.ajax({
             url: "/api/Abonents/searchuidpi?uid=" + uidValue,
             type: 'GET',
