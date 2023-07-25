@@ -10,7 +10,7 @@ namespace RMS.Domain.Entities
         public uint Id { get; set; }
         // Коментар
         [Display(Name = "Коментар")]
-        public string Comment { get; set; } = "default coment";
+        public string? Comment { get; set; } = "default coment";
 		// Статус заявки
 		[Display(Name = "Статус")]
 		public int Status { get; set; } = 1;

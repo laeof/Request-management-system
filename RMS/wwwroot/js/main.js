@@ -116,6 +116,35 @@ function checkPreference(parameterName, checkboxId, applyFunction) {
 
     applyFunction(checkbox.checked);
 }
+function createCategoryAndSubmit() {
+    var categoryName = document.getElementById('newCategoryName').value;
+    if (categoryName.trim() === '') {
+        alert('Please enter a valid category name.');
+        return;
+    }
+    // Create a new form and add the necessary inputs for category creation
+    var form = document.createElement('form');
+    form.method = 'post';
+    form.action = '/Category/Create';
+
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'Name';
+    input.value = categoryName;
+    form.appendChild(input);
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
+document.getElementById('categorySelect').addEventListener('change', function () {
+    var newCategoryInput = document.getElementById('newCategoryInput');
+    if (this.value === '0') {
+        newCategoryInput.style.display = 'block';
+    } else {
+        newCategoryInput.style.display = 'none';
+    }
+});
 
 $(document).ready(function () {
     $('#searchabon').select2({

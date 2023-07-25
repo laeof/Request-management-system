@@ -29,12 +29,17 @@
 				</div>
 				<div class="wrap-input">
 					<img class="input-img" src="~/img/svg/request/category.svg" />
-					<select class="input login" asp-for="CategoryId">
+					<select class="input login" id="categorySelect" asp-for="CategoryId">
 						@foreach (var item in Model.Categories)
 						{
 							<option value="@item.Id">@item.Name</option>
 						}
+						<option value="0">Інша категорія</option>
 					</select>
+					<div class="wrap-input" id="newCategoryInput" style="display: none;">
+						<img class="input-img" src="~/img/svg/request/title.svg" />
+						<input class="input login" type="text" id="newCategoryName" placeholder="Категорія" asp-for="Category.Name">
+					</div>
 				</div>
 				<div class="wrap-input">
 					<img class="input-img" src="~/img/svg/request/priority.svg" />
@@ -68,10 +73,23 @@
 
 		</div>
 			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-			<div class="container-login-form-btn">
-				<button class="login-form-btn" type="submit">
-					Створити
-				</button>
-			</div>
+		<div class="container-login-form-btn">
+			@if (Model.CategoryId == -1)
+			{
+				<button type="button" onclick="createCategoryAndSubmit()">Створити категорію та заявку</button>
+			}
+			else
+			{
+				<button class="login-form-btn" type="submit">Створити</button>
+			}
+		</div>
 	</form>
 </div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var categorySelect = document.getElementById('categorySelect');
+		categorySelect.selectedIndex = 0;
+		categorySelect.dispatchEvent(new Event('change'));
+	});
+</script>

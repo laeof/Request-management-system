@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KtOI95nBuHUf6ItamEGdKFvM0wTth40/QMO1XmbAIjg=",
+  "Hash": "SzBqZdc2JM7h3HLOPmuPjUWwhNT+tUAUW9VXzXnUIzA=",
   "Source": "RMS",
   "BasePath": "_content/RMS",
   "Mode": "Default",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\components\\header\\search.css"
+    },
+    {
+      "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\img.css",
+      "SourceId": "RMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\",
+      "BasePath": "_content/RMS",
+      "RelativePath": "css/components/img.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\img.css"
     },
     {
       "Identity": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\input.css",

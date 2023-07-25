@@ -503,3 +503,8 @@ C:\Users\hopeless\Documents\GitHub\Request-management-system\RMS\bin\Debug\net6.
 C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.Extensions.Logging.Console.dll
+C:\Users\laoef\source\repos\RMS\RMS\bin\Debug\net6.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll

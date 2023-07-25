@@ -10,7 +10,6 @@ namespace RMS.Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public uint Id { get; set; }
-        [Required]
         [Display(Name = "Назва категорії")]
         public string? Name { get; set; }
         public bool? IsDeleted { get; set; } = false;

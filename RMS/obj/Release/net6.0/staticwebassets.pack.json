@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\css\\components\\header\\search.css"
     },
     {
+      "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\img.css",
+      "PackagePath": "staticwebassets\\css\\components\\img.css"
+    },
+    {
       "Id": "C:\\Users\\laoef\\source\\repos\\RMS\\RMS\\wwwroot\\css\\components\\input.css",
       "PackagePath": "staticwebassets\\css\\components\\input.css"
     },

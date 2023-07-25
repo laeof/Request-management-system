@@ -38,6 +38,11 @@
 			//db context
 			services.AddDbContext<AppDbContext>(x => x.UseNpgsql(Config.ConnectionString));
 
+			services.AddLogging(config =>
+			{
+				config.AddConsole();
+			});
+
 			//cookie
 			services.ConfigureApplicationCookie(options =>
 			{

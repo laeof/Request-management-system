@@ -14,22 +14,23 @@
 		</span>
 		<div class="wrap-input">
 			<input class="input login" type="hidden" asp-for="IsDeleted">
+			<input class="input login" type="hidden" asp-for="Id">
+			<input class="input login" type="hidden" asp-for="AbonentUID">
 		</div>
+
 		<div class="wrap-input">
-			<input class="input login" type="hidden" placeholder="@ViewBag.FirstNamePlaceholder" asp-for="Id">
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/comment.svg" />
-			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="Comment">
-		</div>
-		<div class="wrap-input">
-			<img class="input-img" src="~/img/png/key.png" />
-			<select class="input login" asp-for="Status">
-				<option value="1">Заплановано</option>
-				<option value="2">Відкрито</option>
-				<option value="3">Закрито</option>
-				<option value="4">Відмінено</option>
+			<img class="input-img" src="~/img/svg/request/category.svg" />
+			<select class="input login" id="categorySelect" asp-for="CategoryId">
+				@foreach (var item in Model.Categories)
+				{
+					<option value="@item.Id">@item.Name</option>
+				}
+				<option value="0">Інша категорія</option>
 			</select>
+			<div class="wrap-input" id="newCategoryInput" style="display: none;">
+				<img class="input-img" src="~/img/svg/request/title.svg" />
+				<input class="input login" type="text" id="newCategoryName" placeholder="Категорія" asp-for="Category.Name">
+			</div>
 		</div>
 		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/priority.svg" />
@@ -39,16 +40,20 @@
 			</select>
 		</div>
 		<div class="wrap-input">
+			<img class="input-img" src="~/img/svg/comment.svg" />
+			<input class="input login" type="text" placeholder="@ViewBag.UserNamePlaceholder" asp-for="Comment">
+		</div>
+		<div class="wrap-input">
 			<img class="input-img" src="~/img/svg/request/address.svg" />
 			<input class="input login" type="text" placeholder="@ViewBag.CommentPlaceholder" asp-for="Address">
 		</div>
 		<div class="wrap-input">
-			<img class="input-img" src="~/img/svg/request/category.svg" />
-			<select class="input login" asp-for="CategoryId">
-				@foreach (var item in Model.Categories)
-				{
-					<option value="@item.Id">@item.Name</option>
-				}
+			<img class="input-img" src="~/img/png/key.png" />
+			<select class="input login" asp-for="Status">
+				<option value="1">Заплановано</option>
+				<option value="2">Відкрито</option>
+				<option value="3">Закрито</option>
+				<option value="4">Відмінено</option>
 			</select>
 		</div>
 		<div class="container-login-form-btn">
