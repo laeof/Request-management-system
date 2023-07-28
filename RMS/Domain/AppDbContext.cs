@@ -45,17 +45,18 @@ namespace RMS.Domain
 			{
 				Id = 1,
 				FirstName = "Max",
-				Surname = "Akchurin",
+				Surname = "Admin",
 				Login = "ADMIN",
-				Password = SecurePasswordHasher.Hash("password"),
+				Password = SecurePasswordHasher.Hash("aspoqw12"),
 				Comment = "Comment",
-				ImgPath = "../../img/jpg/preview.jpg"
+				ImgPath = "../../img/jpg/preview.jpg",
+				ApiKey = "xd"
 			});
 			modelBuilder.Entity<User>().HasData(new User
 			{
 				Id = 2,
 				FirstName = "Anton",
-				Surname = "Guryshkin",
+				Surname = "Manager",
 				Login = "MANAGER",
 				Password = SecurePasswordHasher.Hash("password"),
 				Comment = "Comment"
@@ -64,7 +65,7 @@ namespace RMS.Domain
 			{
 				Id = 3,
 				FirstName = "Georgii",
-				Surname = "Perepelitsa",
+				Surname = "Mounter",
 				Login = "mounter",
 				Password = SecurePasswordHasher.Hash("password"),
 				Comment = "Comment"

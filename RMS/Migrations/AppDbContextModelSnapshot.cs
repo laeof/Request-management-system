@@ -76,7 +76,6 @@ namespace RMS.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -120,12 +119,12 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
-                            Planning = new DateTime(2023, 7, 23, 17, 14, 9, 992, DateTimeKind.Utc).AddTicks(8010)
+                            Planning = new DateTime(2023, 7, 26, 13, 5, 34, 612, DateTimeKind.Utc).AddTicks(8263)
                         },
                         new
                         {
                             Id = 2L,
-                            Planning = new DateTime(2023, 7, 23, 17, 14, 9, 992, DateTimeKind.Utc).AddTicks(8017)
+                            Planning = new DateTime(2023, 7, 26, 13, 5, 34, 612, DateTimeKind.Utc).AddTicks(8269)
                         });
                 });
 
@@ -155,7 +154,6 @@ namespace RMS.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Comment")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<long>("CreatedId")
@@ -232,6 +230,9 @@ namespace RMS.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
+                    b.Property<string>("ApiKey")
+                        .HasColumnType("text");
+
                     b.Property<string>("Comment")
                         .HasColumnType("text");
 
@@ -271,14 +272,15 @@ namespace RMS.Migrations
                         new
                         {
                             Id = 1L,
+                            ApiKey = "xd",
                             Comment = "Comment",
                             FirstName = "Max",
                             ImgPath = "../../img/jpg/preview.jpg",
                             IsActive = true,
                             IsDeleted = false,
                             Login = "ADMIN",
-                            Password = "$HASH|V1$10000$b8zG5QPxuZVLXgbVuJNeehvTNjLuk9vPeKCmp9uZjIwzTCW2",
-                            Surname = "Akchurin"
+                            Password = "$HASH|V1$10000$C49wZe9P94PHOI2kGvfStlQYWkzvsIBnYh+5sUeu77rr3Uhr",
+                            Surname = "Admin"
                         },
                         new
                         {
@@ -289,8 +291,8 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "MANAGER",
-                            Password = "$HASH|V1$10000$zjTvhXUu69euRd+IUbv+lXk+bAc6Q0dttonlRcRF4pfMwuiN",
-                            Surname = "Guryshkin"
+                            Password = "$HASH|V1$10000$97oMPpQD2+ZLsx1F9ZK0oRgyh+sdnkNaDFQrWRxI7exANcTx",
+                            Surname = "Manager"
                         },
                         new
                         {
@@ -301,8 +303,8 @@ namespace RMS.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Login = "mounter",
-                            Password = "$HASH|V1$10000$k4frJwNrbB7o1w2/FD0smm0pmuDR5tKsPs/ONcWgZNtNm+YT",
-                            Surname = "Perepelitsa"
+                            Password = "$HASH|V1$10000$UD7JtOEC//3gJCCESAi+5lPQsWtdQbY487a58I0AxpdGm6Ig",
+                            Surname = "Mounter"
                         });
                 });
 

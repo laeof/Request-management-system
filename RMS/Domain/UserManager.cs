@@ -28,6 +28,8 @@ namespace RMS.Domain
 
 		public async Task<bool> SignInAsync(string login)
 		{
+			if (login == null)
+				return false;
 
 			var User = await dataManager.Users.GetUsers().FirstOrDefaultAsync(u => u.Login.ToLower() == login.ToLower());
 
@@ -47,6 +49,25 @@ namespace RMS.Domain
 			await httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
 			return true;
+		}
+
+		public async Task<bool> SignInByApiKeyAsync(string apiKey)
+		{
+			var user = await dataManager.Users.GetUsers().FirstOrDefaultAsync(u => u.ApiKey == apiKey);
+			if (user == null)
+			{
+				return false;
+			}
+			var success = await SignInAsync(user.Login);
+
+			if (success)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public async Task<bool> SignOutAsync()

@@ -34,6 +34,7 @@
 			services.AddTransient<UserManager>();
 
 			services.AddScoped<Abonents>();
+			services.AddScoped<Requests>();
 
 			//db context
 			services.AddDbContext<AppDbContext>(x => x.UseNpgsql(Config.ConnectionString));

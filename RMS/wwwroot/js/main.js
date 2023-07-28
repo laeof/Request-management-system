@@ -124,7 +124,7 @@ $(document).ready(function () {
     $('#searchabon').select2({
         multiple: true,
         ajax: {
-            url: '/api/Abonents/search',
+            url: '/Api/Abonents/search',
             type: 'GET',
             dataType: 'json',
             data: function (params) {
@@ -158,7 +158,7 @@ $(document).ready(function () {
     {
         var uidValue = document.getElementById('uid').value;
         $.ajax({
-            url: "/api/Abonents/searchuidpi?uid=" + uidValue,
+            url: "/Api/Abonents/searchuidpi?uid=" + uidValue,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -184,7 +184,7 @@ $(document).ready(function () {
             }
         });
         $.ajax({
-            url: "/api/Abonents/searchuid?uid=" + uidValue,
+            url: "/Api/Abonents/searchuid?uid=" + uidValue,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -204,7 +204,7 @@ $(document).ready(function () {
             }
         });
         $.ajax({
-            url: "/api/Abonents/searchuidinternet?uid=" + uidValue,
+            url: "/Api/Abonents/searchuidinternet?uid=" + uidValue,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
